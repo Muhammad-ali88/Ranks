@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Quranic Taxonomy of Human Ranks — The Map</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg0:#04070D;--bg1:#080E1C;--bg2:#0C1528;--bg3:#111E35;--bg4:#162440;
+  --gold:#C9A84C;--gold2:#E2C97A;--gold3:#F5E9C0;
+  --golddim:rgba(201,168,76,.08);--goldbdr:rgba(201,168,76,.18);--goldglow:rgba(201,168,76,.22);
+  --teal:#2FB89A;--tealdim:rgba(47,184,154,.08);--tealbdr:rgba(47,184,154,.22);
+  --blue:#7AABF0;--bluedim:rgba(122,171,240,.08);--bluebdr:rgba(122,171,240,.22);
+  --amber:#E0A030;--amberdim:rgba(224,160,48,.08);--amberbdr:rgba(224,160,48,.22);
+  --purple:#A87FD0;--purpledim:rgba(168,127,208,.08);--purplebdr:rgba(168,127,208,.22);
+  --rose:#E07080;--rosedim:rgba(224,112,128,.08);--rosebdr:rgba(224,112,128,.22);
+  --text:#D4CBB8;--text2:#8A9BB0;--text3:#4A5B70;
+  --border:rgba(201,168,76,.10);--border2:rgba(201,168,76,.05);
+  --font-head:'Cinzel',serif;--font-body:'Lora',serif;--font-arab:'Noto Naskh Arabic',serif;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg0);color:var(--text);font-family:var(--font-body);min-height:100vh;overflow-x:hidden;padding-bottom:80px}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:var(--bg1)}::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(ellipse 800px 500px at 20% 10%,rgba(201,168,76,.025),transparent 60%),
+             radial-gradient(ellipse 600px 400px at 80% 80%,rgba(47,184,154,.02),transparent 60%);}
+
+/* HEADER */
+.hdr{position:sticky;top:0;z-index:90;background:rgba(4,7,13,.97);border-bottom:1px solid var(--border2);backdrop-filter:blur(20px);padding:0 22px;height:56px;display:flex;align-items:center;gap:14px}
+.hdr-ar{font-family:var(--font-arab);font-size:22px;color:var(--gold);text-shadow:0 0 20px rgba(201,168,76,.3)}
+.hdr-titles{flex:1}
+.hdr-title{font-family:var(--font-head);font-size:10px;letter-spacing:2px;color:var(--gold2);text-transform:uppercase}
+.hdr-sub{font-family:var(--font-head);font-size:8px;letter-spacing:1px;color:var(--text3);text-transform:uppercase;margin-top:2px}
+.lang-toggle{display:flex;gap:2px;background:rgba(255,255,255,.04);border:1px solid var(--goldbdr);border-radius:20px;padding:3px}
+.lt{font-family:var(--font-head);font-size:9px;letter-spacing:.8px;padding:3px 10px;border-radius:16px;cursor:pointer;transition:all .2s;color:var(--text3);user-select:none}
+.lt.on{background:var(--gold);color:#000;font-weight:700}
+.back-link{font-family:var(--font-head);font-size:8.5px;letter-spacing:.8px;color:var(--text3);text-decoration:none;padding:5px 10px;border:1px solid var(--border2);border-radius:6px;transition:all .15s;text-transform:uppercase;flex-shrink:0}
+.back-link:hover{color:var(--gold2);border-color:var(--goldbdr)}
+
+/* FILE NAV */
+.file-nav{background:rgba(8,14,28,.8);border-bottom:1px solid var(--border2);padding:10px 22px;display:flex;gap:8px;flex-wrap:wrap;position:sticky;top:56px;z-index:80;backdrop-filter:blur(16px)}
+.fn-btn{font-family:var(--font-head);font-size:8px;letter-spacing:1px;text-transform:uppercase;padding:6px 14px;border-radius:7px;border:1px solid var(--border2);color:var(--text3);cursor:pointer;transition:all .2s;text-decoration:none;display:inline-block}
+.fn-btn:hover{color:var(--gold2);border-color:var(--goldbdr)}
+.fn-btn.current{background:var(--golddim);border-color:var(--goldbdr);color:var(--gold2)}
+.fn-sep{color:var(--text3);font-size:10px;align-self:center;opacity:.4}
+
+/* PAGE */
+.page{position:relative;z-index:1;max-width:860px;margin:0 auto;padding:32px 20px 60px}
+
+/* HERO */
+.hero{text-align:center;padding:32px 20px 40px;border-bottom:1px solid var(--border2);margin-bottom:36px}
+.hero-ar{font-family:var(--font-arab);font-size:clamp(36px,6vw,58px);color:var(--gold);text-shadow:0 0 40px rgba(201,168,76,.2);line-height:1.3;margin-bottom:10px}
+.hero-en{font-family:var(--font-head);font-size:clamp(14px,2.5vw,20px);font-weight:700;color:#fff;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px}
+.hero-ur{font-family:var(--font-arab);font-size:clamp(16px,2.5vw,22px);color:var(--gold2);margin-bottom:16px}
+.hero-rule{width:120px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 18px}
+.hero-desc{font-size:13px;color:var(--text2);line-height:1.9;max-width:620px;margin:0 auto 6px;font-style:italic}
+.hero-desc-ur{font-family:var(--font-arab);font-size:14px;color:var(--text2);line-height:2;max-width:620px;margin:0 auto;direction:rtl;text-align:center}
+.hero-ayah{display:inline-block;margin-top:20px;padding:14px 22px;border:1px solid var(--border2);border-radius:10px;background:rgba(201,168,76,.03)}
+.hero-ayah-ar{font-family:var(--font-arab);font-size:clamp(16px,3vw,22px);color:var(--gold2);direction:rtl;line-height:2;margin-bottom:6px}
+.hero-ayah-tr{font-size:11.5px;color:var(--text2);font-style:italic;margin-bottom:4px}
+.hero-ayah-tr-ur{font-family:var(--font-arab);font-size:13px;color:var(--text2);direction:rtl;text-align:right;line-height:1.9;margin-bottom:4px}
+.hero-ayah-ref{font-family:var(--font-head);font-size:9px;color:var(--gold);letter-spacing:.8px}
+
+/* SECTION LABEL */
+.sec-lbl{font-family:var(--font-head);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:12px;padding:28px 0 16px}
+.sec-lbl::after{content:'';flex:1;height:1px;background:var(--border2)}
+.sec-lbl-ur{font-family:var(--font-arab);font-size:12px;letter-spacing:0;text-transform:none;color:var(--gold)}
+
+/* AXIS CARD */
+.axis-card{background:var(--bg2);border:1px solid var(--border2);border-radius:14px;padding:22px 22px 18px;margin-bottom:12px;position:relative;overflow:hidden;transition:border-color .2s}
+.axis-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
+.axis-gold::before{background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.axis-teal::before{background:linear-gradient(90deg,transparent,var(--teal),transparent)}
+.axis-blue::before{background:linear-gradient(90deg,transparent,var(--blue),transparent)}
+.axis-purple::before{background:linear-gradient(90deg,transparent,var(--purple),transparent)}
+.axis-amber::before{background:linear-gradient(90deg,transparent,var(--amber),transparent)}
+.axis-card.open{border-color:var(--goldbdr)}
+.axis-hdr{display:flex;align-items:flex-start;gap:14px;cursor:pointer;user-select:none}
+.axis-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;margin-top:2px}
+.ai-gold{background:var(--golddim);border:1px solid var(--goldbdr)}
+.ai-teal{background:var(--tealdim);border:1px solid var(--tealbdr)}
+.ai-blue{background:var(--bluedim);border:1px solid var(--bluebdr)}
+.ai-purple{background:var(--purpledim);border:1px solid var(--purplebdr)}
+.ai-amber{background:var(--amberdim);border:1px solid var(--amberbdr)}
+.axis-titles{flex:1}
+.axis-src{font-family:var(--font-head);font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text3);margin-bottom:4px}
+.axis-ar{font-family:var(--font-arab);font-size:20px;color:var(--gold2);line-height:1.4;margin-bottom:3px}
+.axis-en{font-family:var(--font-head);font-size:11px;font-weight:700;color:#fff;letter-spacing:.5px;margin-bottom:4px}
+.axis-en-ur{font-family:var(--font-arab);font-size:13px;color:var(--gold2)}
+.axis-summary{font-size:12px;color:var(--text2);line-height:1.7}
+.axis-summary-ur{font-family:var(--font-arab);font-size:13px;color:var(--text2);direction:rtl;text-align:right;line-height:1.9}
+.axis-chevron{color:var(--text3);font-size:18px;transition:transform .25s;flex-shrink:0;margin-top:4px}
+.axis-card.open .axis-chevron{transform:rotate(90deg);color:var(--gold)}
+.axis-body{display:none;margin-top:18px;padding-top:16px;border-top:1px solid var(--border2)}
+.axis-card.open .axis-body{display:block}
+
+/* RANK TIERS inside axis */
+.tier-wrap{display:flex;flex-direction:column;gap:8px;margin-bottom:14px}
+.tier{border-radius:10px;padding:14px 16px;border:1px solid;position:relative}
+.tier-1{background:linear-gradient(135deg,rgba(201,168,76,.12),rgba(201,168,76,.06));border-color:rgba(201,168,76,.35)}
+.tier-2{background:rgba(201,168,76,.05);border-color:rgba(201,168,76,.18)}
+.tier-3{background:var(--bluedim);border-color:var(--bluebdr)}
+.tier-4{background:var(--tealdim);border-color:var(--tealbdr)}
+.tier-fail{background:rgba(255,100,100,.04);border-color:rgba(255,100,100,.18)}
+.tier-num{position:absolute;top:10px;right:14px;font-family:var(--font-head);font-size:8px;letter-spacing:.5px;color:var(--text3)}
+.tier-ar{font-family:var(--font-arab);font-size:21px;color:var(--gold2);margin-bottom:4px;line-height:1.4}
+.tier-1 .tier-ar{color:var(--gold);text-shadow:0 0 12px rgba(201,168,76,.2)}
+.tier-en{font-family:var(--font-head);font-size:9px;letter-spacing:.8px;text-transform:uppercase;color:var(--text2);margin-bottom:6px}
+.tier-ur{font-family:var(--font-arab);font-size:13px;color:var(--text2);direction:rtl;display:block;margin-bottom:6px}
+.tier-desc{font-size:11.5px;color:var(--text2);line-height:1.7}
+.tier-desc-ur{font-family:var(--font-arab);font-size:12.5px;color:var(--text2);direction:rtl;text-align:right;line-height:1.9;margin-top:4px}
+.tier-ref{font-family:var(--font-head);font-size:8.5px;color:var(--gold);letter-spacing:.5px;margin-top:8px;display:block}
+.tier-key{display:inline-flex;align-items:center;gap:5px;margin-top:8px;padding:3px 10px;border-radius:6px;font-family:var(--font-head);font-size:7.5px;letter-spacing:.5px;background:rgba(201,168,76,.08);border:1px solid var(--goldbdr);color:var(--gold2)}
+
+/* AYAH CARD */
+.ayah-card{background:var(--bg2);border:1px solid var(--border2);border-radius:12px;margin-bottom:10px;overflow:hidden;transition:border-color .2s}
+.ayah-card.open{border-color:var(--goldbdr)}
+.ayah-card-hdr{display:flex;align-items:center;gap:10px;padding:13px 18px;cursor:pointer;user-select:none}
+.rev-badge{font-family:var(--font-head);font-size:7.5px;letter-spacing:.8px;padding:3px 8px;border-radius:5px;flex-shrink:0;text-transform:uppercase}
+.rev-early{background:var(--amberdim);border:1px solid var(--amberbdr);color:var(--amber)}
+.rev-middle{background:var(--golddim);border:1px solid var(--goldbdr);color:var(--gold2)}
+.rev-late{background:var(--tealdim);border:1px solid var(--tealbdr);color:var(--teal)}
+.rev-madani{background:var(--bluedim);border:1px solid var(--bluebdr);color:var(--blue)}
+.card-ref{font-family:var(--font-head);font-size:10px;color:var(--gold);font-weight:600;flex-shrink:0}
+.card-preview{font-family:var(--font-arab);font-size:16px;color:var(--gold2);direction:rtl;flex:1;text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:.75}
+.card-chevron{color:var(--text3);font-size:16px;transition:transform .25s;flex-shrink:0}
+.ayah-card.open .card-chevron{transform:rotate(90deg);color:var(--gold)}
+.card-body{display:none;padding:0 18px 20px;border-top:1px solid var(--border2)}
+.ayah-card.open .card-body{display:block}
+.ayah-arabic{font-family:var(--font-arab);font-size:clamp(18px,3.5vw,26px);color:var(--gold2);direction:rtl;text-align:right;line-height:2.2;padding:18px 0 12px;text-shadow:0 0 20px rgba(201,168,76,.1);border-bottom:1px solid var(--border2);margin-bottom:12px}
+.ayah-tr-en{font-size:13px;color:var(--text);font-style:italic;line-height:1.85;margin-bottom:6px;border-left:3px solid var(--goldbdr);padding:8px 14px;border-radius:0 6px 6px 0;background:rgba(201,168,76,.03)}
+.ayah-tr-ur{font-family:var(--font-arab);font-size:14px;color:var(--text);direction:rtl;text-align:right;line-height:2;border-right:3px solid var(--goldbdr);padding:8px 14px 8px 8px;border-radius:6px 0 0 6px;background:rgba(201,168,76,.03);margin-bottom:6px}
+.ayah-ref-line{font-family:var(--font-head);font-size:9px;color:var(--gold);letter-spacing:.8px;margin-bottom:14px}
+.ctx-box{background:rgba(0,0,0,.2);border-left:3px solid var(--amber);border-radius:0 8px 8px 0;padding:11px 14px;margin-bottom:12px}
+.ctx-lbl{font-family:var(--font-head);font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:var(--amber);margin-bottom:5px}
+.ctx-txt{font-size:12px;color:var(--text2);line-height:1.75}
+.ctx-txt-ur{font-family:var(--font-arab);font-size:13px;color:var(--text2);direction:rtl;text-align:right;line-height:2}
+.root-box{background:rgba(201,168,76,.04);border:1px solid var(--goldbdr);border-radius:8px;padding:11px 14px;margin-bottom:12px}
+.root-lbl{font-family:var(--font-head);font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:var(--gold);margin-bottom:7px}
+.root-wd{font-family:var(--font-arab);font-size:19px;color:var(--gold2);direction:rtl;display:inline-block;margin-left:8px}
+.root-fm{font-size:11px;color:var(--text3);letter-spacing:.3px}
+.root-mn{font-size:12px;color:var(--text2);line-height:1.7;margin-top:6px}
+.root-mn-ur{font-family:var(--font-arab);font-size:13px;color:var(--text2);direction:rtl;text-align:right;line-height:2;margin-top:5px}
+.uniq-box{background:var(--tealdim);border:1px solid var(--tealbdr);border-radius:8px;padding:11px 14px;margin-bottom:12px}
+.uniq-lbl{font-family:var(--font-head);font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:var(--teal);margin-bottom:5px}
+.uniq-txt{font-size:12.5px;color:var(--text);line-height:1.75}
+.uniq-txt-ur{font-family:var(--font-arab);font-size:13px;color:var(--text);direction:rtl;text-align:right;line-height:2}
+.notes-sec{margin-top:14px;border-top:1px solid var(--border2);padding-top:12px}
+.notes-hdr{font-family:var(--font-head);font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:var(--text2);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.notes-hdr::after{content:'';flex:1;height:1px;background:var(--border2)}
+.note-f{margin-bottom:7px}
+.note-lbl{font-family:var(--font-head);font-size:7.5px;letter-spacing:.8px;text-transform:uppercase;color:var(--text3);margin-bottom:4px;display:flex;align-items:center;gap:6px}
+.nd{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.nsv{font-family:var(--font-head);font-size:7px;letter-spacing:.3px;color:var(--text3);margin-left:auto;transition:color .3s}
+.nsv.flash{color:var(--teal)}
+.note-ta{width:100%;min-height:72px;background:rgba(255,255,255,.03);border:1px solid var(--border2);border-radius:7px;outline:none;padding:10px 12px;font-family:var(--font-body);font-size:12.5px;color:var(--text);line-height:1.75;resize:vertical;transition:border-color .2s}
+.note-ta:focus{border-color:var(--goldbdr)}
+.note-ta::placeholder{color:var(--text3);font-style:italic;font-size:11.5px}
+
+/* CROSS-REFERENCE TABLE */
+.xref-wrap{overflow-x:auto;border-radius:12px;border:1px solid var(--border2);margin-bottom:20px}
+table.xref{width:100%;border-collapse:collapse;min-width:600px}
+table.xref th{font-family:var(--font-head);font-size:8px;letter-spacing:.8px;text-transform:uppercase;color:var(--gold);padding:10px 12px;background:rgba(201,168,76,.06);border-bottom:1px solid var(--border2);text-align:left}
+table.xref td{padding:10px 12px;font-size:11.5px;border-bottom:1px solid rgba(201,168,76,.04);vertical-align:top;line-height:1.6;color:var(--text2)}
+table.xref td:first-child{font-family:var(--font-arab);font-size:15px;color:var(--gold2);direction:rtl;text-align:right;white-space:nowrap}
+table.xref td.rank-en{font-family:var(--font-head);font-size:9px;letter-spacing:.5px;color:var(--text)}
+table.xref tr:last-child td{border-bottom:none}
+table.xref tr:hover td{background:rgba(201,168,76,.03)}
+.dot-yes{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--teal)}
+.dot-rel{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--amber)}
+.dot-no{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--bg3);border:1px solid var(--border2)}
+
+/* MASTER HIERARCHY VISUAL */
+.mhv{background:var(--bg2);border:1px solid var(--border2);border-radius:14px;padding:28px 22px;margin-bottom:20px;position:relative;overflow:hidden}
+.mhv::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.mhv-title{font-family:var(--font-head);font-size:8.5px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);text-align:center;margin-bottom:24px}
+.mhv-levels{display:flex;flex-direction:column;align-items:center;gap:3px}
+.mhv-level{border-radius:9px;padding:10px 18px;border:1px solid;text-align:center;transition:all .2s;cursor:default;position:relative}
+.mhv-level:hover{transform:scale(1.01)}
+.ml-0{background:linear-gradient(135deg,rgba(201,168,76,.18),rgba(201,168,76,.08));border-color:rgba(201,168,76,.45);width:240px;box-shadow:0 0 24px rgba(201,168,76,.08)}
+.ml-1{background:linear-gradient(135deg,rgba(201,168,76,.12),rgba(201,168,76,.05));border-color:rgba(201,168,76,.3);width:300px}
+.ml-2{background:rgba(224,160,48,.07);border-color:rgba(224,160,48,.25);width:360px}
+.ml-3{background:rgba(47,184,154,.06);border-color:rgba(47,184,154,.2);width:420px}
+.ml-4{background:rgba(122,171,240,.06);border-color:rgba(122,171,240,.2);width:480px}
+.ml-5{background:rgba(168,127,208,.05);border-color:rgba(168,127,208,.18);width:540px;max-width:100%}
+.ml-6{background:rgba(201,168,76,.03);border-color:rgba(201,168,76,.1);width:100%;max-width:580px}
+.ml-fail{background:rgba(255,100,100,.04);border-color:rgba(255,100,100,.15);width:100%;max-width:580px}
+.ml-ar{font-family:var(--font-arab);font-size:17px;color:var(--gold2);line-height:1.5;margin-bottom:3px}
+.ml-0 .ml-ar{font-size:19px;color:var(--gold);text-shadow:0 0 10px rgba(201,168,76,.3)}
+.ml-en{font-family:var(--font-head);font-size:8px;letter-spacing:.8px;text-transform:uppercase;color:var(--text3)}
+.ml-connector{width:1px;height:12px;background:linear-gradient(180deg,var(--goldbdr),transparent);margin:0 auto}
+.mhv-note{margin-top:18px;text-align:center;font-size:11px;color:var(--text3);font-style:italic;line-height:1.7;padding-top:14px;border-top:1px solid var(--border2)}
+.mhv-note-ur{font-family:var(--font-arab);font-size:12px;color:var(--text3);direction:rtl;line-height:1.9}
+
+/* INSIGHT BOX */
+.insight{background:linear-gradient(135deg,rgba(201,168,76,.06),rgba(201,168,76,.03));border:1px solid var(--goldbdr);border-radius:10px;padding:14px 18px;margin-bottom:14px}
+.insight-lbl{font-family:var(--font-head);font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.insight-lbl::after{content:'';flex:1;height:1px;background:var(--border2)}
+.insight-txt{font-size:12.5px;color:var(--text2);line-height:1.85}
+.insight-txt-ur{font-family:var(--font-arab);font-size:13.5px;color:var(--text2);direction:rtl;text-align:right;line-height:2;margin-top:6px}
+
+/* KEY PRINCIPLE CARDS */
+.principle-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+@media(max-width:500px){.principle-grid{grid-template-columns:1fr}}
+.principle{background:var(--bg3);border:1px solid var(--border2);border-radius:10px;padding:14px}
+.pr-num{font-family:var(--font-head);font-size:22px;font-weight:700;color:var(--goldbdr);margin-bottom:6px;line-height:1}
+.pr-title{font-family:var(--font-head);font-size:9px;letter-spacing:.8px;text-transform:uppercase;color:var(--gold2);margin-bottom:6px}
+.pr-title-ur{font-family:var(--font-arab);font-size:11px;color:var(--gold2);margin-bottom:6px;display:block}
+.pr-desc{font-size:11.5px;color:var(--text2);line-height:1.7}
+.pr-desc-ur{font-family:var(--font-arab);font-size:12.5px;color:var(--text2);direction:rtl;text-align:right;line-height:1.9}
+.pr-ref{font-family:var(--font-head);font-size:8px;color:var(--gold);letter-spacing:.4px;margin-top:6px;display:block}
+
+/* SUNNAH CARD */
+.sh-card{background:var(--bg2);border:1px solid var(--border2);border-radius:12px;padding:18px 20px;margin-bottom:10px}
+.sh-lbl{font-family:var(--font-head);font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:var(--purple);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.sh-lbl::after{content:'';flex:1;height:1px;background:var(--border2)}
+.sh-ar{font-family:var(--font-arab);font-size:clamp(14px,3vw,18px);color:var(--gold2);direction:rtl;text-align:right;line-height:2;margin-bottom:9px;padding:10px 14px;background:rgba(201,168,76,.04);border-radius:7px}
+.sh-en{font-size:12.5px;color:var(--text);font-style:italic;line-height:1.8;margin-bottom:6px}
+.sh-ur{font-family:var(--font-arab);font-size:14px;color:var(--text);direction:rtl;text-align:right;line-height:2;margin-bottom:6px}
+.sh-src{font-family:var(--font-head);font-size:8.5px;color:var(--purple);letter-spacing:.5px}
+.grade{display:inline-block;font-family:var(--font-head);font-size:7.5px;padding:2px 7px;border-radius:4px;margin-left:6px}
+.g-sahih{background:var(--tealdim);border:1px solid var(--tealbdr);color:var(--teal)}
+.g-hasan{background:var(--golddim);border:1px solid var(--goldbdr);color:var(--gold2)}
+
+/* FILE LINKS */
+.file-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-top:12px}
+.file-link{background:var(--bg2);border:1px solid var(--border2);border-radius:10px;padding:16px 18px;text-decoration:none;transition:all .2s;display:block}
+.file-link:hover{border-color:var(--goldbdr);background:rgba(201,168,76,.05)}
+.file-link.current{border-color:var(--goldbdr);background:var(--golddim);cursor:default}
+.fl-num{font-family:var(--font-head);font-size:8px;letter-spacing:1px;color:var(--text3);text-transform:uppercase;margin-bottom:6px}
+.fl-title{font-family:var(--font-head);font-size:10px;letter-spacing:.5px;color:var(--gold2);margin-bottom:4px}
+.fl-desc{font-size:11px;color:var(--text3);line-height:1.6}
+.fl-badge{display:inline-block;font-family:var(--font-head);font-size:7px;padding:1px 6px;border-radius:4px;margin-top:6px}
+.fl-ready{background:var(--tealdim);border:1px solid var(--tealbdr);color:var(--teal)}
+.fl-coming{background:var(--amberdim);border:1px solid var(--amberbdr);color:var(--amber)}
+
+/* EN/UR MODE */
+.en-blk{display:block}.ur-blk{display:none}
+body.ur-mode .en-blk{display:none}
+body.ur-mode .ur-blk{display:block}
+.en-inl{display:inline}.ur-inl{display:none}
+body.ur-mode .en-inl{display:none}
+body.ur-mode .ur-inl{display:inline}
+
+/* TOAST */
+#toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(40px);background:rgba(12,21,40,.98);border:1px solid var(--goldbdr);border-radius:8px;padding:9px 20px;font-family:var(--font-head);font-size:9px;letter-spacing:1px;color:var(--gold2);z-index:300;opacity:0;transition:all .25s;pointer-events:none;white-space:nowrap}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+@media(max-width:600px){
+  .page{padding:20px 14px 60px}
+  .mhv-level{width:100%!important}
+  .file-nav{padding:8px 14px}
+}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <div class="hdr-ar">الدَّرَجَات</div>
+  <div class="hdr-titles">
+    <div class="hdr-title en-blk">The Quranic Human Ranks — The Map</div>
+    <div class="hdr-title ur-blk">قرآنی انسانی درجات — نقشہ</div>
+    <div class="hdr-sub en-blk">File 1 of 4 · Overview · Classification Systems · Cross-Reference</div>
+    <div class="hdr-sub ur-blk">فائل ۱ از ۴ · جائزہ · تصنیفی نظام</div>
+  </div>
+  <div class="lang-toggle">
+    <div class="lt on" id="lt-en" onclick="setLang('en')">EN</div>
+    <div class="lt" id="lt-ur" onclick="setLang('ur')">اردو</div>
+  </div>
+  <a href="spiritual_study__1_.html" class="back-link">← Study</a>
+</div>
+
+<div class="file-nav">
+  <span class="fn-btn current">1 · The Map</span>
+  <span class="fn-sep">›</span>
+  <a href="ranks_eschatological.html" class="fn-btn">2 · Eschatological Ranks</a>
+  <span class="fn-sep">›</span>
+  <a href="ranks_characteristics.html" class="fn-btn">3 · Characteristic Ranks</a>
+  <span class="fn-sep">›</span>
+  <a href="ranks_path.html" class="fn-btn">4 · The Path</a>
+</div>
+
+<div class="page">
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-ar">دَرَجَاتُ الإِنسَان فِي الْقُرْآن</div>
+  <div class="hero-en en-blk">The Quranic Taxonomy of Human Ranks</div>
+  <div class="hero-ur ur-blk">قرآن میں انسانی درجات کا نظام</div>
+  <div class="hero-rule"></div>
+  <div class="hero-desc en-blk">The Quran does not present a single flat category of "believer." It builds a precise multi-dimensional taxonomy — classifying human beings by their standing on the Day of Judgment, by their spiritual station in this life, by the qualities they have cultivated, and by the depth of their nearness to Allah. These classifications are not parallel — they are overlapping lenses on the same question: what kind of person have you become?</div>
+  <div class="hero-desc-ur ur-blk">قرآن صرف «مومن» کی ایک سپاٹ قسم نہیں بناتا۔ یہ ایک درست کثیرالجہت نظام بناتا ہے — انسانوں کو قیامت میں ان کے مقام، اس زندگی میں روحانی درجے، پیدا کردہ اوصاف، اور اللہ سے قربت کی گہرائی کے حساب سے تقسیم کرتا ہے۔</div>
+  <div class="hero-ayah">
+    <div class="hero-ayah-ar">وَلِكُلٍّ دَرَجَاتٌ مِّمَّا عَمِلُوا ۚ وَمَا رَبُّكَ بِغَافِلٍ عَمَّا يَعْمَلُونَ</div>
+    <div class="hero-ayah-tr en-blk">"And for all there are ranks from what they have done — and your Lord is not unaware of what they do."</div>
+    <div class="hero-ayah-tr-ur ur-blk">«اور ہر ایک کے لیے درجات ہیں اس کے اعمال کے مطابق — اور آپ کا رب ان کے اعمال سے غافل نہیں۔»</div>
+    <div class="hero-ayah-ref">Surah Al-An'am 6:132</div>
+  </div>
+</div>
+
+<!-- SECTION 1: MASTER HIERARCHY VISUAL -->
+<div class="sec-lbl">
+  <span class="en-inl">The Master Hierarchy</span>
+  <span class="ur-inl">مرکزی درجہ بندی</span>
+</div>
+
+<div class="mhv">
+  <div class="mhv-title en-blk">ALL QURANIC RANKS · HIGHEST TO LOWEST · BASED ON AL-NISA 4:69 + AL-WAQIAH 56 + AL-FATIR 35:32</div>
+  <div class="mhv-title ur-blk">تمام قرآنی درجات · اعلیٰ سے ادنیٰ · النساء ۴:۶۹ + الواقعہ ۵۶ + فاطر ۳۵:۳۲</div>
+  <div class="mhv-levels">
+
+    <div class="mhv-level ml-0">
+      <div class="ml-ar">النَّبِيُّون</div>
+      <div class="ml-en en-blk">THE PROPHETS — Above all human stations</div>
+      <div class="ml-en ur-blk">انبیاء — تمام انسانی درجات سے بالاتر</div>
+    </div>
+    <div class="ml-connector"></div>
+
+    <div class="mhv-level ml-1">
+      <div class="ml-ar">الصِّدِّيقُون</div>
+      <div class="ml-en en-blk">THE SIDDIQOON — Highest after Prophethood</div>
+      <div class="ml-en ur-blk">صدیقون — نبوت کے بعد سب سے اعلیٰ</div>
+    </div>
+    <div class="ml-connector"></div>
+
+    <div class="mhv-level ml-1">
+      <div class="ml-ar">السَّابِقُون</div>
+      <div class="ml-en en-blk">THE FOREMOST — Those who raced ahead · Closest to Allah in Jannah</div>
+      <div class="ml-en ur-blk">سابقون — آگے بڑھنے والے · جنت میں اللہ کے سب سے قریب</div>
+    </div>
+    <div class="ml-connector"></div>
+
+    <div class="mhv-level ml-2">
+      <div class="ml-ar">الشُّهَدَاء</div>
+      <div class="ml-en en-blk">THE WITNESSES / MARTYRS — Those who testified with their lives</div>
+      <div class="ml-en ur-blk">شہداء — جنہوں نے جان سے گواہی دی</div>
+    </div>
+    <div class="ml-connector"></div>
+
+    <div class="mhv-level ml-2">
+      <div class="ml-ar">الْمُخْلَصُون</div>
+      <div class="ml-en en-blk">THE PURIFIED — Whom Allah chose and purified for Himself · Iblis admitted he cannot reach them</div>
+      <div class="ml-en ur-blk">مخلصون — جنہیں اللہ نے اپنے لیے پاک کیا · ابلیس کا اعتراف: ان تک نہیں پہنچ سکتا</div>
+    </div>
+    <div class="ml-connector"></div>
+
+    <div class="mhv-level ml-3">
+      <div class="ml-ar">أَصْحَابُ الْيَمِين · السَّابِق بِالْخَيْرَات</div>
+      <div class="ml-en en-blk">PEOPLE OF THE RIGHT + SABIQ BIL-KHAYRAT — The good-doers · Al-Waqiah's first group + Al-Fatir's third tier</div>
+      <div class="ml-en ur-blk">اصحاب الیمین + سابق بالخیرات — نیکی کرنے والے</div>
+    </div>
+    <div class="ml-connector"></div>
+
+    <div class="mhv-level ml-3">
+      <div class="ml-ar">الصَّالِحُون · الْمُتَّقُون · الْمُحْسِنُون</div>
+      <div class="ml-en en-blk">SALIHOON · MUTTAQOON · MUHSINOON — The righteous · The shield-bearers · The beautiful-doers</div>
+      <div class="ml-en ur-blk">صالحون · متقون · محسنون — نیکوکار · ڈھال والے · احسان کرنے والے</div>
+    </div>
+    <div class="ml-connector"></div>
+
+    <div class="mhv-level ml-4">
+      <div class="ml-ar">الْمُقْتَصِدُون · الصَّابِرُون · الشَّاكِرُون</div>
+      <div class="ml-en en-blk">MUQTASIDOON · SABIROON · SHAKIROON — The moderate · The patient · The grateful</div>
+      <div class="ml-en ur-blk">مقتصدون · صابرون · شاکرون — اعتدال والے · صبر کرنے والے · شکرگزار</div>
+    </div>
+    <div class="ml-connector"></div>
+
+    <div class="mhv-level ml-5">
+      <div class="ml-ar">الظَّالِم لِنَفْسِهِ</div>
+      <div class="ml-en en-blk">ZALIM LI-NAFSIH — Those who wrong their own soul · Still among the chosen but shortchanging themselves · Al-Fatir 35:32</div>
+      <div class="ml-en ur-blk">ظالم لنفسہ — اپنے نفس پر ظلم کرنے والے · منتخب میں شامل لیکن خود کو کم دینے والے</div>
+    </div>
+    <div class="ml-connector"></div>
+
+    <div class="mhv-level ml-6">
+      <div class="ml-ar">أَصْحَابُ الشِّمَال</div>
+      <div class="ml-en en-blk">PEOPLE OF THE LEFT — Those who failed · Al-Waqiah 56</div>
+      <div class="ml-en ur-blk">اصحاب الشمال — ناکام ہونے والے</div>
+    </div>
+
+  </div>
+  <div class="mhv-note">
+    <span class="en-inl">These ranks are not separate destinies determined at birth — they are descriptions of what a person has become through repeated choices. The Zalim li-nafsih received the same Book as the Sabiq bil-khayrat. The difference is what each one did with it.</span>
+    <span class="ur-inl">یہ درجات پیدائش سے مقرر نہیں — یہ اس کی تصویر ہیں جو انسان بار بار کے انتخابات سے بنا۔ ظالم لنفسہ کو وہی کتاب ملی جو سابق بالخیرات کو۔ فرق یہ ہے کہ ہر ایک نے اس کے ساتھ کیا کیا۔</span>
+  </div>
+</div>
+
+<!-- SECTION 2: THE THREE CLASSIFICATION SYSTEMS -->
+<div class="sec-lbl">
+  <span class="en-inl">The Three Master Classification Systems</span>
+  <span class="ur-inl">تین اصل تصنیفی نظام</span>
+</div>
+
+<p style="font-size:12.5px;color:var(--text2);line-height:1.85;margin-bottom:20px">
+  <span class="en-blk">The Quran gives three distinct classification passages — each cutting the question from a different angle. Al-Nisa 4:69 classifies by <em>stations of divine favour</em>. Al-Waqiah 56 classifies by <em>standing on the Day of Judgment</em>. Al-Fatir 35:32 classifies by <em>what believers do with the Book in this life</em>. Together they form a complete picture.</span>
+  <span class="ur-blk">قرآن تین الگ تصنیفی مقامات دیتا ہے — ہر ایک الگ زاویے سے۔ النساء ۴:۶۹ الٰہی نعمت کے درجات سے؛ الواقعہ ۵۶ قیامت کے مقام سے؛ فاطر ۳۵:۳۲ اس زندگی میں کتاب کے ساتھ مومنوں کے عمل سے۔</span>
+</p>
+
+<!-- AXIS 1: AL-NISA 4:69 -->
+<div class="axis-card axis-gold" id="axis-nisa">
+  <div class="axis-hdr" onclick="toggleAxis('axis-nisa')">
+    <div class="axis-icon ai-gold">⚜</div>
+    <div class="axis-titles">
+      <div class="axis-src en-blk">Classification System 1 · Al-Nisa 4:69</div>
+      <div class="axis-src ur-blk">تصنیفی نظام ۱ · النساء ۴:۶۹</div>
+      <div class="axis-ar">الَّذِينَ أَنْعَمَ اللَّهُ عَلَيْهِم</div>
+      <div class="axis-en en-blk">Those Upon Whom Allah Bestowed Favour — The Four Stations</div>
+      <div class="axis-en-ur ur-blk">جن پر اللہ نے نعمت فرمائی — چار درجات</div>
+      <div class="axis-summary en-blk">The most direct Quranic statement on spiritual rank — four named stations in descending order. The Prophet ﷺ is placed in the highest human company. Every Muslim's path runs through these four.</div>
+      <div class="axis-summary-ur ur-blk">روحانی درجے پر سب سے صریح قرآنی بیان — چار نامزد درجات نزولی ترتیب میں۔</div>
+    </div>
+    <div class="axis-chevron">›</div>
+  </div>
+  <div class="axis-body">
+
+    <div class="ayah-card" id="nisa-469">
+      <div class="ayah-card-hdr" onclick="toggleCard('nisa-469')">
+        <span class="rev-badge rev-madani en-blk">Madani</span>
+        <span class="rev-badge rev-madani ur-blk">مدنی</span>
+        <span class="card-ref">Al-Nisa 4:69</span>
+        <span class="card-preview">وَمَن يُطِعِ اللَّهَ وَالرَّسُولَ فَأُولَٰئِكَ مَعَ الَّذِينَ أَنْعَمَ اللَّهُ عَلَيْهِم</span>
+        <span class="card-chevron">›</span>
+      </div>
+      <div class="card-body">
+        <div class="ayah-arabic">وَمَن يُطِعِ اللَّهَ وَالرَّسُولَ فَأُولَٰئِكَ مَعَ الَّذِينَ أَنْعَمَ اللَّهُ عَلَيْهِم مِّنَ النَّبِيِّينَ وَالصِّدِّيقِينَ وَالشُّهَدَاءِ وَالصَّالِحِينَ ۚ وَحَسُنَ أُولَٰئِكَ رَفِيقًا</div>
+        <div class="ayah-tr-en en-blk">"And whoever obeys Allah and the Messenger — those will be with the ones upon whom Allah has bestowed favour: the Prophets, the Siddiqoon, the Witnesses, and the Righteous. And excellent are those as companions."</div>
+        <div class="ayah-tr-ur ur-blk">«اور جو اللہ اور رسول کی اطاعت کرے — وہ ان لوگوں کے ساتھ ہوں گے جن پر اللہ نے نعمت فرمائی: انبیاء، صدیقین، شہداء اور صالحین۔ اور یہ کتنے اچھے ساتھی ہیں۔»</div>
+        <div class="ayah-ref-line">Surah Al-Nisa 4:69</div>
+        <div class="ctx-box">
+          <div class="ctx-lbl en-blk">Revelation Context</div>
+          <div class="ctx-txt en-blk">A companion expressed grief that in Jannah he would be separated from the Prophet ﷺ by rank. This ayah was the response — obedience to Allah and the Messenger places you in the company (ma'iyya) of those favoured, even if not at their exact station. The word Ma'a (with) is significant: proximity, companionship, being in the same gathering. It also establishes the hierarchy: Prophethood → Siddiqiyyah → Shahada → Salah — these are named stations, not metaphors.</div>
+          <div class="ctx-txt-ur ur-blk">ایک صحابی نے غم ظاہر کیا کہ جنت میں وہ نبی ﷺ سے درجے کی وجہ سے دور ہوں گے۔ یہ آیت جواب تھی — اطاعت آپ کو محبوبوں کی صحبت میں رکھتی ہے۔</div>
+        </div>
+        <div class="root-box">
+          <div class="root-lbl en-blk">Key Root</div>
+          <span class="root-wd">رَفِيقًا</span>
+          <span class="root-fm">· R-F-Q · Companion, gentle one</span>
+          <div class="root-mn en-blk">Rafeeq — from R-F-Q, gentleness and companionship. The same root as rifq (gentleness). The ayah ends: "What excellent companions (rafeeqa) these are." The highest station is described by the quality of companionship it offers — not power, not glory, but the excellence of those you will be with. This reframes the entire motivation for pursuing these ranks.</div>
+          <div class="root-mn-ur ur-blk">رفیق — ر-ف-ق، نرمی اور ساتھ۔ آیت کا اختتام: «کیا اچھے ساتھی ہیں»۔ اعلیٰ درجے کو صحبت کے معیار سے بیان کیا — طاقت یا شان سے نہیں۔</div>
+        </div>
+        <div class="uniq-box">
+          <div class="uniq-lbl en-blk">What This Ayah Establishes</div>
+          <div class="uniq-txt en-blk">The four ranks are explicitly named and ordered. The mechanism for reaching their company is stated simply: obedience to Allah and the Messenger. Not a special gift — a direct consequence of a specific action. The Quran is giving every reader an accessible path to the company of the greatest human beings who ever lived.</div>
+          <div class="uniq-txt-ur ur-blk">چار درجے صریحاً نامزد اور ترتیب میں۔ ان کی صحبت تک پہنچنے کا طریقہ سادہ: اطاعت۔ خاص تحفہ نہیں — ایک مخصوص عمل کا براہ راست نتیجہ۔</div>
+        </div>
+        <div class="notes-sec">
+          <div class="notes-hdr"><span class="en-blk">Personal Notes</span><span class="ur-blk">ذاتی نوٹس</span></div>
+          <div class="note-f">
+            <div class="note-lbl"><div class="nd" style="background:var(--gold)"></div><span class="en-blk">Which of the four stations do I feel closest to — and why?</span><span class="ur-blk">چار میں سے کس درجے سے میں سب سے قریب محسوس کرتا ہوں — اور کیوں؟</span><span class="nsv" id="sv-nisa-1"></span></div>
+            <textarea class="note-ta" id="note-nisa-1" placeholder="Nabi · Siddiq · Shahid · Salih — which one feels like a real aspiration to you right now?" oninput="autoSave('nisa-1',this.value)"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tier-wrap">
+      <div class="tier tier-1">
+        <div class="tier-num en-blk">Rank I</div>
+        <div class="tier-ar">النَّبِيُّون</div>
+        <span class="tier-en en-blk">AN-NABIYYOON — The Prophets</span>
+        <span class="tier-ur ur-blk">النبیون — انبیاء</span>
+        <div class="tier-desc en-blk">Closed station — not achievable through human effort. Prophethood is given, not earned. Named first to establish the ceiling. Every other rank is a reflection of proximity to this one. The Siddiq is defined by how close he comes to the Prophet's inner reality without the Prophethood itself.</div>
+        <div class="tier-desc-ur ur-blk">بند مقام — انسانی کوشش سے نہیں ملتا۔ نبوت دی جاتی ہے، کمائی نہیں۔ چھت قائم کرنے کے لیے پہلے نامزد۔</div>
+        <span class="tier-ref">Al-Nisa 4:69 · Al-Ahzab 33:40</span>
+      </div>
+      <div class="tier tier-1">
+        <div class="tier-num en-blk">Rank II</div>
+        <div class="tier-ar">الصِّدِّيقُون</div>
+        <span class="tier-en en-blk">AS-SIDDIQOON — The Utterly Truthful</span>
+        <span class="tier-ur ur-blk">الصدیقون — مکمل سچائی والے</span>
+        <div class="tier-desc en-blk">From S-D-Q — truth. The Siddiq is one whose inner and outer are completely aligned. What he believes, he says. What he says, he does. What he does reflects his interior completely. No gap between the hidden and the manifest. Abu Bakr RA received this title — the Prophet ﷺ confirmed it. Ibn al-Qayyim: the Siddiq is the highest human station after Prophethood. The path to it runs through Sidq — truthfulness in every dimension simultaneously.</div>
+        <div class="tier-desc-ur ur-blk">ص-د-ق — سچ۔ صدیق: اندر اور باہر مکمل ہم آہنگ۔ ابوبکر رضی اللہ عنہ کا لقب۔ نبوت کے بعد سب سے اعلیٰ مقام۔</div>
+        <span class="tier-ref">Al-Nisa 4:69 · Al-Hadid 57:19 · Al-Maidah 5:75</span>
+        <span class="tier-key en-blk">✦ Achievable · Requires complete inner-outer alignment</span>
+        <span class="tier-key ur-blk">✦ قابلِ حصول · مکمل ظاہر-باطن ہم آہنگی</span>
+      </div>
+      <div class="tier tier-2">
+        <div class="tier-num en-blk">Rank III</div>
+        <div class="tier-ar">الشُّهَدَاء</div>
+        <span class="tier-en en-blk">ASH-SHUHADA — The Witnesses</span>
+        <span class="tier-ur ur-blk">الشہداء — گواہ</span>
+        <div class="tier-desc en-blk">From SH-H-D — to witness, to be present. Classically understood as those who died in the path of Allah — but the Sunnah broadens this significantly. The Prophet ﷺ named seven types of shahid beyond the battlefield: one who dies by plague, by drowning, by stomach illness, under a falling structure, a woman who dies in childbirth, one who dies defending his property, one who dies in a fire. The deeper meaning: a Shahid is one who testifies — whose life itself becomes testimony to the reality of Allah. The martyr testifies with death; the living shahid testifies with every act.</div>
+        <div class="tier-desc-ur ur-blk">ش-ہ-د — گواہی، موجود رہنا۔ راہِ خدا میں شہید — لیکن سنت میں سات قسمیں: طاعون، ڈوبنا، پیٹ کی بیماری، ولادت میں وفات، آگ۔ گہرا مطلب: جس کی زندگی خود گواہ ہو۔</div>
+        <span class="tier-ref">Al-Nisa 4:69 · Al-Hadid 57:19 · Abu Dawud 3111</span>
+        <span class="tier-key en-blk">✦ Multiple paths · Not only battlefield</span>
+        <span class="tier-key ur-blk">✦ متعدد راستے · صرف میدانِ جنگ نہیں</span>
+      </div>
+      <div class="tier tier-3">
+        <div class="tier-num en-blk">Rank IV</div>
+        <div class="tier-ar">الصَّالِحُون</div>
+        <span class="tier-en en-blk">AS-SALIHOON — The Righteous</span>
+        <span class="tier-ur ur-blk">الصالحون — نیکوکار</span>
+        <div class="tier-desc en-blk">From S-L-H — soundness, wholeness, being right. The Salih is one whose acts are sound — correct in form and correct in intention. The entry point of the four. Described across the Quran as those who believe and do righteous deeds (amanu wa amilu al-salihat) — the baseline formulation. Not a low station — it is the foundation all others build on. The Prophet Ibrahim AS prayed to be joined with the Saliheen (26:83). The Siddiq cannot exist without first being Salih.</div>
+        <div class="tier-desc-ur ur-blk">ص-ل-ح — درستی، مکملیت۔ اعمال جو شکل اور نیت دونوں میں صحیح۔ چاروں کا داخلی نقطہ۔ ابراہیم علیہ السلام نے صالحین میں شامل ہونے کی دعا کی (۲۶:۸۳)۔</div>
+        <span class="tier-ref">Al-Nisa 4:69 · Al-Shu'ara 26:83 · Al-Anbiya 21:105</span>
+        <span class="tier-key en-blk">✦ The foundation — every higher rank requires this first</span>
+        <span class="tier-key ur-blk">✦ بنیاد — ہر اعلیٰ درجے کے لیے یہ پہلے ضروری</span>
+      </div>
+    </div>
+
+    <div class="insight">
+      <div class="insight-lbl en-blk">◈ Key Analytical Insight</div>
+      <div class="insight-lbl ur-blk">◈ اہم تجزیاتی نکتہ</div>
+      <div class="insight-txt en-blk">These four ranks are not four separate paths — they are four depths of the same path. Every Siddiq was first a Salih. Every Shahid was first a Salih. The Quran lists them in descending order of depth, not in chronological sequence. A person does not choose to be a Shahid and skip the Salih stage. The Salih stage is where character is built. The Siddiq stage is where it becomes complete. The Shahid stage is where it is proven through ultimate test. The Prophet ﷺ is the fullness of all three simultaneously.</div>
+      <div class="insight-txt-ur ur-blk">یہ چار الگ راستے نہیں — ایک ہی راستے کی چار گہرائیاں ہیں۔ ہر صدیق پہلے صالح تھا۔ ہر شہید پہلے صالح تھا۔ صالح مرحلہ وہ ہے جہاں کردار بنتا ہے۔ صدیق مرحلہ وہ ہے جہاں یہ مکمل ہوتا ہے۔ شہید مرحلہ: آزمائش میں ثابت ہوتا ہے۔</div>
+    </div>
+  </div>
+</div>
+
+<!-- AXIS 2: AL-WAQIAH -->
+<div class="axis-card axis-teal" id="axis-waqiah">
+  <div class="axis-hdr" onclick="toggleAxis('axis-waqiah')">
+    <div class="axis-icon ai-teal">⚖</div>
+    <div class="axis-titles">
+      <div class="axis-src en-blk">Classification System 2 · Al-Waqiah 56:7-56</div>
+      <div class="axis-src ur-blk">تصنیفی نظام ۲ · الواقعہ ۵۶:۷-۵۶</div>
+      <div class="axis-ar">ثَلَاثَةُ أَصْنَافٍ</div>
+      <div class="axis-en en-blk">Three Groups on the Day of Judgment</div>
+      <div class="axis-en-ur ur-blk">قیامت کے دن تین گروہ</div>
+      <div class="axis-summary en-blk">Al-Waqiah divides all humanity into exactly three on the Day of Judgment. The middle group — People of the Right — are the general believers. The Sabiqoon stand apart above them. The People of the Left face what they chose.</div>
+      <div class="axis-summary-ur ur-blk">الواقعہ قیامت میں تمام انسانیت کو تین میں تقسیم کرتی ہے۔ سابقون علیحدہ — اصحاب الیمین اوپر — اصحاب الشمال۔</div>
+    </div>
+    <div class="axis-chevron">›</div>
+  </div>
+  <div class="axis-body">
+
+    <div class="ayah-card" id="waq-567">
+      <div class="ayah-card-hdr" onclick="toggleCard('waq-567')">
+        <span class="rev-badge rev-middle en-blk">Middle Makki</span>
+        <span class="rev-badge rev-middle ur-blk">اوسط مکی</span>
+        <span class="card-ref">Al-Waqiah 56:7-12</span>
+        <span class="card-preview">وَكُنتُمْ أَزْوَاجًا ثَلَاثَةً</span>
+        <span class="card-chevron">›</span>
+      </div>
+      <div class="card-body">
+        <div class="ayah-arabic">وَكُنتُمْ أَزْوَاجًا ثَلَاثَةً ۞ فَأَصْحَابُ الْمَيْمَنَةِ مَا أَصْحَابُ الْمَيْمَنَةِ ۞ وَأَصْحَابُ الْمَشْأَمَةِ مَا أَصْحَابُ الْمَشْأَمَةِ ۞ وَالسَّابِقُونَ السَّابِقُونَ ۞ أُولَٰئِكَ الْمُقَرَّبُونَ</div>
+        <div class="ayah-tr-en en-blk">"And you will be in three groups: the People of the Right — what are the People of the Right? And the People of the Left — what are the People of the Left? And the Foremost — the Foremost. Those are the ones brought near."</div>
+        <div class="ayah-tr-ur ur-blk">«اور تم تین گروہ ہو گے: اصحاب الیمین — کیا ہیں اصحاب الیمین؟ اور اصحاب الشمال — کیا ہیں اصحاب الشمال؟ اور سابقون — سابقون۔ یہی ہیں مقرب۔»</div>
+        <div class="ayah-ref-line">Surah Al-Waqiah 56:7-12</div>
+        <div class="ctx-box">
+          <div class="ctx-lbl en-blk">The Rhetorical Device</div>
+          <div class="ctx-txt en-blk">The Quran uses the device of ta'zim (magnification through interrogation) — "What are the People of the Right? What are the People of the Left?" — to signal that what follows defies ordinary description. But notice: the Sabiqoon are named twice without interrogation — As-Sabiqoon As-Sabiqoon. No question. Their reality is simply stated, then they are named: Al-Muqarraboon — the ones brought near. This is a higher compliment than anything given to the People of the Right.</div>
+          <div class="ctx-txt-ur ur-blk">قرآن تعظیم کا پیرایہ استعمال کرتا ہے — «کیا ہیں اصحاب الیمین؟» — لیکن سابقون کو بغیر سوال دو بار نامزد کیا، پھر نام دیا: المقربون۔</div>
+        </div>
+        <div class="root-box">
+          <div class="root-lbl en-blk">Key Root</div>
+          <span class="root-wd">السَّابِقُون</span>
+          <span class="root-fm">· S-B-Q · To precede, to outrun, to arrive first</span>
+          <div class="root-mn en-blk">S-B-Q — to race ahead, to be first. The Sabiq is not just someone who does good — he races toward it. The Quran uses this root actively: "Saari'oo ila maghfiratin min rabbikum" (3:133) — hasten, race. The Sabiqoon heard the call and ran. Not walked. Not eventually came. Ran. This root appears in contexts of urgent purposeful movement — it implies the heart was already moving before the feet.</div>
+          <div class="root-mn-ur ur-blk">س-ب-ق — دوڑ کر آگے نکلنا۔ سابق صرف نیک نہیں — وہ نیکی کی طرف دوڑتا ہے۔ دل پیروں سے پہلے حرکت میں تھا۔</div>
+        </div>
+        <div class="notes-sec">
+          <div class="notes-hdr"><span class="en-blk">Personal Notes</span><span class="ur-blk">ذاتی نوٹس</span></div>
+          <div class="note-f">
+            <div class="note-lbl"><div class="nd" style="background:var(--teal)"></div><span class="en-blk">The Sabiqoon race — what in your life do you race toward? What do you walk toward reluctantly?</span><span class="ur-blk">سابقون دوڑتے ہیں — زندگی میں کس چیز کی طرف آپ دوڑتے ہیں؟ کس طرف کھنچتے جاتے ہیں؟</span><span class="nsv" id="sv-waq-1"></span></div>
+            <textarea class="note-ta" id="note-waq-1" placeholder="Honest reflection: in your daily life, what do you race toward and what requires effort to even begin?" oninput="autoSave('waq-1',this.value)"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tier-wrap">
+      <div class="tier tier-1">
+        <div class="tier-num en-blk">Group I · The Highest</div>
+        <div class="tier-ar">السَّابِقُون الْمُقَرَّبُون</div>
+        <span class="tier-en en-blk">AS-SABIQOON AL-MUQARRABOON — The Foremost, The Brought-Near</span>
+        <span class="tier-ur ur-blk">السابقون المقربون — آگے بڑھے ہوئے، قریب کیے گئے</span>
+        <div class="tier-desc en-blk">Named twice. Described as Al-Muqarraboon — brought near to Allah. Their reward is described separately and in greater detail than the People of the Right: Gardens of Delight, facing each other on raised couches, served, honoured. "A large number from the earlier generations and a few from the later ones" (56:13-14) — the Quran acknowledges they become rarer as time passes. This is not fatalism — it is a challenge.</div>
+        <div class="tier-desc-ur ur-blk">دو بار نامزد۔ المقربون — اللہ کے قریب۔ «اگلوں میں سے بڑی تعداد اور پچھلوں میں سے تھوڑے» — وقت کے ساتھ کم ہوتے ہیں۔</div>
+        <span class="tier-ref">Al-Waqiah 56:10-26 · Jannaat al-Na'eem</span>
+      </div>
+      <div class="tier tier-2">
+        <div class="tier-num en-blk">Group II · The Middle</div>
+        <div class="tier-ar">أَصْحَابُ الْيَمِين</div>
+        <span class="tier-en en-blk">AS-HAAB AL-MAYMANA — People of the Right</span>
+        <span class="tier-ur ur-blk">اصحاب الیمین — دائیں والے</span>
+        <div class="tier-desc en-blk">The broad middle — the general believers who succeeded. Their reward is paradise but described differently from the Sabiqoon: "a large number from the earlier generations and a large number from the later ones" (56:39-40) — they are the majority of the saved. Yameena (right) in Arabic carries honour, blessing, and the side of good fortune. These are the ones who believed, submitted, and did enough. Not who raced — who arrived.</div>
+        <div class="tier-desc-ur ur-blk">عام مومن جو کامیاب ہوئے۔ «اگلوں میں سے بڑی تعداد اور پچھلوں میں سے بھی بڑی تعداد»۔ جو دوڑے نہیں — لیکن پہنچے۔</div>
+        <span class="tier-ref">Al-Waqiah 56:27-40</span>
+      </div>
+      <div class="tier tier-fail">
+        <div class="tier-num en-blk">Group III · The Failed</div>
+        <div class="tier-ar">أَصْحَابُ الشِّمَال</div>
+        <span class="tier-en en-blk">AS-HAAB AL-MASH'AMA — People of the Left</span>
+        <span class="tier-ur ur-blk">اصحاب الشمال — بائیں والے</span>
+        <div class="tier-desc en-blk">Shimaal (left) carries the Arabic connotation of ill-omen, difficulty, the unlucky side. Their condition described in stark terms: scorching wind, scalding water, shade of black smoke — neither cool nor generous. Not named for what they did but for where they ended. The lesson: the third group is defined entirely by its outcome, not its intentions. Good intentions without the inner work of alignment produce the middle group at best.</div>
+        <div class="tier-desc-ur ur-blk">شمال — منحوس، مشکل طرف۔ جھلساتی ہوا، کھولتا پانی، سیاہ دھوئیں کا سایہ۔ نیت سے نہیں، انجام سے تعریف کیے گئے۔</div>
+        <span class="tier-ref">Al-Waqiah 56:41-56</span>
+      </div>
+    </div>
+
+    <div class="insight">
+      <div class="insight-lbl en-blk">◈ The Critical Observation — Sabiqoon Becoming Rarer</div>
+      <div class="insight-lbl ur-blk">◈ اہم مشاہدہ — سابقون کا کم ہونا</div>
+      <div class="insight-txt en-blk">The Quran explicitly states the Sabiqoon will be "a few from the later generations" — this is a deliberate acknowledgment of a spiritual decline across time. But it is not presented as inevitable — it is presented as a description of what happens when people stop racing. The existence of the few in every generation who do race is confirmed. The question the ayah asks every reader: which group describes you — and is that a fixed answer?</div>
+      <div class="insight-txt-ur ur-blk">قرآن صراحتاً بیان کرتا ہے کہ بعد والوں میں سابقون «تھوڑے» ہوں گے۔ لیکن یہ لازمی نہیں — یہ اس وقت ہوتا ہے جب لوگ دوڑنا بند کر دیں۔ سوال: کون سا گروہ آپ کا ہے — اور کیا یہ جواب بدل سکتا ہے؟</div>
+    </div>
+  </div>
+</div>
+
+<!-- AXIS 3: AL-FATIR 35:32 -->
+<div class="axis-card axis-amber" id="axis-fatir">
+  <div class="axis-hdr" onclick="toggleAxis('axis-fatir')">
+    <div class="axis-icon ai-amber">📖</div>
+    <div class="axis-titles">
+      <div class="axis-src en-blk">Classification System 3 · Al-Fatir 35:32</div>
+      <div class="axis-src ur-blk">تصنیفی نظام ۳ · فاطر ۳۵:۳۲</div>
+      <div class="axis-ar">ثُمَّ أَوْرَثْنَا الْكِتَابَ</div>
+      <div class="axis-en en-blk">Three Responses to the Book — In This Life</div>
+      <div class="axis-en-ur ur-blk">کتاب کے ساتھ تین رویے — اس زندگی میں</div>
+      <div class="axis-summary en-blk">The most uncomfortable of the three systems — because it classifies believers by what they do with what they were given. All three received the Book. What they do with it divides them. The Zalim li-nafsih is still among the chosen — and that is the most sobering detail.</div>
+      <div class="axis-summary-ur ur-blk">تینوں کو کتاب ملی۔ اس کے ساتھ کیا کریں — یہ انہیں تقسیم کرتا ہے۔ ظالم لنفسہ پھر بھی منتخب میں شامل — یہ سب سے چونکا دینے والی بات۔</div>
+    </div>
+    <div class="axis-chevron">›</div>
+  </div>
+  <div class="axis-body">
+
+    <div class="ayah-card" id="fatir-3532">
+      <div class="ayah-card-hdr" onclick="toggleCard('fatir-3532')">
+        <span class="rev-badge rev-middle en-blk">Middle Makki</span>
+        <span class="rev-badge rev-middle ur-blk">اوسط مکی</span>
+        <span class="card-ref">Al-Fatir 35:32</span>
+        <span class="card-preview">ثُمَّ أَوْرَثْنَا الْكِتَابَ الَّذِينَ اصْطَفَيْنَا</span>
+        <span class="card-chevron">›</span>
+      </div>
+      <div class="card-body">
+        <div class="ayah-arabic">ثُمَّ أَوْرَثْنَا الْكِتَابَ الَّذِينَ اصْطَفَيْنَا مِنْ عِبَادِنَا ۖ فَمِنْهُمْ ظَالِمٌ لِّنَفْسِهِ وَمِنْهُمْ مُّقْتَصِدٌ وَمِنْهُمْ سَابِقٌ بِالْخَيْرَاتِ بِإِذْنِ اللَّهِ ۚ ذَٰلِكَ هُوَ الْفَضْلُ الْكَبِيرُ</div>
+        <div class="ayah-tr-en en-blk">"Then We caused to inherit the Book those whom We chose from Our servants. And among them is one who wrongs himself, and among them is one who is moderate, and among them is one who is foremost in good deeds by permission of Allah. That is the great bounty."</div>
+        <div class="ayah-tr-ur ur-blk">«پھر ہم نے کتاب کا وارث بنایا ان لوگوں کو جنہیں ہم نے اپنے بندوں میں سے چنا۔ تو ان میں سے کوئی اپنے نفس پر ظلم کرنے والا ہے، کوئی میانہ رو ہے، اور کوئی اللہ کے اذن سے نیکیوں میں آگے بڑھنے والا ہے۔ یہی بڑا فضل ہے۔»</div>
+        <div class="ayah-ref-line">Surah Al-Fatir 35:32</div>
+        <div class="ctx-box">
+          <div class="ctx-lbl en-blk">The Shattering Detail</div>
+          <div class="ctx-txt en-blk">Allah says "those whom We chose" — then immediately divides them into three including one who wrongs his own soul. The Zalim li-nafsih is chosen. He received the Book. He is in the community of the selected. And yet he wrongs himself. This destroys the comfortable assumption that being born into Islam, receiving the Quran, or even being sincere in faith is sufficient. The Book was given as an inheritance. An inheritance can be squandered. The question is what the inheritor does with what was given.</div>
+          <div class="ctx-txt-ur ur-blk">اللہ کہتا ہے «جنہیں ہم نے چنا» — پھر فوری تین میں تقسیم، ایک ظالم لنفسہ۔ ظالم لنفسہ منتخب ہے۔ یہ یقین توڑتا ہے کہ صرف مسلمان پیدا ہونا یا قرآن ملنا کافی ہے۔</div>
+        </div>
+        <div class="root-box">
+          <div class="root-lbl en-blk">Key Root</div>
+          <span class="root-wd">اصْطَفَيْنَا</span>
+          <span class="root-fm">· S-F-W · To choose the purest, to select from the top</span>
+          <div class="root-mn en-blk">Istafa — from S-F-W, the root of safa (purity, clarity). To istafa something is to select the purest part. The same root as Mustafa — the chosen one, the Prophet's ﷺ title. Allah chose these people from His servants — the same verb of selection used for the Prophet is used here for the entire community of the Book. The enormity of what was given. The responsibility that comes with it.</div>
+          <div class="root-mn-ur ur-blk">اصطفى — ص-ف-و، پاکی کی جڑ سے۔ سب سے پاک حصہ منتخب کرنا۔ مصطفیٰ — وہی جڑ نبی ﷺ کے لقب میں۔ اسی فعل سے پوری امت کا انتخاب۔</div>
+        </div>
+        <div class="notes-sec">
+          <div class="notes-hdr"><span class="en-blk">Personal Notes</span><span class="ur-blk">ذاتی نوٹس</span></div>
+          <div class="note-f">
+            <div class="note-lbl"><div class="nd" style="background:var(--amber)"></div><span class="en-blk">Honestly — which of the three are you right now with the Book?</span><span class="ur-blk">سچ بتائیں — ابھی آپ کتاب کے ساتھ تین میں سے کون ہیں؟</span><span class="nsv" id="sv-fatir-1"></span></div>
+            <textarea class="note-ta" id="note-fatir-1" placeholder="Zalim li-nafsih · Muqtasid · Sabiq bil-khayrat — no judgment, just honest placement." oninput="autoSave('fatir-1',this.value)"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tier-wrap">
+      <div class="tier tier-fail">
+        <div class="tier-num en-blk">Tier I of This Life</div>
+        <div class="tier-ar">الظَّالِم لِنَفْسِهِ</div>
+        <span class="tier-en en-blk">ZALIM LI-NAFSIH — The One Who Wrongs His Own Soul</span>
+        <span class="tier-ur ur-blk">ظالم لنفسہ — اپنے نفس پر ظلم کرنے والا</span>
+        <div class="tier-desc en-blk">Still among the chosen. Still a Muslim. Still an inheritor of the Book. But Zalim — from Zh-L-M, wrongness, placing something in other than its right place. He wrongs himself — not others primarily, himself. The Quran repeatedly uses this phrase for the believer who falls short. Ibn Kathir: the scholars debated whether this includes major sins — the majority said yes, this person commits sins that harm his own soul and spiritual standing, yet remains within the community of the Book. Not comfortable. Not permanent — but real.</div>
+        <div class="tier-desc-ur ur-blk">پھر بھی منتخب۔ پھر بھی مسلمان۔ پھر بھی کتاب کا وارث۔ لیکن ظالم — ظاء-ل-م، چیز کو غلط جگہ رکھنا۔ خود پر ظلم — دوسروں پر نہیں۔ ابن کثیر: گناہ کبیرہ بھی شامل۔ مستقل نہیں — لیکن حقیقی۔</div>
+        <span class="tier-ref">Al-Fatir 35:32 · Al-Baqarah 2:57 · Al-A'raf 7:23</span>
+      </div>
+      <div class="tier tier-3">
+        <div class="tier-num en-blk">Tier II of This Life</div>
+        <div class="tier-ar">الْمُقْتَصِد</div>
+        <span class="tier-en en-blk">AL-MUQTASID — The Moderate One</span>
+        <span class="tier-ur ur-blk">المقتصد — اعتدال والا</span>
+        <div class="tier-desc en-blk">From Q-S-D — the middle path, moderation, purposeful direction. The Muqtasid fulfils obligations, avoids prohibitions, does not exceed in either direction. He is steady. Al-Ghazali: the Muqtasid is the person who does what is wajib (obligatory) and leaves what is haram (forbidden), but does not go beyond to the nawafil (voluntary) with consistency. The reliable middle — the largest group of the saved. Honourable, sustainable — and not the ceiling.</div>
+        <div class="tier-desc-ur ur-blk">ق-ص-د — درمیانی راہ، اعتدال۔ فرض ادا کرتا، حرام سے بچتا، کسی طرف زیادہ نہیں۔ الغزالی: واجب کرتا ہے، حرام چھوڑتا ہے، نوافل میں باقاعدہ نہیں۔</div>
+        <span class="tier-ref">Al-Fatir 35:32 · Al-Maidah 5:66 · Luqman 31:32</span>
+      </div>
+      <div class="tier tier-1">
+        <div class="tier-num en-blk">Tier III of This Life · The Highest</div>
+        <div class="tier-ar">السَّابِق بِالْخَيْرَات</div>
+        <span class="tier-en en-blk">AS-SABIQ BIL-KHAYRAT — Foremost in Good Deeds</span>
+        <span class="tier-ur ur-blk">السابق بالخیرات — نیکیوں میں آگے بڑھنے والا</span>
+        <div class="tier-desc en-blk">The same Sabiq root as Al-Waqiah — but here qualified: bi-idhniLlah (by permission of Allah). Not by his own effort alone. The addition of "by Allah's permission" prevents this from becoming spiritual pride. The Sabiq bil-khayrat does not race ahead because he is better — he races because Allah opened his heart to it. Ibn al-Qayyim: the Sabiq bil-khayrat does the obligatory perfectly, adds voluntary acts consistently, and his inward state (dhikr, muraqabah, love of Allah) operates continuously even when outward acts are complete.</div>
+        <div class="tier-desc-ur ur-blk">وہی سابق جڑ — لیکن «باذن اللہ» کے ساتھ۔ روحانی غرور سے بچاؤ۔ ابن القیم: فرض کامل، نوافل مستقل، باطنی کیفیت (ذکر، مراقبہ، محبت) مسلسل۔</div>
+        <span class="tier-ref">Al-Fatir 35:32 · Al-Baqarah 2:148 · Al-Mu'minoon 23:61</span>
+        <span class="tier-key en-blk">✦ bi-idhnillah — by Allah's permission — this prevents spiritual pride</span>
+        <span class="tier-key ur-blk">✦ باذن اللہ — روحانی غرور سے تحفظ</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 3: CROSS-REFERENCE TABLE -->
+<div class="sec-lbl">
+  <span class="en-inl">Cross-Reference — All Three Systems Mapped</span>
+  <span class="ur-inl">کراس ریفرنس — تینوں نظام</span>
+</div>
+
+<p style="font-size:12px;color:var(--text2);line-height:1.8;margin-bottom:14px">
+  <span class="en-blk">How the three classification systems align. ● = direct named match · ◐ = related concept · ○ = not applicable in this system</span>
+  <span class="ur-blk">تینوں نظام کیسے ملتے ہیں۔ ● = براہ راست · ◐ = متعلقہ · ○ = لاگو نہیں</span>
+</p>
+
+<div class="xref-wrap">
+  <table class="xref">
+    <thead>
+      <tr>
+        <th><span class="en-inl">Arabic</span><span class="ur-inl">عربی</span></th>
+        <th><span class="en-inl">Rank / Type</span><span class="ur-inl">درجہ</span></th>
+        <th><span class="en-inl">Al-Nisa 4:69</span><span class="ur-inl">النساء</span></th>
+        <th><span class="en-inl">Al-Waqiah 56</span><span class="ur-inl">الواقعہ</span></th>
+        <th><span class="en-inl">Al-Fatir 35:32</span><span class="ur-inl">فاطر</span></th>
+        <th><span class="en-inl">File</span><span class="ur-inl">فائل</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>النَّبِيُّون</td>
+        <td class="rank-en"><span class="en-inl">The Prophets</span><span class="ur-inl">انبیاء</span></td>
+        <td><span class="dot-yes"></span></td>
+        <td><span class="dot-no"></span></td>
+        <td><span class="dot-no"></span></td>
+        <td style="font-family:var(--font-head);font-size:8px;color:var(--text3)">F2</td>
+      </tr>
+      <tr>
+        <td>الصِّدِّيقُون</td>
+        <td class="rank-en"><span class="en-inl">The Utterly Truthful</span><span class="ur-inl">صدیقون</span></td>
+        <td><span class="dot-yes"></span></td>
+        <td><span class="dot-rel"></span></td>
+        <td><span class="dot-rel"></span></td>
+        <td style="font-family:var(--font-head);font-size:8px;color:var(--text3)">F2</td>
+      </tr>
+      <tr>
+        <td>السَّابِقُون</td>
+        <td class="rank-en"><span class="en-inl">The Foremost</span><span class="ur-inl">سابقون</span></td>
+        <td><span class="dot-rel"></span></td>
+        <td><span class="dot-yes"></span></td>
+        <td><span class="dot-yes"></span></td>
+        <td style="font-family:var(--font-head);font-size:8px;color:var(--text3)">F2</td>
+      </tr>
+      <tr>
+        <td>الشُّهَدَاء</td>
+        <td class="rank-en"><span class="en-inl">The Witnesses</span><span class="ur-inl">شہداء</span></td>
+        <td><span class="dot-yes"></span></td>
+        <td><span class="dot-rel"></span></td>
+        <td><span class="dot-no"></span></td>
+        <td style="font-family:var(--font-head);font-size:8px;color:var(--text3)">F2</td>
+      </tr>
+      <tr>
+        <td>الصَّالِحُون</td>
+        <td class="rank-en"><span class="en-inl">The Righteous</span><span class="ur-inl">صالحون</span></td>
+        <td><span class="dot-yes"></span></td>
+        <td><span class="dot-rel"></span></td>
+        <td><span class="dot-rel"></span></td>
+        <td style="font-family:var(--font-head);font-size:8px;color:var(--text3)">F2</td>
+      </tr>
+      <tr>
+        <td>الْمُخْلَصُون</td>
+        <td class="rank-en"><span class="en-inl">The Purified (passive)</span><span class="ur-inl">مخلصون (پاک کیے گئے)</span></td>
+        <td><span class="dot-no"></span></td>
+        <td><span class="dot-yes"></span></td>
+        <td><span class="dot-rel"></span></td>
+        <td style="font-family:var(--font-head);font-size:8px;color:var(--text3)">F3</td>
+      </tr>
+      <tr>
+        <td>الْمُتَّقُون</td>
+        <td class="rank-en"><span class="en-inl">The Shield-Bearers</span><span class="ur-inl">متقون</span></td>
+        <td><span class="dot-rel"></span></td>
+        <td><span class="dot-rel"></span></td>
+        <td><span class="dot-rel"></span></td>
+        <td style="font-family:var(--font-head);font-size:8px;color:var(--text3)">F3</td>
+      </tr>
+      <tr>
+        <td>الْمُحْسِنُون</td>
+        <td class="rank-en"><span class="en-inl">The Beautiful-Doers</span><span class="ur-inl">محسنون</span></td>
+        <td><span class="dot-rel"></span></td>
+        <td><span class="dot-rel"></span></td>
+        <td><span class="dot-rel"></span></td>
+        <td style="font-family:var(--font-head);font-size:8px;color:var(--text3)">F3</td>
+      </tr>
+      <tr>
+        <td>أُولُو الْأَلْبَاب</td>
+        <td class="rank-en"><span class="en-inl">People of the Lubb</span><span class="ur-inl">اولو الالباب</span></td>
+        <td><span class="dot-no"></span></td>
+        <td><span class="dot-rel"></span></td>
+        <td><span class="dot-rel"></span></td>
+        <td style="font-family:var(--font-head);font-size:8px;color:var(--text3)">F3</td>
+      </tr>
+      <tr>
+        <td>الأَوْلِيَاء</td>
+        <td class="rank-en"><span class="en-inl">The Close Friends of Allah</span><span class="ur-inl">اولیاء</span></td>
+        <td><span class="dot-rel"></span></td>
+        <td><span class="dot-rel"></span></td>
+        <td><span class="dot-no"></span></td>
+        <td style="font-family:var(--font-head);font-size:8px;color:var(--text3)">F3</td>
+      </tr>
+      <tr>
+        <td>الأَوَّابُون</td>
+        <td class="rank-en"><span class="en-inl">The Constant Returners</span><span class="ur-inl">اوابون</span></td>
+        <td><span class="dot-no"></span></td>
+        <td><span class="dot-rel"></span></td>
+        <td><span class="dot-rel"></span></td>
+        <td style="font-family:var(--font-head);font-size:8px;color:var(--text3)">F3</td>
+      </tr>
+      <tr>
+        <td>الصَّابِرُون</td>
+        <td class="rank-en"><span class="en-inl">The Patient Ones</span><span class="ur-inl">صابرون</span></td>
+        <td><span class="dot-no"></span></td>
+        <td><span class="dot-rel"></span></td>
+        <td><span class="dot-rel"></span></td>
+        <td style="font-family:var(--font-head);font-size:8px;color:var(--text3)">F3</td>
+      </tr>
+      <tr>
+        <td>الْمُقْتَصِد</td>
+        <td class="rank-en"><span class="en-inl">The Moderate</span><span class="ur-inl">مقتصد</span></td>
+        <td><span class="dot-no"></span></td>
+        <td><span class="dot-yes"></span></td>
+        <td><span class="dot-yes"></span></td>
+        <td style="font-family:var(--font-head);font-size:8px;color:var(--text3)">F2</td>
+      </tr>
+      <tr>
+        <td>الظَّالِم لِنَفْسِهِ</td>
+        <td class="rank-en"><span class="en-inl">Wronging Own Soul</span><span class="ur-inl">ظالم لنفسہ</span></td>
+        <td><span class="dot-no"></span></td>
+        <td><span class="dot-rel"></span></td>
+        <td><span class="dot-yes"></span></td>
+        <td style="font-family:var(--font-head);font-size:8px;color:var(--text3)">F2</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- SECTION 4: KEY PRINCIPLES -->
+<div class="sec-lbl">
+  <span class="en-inl">Six Principles the Quran Establishes About These Ranks</span>
+  <span class="ur-inl">چھ اصول جو قرآن ان درجات کے بارے میں قائم کرتا ہے</span>
+</div>
+
+<div class="principle-grid">
+  <div class="principle">
+    <div class="pr-num">01</div>
+    <div class="pr-title en-blk">Ranks Are Earned, Not Inherited</div>
+    <div class="pr-title-ur ur-blk">درجات کمائے جاتے ہیں، ورثے میں نہیں ملتے</div>
+    <div class="pr-desc en-blk">Being born Muslim, receiving the Quran, being raised in a righteous family — none of this determines rank. Al-Fatir 35:32 shows the chosen community divided three ways. The Book is the inheritance; what you do with it is your rank.</div>
+    <div class="pr-desc-ur ur-blk">مسلمان پیدا ہونا، قرآن ملنا — کوئی بھی درجہ نہیں دیتا۔ فاطر ۳۵:۳۲: منتخب کمیونٹی تین میں تقسیم۔</div>
+    <span class="pr-ref">Al-Fatir 35:32 · Al-An'am 6:132</span>
+  </div>
+  <div class="principle">
+    <div class="pr-num">02</div>
+    <div class="pr-title en-blk">Ranks Are Not Fixed in This Life</div>
+    <div class="pr-title-ur ur-blk">اس زندگی میں درجات ثابت نہیں</div>
+    <div class="pr-desc en-blk">The Zalim li-nafsih can become Muqtasid. The Muqtasid can become Sabiq. Adam AS was the first to describe himself as Zalim li-nafsih (7:23) — and became a prophet. The ranks describe current state, not permanent identity.</div>
+    <div class="pr-desc-ur ur-blk">ظالم لنفسہ مقتصد بن سکتا ہے۔ آدم علیہ السلام نے خود کو ظالم لنفسہ کہا (۷:۲۳) — اور نبی تھے۔</div>
+    <span class="pr-ref">Al-A'raf 7:23 · Al-Zumar 39:53</span>
+  </div>
+  <div class="principle">
+    <div class="pr-num">03</div>
+    <div class="pr-title en-blk">Higher Ranks Require Inner Not Just Outer</div>
+    <div class="pr-title-ur ur-blk">اعلیٰ درجات باطنی چاہتے ہیں، صرف ظاہری نہیں</div>
+    <div class="pr-desc en-blk">The Muqtasid fulfils the outer form. The Sabiq bil-khayrat has the same outer form plus a continuously operating inner state — dhikr, love, muraqabah. The difference between them is invisible to other people and completely visible to Allah.</div>
+    <div class="pr-desc-ur ur-blk">مقتصد ظاہری شکل پوری کرتا ہے۔ سابق بالخیرات: وہی ظاہر + مسلسل باطنی کیفیت۔ فرق لوگوں کو نظر نہیں، اللہ کو بالکل نظر آتا ہے۔</div>
+    <span class="pr-ref">Al-Hujurat 49:14 · Al-Hajj 22:46</span>
+  </div>
+  <div class="principle">
+    <div class="pr-num">04</div>
+    <div class="pr-title en-blk">The Highest Ranks Have Divine Descriptions of Love</div>
+    <div class="pr-title-ur ur-blk">اعلیٰ درجات کو اللہ کی محبت کا بیان ملتا ہے</div>
+    <div class="pr-desc en-blk">The Quran says "Allah loves the Muhsineen" (2:195), "Allah loves the Muttaqeen" (3:76), "Allah loves the Mutawakkileen" (3:159), "Allah loves the Muqsiteen" (5:42). These are not metaphors — they are the highest statements of divine regard in the Book.</div>
+    <div class="pr-desc-ur ur-blk">اللہ محسنین سے محبت کرتا ہے (۲:۱۹۵)، متقین سے (۳:۷۶)، متوکلین سے (۳:۱۵۹)۔ یہ استعارے نہیں — کتاب میں الٰہی توجہ کے اعلیٰ ترین بیانات۔</div>
+    <span class="pr-ref">Al-Baqarah 2:195 · Al-Imran 3:76 · 3:159</span>
+  </div>
+  <div class="principle">
+    <div class="pr-num">05</div>
+    <div class="pr-title en-blk">The Ranks Are Not Parallel — They Are Sequential</div>
+    <div class="pr-title-ur ur-blk">درجات متوازی نہیں — ترتیب وار ہیں</div>
+    <div class="pr-desc en-blk">You cannot be Siddiq without first being Salih. You cannot be Muhsin without Taqwa as its foundation. The Mukhlasoon (purified by Allah) emerge from those who were first Mukhlisoon (sincere in effort). Every higher rank contains all the lower ones — it does not replace them.</div>
+    <div class="pr-desc-ur ur-blk">صدیق بننے کے لیے پہلے صالح ہونا لازم۔ محسن بننے کے لیے تقویٰ بنیاد۔ ہر اعلیٰ درجہ تمام نچلوں کو شامل کرتا ہے۔</div>
+    <span class="pr-ref">Al-Baqarah 2:177 · Al-Fatir 35:32</span>
+  </div>
+  <div class="principle">
+    <div class="pr-num">06</div>
+    <div class="pr-title en-blk">The Path Is Explicitly Given</div>
+    <div class="pr-title-ur ur-blk">راستہ صراحتاً دیا گیا ہے</div>
+    <div class="pr-desc en-blk">Al-Nisa 4:69: "Whoever obeys Allah and the Messenger — those will be in their company." The Quran does not hide the mechanism. It states it plainly. The ranks are not secret destinations — the map is the Book itself, and the path is the practice the Book commands.</div>
+    <div class="pr-desc-ur ur-blk">النساء ۴:۶۹: «جو اللہ اور رسول کی اطاعت کرے وہ ان کی صحبت میں ہوگا»۔ راستہ چھپا نہیں۔ درجات خفیہ منزلیں نہیں — نقشہ خود کتاب ہے۔</div>
+    <span class="pr-ref">Al-Nisa 4:69 · Al-Imran 3:31</span>
+  </div>
+</div>
+
+<!-- SECTION 5: SUNNAH — THE HADITH OF JIBREEL -->
+<div class="sec-lbl">
+  <span class="en-inl">The Master Hadith — Jibreel's Question</span>
+  <span class="ur-inl">اصل حدیث — جبریل کا سوال</span>
+</div>
+
+<div class="sh-card">
+  <div class="sh-lbl en-blk">Hadith of Jibreel — The Three Levels Confirmed by Revelation</div>
+  <div class="sh-lbl ur-blk">حدیثِ جبریل — وحی سے تصدیق شدہ تین سطحیں</div>
+  <div class="sh-ar">جَاءَ رَجُلٌ إِلَى النَّبِيِّ ﷺ فَقَالَ: يَا رَسُولَ اللَّهِ، مَا الإِسْلَامُ؟ ... مَا الإِيمَانُ؟ ... مَا الإِحْسَانُ؟ قَالَ: أَنْ تَعْبُدَ اللَّهَ كَأَنَّكَ تَرَاهُ، فَإِنْ لَمْ تَكُنْ تَرَاهُ فَإِنَّهُ يَرَاكَ</div>
+  <div class="sh-en en-blk">"A man came to the Prophet ﷺ and said: O Messenger of Allah, what is Islam? ... What is Iman? ... What is Ihsan? He said: That you worship Allah as though you see Him — and if you do not see Him, then He sees you."</div>
+  <div class="sh-ur ur-blk">«ایک شخص نبی ﷺ کے پاس آیا: یا رسول اللہ، اسلام کیا ہے؟ ... ایمان کیا ہے؟ ... احسان کیا ہے؟ فرمایا: اللہ کی عبادت اس طرح کرو جیسے اسے دیکھ رہے ہو — اور اگر اسے نہ دیکھو تو وہ تمہیں دیکھ رہا ہے۔»</div>
+  <div class="sh-src">Sahih Bukhari 50 · Sahih Muslim 9 — Narrated by Abu Hurairah RA <span class="grade g-sahih">✦ Sahih</span></div>
+</div>
+
+<div class="insight">
+  <div class="insight-lbl en-blk">◈ Why This Hadith Maps Onto the Quranic Ranks</div>
+  <div class="insight-lbl ur-blk">◈ یہ حدیث قرآنی درجات پر کیوں نقشہ بناتی ہے</div>
+  <div class="insight-txt en-blk">Jibreel's three questions establish the same three-tier structure found across the Quranic classification systems: Islam (the outer form — the Muqtasid fulfils this) · Iman (the inner orientation — the Salih and Muttaqi operate here) · Ihsan (the continuous state of awareness — the Sabiqoon, Siddiqoon, and Muqarraboon live here). The Hadith of Jibreel is not introducing a new framework — it is confirming the same hierarchy the Quran distributes across multiple surahs, now stated in three words by the one who brought the revelation. Islam is the entry. Iman is the activation. Ihsan is the destination. Most people live at the intersection of the first two. The entire spiritual path exists to move a person into the third.</div>
+  <div class="insight-txt-ur ur-blk">جبریل کے تین سوال وہی تین سطحی ڈھانچہ قائم کرتے ہیں: اسلام (ظاہری شکل — مقتصد یہاں ہے) · ایمان (باطنی رخ — صالح اور متقی) · احسان (مسلسل آگاہی کی کیفیت — سابقون، صدیقون، مقربون یہاں ہیں)۔ اسلام داخلہ۔ ایمان فعالیت۔ احسان منزل۔</div>
+</div>
+
+<!-- SECTION 6: PERSONAL SYNTHESIS -->
+<div class="sec-lbl">
+  <span class="en-inl">Personal Study Notes — The Map</span>
+  <span class="ur-inl">ذاتی نوٹس — نقشہ</span>
+</div>
+
+<div style="background:var(--bg2);border:1px solid var(--border2);border-radius:12px;padding:20px 22px;margin-bottom:14px">
+  <div style="font-family:var(--font-head);font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:8px">
+    <span class="en-blk">Where Do I Place Myself — Across All Three Systems</span>
+    <span class="ur-blk">تینوں نظاموں میں میں خود کو کہاں رکھتا ہوں</span>
+    <span style="flex:1;height:1px;background:var(--border2);display:block"></span>
+  </div>
+  <div style="font-size:12px;color:var(--text2);line-height:1.8;margin-bottom:14px" class="en-blk">Use all three classification systems together. In Al-Nisa terms — which of the four stations do you genuinely aspire to, not which one sounds good? In Al-Waqiah terms — are you Sabiq, Ahaab al-Maymana, or honestly something else? In Al-Fatir terms — Zalim, Muqtasid, or Sabiq bil-khayrat with the Book right now? The honest intersection of these three is your actual starting point.</div>
+  <div style="font-family:var(--font-arab);font-size:13px;color:var(--text2);direction:rtl;text-align:right;line-height:2;margin-bottom:14px" class="ur-blk">تینوں نظام ایک ساتھ۔ النساء کے لحاظ سے — کون سا درجہ واقعی چاہتے ہیں؟ الواقعہ کے لحاظ سے — سابق، اصحاب الیمین، یا کچھ اور؟ فاطر کے لحاظ سے — ابھی کتاب کے ساتھ کہاں ہیں؟</div>
+  <div class="note-f">
+    <div class="note-lbl"><div class="nd" style="background:var(--gold)"></div><span class="en-blk">My honest placement in all three systems</span><span class="ur-blk">تینوں میں میری سچی جگہ</span><span class="nsv" id="sv-synthesis-1"></span></div>
+    <textarea class="note-ta" id="note-synthesis-1" style="min-height:100px" placeholder="Al-Nisa rank I genuinely aspire to · Al-Waqiah group I honestly belong to · Al-Fatir tier with the Book right now · What the gap between aspiration and current state reveals..." oninput="autoSave('synthesis-1',this.value)"></textarea>
+  </div>
+  <div class="note-f">
+    <div class="note-lbl"><div class="nd" style="background:var(--teal)"></div><span class="en-blk">What would need to change to move one tier up in Al-Fatir 35:32</span><span class="ur-blk">فاطر ۳۵:۳۲ میں ایک درجہ اوپر جانے کے لیے کیا بدلنا ہوگا</span><span class="nsv" id="sv-synthesis-2"></span></div>
+    <textarea class="note-ta" id="note-synthesis-2" placeholder="Specific, honest. Not what sounds good — what would actually have to change in your daily life?" oninput="autoSave('synthesis-2',this.value)"></textarea>
+  </div>
+</div>
+
+<!-- FILE NAVIGATION -->
+<div class="sec-lbl">
+  <span class="en-inl">Continue — The Four Files</span>
+  <span class="ur-inl">آگے — چار فائلیں</span>
+</div>
+
+<div class="file-links">
+  <a href="#" class="file-link current">
+    <div class="fl-num">File 1 of 4</div>
+    <div class="fl-title">The Map</div>
+    <div class="fl-desc">Overview · Three classification systems · Cross-reference · Key principles</div>
+    <span class="fl-badge fl-ready">Current</span>
+  </a>
+  <a href="ranks_eschatological.html" class="file-link">
+    <div class="fl-num">File 2 of 4</div>
+    <div class="fl-title">Eschatological Ranks</div>
+    <div class="fl-desc">Sabiqoon · Siddiqoon · Shuhada · Salihoon — deep study with full ayah analysis and Sunnah layer</div>
+    <span class="fl-badge fl-coming">Next Session</span>
+  </a>
+  <a href="ranks_characteristics.html" class="file-link">
+    <div class="fl-num">File 3 of 4</div>
+    <div class="fl-title">Characteristic Ranks</div>
+    <div class="fl-desc">Muhsinoon · Muttaqoon · Awliya · Mukhlasoon · Awwaaboon · Ulu al-Albab — quality-based types</div>
+    <span class="fl-badge fl-coming">Session 3</span>
+  </a>
+  <a href="ranks_path.html" class="file-link">
+    <div class="fl-num">File 4 of 4</div>
+    <div class="fl-title">The Path</div>
+    <div class="fl-desc">Quranic codes for ascending the ranks · Salah · Sawm · Dhikr · Zuhd · Muraqabah mapped to rank development</div>
+    <span class="fl-badge fl-coming">Session 4</span>
+  </a>
+</div>
+
+</div><!-- end page -->
+<div id="toast"></div>
+
+<script>
+var LANG='en';
+var timers={};
+
+function setLang(l){
+  LANG=l;
+  document.getElementById('lt-en').classList.toggle('on',l==='en');
+  document.getElementById('lt-ur').classList.toggle('on',l==='ur');
+  document.body.classList.toggle('ur-mode',l==='ur');
+  document.documentElement.setAttribute('lang',l==='ur'?'ur':'en');
+}
+
+function toggleAxis(id){
+  document.getElementById(id).classList.toggle('open');
+}
+
+function toggleCard(id){
+  document.getElementById(id).classList.toggle('open');
+}
+
+function autoSave(key,val){
+  clearTimeout(timers[key]);
+  timers[key]=setTimeout(function(){
+    var sk='rmap_'+key;
+    if(val.trim()){localStorage.setItem(sk,val);}else{localStorage.removeItem(sk);}
+    var sv=document.getElementById('sv-'+key);
+    if(sv){sv.textContent=val.trim()?'Saved ✓':'';sv.classList.add('flash');setTimeout(function(){sv.classList.remove('flash');},1800);}
+  },900);
+}
+
+function loadAll(){
+  for(var i=0;i<localStorage.length;i++){
+    var k=localStorage.key(i);
+    if(k&&k.startsWith('rmap_')){
+      var fk=k.substring(5);
+      var el=document.getElementById('note-'+fk);
+      var sv=document.getElementById('sv-'+fk);
+      if(el){el.value=localStorage.getItem(k)||'';if(sv&&el.value.trim())sv.textContent='Saved';}
+    }
+  }
+}
+
+var toastT;
+function showToast(m){
+  var t=document.getElementById('toast');
+  t.textContent=m;t.classList.add('show');
+  clearTimeout(toastT);toastT=setTimeout(function(){t.classList.remove('show');},2400);
+}
+
+window.addEventListener('DOMContentLoaded',function(){loadAll();});
+</script>
+</body>
+</html>

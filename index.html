@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Inner Quality Ranks — The Quranic Human</title>
+<title>The Quranic Human Ranks — Complete Study</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -25,273 +25,252 @@ body{background:var(--bg0);color:var(--text);font-family:var(--font-body);min-he
 ::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:var(--bg1)}::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px}
 body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
   background:radial-gradient(ellipse 1000px 600px at 50% 0%,rgba(201,168,76,.05),transparent 55%),
-             radial-gradient(ellipse 700px 500px at 10% 60%,rgba(47,184,154,.025),transparent 55%),
-             radial-gradient(ellipse 600px 400px at 90% 80%,rgba(168,127,208,.02),transparent 55%);}
-.hero{position:relative;z-index:1;text-align:center;padding:72px 24px 56px}
-.hero-bismillah{font-family:var(--font-arab);font-size:clamp(30px,6vw,52px);color:var(--gold);text-shadow:0 0 60px rgba(201,168,76,.3);margin-bottom:28px;line-height:1.7}
-.hero-rule{width:1px;height:60px;background:linear-gradient(180deg,transparent,var(--gold),transparent);margin:0 auto 28px}
-.hero-eyebrow{font-family:var(--font-head);font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--text3);margin-bottom:14px}
-.hero-title{font-family:var(--font-head);font-size:clamp(26px,5vw,46px);font-weight:700;color:#fff;line-height:1.2;margin-bottom:10px}
-.hero-title-ar{font-family:var(--font-arab);font-size:clamp(20px,4vw,34px);color:var(--gold2);margin-bottom:22px;line-height:1.5}
-.hero-tagline{font-size:clamp(12.5px,1.8vw,14.5px);color:var(--text2);line-height:1.95;max-width:580px;margin:0 auto 8px;font-style:italic}
-.hero-tagline-ar{font-family:var(--font-arab);font-size:clamp(13px,2vw,16px);color:var(--text2);direction:rtl;line-height:2.1;max-width:580px;margin:0 auto 36px}
-.hero-cta{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-head);font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:#000;background:linear-gradient(135deg,var(--gold),var(--gold2));padding:15px 38px;border-radius:8px;text-decoration:none;font-weight:700;transition:all .2s;box-shadow:0 4px 24px rgba(201,168,76,.25)}
+             radial-gradient(ellipse 600px 400px at 10% 70%,rgba(47,184,154,.02),transparent 55%),
+             radial-gradient(ellipse 500px 400px at 90% 80%,rgba(168,127,208,.02),transparent 55%);}
+
+/* HERO */
+.hero{position:relative;z-index:1;text-align:center;padding:70px 24px 52px}
+.hero-bismillah{font-family:var(--font-arab);font-size:clamp(28px,6vw,50px);color:var(--gold);text-shadow:0 0 60px rgba(201,168,76,.3);margin-bottom:26px;line-height:1.7}
+.hero-rule{width:1px;height:56px;background:linear-gradient(180deg,transparent,var(--gold),transparent);margin:0 auto 26px}
+.hero-eyebrow{font-family:var(--font-head);font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--text3);margin-bottom:12px}
+.hero-title{font-family:var(--font-head);font-size:clamp(24px,5vw,42px);font-weight:700;color:#fff;line-height:1.2;margin-bottom:8px}
+.hero-title-ar{font-family:var(--font-arab);font-size:clamp(18px,4vw,30px);color:var(--gold2);margin-bottom:18px;line-height:1.5}
+.hero-desc{font-size:13.5px;color:var(--text2);line-height:1.95;max-width:580px;margin:0 auto 6px;font-style:italic}
+.hero-desc-ar{font-family:var(--font-arab);font-size:15px;color:var(--text2);direction:rtl;line-height:2.1;max-width:580px;margin:0 auto 32px}
+.hero-cta{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-head);font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:#000;background:linear-gradient(135deg,var(--gold),var(--gold2));padding:14px 36px;border-radius:8px;text-decoration:none;font-weight:700;transition:all .2s;box-shadow:0 4px 24px rgba(201,168,76,.25)}
 .hero-cta:hover{transform:translateY(-2px);box-shadow:0 8px 40px rgba(201,168,76,.35)}
-.hero-cta-ar{font-family:var(--font-arab);font-size:15px;color:#000;opacity:.75}
-.intro-quote{position:relative;z-index:1;max-width:680px;margin:0 auto 60px;padding:0 24px}
-.iq-box{background:var(--bg2);border:1px solid var(--border2);border-radius:14px;padding:26px 28px;text-align:center;position:relative;overflow:hidden}
-.iq-box::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
-.iq-box::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
-.iq-ar{font-family:var(--font-arab);font-size:clamp(17px,3vw,23px);color:var(--gold2);direction:rtl;line-height:2.1;margin-bottom:10px}
-.iq-tr{font-size:13px;color:var(--text2);font-style:italic;line-height:1.85;margin-bottom:6px}
-.iq-ref{font-family:var(--font-head);font-size:8.5px;color:var(--gold);letter-spacing:1px;text-transform:uppercase}
+
+/* SECTION */
 .section{position:relative;z-index:1;max-width:920px;margin:0 auto;padding:0 20px}
-.sec-hdr{display:flex;align-items:center;gap:14px;margin-bottom:28px}
+.sec-hdr{display:flex;align-items:center;gap:14px;margin-bottom:24px;margin-top:52px}
 .sec-line{flex:1;height:1px;background:var(--border2)}
 .sec-text{font-family:var(--font-head);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);white-space:nowrap}
-.how-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-bottom:64px}
+
+/* FILE CARDS — main files */
+.file-row{display:grid;grid-template-columns:48px 1fr;margin-bottom:14px;position:relative}
+.file-row:not(:last-child) .file-spine::after{content:'';position:absolute;left:23px;top:52px;bottom:-14px;width:1px;background:linear-gradient(180deg,var(--goldbdr),transparent)}
+.file-spine{position:relative;display:flex;flex-direction:column;align-items:center;padding-top:14px}
+.file-num{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-size:12px;font-weight:700;flex-shrink:0;border:1.5px solid}
+.fn-1{background:var(--golddim);border-color:var(--goldbdr);color:var(--gold2)}
+.fn-2{background:var(--tealdim);border-color:var(--tealbdr);color:var(--teal)}
+.fn-3a{background:var(--purpledim);border-color:var(--purplebdr);color:var(--purple)}
+.fn-3b{background:var(--amberdim);border-color:var(--amberbdr);color:var(--amber)}
+
+.main-card{background:var(--bg2);border:1px solid var(--border2);border-radius:14px;padding:20px 24px;text-decoration:none;display:block;transition:all .22s;position:relative;overflow:hidden;margin-left:12px}
+.main-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:transparent;transition:background .2s}
+.main-card:hover{border-color:var(--goldbdr);transform:translateX(3px)}
+.main-card:hover::before{background:var(--gold)}
+.mc-top{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:10px}
+.mc-left{flex:1}
+.mc-tag{font-family:var(--font-head);font-size:8px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px}
+.mc-tag-1{color:var(--gold)}.mc-tag-2{color:var(--teal)}.mc-tag-3a{color:var(--purple)}.mc-tag-3b{color:var(--amber)}
+.mc-title{font-family:var(--font-head);font-size:14px;color:#fff;font-weight:700;letter-spacing:.5px;margin-bottom:4px}
+.mc-title-ar{font-family:var(--font-arab);font-size:18px;color:var(--gold2);direction:rtl;margin-bottom:8px}
+.mc-desc{font-size:12.5px;color:var(--text2);line-height:1.8;margin-bottom:12px}
+.mc-badge{font-family:var(--font-head);font-size:7.5px;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:20px;display:inline-block;margin-bottom:10px}
+.mb-complete{background:var(--tealdim);border:1px solid var(--tealbdr);color:var(--teal)}
+.mb-expanded{background:var(--amberdim);border:1px solid var(--amberbdr);color:var(--amber)}
+.mc-go{font-family:var(--font-head);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:5px;transition:gap .2s}
+.main-card:hover .mc-go{gap:9px}
+
+/* TABS WITHIN 3B */
+.tabs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px;margin-left:60px;margin-top:-4px;margin-bottom:14px}
+.tab-mini{background:var(--bg3);border:1px solid var(--border2);border-radius:10px;padding:13px 16px;text-decoration:none;display:block;transition:all .18s;position:relative;overflow:hidden}
+.tab-mini::before{content:'';position:absolute;top:0;left:0;right:0;height:1.5px;background:transparent;transition:background .2s}
+.tab-mini:hover{border-color:var(--goldbdr);transform:translateY(-1px)}
+.tab-mini:hover::before{background:var(--gold)}
+.tm-num{font-family:var(--font-head);font-size:7.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text3);margin-bottom:5px}
+.tm-ar{font-family:var(--font-arab);font-size:20px;color:var(--gold);direction:rtl;margin-bottom:3px}
+.tm-en{font-family:var(--font-head);font-size:9px;letter-spacing:.8px;text-transform:uppercase;color:var(--gold2);margin-bottom:3px;font-weight:600}
+.tm-desc{font-size:11px;color:var(--text3);line-height:1.6}
+
+/* HOW TO USE */
+.how-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;margin-bottom:0}
 .how-card{background:var(--bg2);border:1px solid var(--border2);border-radius:12px;padding:18px 20px;display:flex;gap:14px;align-items:flex-start}
-.how-num{font-family:var(--font-arab);font-size:20px;color:var(--gold);flex-shrink:0;line-height:1;margin-top:2px;opacity:.6}
+.how-num{font-family:var(--font-arab);font-size:20px;color:var(--gold);flex-shrink:0;opacity:.6;margin-top:2px}
 .how-t{font-family:var(--font-head);font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--gold2);margin-bottom:5px}
 .how-d{font-size:12px;color:var(--text2);line-height:1.75}
-.journey-intro{font-size:13.5px;color:var(--text2);line-height:1.9;max-width:640px;margin-bottom:10px;font-style:italic}
-.journey-intro-ar{font-family:var(--font-arab);font-size:15px;color:var(--text2);direction:rtl;line-height:2.1;max-width:640px;margin-bottom:32px}
-.tab-row{display:grid;grid-template-columns:48px 1fr;margin-bottom:12px;position:relative}
-.tab-row:not(:last-child) .tab-spine::after{content:'';position:absolute;left:23px;top:50px;bottom:-12px;width:1px;background:linear-gradient(180deg,var(--goldbdr),transparent)}
-.tab-spine{position:relative;display:flex;flex-direction:column;align-items:center;padding-top:14px}
-.tnc{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-size:11px;font-weight:700;flex-shrink:0;border:1.5px solid}
-.tnc-1{background:var(--tealdim);border-color:var(--tealbdr);color:var(--teal)}
-.tnc-2{background:var(--golddim);border-color:var(--goldbdr);color:var(--gold2)}
-.tnc-3{background:var(--tealdim);border-color:var(--tealbdr);color:var(--teal)}
-.tnc-4{background:var(--amberdim);border-color:var(--amberbdr);color:var(--amber)}
-.tnc-5{background:var(--purpledim);border-color:var(--purplebdr);color:var(--purple)}
-.tnc-6{background:var(--bluedim);border-color:var(--bluebdr);color:var(--blue)}
-.tnc-7{background:var(--golddim);border-color:var(--goldbdr);color:var(--gold2)}
-.tab-card{background:var(--bg2);border:1px solid var(--border2);border-radius:14px;padding:20px 24px;text-decoration:none;display:block;transition:all .22s;position:relative;overflow:hidden;margin-left:12px}
-.tab-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:transparent;transition:background .2s}
-.tab-card:hover{border-color:var(--goldbdr);transform:translateX(3px)}
-.tab-card:hover::before{background:var(--gold)}
-.tc-top{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:12px}
-.tc-left{flex:1}
-.tc-ar{font-family:var(--font-arab);font-size:clamp(22px,3.5vw,30px);color:var(--gold);direction:rtl;line-height:1.3;margin-bottom:4px;text-shadow:0 0 20px rgba(201,168,76,.15)}
-.tc-en{font-family:var(--font-head);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold2);font-weight:600;margin-bottom:3px}
-.tc-ur{font-family:var(--font-arab);font-size:14px;color:var(--text2);direction:rtl}
-.tc-right{text-align:right;flex-shrink:0}
-.tc-root{font-family:var(--font-head);font-size:8px;letter-spacing:.8px;text-transform:uppercase;color:var(--text3);margin-bottom:6px}
-.tc-badge{font-family:var(--font-head);font-size:7.5px;letter-spacing:.8px;padding:3px 10px;border-radius:20px;text-transform:uppercase;display:inline-block}
-.tb-1{background:var(--tealdim);border:1px solid var(--tealbdr);color:var(--teal)}
-.tb-2{background:var(--golddim);border:1px solid var(--goldbdr);color:var(--gold2)}
-.tb-3{background:var(--tealdim);border:1px solid var(--tealbdr);color:var(--teal)}
-.tb-4{background:var(--amberdim);border:1px solid var(--amberbdr);color:var(--amber)}
-.tb-5{background:var(--purpledim);border:1px solid var(--purplebdr);color:var(--purple)}
-.tb-6{background:var(--bluedim);border:1px solid var(--bluebdr);color:var(--blue)}
-.tb-7{background:var(--golddim);border:1px solid var(--goldbdr);color:var(--gold2)}
-.tc-desc{font-size:12.5px;color:var(--text2);line-height:1.8;margin-bottom:14px}
-.tc-key{background:rgba(201,168,76,.04);border:1px solid var(--border2);border-radius:8px;padding:10px 14px;margin-bottom:14px}
-.tc-key-ar{font-family:var(--font-arab);font-size:15px;color:var(--gold2);direction:rtl;line-height:1.9;margin-bottom:3px}
-.tc-key-tr{font-size:11.5px;color:var(--text3);font-style:italic}
-.tc-key-ref{font-family:var(--font-head);font-size:8px;color:var(--gold);letter-spacing:.5px;margin-top:3px}
-.tc-footer{display:flex;align-items:center;justify-content:space-between}
-.tc-scholars{font-family:var(--font-head);font-size:8px;letter-spacing:.5px;color:var(--text3);text-transform:uppercase}
-.tc-go{font-family:var(--font-head);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:5px;transition:gap .2s}
-.tab-card:hover .tc-go{gap:9px}
-.companion{background:var(--bg2);border:1px solid var(--border2);border-radius:14px;padding:24px 28px;margin-bottom:64px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.cp-item{display:flex;gap:14px;align-items:flex-start}
-.cp-icon{font-family:var(--font-arab);font-size:18px;color:var(--gold);flex-shrink:0;opacity:.6;margin-top:2px}
-.cp-t{font-family:var(--font-head);font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--gold2);margin-bottom:5px}
-.cp-d{font-size:12px;color:var(--text2);line-height:1.75}
+
+/* INTRO QUOTE */
+.quote-box{background:var(--bg2);border:1px solid var(--border2);border-radius:14px;padding:24px 28px;text-align:center;position:relative;overflow:hidden;margin-bottom:0}
+.quote-box::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.quote-box::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.qb-ar{font-family:var(--font-arab);font-size:clamp(16px,3vw,22px);color:var(--gold2);direction:rtl;line-height:2;margin-bottom:8px}
+.qb-tr{font-size:13px;color:var(--text2);font-style:italic;margin-bottom:5px}
+.qb-ref{font-family:var(--font-head);font-size:8.5px;color:var(--gold);letter-spacing:1px;text-transform:uppercase}
+
+/* FOOTER */
 .footer{position:relative;z-index:1;text-align:center;padding:0 20px 40px}
 .footer-rule{width:80px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 20px}
-.footer-ar{font-family:var(--font-arab);font-size:22px;color:var(--gold);opacity:.4;margin-bottom:6px}
+.footer-ar{font-family:var(--font-arab);font-size:20px;color:var(--gold);opacity:.35;margin-bottom:6px}
 .footer-tr{font-size:12px;color:var(--text3);font-style:italic;margin-bottom:4px}
 .footer-ref{font-family:var(--font-head);font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text3);opacity:.5}
+
 @media(max-width:640px){
-  .tc-top{flex-direction:column;gap:8px}.tc-right{text-align:left}
-  .companion{grid-template-columns:1fr}.hero{padding:52px 20px 40px}
-  .tab-row{grid-template-columns:36px 1fr}
-  .tnc{width:28px;height:28px;font-size:9px}
-  .tab-spine::after{left:17px !important}
+  .mc-top{flex-direction:column}
+  .hero{padding:50px 20px 36px}
+  .tabs-grid{grid-template-columns:1fr 1fr;margin-left:48px}
+  .file-spine::after{left:17px !important}
+  .file-num{width:28px;height:28px;font-size:9px}
 }
 </style>
 </head>
 <body>
 
+<!-- HERO -->
 <div class="hero">
   <div class="hero-bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
   <div class="hero-rule"></div>
-  <div class="hero-eyebrow">File 3B · A Personal Study</div>
-  <div class="hero-title">The Inner Quality Ranks</div>
-  <div class="hero-title-ar">دَرَجَاتُ الْأَوْصَافِ الْبَاطِنِيَّة</div>
-  <div class="hero-tagline">Seven qualities the Quran names — not what a person does, but what they have become. Each one a permanent inner orientation of the soul, built through knowledge, practice, and sustained effort over time.</div>
-  <div class="hero-tagline-ar">سات اوصاف جو قرآن نے بیان کیے — کوئی کیا کرتا ہے نہیں، کیا بن گیا ہے۔ ہر ایک روح کا مستقل باطنی رخ — علم، عمل اور مستقل کوشش سے بنا ہوا۔</div>
-  <a href="ranks_inner_qualities_mukhlisoon.html" class="hero-cta">
-    <span>Begin the Journey</span>
-    <span class="hero-cta-ar">شروع کریں</span>
-    <span>→</span>
-  </a>
-</div>
-
-<div class="intro-quote">
-  <div class="iq-box">
-    <div class="iq-ar">إِنَّ أَكْرَمَكُمْ عِندَ اللَّهِ أَتْقَاكُمْ</div>
-    <div class="iq-tr">"Indeed the most honoured of you in the sight of Allah is the most righteous of you."</div>
-    <div class="iq-ref">Surah Al-Hujurat 49:13</div>
-  </div>
+  <div class="hero-eyebrow">A Personal Study in Quranic Anthropology</div>
+  <div class="hero-title">The Quranic Human Ranks</div>
+  <div class="hero-title-ar">دَرَجَاتُ الإِنْسَانِ فِي الْقُرْآن</div>
+  <div class="hero-desc">The Quran names categories of human beings — not roles or rituals, but what a person has become through sustained inner work. This study maps those categories: their roots, their ayat in revelation order, and what each rank means for how you live.</div>
+  <div class="hero-desc-ar">قرآن انسانی اقسام بیان کرتا ہے — کردار یا رسم نہیں، بلکہ وہ جو انسان مستقل باطنی محنت سے بن گیا ہے۔ یہ مطالعہ ان اقسام کا نقشہ بناتا ہے: جڑیں، ترتیب نزولی میں آیات، اور ہر درجے کا زندگی پر عملی مطلب۔</div>
+  <a href="ranks_map.html" class="hero-cta">Begin — File 1 · The Map →</a>
 </div>
 
 <div class="section">
+
+  <!-- QUOTE -->
+  <div class="sec-hdr"><div class="sec-line"></div><div class="sec-text">The Foundation</div><div class="sec-line"></div></div>
+  <div class="quote-box" style="margin-bottom:0">
+    <div class="qb-ar">إِنَّ أَكْرَمَكُمْ عِندَ اللَّهِ أَتْقَاكُمْ</div>
+    <div class="qb-tr">"Indeed the most honoured of you in the sight of Allah is the most righteous of you."</div>
+    <div class="qb-ref">Surah Al-Hujurat 49:13</div>
+  </div>
+
+  <!-- THE JOURNEY -->
+  <div class="sec-hdr"><div class="sec-line"></div><div class="sec-text">The Complete Journey — All Files</div><div class="sec-line"></div></div>
+
+  <!-- FILE 1 -->
+  <div class="file-row">
+    <div class="file-spine"><div class="file-num fn-1">1</div></div>
+    <a href="ranks_map.html" class="main-card">
+      <div class="mc-top">
+        <div class="mc-left">
+          <div class="mc-tag mc-tag-1">File 1 · Start Here</div>
+          <div class="mc-title">The Map</div>
+          <div class="mc-title-ar">الخريطة — نقشہ</div>
+        </div>
+        <span class="mc-badge mb-complete">Complete</span>
+      </div>
+      <div class="mc-desc">The overview — three classification systems the Quran uses for human beings. Eschatological ranks (where you end up), Divine Love ranks (what Allah loves), and Inner Quality ranks (what you have become). Start here to understand how the files connect.</div>
+      <div class="mc-go">Open File 1 ›</div>
+    </a>
+  </div>
+
+  <!-- FILE 2 -->
+  <div class="file-row">
+    <div class="file-spine"><div class="file-num fn-2">2</div></div>
+    <a href="ranks_eschatological.html" class="main-card">
+      <div class="mc-top">
+        <div class="mc-left">
+          <div class="mc-tag mc-tag-2">File 2 · Destination Ranks</div>
+          <div class="mc-title">The Eschatological Ranks</div>
+          <div class="mc-title-ar">الدَّرَجَات الأُخروِيَّة — آخرت کے درجات</div>
+        </div>
+        <span class="mc-badge mb-complete">Complete</span>
+      </div>
+      <div class="mc-desc">The six ranks named at the Final Judgement: Sabiqoon (the forerunners), Siddiqoon (the truthful), Shuhada (the witnesses), Salihoon (the righteous), Muqtasid (the moderate), and Zalim (the self-wronging). Root analysis, ayat in revelation order, scholar commentary.</div>
+      <div class="mc-go">Open File 2 ›</div>
+    </a>
+  </div>
+
+  <!-- FILE 3A -->
+  <div class="file-row">
+    <div class="file-spine"><div class="file-num fn-3a">3A</div></div>
+    <a href="ranks_divine_love.html" class="main-card">
+      <div class="mc-top">
+        <div class="mc-left">
+          <div class="mc-tag mc-tag-3a">File 3A · Divine Love</div>
+          <div class="mc-title">The Divine Love Ranks</div>
+          <div class="mc-title-ar">دَرَجَات المَحَبَّة الإِلَهِيَّة — الٰہی محبت کے درجات</div>
+        </div>
+        <span class="mc-badge mb-complete">Complete</span>
+      </div>
+      <div class="mc-desc">The five qualities Allah explicitly says He loves — "Inna Allaha yuhibbu." Muhsinoon (beautiful-doers), Muttaqoon (shield-bearers), Mutawakkiloon (complete reliers), Muqsitoon (the just), and Awliya (close friends of Allah). The most intimate statements of divine regard in the entire Book.</div>
+      <div class="mc-go">Open File 3A ›</div>
+    </a>
+  </div>
+
+  <!-- FILE 3B — with tab grid below -->
+  <div class="file-row">
+    <div class="file-spine"><div class="file-num fn-3b">3B</div></div>
+    <a href="ranks_inner_qualities_mukhlisoon.html" class="main-card">
+      <div class="mc-top">
+        <div class="mc-left">
+          <div class="mc-tag mc-tag-3b">File 3B · 7 Tabs · Inner Qualities</div>
+          <div class="mc-title">The Inner Quality Ranks</div>
+          <div class="mc-title-ar">دَرَجَات الأَوصَاف الباطِنِيَّة — باطنی اوصاف کے درجات</div>
+        </div>
+        <span class="mc-badge mb-expanded">7 Tabs</span>
+      </div>
+      <div class="mc-desc">Seven qualities the Quran names — not what a person does but what they have become. Each is a permanent inner orientation of the soul. Click any tab below to enter directly, or open Tab I to begin in order.</div>
+      <div class="mc-go">Begin Tab I ›</div>
+    </a>
+  </div>
+
+  <!-- TAB GRID for 3B -->
+  <div class="tabs-grid">
+    <a href="ranks_inner_qualities_mukhlisoon.html" class="tab-mini">
+      <div class="tm-num">Tab I</div>
+      <div class="tm-ar">الْمُخْلِصُون</div>
+      <div class="tm-en">Mukhlisoon</div>
+      <div class="tm-desc">Active vs Passive · Iblis testimony · Root خ ل ص</div>
+    </a>
+    <a href="riq_awwaaboon.html" class="tab-mini">
+      <div class="tm-num">Tab II</div>
+      <div class="tm-ar">الْأَوَّابُون</div>
+      <div class="tm-en">Awwaaboon</div>
+      <div class="tm-desc">Habitual returners · Three prophets · Root أ و ب</div>
+    </a>
+    <a href="riq_sabiroon.html" class="tab-mini">
+      <div class="tm-num">Tab III</div>
+      <div class="tm-ar">الصَّابِرُون</div>
+      <div class="tm-en">Sabiroon</div>
+      <div class="tm-desc">Three types · All required · Divine Ma'iyya</div>
+    </a>
+    <a href="riq_shakiroon.html" class="tab-mini">
+      <div class="tm-num">Tab IV</div>
+      <div class="tm-ar">الشَّاكِرُون</div>
+      <div class="tm-en">Shakiroon</div>
+      <div class="tm-desc">Few are grateful · Three levels · Root ش ك ر</div>
+    </a>
+    <a href="riq_qaanitoon.html" class="tab-mini">
+      <div class="tm-num">Tab V</div>
+      <div class="tm-ar">الْقَانِتُون</div>
+      <div class="tm-en">Qaanitoon</div>
+      <div class="tm-desc">Sustained devotion · Maryam AS · Root ق ن ت</div>
+    </a>
+    <a href="riq_ululalbab.html" class="tab-mini">
+      <div class="tm-num">Tab VI</div>
+      <div class="tm-ar">أُولُو الْأَلْبَاب</div>
+      <div class="tm-en">Ulu al-Albab</div>
+      <div class="tm-desc">Four inner layers · Dhikr + Tafakkur · 16 occurrences</div>
+    </a>
+    <a href="riq_rasikhoon.html" class="tab-mini">
+      <div class="tm-num">Tab VII</div>
+      <div class="tm-ar">الرَّاسِخُون</div>
+      <div class="tm-en">Rasikhoon fil-Ilm</div>
+      <div class="tm-desc">Knowledge that roots · 2 occurrences · Rarest quality</div>
+    </a>
+  </div>
+
+  <!-- HOW TO USE -->
   <div class="sec-hdr"><div class="sec-line"></div><div class="sec-text">How to Use This Study</div><div class="sec-line"></div></div>
   <div class="how-grid">
-    <div class="how-card"><div class="how-num">١</div><div><div class="how-t">Follow the Journey</div><div class="how-d">Start at Tab I and move in order. Each quality builds understanding for the next. The sticky tab bar at the top of every page lets you jump freely.</div></div></div>
-    <div class="how-card"><div class="how-num">٢</div><div><div class="how-t">Open the Ayah Cards</div><div class="how-d">Each ayah is collapsible. Tap to open — Arabic, translation, root analysis, context, and what it uniquely establishes.</div></div></div>
-    <div class="how-card"><div class="how-num">٣</div><div><div class="how-t">Read the Scholars</div><div class="how-d">Ibn al-Qayyim and Al-Ghazali on each quality — collapsible at the bottom of every tab. Classical commentary, authenticated sources only.</div></div></div>
-    <div class="how-card"><div class="how-num">٤</div><div><div class="how-t">Write Your Notes</div><div class="how-d">Every ayah has a personal reflection prompt. Notes auto-save in your browser and persist between sessions.</div></div></div>
-    <div class="how-card"><div class="how-num">٥</div><div><div class="how-t">Switch Language</div><div class="how-d">The EN / اردو toggle in the top right of every page switches the entire page including all content and translations.</div></div></div>
-    <div class="how-card"><div class="how-num">٦</div><div><div class="how-t">Return Here</div><div class="how-d">This page is your home base. Every tab has a ← Home link to return. Bookmark this page to save your starting point.</div></div></div>
-  </div>
-
-  <div class="sec-hdr"><div class="sec-line"></div><div class="sec-text">The Seven Qualities — In Order</div><div class="sec-line"></div></div>
-  <div class="journey-intro">Each quality is a station the soul can build — not a gift reserved for the few, but the natural result of sustained orientation toward Allah. The Quran names each one as a present-tense description of people who exist in every generation.</div>
-  <div class="journey-intro-ar">ہر صفت ایک مقام ہے جو روح بنا سکتی ہے — چند کے لیے مخصوص تحفہ نہیں، بلکہ اللہ کی طرف مستقل رخ کا فطری نتیجہ۔ قرآن ہر ایک کو حال کی تفصیل کے طور پر بیان کرتا ہے۔</div>
-
-  <!-- I -->
-  <div class="tab-row">
-    <div class="tab-spine"><div class="tnc tnc-1">I</div></div>
-    <a href="ranks_inner_qualities_mukhlisoon.html" class="tab-card">
-      <div class="tc-top">
-        <div class="tc-left"><div class="tc-ar">الْمُخْلِصُون</div><div class="tc-en">Al-Mukhlisoon</div><div class="tc-ur">مخلصون — خالص کرنے والے</div></div>
-        <div class="tc-right"><div class="tc-root">Root · خ ل ص · To purify</div><span class="tc-badge tb-1">Active Sincerity</span></div>
-      </div>
-      <div class="tc-desc">The grammar is the insight. Mukhlisoon (active — those who are purifying their intention) vs Mukhlasoon (passive — those purified by Allah). One is the sustained effort, the other is the divine response to that effort. Iblis himself testifies he has no power over the Mukhlasoon — which tells us precisely what this quality protects against.</div>
-      <div class="tc-key">
-        <div class="tc-key-ar">إِلَّا عِبَادَكَ مِنْهُمُ الْمُخْلَصِينَ</div>
-        <div class="tc-key-tr">"Except Your servants among them who are purified." — Iblis testifies to this rank</div>
-        <div class="tc-key-ref">Surah Sad 38:83</div>
-      </div>
-      <div class="tc-footer"><div class="tc-scholars">Ibn al-Qayyim · Al-Muhasibi · Al-Ghazali</div><div class="tc-go">Open Tab I ›</div></div>
-    </a>
-  </div>
-
-  <!-- II -->
-  <div class="tab-row">
-    <div class="tab-spine"><div class="tnc tnc-2">II</div></div>
-    <a href="riq_awwaaboon.html" class="tab-card">
-      <div class="tc-top">
-        <div class="tc-left"><div class="tc-ar">الْأَوَّابُون</div><div class="tc-en">Al-Awwaaboon</div><div class="tc-ur">اوابون — مسلسل لوٹنے والے</div></div>
-        <div class="tc-right"><div class="tc-root">Root · أ و ب · Habitual return</div><span class="tc-badge tb-2">Constant Return</span></div>
-      </div>
-      <div class="tc-desc">Not the single act of Tawbah — that is the minimum required of every believer. The Awwab is the person for whom returning to Allah after every drift has become constitutive of their character. Three prophets in one surah — Dawud with power, Sulayman with abundance, Ayyub with suffering — all praised with this one quality. Awwab transcends circumstance.</div>
-      <div class="tc-key">
-        <div class="tc-key-ar">هَٰذَا مَا تُوعَدُونَ لِكُلِّ أَوَّابٍ حَفِيظٍ</div>
-        <div class="tc-key-tr">"This is what you were promised — for every Awwab, Hafeez." — At the gates of Paradise</div>
-        <div class="tc-key-ref">Surah Qaf 50:32</div>
-      </div>
-      <div class="tc-footer"><div class="tc-scholars">Ibn al-Qayyim · Al-Ghazali</div><div class="tc-go">Open Tab II ›</div></div>
-    </a>
-  </div>
-
-  <!-- III -->
-  <div class="tab-row">
-    <div class="tab-spine"><div class="tnc tnc-3">III</div></div>
-    <a href="riq_sabiroon.html" class="tab-card">
-      <div class="tc-top">
-        <div class="tc-left"><div class="tc-ar">الصَّابِرُون</div><div class="tc-en">Al-Sabiroon</div><div class="tc-ur">صابرون — صبر کرنے والے</div></div>
-        <div class="tc-right"><div class="tc-root">Root · ص ب ر · To restrain</div><span class="tc-badge tb-3">Three Types · All Required</span></div>
-      </div>
-      <div class="tc-desc">The Quran distinguishes three types — Sabr in obedience (sustaining worship), Sabr from sin (restraining the nafs), and Sabr under trial (holding through loss). All three required simultaneously. The only quality with a limitless reward: bi-ghayri hisab — without account. And the only quality that earns divine Ma'iyya: Allah is WITH the Sabiroon.</div>
-      <div class="tc-key">
-        <div class="tc-key-ar">إِنَّ اللَّهَ مَعَ الصَّابِرِينَ</div>
-        <div class="tc-key-tr">"Indeed Allah is WITH the Sabiroon." — The highest divine accompaniment named</div>
-        <div class="tc-key-ref">Surah Al-Baqarah 2:153</div>
-      </div>
-      <div class="tc-footer"><div class="tc-scholars">Ibn al-Qayyim · Al-Ghazali</div><div class="tc-go">Open Tab III ›</div></div>
-    </a>
-  </div>
-
-  <!-- IV -->
-  <div class="tab-row">
-    <div class="tab-spine"><div class="tnc tnc-4">IV</div></div>
-    <a href="riq_shakiroon.html" class="tab-card">
-      <div class="tc-top">
-        <div class="tc-left"><div class="tc-ar">الشَّاكِرُون</div><div class="tc-en">Al-Shakiroon</div><div class="tc-ur">شاکرون — شکر کرنے والے</div></div>
-        <div class="tc-right"><div class="tc-root">Root · ش ك ر · To recognise</div><span class="tc-badge tb-4">Rare · Three Levels</span></div>
-      </div>
-      <div class="tc-desc">Allah says: "Few of My servants are truly grateful" — making this one of the rarest qualities in the Quran. Three levels: Shukr of the tongue (Hamd), heart (recognising the gift is from Allah), and limbs (using the gift in obedience). Shukr is the mirror of Sabr — together they cover the full spectrum of human experience.</div>
-      <div class="tc-key">
-        <div class="tc-key-ar">وَقَلِيلٌ مِّنْ عِبَادِيَ الشَّكُورُ</div>
-        <div class="tc-key-tr">"And few of My servants are truly grateful." — Said in the context of Sulayman AS</div>
-        <div class="tc-key-ref">Surah Saba 34:13</div>
-      </div>
-      <div class="tc-footer"><div class="tc-scholars">Ibn al-Qayyim · Al-Ghazali</div><div class="tc-go">Open Tab IV ›</div></div>
-    </a>
-  </div>
-
-  <!-- V -->
-  <div class="tab-row">
-    <div class="tab-spine"><div class="tnc tnc-5">V</div></div>
-    <a href="riq_qaanitoon.html" class="tab-card">
-      <div class="tc-top">
-        <div class="tc-left"><div class="tc-ar">الْقَانِتُون</div><div class="tc-en">Al-Qaanitoon</div><div class="tc-ur">قانتون — مستقل عبودیت والے</div></div>
-        <div class="tc-right"><div class="tc-root">Root · ق ن ت · Sustained devotion</div><span class="tc-badge tb-5">Inner Posture · Not an Act</span></div>
-      </div>
-      <div class="tc-desc">Qunoot is not a specific act of worship — it is a permanent inner posture of sustained devotion. Not an occasional performance but a continuous orientation of the soul. Maryam AS is named Qanitah — the Quran's clearest model: complete inner submission expressed in every state, independent of outward circumstance.</div>
-      <div class="tc-key">
-        <div class="tc-key-ar">وَكَانَتْ مِنَ الْقَانِتِينَ</div>
-        <div class="tc-key-tr">"And she was of the Qaaniteen." — Said of Maryam AS</div>
-        <div class="tc-key-ref">Surah Al-Tahrim 66:12</div>
-      </div>
-      <div class="tc-footer"><div class="tc-scholars">Ibn al-Qayyim · Al-Ghazali</div><div class="tc-go">Open Tab V ›</div></div>
-    </a>
-  </div>
-
-  <!-- VI -->
-  <div class="tab-row">
-    <div class="tab-spine"><div class="tnc tnc-6">VI</div></div>
-    <a href="riq_ululalbab.html" class="tab-card">
-      <div class="tc-top">
-        <div class="tc-left"><div class="tc-ar">أُولُو الْأَلْبَاب</div><div class="tc-en">Ulu al-Albab</div><div class="tc-ur">اولو الالباب — باطنی مرکز والے</div></div>
-        <div class="tc-right"><div class="tc-root">Root · ل ب ب · Innermost kernel</div><span class="tc-badge tb-6">16 Occurrences · Never Negative</span></div>
-      </div>
-      <div class="tc-desc">Lubb is the innermost layer — deeper than Sadr, Qalb, and Fu'ad. The Quran was revealed specifically for Ulu al-Albab to do Tadabbur. They are defined by simultaneous Dhikr and Tafakkur — remembering Allah in all positions while reflecting on creation. The Lubb cannot be acquired; it can only be uncovered by clearing what covers it.</div>
-      <div class="tc-key">
-        <div class="tc-key-ar">الَّذِينَ يَذْكُرُونَ اللَّهَ قِيَامًا وَقُعُودًا وَعَلَىٰ جُنُوبِهِمْ وَيَتَفَكَّرُونَ</div>
-        <div class="tc-key-tr">"Those who remember Allah standing, sitting, on their sides — and reflect upon creation."</div>
-        <div class="tc-key-ref">Surah Al-Imran 3:191</div>
-      </div>
-      <div class="tc-footer"><div class="tc-scholars">Ibn al-Qayyim · Al-Ghazali</div><div class="tc-go">Open Tab VI ›</div></div>
-    </a>
-  </div>
-
-  <!-- VII -->
-  <div class="tab-row">
-    <div class="tab-spine"><div class="tnc tnc-7">VII</div></div>
-    <a href="riq_rasikhoon.html" class="tab-card">
-      <div class="tc-top">
-        <div class="tc-left"><div class="tc-ar">الرَّاسِخُونَ فِي الْعِلْم</div><div class="tc-en">Al-Rasikhoon fil-Ilm</div><div class="tc-ur">راسخون — علم میں گہری جڑیں</div></div>
-        <div class="tc-right"><div class="tc-root">Root · ر س خ · To sink deep</div><span class="tc-badge tb-7">Rarest · 2 Occurrences Only</span></div>
-      </div>
-      <div class="tc-desc">Appears only twice in the entire Quran — one of the rarest qualities named. The distinction is not knowledgeable vs ignorant, but knowledge that moves (surface, informational) vs knowledge that roots (penetrating all layers until it becomes the ground you stand on). When the Mutashabihat arrive, the Rasikhoon say: We believe — all is from our Lord.</div>
-      <div class="tc-key">
-        <div class="tc-key-ar">وَالرَّاسِخُونَ فِي الْعِلْمِ يَقُولُونَ آمَنَّا بِهِ كُلٌّ مِّنْ عِندِ رَبِّنَا</div>
-        <div class="tc-key-tr">"And those firmly rooted in knowledge say: We believe — all is from our Lord."</div>
-        <div class="tc-key-ref">Surah Al-Imran 3:7</div>
-      </div>
-      <div class="tc-footer"><div class="tc-scholars">Ibn al-Qayyim · Al-Ghazali</div><div class="tc-go">Open Tab VII ›</div></div>
-    </a>
-  </div>
-
-  <!-- COMPANION -->
-  <div class="sec-hdr" style="margin-top:52px"><div class="sec-line"></div><div class="sec-text">Your Study Companion</div><div class="sec-line"></div></div>
-  <div class="companion">
-    <div class="cp-item"><div class="cp-icon">✦</div><div><div class="cp-t">Notes Auto-Save</div><div class="cp-d">Every reflection prompt saves automatically to your browser. Notes persist between sessions — stored locally, visible only to you.</div></div></div>
-    <div class="cp-item"><div class="cp-icon">EN/اردو</div><div><div class="cp-t">Full Bilingual</div><div class="cp-d">Every tab has an EN / اردو toggle. Switches the entire page — all content, translations, and scholar notes.</div></div></div>
-    <div class="cp-item"><div class="cp-icon">◈</div><div><div class="cp-t">Authenticated Only</div><div class="cp-d">Every hadith includes narrator, collection, number, grading, and grading scholar. No weak narrations anywhere.</div></div></div>
-    <div class="cp-item"><div class="cp-icon">⌂</div><div><div class="cp-t">Always Return Here</div><div class="cp-d">Every tab has a Home link to come back. Bookmark this page — it is your entry point to the full study.</div></div></div>
+    <div class="how-card"><div class="how-num">١</div><div><div class="how-t">Follow the Order</div><div class="how-d">Start at File 1 (Map) and follow in sequence. Each file builds on what came before. Or jump directly to any tab using the grid above.</div></div></div>
+    <div class="how-card"><div class="how-num">٢</div><div><div class="how-t">Open the Ayah Cards</div><div class="how-d">Every ayah is collapsible. Tap to open — Arabic, translation in EN and Urdu, root analysis, context, and what it uniquely establishes.</div></div></div>
+    <div class="how-card"><div class="how-num">٣</div><div><div class="how-t">Read the Scholars</div><div class="how-d">Ibn al-Qayyim and Al-Ghazali on each quality — collapsible cards at the bottom of every tab. Classical commentary, authenticated sources only.</div></div></div>
+    <div class="how-card"><div class="how-num">٤</div><div><div class="how-t">Write Your Notes</div><div class="how-d">Every ayah has a personal reflection prompt. Notes auto-save in your browser and persist between sessions — yours alone.</div></div></div>
+    <div class="how-card"><div class="how-num">٥</div><div><div class="how-t">Switch Language</div><div class="how-d">EN / اردو toggle in the top right of every page. Switches all content instantly — translations, scholar notes, everything.</div></div></div>
+    <div class="how-card"><div class="how-num">٦</div><div><div class="how-t">Return Here</div><div class="how-d">Every page has a ← Home link to return to this index. Bookmark this page as your entry point to the full study.</div></div></div>
   </div>
 
 </div>
 
-<div class="footer">
+<!-- FOOTER -->
+<div class="footer" style="margin-top:60px">
   <div class="footer-rule"></div>
   <div class="footer-ar">وَفَوْقَ كُلِّ ذِي عِلْمٍ عَلِيمٌ</div>
   <div class="footer-tr">"And above every possessor of knowledge is one more knowing."</div>

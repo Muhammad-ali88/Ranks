@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Quranic Human Ranks — Eschatological Ranks</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg0:#04070D;--bg1:#080E1C;--bg2:#0C1528;--bg3:#111E35;--bg4:#162440;
+  --gold:#C9A84C;--gold2:#E2C97A;--gold3:#F5E9C0;
+  --golddim:rgba(201,168,76,.08);--goldbdr:rgba(201,168,76,.18);--goldglow:rgba(201,168,76,.22);
+  --teal:#2FB89A;--tealdim:rgba(47,184,154,.08);--tealbdr:rgba(47,184,154,.22);
+  --blue:#7AABF0;--bluedim:rgba(122,171,240,.08);--bluebdr:rgba(122,171,240,.22);
+  --amber:#E0A030;--amberdim:rgba(224,160,48,.08);--amberbdr:rgba(224,160,48,.22);
+  --purple:#A87FD0;--purpledim:rgba(168,127,208,.08);--purplebdr:rgba(168,127,208,.22);
+  --rose:#E07080;--rosedim:rgba(224,112,128,.08);--rosebdr:rgba(224,112,128,.22);
+  --text:#D4CBB8;--text2:#8A9BB0;--text3:#4A5B70;
+  --border:rgba(201,168,76,.10);--border2:rgba(201,168,76,.05);
+  --font-head:'Cinzel',serif;--font-body:'Lora',serif;--font-arab:'Noto Naskh Arabic',serif;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg0);color:var(--text);font-family:var(--font-body);min-height:100vh;overflow-x:hidden;padding-bottom:80px}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:var(--bg1)}::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(ellipse 800px 500px at 20% 10%,rgba(201,168,76,.025),transparent 60%),
+             radial-gradient(ellipse 600px 400px at 80% 80%,rgba(47,184,154,.02),transparent 60%);}
+
+.hdr{position:sticky;top:0;z-index:90;background:rgba(4,7,13,.97);border-bottom:1px solid var(--border2);backdrop-filter:blur(20px);padding:0 22px;height:56px;display:flex;align-items:center;gap:14px}
+.hdr-ar{font-family:var(--font-arab);font-size:22px;color:var(--gold);text-shadow:0 0 20px rgba(201,168,76,.3)}
+.hdr-titles{flex:1}
+.hdr-title{font-family:var(--font-head);font-size:10px;letter-spacing:2px;color:var(--gold2);text-transform:uppercase}
+.hdr-sub{font-family:var(--font-head);font-size:8px;letter-spacing:1px;color:var(--text3);text-transform:uppercase;margin-top:2px}
+.lang-toggle{display:flex;gap:2px;background:rgba(255,255,255,.04);border:1px solid var(--goldbdr);border-radius:20px;padding:3px}
+.lt{font-family:var(--font-head);font-size:9px;letter-spacing:.8px;padding:3px 10px;border-radius:16px;cursor:pointer;transition:all .2s;color:var(--text3);user-select:none}
+.lt.on{background:var(--gold);color:#000;font-weight:700}
+.back-link{font-family:var(--font-head);font-size:8.5px;letter-spacing:.8px;color:var(--text3);text-decoration:none;padding:5px 10px;border:1px solid var(--border2);border-radius:6px;transition:all .15s;text-transform:uppercase;flex-shrink:0}
+.back-link:hover{color:var(--gold2);border-color:var(--goldbdr)}
+
+.file-nav{background:rgba(8,14,28,.8);border-bottom:1px solid var(--border2);padding:10px 22px;display:flex;gap:8px;flex-wrap:wrap;position:sticky;top:56px;z-index:80;backdrop-filter:blur(16px)}
+.fn-btn{font-family:var(--font-head);font-size:8px;letter-spacing:1px;text-transform:uppercase;padding:6px 14px;border-radius:7px;border:1px solid var(--border2);color:var(--text3);cursor:pointer;transition:all .2s;text-decoration:none;display:inline-block}
+.fn-btn:hover{color:var(--gold2);border-color:var(--goldbdr)}
+.fn-btn.current{background:var(--golddim);border-color:var(--goldbdr);color:var(--gold2)}
+.fn-sep{color:var(--text3);font-size:10px;align-self:center;opacity:.4}
+
+.page{position:relative;z-index:1;max-width:860px;margin:0 auto;padding:32px 20px 60px}
+
+/* RANK CONCEPT TABS */
+.rank-nav{display:flex;gap:6px;margin-bottom:28px;flex-wrap:wrap}
+.rn-btn{font-family:var(--font-head);font-size:8.5px;letter-spacing:.8px;text-transform:uppercase;padding:9px 16px;border-radius:8px;border:1px solid var(--border);color:var(--text2);cursor:pointer;transition:all .2s;background:rgba(255,255,255,.02)}
+.rn-btn:hover{border-color:var(--goldbdr);color:var(--gold2)}
+.rn-btn.on{background:var(--golddim);border-color:var(--goldbdr);color:var(--gold2)}
+.rn-btn .ar{font-family:var(--font-arab);font-size:15px;letter-spacing:0;display:block;margin-top:3px}
+.rn-btn .rank-num{display:inline-block;font-size:7px;padding:1px 5px;border-radius:4px;margin-left:4px;background:var(--tealdim);border:1px solid var(--tealbdr);color:var(--teal);vertical-align:middle}
+
+.rank-section{display:none}
+.rank-section.active{display:block}
+
+/* RANK HEADER */
+.rank-hdr{text-align:center;padding:24px 20px 32px;border-bottom:1px solid var(--border2);margin-bottom:28px;position:relative;overflow:hidden}
+.rank-hdr::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;pointer-events:none;opacity:.03}
+.rank-hdr-num{font-family:var(--font-head);font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--text3);margin-bottom:10px}
+.rank-hdr-ar{font-family:var(--font-arab);font-size:clamp(40px,7vw,62px);color:var(--gold);text-shadow:0 0 40px rgba(201,168,76,.2);line-height:1.2;margin-bottom:8px}
+.rank-hdr-en{font-family:var(--font-head);font-size:clamp(13px,2.5vw,18px);font-weight:700;color:#fff;letter-spacing:2px;text-transform:uppercase;margin-bottom:5px}
+.rank-hdr-ur{font-family:var(--font-arab);font-size:clamp(15px,2.5vw,20px);color:var(--gold2);margin-bottom:14px}
+.rank-hdr-rule{width:100px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 16px}
+.rank-hdr-root{font-family:var(--font-head);font-size:9px;letter-spacing:1.5px;color:var(--text3);text-transform:uppercase;margin-bottom:14px}
+.rank-hdr-intro{font-size:13px;color:var(--text2);line-height:1.9;max-width:640px;margin:0 auto;font-style:italic}
+.rank-hdr-intro-ur{font-family:var(--font-arab);font-size:14px;color:var(--text2);direction:rtl;text-align:center;line-height:2;max-width:640px;margin:4px auto 0}
+
+/* ROOT ANALYSIS */
+.root-analysis{background:var(--bg2);border:1px solid var(--goldbdr);border-radius:12px;padding:20px 22px;margin-bottom:24px;position:relative;overflow:hidden}
+.root-analysis::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.ra-label{font-family:var(--font-head);font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.ra-label::after{content:'';flex:1;height:1px;background:var(--border2)}
+.ra-root{font-family:var(--font-arab);font-size:28px;color:var(--gold2);direction:rtl;margin-bottom:12px}
+.ra-letters{display:flex;gap:10px;flex-direction:row-reverse;margin-bottom:14px}
+.ra-letter{background:rgba(201,168,76,.06);border:1px solid var(--goldbdr);border-radius:8px;padding:8px 14px;text-align:center}
+.ra-letter-ar{font-family:var(--font-arab);font-size:22px;color:var(--gold2);display:block}
+.ra-letter-en{font-family:var(--font-head);font-size:8px;color:var(--text3);letter-spacing:.5px;margin-top:4px;display:block}
+.ra-meaning{font-size:13px;color:var(--text2);line-height:1.8;margin-bottom:10px}
+.ra-meaning-ur{font-family:var(--font-arab);font-size:14px;color:var(--text2);direction:rtl;text-align:right;line-height:2;margin-bottom:10px}
+.ra-forms{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.ra-form{background:var(--bg3);border:1px solid var(--border2);border-radius:6px;padding:6px 12px;text-align:center}
+.ra-form-ar{font-family:var(--font-arab);font-size:16px;color:var(--gold2);direction:rtl}
+.ra-form-en{font-family:var(--font-head);font-size:8px;color:var(--text3);letter-spacing:.5px;margin-top:2px}
+.ra-count{font-family:var(--font-head);font-size:9px;color:var(--teal);letter-spacing:.5px}
+
+/* ERA DIVIDER */
+.era-divider{display:flex;align-items:center;gap:12px;margin:28px 0 16px}
+.era-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.era-early{background:var(--amber)}
+.era-middle{background:var(--gold)}
+.era-late{background:var(--teal)}
+.era-madani{background:var(--blue)}
+.era-purple{background:var(--purple)}
+.era-label{font-family:var(--font-head);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text2)}
+.era-label-ur{font-family:var(--font-arab);font-size:13px;color:var(--text2)}
+.era-line{flex:1;height:1px;background:var(--border2)}
+
+/* AYAH CARD */
+.ayah-card{background:var(--bg2);border:1px solid var(--border2);border-radius:12px;margin-bottom:10px;overflow:hidden;transition:border-color .2s}
+.ayah-card.open{border-color:var(--goldbdr)}
+.ayah-card-hdr{display:flex;align-items:center;gap:10px;padding:13px 18px;cursor:pointer;user-select:none}
+.rev-badge{font-family:var(--font-head);font-size:7.5px;letter-spacing:.8px;padding:3px 8px;border-radius:5px;flex-shrink:0;text-transform:uppercase}
+.rev-early{background:var(--amberdim);border:1px solid var(--amberbdr);color:var(--amber)}
+.rev-middle{background:var(--golddim);border:1px solid var(--goldbdr);color:var(--gold2)}
+.rev-late{background:var(--tealdim);border:1px solid var(--tealbdr);color:var(--teal)}
+.rev-madani{background:var(--bluedim);border:1px solid var(--bluebdr);color:var(--blue)}
+.card-ref{font-family:var(--font-head);font-size:10px;color:var(--gold);font-weight:600;flex-shrink:0}
+.card-preview{font-family:var(--font-arab);font-size:16px;color:var(--gold2);direction:rtl;flex:1;text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:.75}
+.card-chevron{color:var(--text3);font-size:16px;transition:transform .25s;flex-shrink:0}
+.ayah-card.open .card-chevron{transform:rotate(90deg);color:var(--gold)}
+.card-body{display:none;padding:0 18px 20px;border-top:1px solid var(--border2)}
+.ayah-card.open .card-body{display:block}
+.ayah-arabic{font-family:var(--font-arab);font-size:clamp(18px,3.5vw,26px);color:var(--gold2);direction:rtl;text-align:right;line-height:2.2;padding:18px 0 12px;text-shadow:0 0 20px rgba(201,168,76,.1);border-bottom:1px solid var(--border2);margin-bottom:12px}
+.ayah-tr-en{font-size:13px;color:var(--text);font-style:italic;line-height:1.85;margin-bottom:6px;border-left:3px solid var(--goldbdr);padding:8px 14px;border-radius:0 6px 6px 0;background:rgba(201,168,76,.03)}
+.ayah-tr-ur{font-family:var(--font-arab);font-size:14px;color:var(--text);direction:rtl;text-align:right;line-height:2;border-right:3px solid var(--goldbdr);padding:8px 14px 8px 8px;border-radius:6px 0 0 6px;background:rgba(201,168,76,.03);margin-bottom:6px}
+.ayah-ref-line{font-family:var(--font-head);font-size:9px;color:var(--gold);letter-spacing:.8px;margin-bottom:14px}
+.ctx-box{background:rgba(0,0,0,.2);border-left:3px solid var(--amber);border-radius:0 8px 8px 0;padding:11px 14px;margin-bottom:12px}
+.ctx-lbl{font-family:var(--font-head);font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:var(--amber);margin-bottom:5px}
+.ctx-txt{font-size:12px;color:var(--text2);line-height:1.75}
+.ctx-txt-ur{font-family:var(--font-arab);font-size:13px;color:var(--text2);direction:rtl;text-align:right;line-height:2}
+.root-box{background:rgba(201,168,76,.04);border:1px solid var(--goldbdr);border-radius:8px;padding:11px 14px;margin-bottom:12px}
+.root-lbl{font-family:var(--font-head);font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:var(--gold);margin-bottom:7px}
+.root-wd{font-family:var(--font-arab);font-size:19px;color:var(--gold2);direction:rtl;display:inline-block;margin-left:8px}
+.root-fm{font-size:11px;color:var(--text3);letter-spacing:.3px}
+.root-mn{font-size:12px;color:var(--text2);line-height:1.7;margin-top:6px}
+.root-mn-ur{font-family:var(--font-arab);font-size:13px;color:var(--text2);direction:rtl;text-align:right;line-height:2;margin-top:5px}
+.uniq-box{background:var(--tealdim);border:1px solid var(--tealbdr);border-radius:8px;padding:11px 14px;margin-bottom:12px}
+.uniq-lbl{font-family:var(--font-head);font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:var(--teal);margin-bottom:5px}
+.uniq-txt{font-size:12.5px;color:var(--text);line-height:1.75}
+.uniq-txt-ur{font-family:var(--font-arab);font-size:13px;color:var(--text);direction:rtl;text-align:right;line-height:2}
+.sunnah-box{background:var(--purpledim);border:1px solid var(--purplebdr);border-radius:8px;padding:11px 14px;margin-bottom:12px}
+.sun-lbl{font-family:var(--font-head);font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:var(--purple);margin-bottom:8px}
+.sun-ar{font-family:var(--font-arab);font-size:16px;color:var(--gold2);direction:rtl;text-align:right;line-height:2;margin-bottom:5px}
+.sun-en{font-size:12px;color:var(--text2);font-style:italic;line-height:1.7;margin-bottom:5px}
+.sun-ur{font-family:var(--font-arab);font-size:13px;color:var(--text2);direction:rtl;text-align:right;line-height:2;margin-bottom:5px}
+.sun-src{font-family:var(--font-head);font-size:8.5px;color:var(--purple);letter-spacing:.5px}
+.grade{display:inline-block;font-family:var(--font-head);font-size:7.5px;padding:2px 7px;border-radius:4px;margin-left:6px}
+.g-sahih{background:var(--tealdim);border:1px solid var(--tealbdr);color:var(--teal)}
+.g-hasan{background:var(--golddim);border:1px solid var(--goldbdr);color:var(--gold2)}
+
+/* INSIGHT */
+.insight{background:linear-gradient(135deg,rgba(201,168,76,.06),rgba(201,168,76,.03));border:1px solid var(--goldbdr);border-radius:10px;padding:14px 18px;margin-bottom:14px}
+.insight-lbl{font-family:var(--font-head);font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.insight-lbl::after{content:'';flex:1;height:1px;background:var(--border2)}
+.insight-txt{font-size:12.5px;color:var(--text2);line-height:1.85}
+.insight-txt-ur{font-family:var(--font-arab);font-size:13.5px;color:var(--text2);direction:rtl;text-align:right;line-height:2;margin-top:6px}
+
+/* SCHOLARLY DIVERGENCE */
+.scholar-card{background:var(--bg3);border:1px solid var(--border2);border-radius:10px;padding:15px 17px;margin-bottom:9px;overflow:hidden;transition:border-color .2s}
+.scholar-card.open{border-color:var(--purplebdr)}
+.sc-hdr{display:flex;align-items:center;gap:12px;cursor:pointer;user-select:none}
+.sc-badge{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--font-arab);font-size:13px;color:var(--gold2);background:var(--purpledim);border:1px solid var(--purplebdr);flex-shrink:0}
+.sc-name{font-family:var(--font-head);font-size:9.5px;letter-spacing:.5px;color:var(--text);font-weight:600}
+.sc-text{font-family:var(--font-head);font-size:8px;letter-spacing:.3px;color:var(--purple);margin-top:2px}
+.sc-chev{color:var(--text3);font-size:14px;transition:transform .25s;margin-left:auto;flex-shrink:0}
+.scholar-card.open .sc-chev{transform:rotate(90deg);color:var(--purple)}
+.sc-body{display:none;margin-top:12px;padding-top:10px;border-top:1px solid var(--border2)}
+.scholar-card.open .sc-body{display:block}
+.sc-quote{font-size:12px;color:var(--text);font-style:italic;line-height:1.8;border-left:2px solid var(--purple);padding:8px 12px;background:rgba(168,127,208,.04);border-radius:0 6px 6px 0;margin-bottom:10px}
+.sc-quote-ur{font-family:var(--font-arab);font-size:13px;color:var(--text);direction:rtl;text-align:right;line-height:2;border-right:2px solid var(--purple);padding:8px 12px;background:rgba(168,127,208,.04);border-radius:6px 0 0 6px;margin-bottom:10px}
+.sc-analysis{font-size:12px;color:var(--text2);line-height:1.75}
+.sc-analysis-ur{font-family:var(--font-arab);font-size:13px;color:var(--text2);direction:rtl;text-align:right;line-height:2;margin-top:5px}
+.sc-source{font-family:var(--font-head);font-size:8px;color:var(--purple);letter-spacing:.4px;margin-top:8px}
+.scholars-lbl{font-family:var(--font-head);font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--purple);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.scholars-lbl::after{content:'';flex:1;height:1px;background:rgba(168,127,208,.15)}
+
+/* NOTES */
+.notes-sec{margin-top:14px;border-top:1px solid var(--border2);padding-top:12px}
+.notes-hdr{font-family:var(--font-head);font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:var(--text2);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.notes-hdr::after{content:'';flex:1;height:1px;background:var(--border2)}
+.note-f{margin-bottom:7px}
+.note-lbl{font-family:var(--font-head);font-size:7.5px;letter-spacing:.8px;text-transform:uppercase;color:var(--text3);margin-bottom:4px;display:flex;align-items:center;gap:6px}
+.nd{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.nsv{font-family:var(--font-head);font-size:7px;letter-spacing:.3px;color:var(--text3);margin-left:auto;transition:color .3s}
+.nsv.flash{color:var(--teal)}
+.note-ta{width:100%;min-height:72px;background:rgba(255,255,255,.03);border:1px solid var(--border2);border-radius:7px;outline:none;padding:10px 12px;font-family:var(--font-body);font-size:12.5px;color:var(--text);line-height:1.75;resize:vertical;transition:border-color .2s}
+.note-ta:focus{border-color:var(--goldbdr)}
+.note-ta::placeholder{color:var(--text3);font-style:italic;font-size:11.5px}
+
+/* STANDALONE HADITH */
+.sh-card{background:var(--bg2);border:1px solid var(--border2);border-radius:12px;padding:18px 20px;margin-bottom:10px}
+.sh-lbl{font-family:var(--font-head);font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:var(--purple);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.sh-lbl::after{content:'';flex:1;height:1px;background:var(--border2)}
+.sh-ar{font-family:var(--font-arab);font-size:clamp(14px,3vw,18px);color:var(--gold2);direction:rtl;text-align:right;line-height:2;margin-bottom:9px;padding:10px 14px;background:rgba(201,168,76,.04);border-radius:7px}
+.sh-en{font-size:12.5px;color:var(--text);font-style:italic;line-height:1.8;margin-bottom:6px}
+.sh-ur{font-family:var(--font-arab);font-size:14px;color:var(--text);direction:rtl;text-align:right;line-height:2;margin-bottom:6px}
+.sh-src{font-family:var(--font-head);font-size:8.5px;color:var(--purple);letter-spacing:.5px}
+
+/* SEC LABEL */
+.sec-lbl{font-family:var(--font-head);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:12px;padding:28px 0 16px}
+.sec-lbl::after{content:'';flex:1;height:1px;background:var(--border2)}
+
+/* FILE LINKS */
+.file-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-top:12px}
+.file-link{background:var(--bg2);border:1px solid var(--border2);border-radius:10px;padding:16px 18px;text-decoration:none;transition:all .2s;display:block}
+.file-link:hover{border-color:var(--goldbdr);background:rgba(201,168,76,.04)}
+.file-link.current{border-color:var(--goldbdr);background:var(--golddim);cursor:default}
+.fl-num{font-family:var(--font-head);font-size:8px;letter-spacing:1px;color:var(--text3);text-transform:uppercase;margin-bottom:5px}
+.fl-title{font-family:var(--font-head);font-size:10px;letter-spacing:.5px;color:var(--gold2);margin-bottom:4px}
+.fl-desc{font-size:11px;color:var(--text3);line-height:1.6}
+.fl-badge{display:inline-block;font-family:var(--font-head);font-size:7px;padding:1px 6px;border-radius:4px;margin-top:6px}
+.fl-ready{background:var(--tealdim);border:1px solid var(--tealbdr);color:var(--teal)}
+.fl-coming{background:var(--amberdim);border:1px solid var(--amberbdr);color:var(--amber)}
+
+/* EN/UR MODE */
+.en-blk{display:block}.ur-blk{display:none}
+body.ur-mode .en-blk{display:none}
+body.ur-mode .ur-blk{display:block}
+.en-inl{display:inline}.ur-inl{display:none}
+body.ur-mode .en-inl{display:none}
+body.ur-mode .ur-inl{display:inline}
+
+#toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(40px);background:rgba(12,21,40,.98);border:1px solid var(--goldbdr);border-radius:8px;padding:9px 20px;font-family:var(--font-head);font-size:9px;letter-spacing:1px;color:var(--gold2);z-index:300;opacity:0;transition:all .25s;pointer-events:none;white-space:nowrap}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+@media(max-width:600px){.page{padding:20px 14px 60px}.file-nav{padding:8px 14px}.ra-letters{gap:6px}.ra-letter{padding:6px 10px}}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <div class="hdr-ar">الدَّرَجَات</div>
+  <div class="hdr-titles">
+    <div class="hdr-title en-blk">Eschatological Ranks — Deep Study</div>
+    <div class="hdr-title ur-blk">اخروی درجات — گہرا مطالعہ</div>
+    <div class="hdr-sub en-blk">File 2 of 4 · Six Ranks · Full Ayah Analysis · Sunnah · Scholarly Views</div>
+    <div class="hdr-sub ur-blk">فائل ۲ از ۴ · چھ درجات · مکمل تجزیہ · سنت · علماء کے نظریات</div>
+  </div>
+  <div class="lang-toggle">
+    <div class="lt on" id="lt-en" onclick="setLang('en')">EN</div>
+    <div class="lt" id="lt-ur" onclick="setLang('ur')">اردو</div>
+  </div>
+  <a href="ranks_map.html" class="back-link">← Map</a>
+</div>
+
+<div class="file-nav">
+  <a href="ranks_map.html" class="fn-btn">1 · The Map</a>
+  <span class="fn-sep">›</span>
+  <span class="fn-btn current">2 · Eschatological Ranks</span>
+  <span class="fn-sep">›</span>
+  <a href="ranks_characteristics.html" class="fn-btn">3 · Characteristic Ranks</a>
+  <span class="fn-sep">›</span>
+  <a href="ranks_path.html" class="fn-btn">4 · The Path</a>
+</div>
+
+<div class="page">
+
+<div class="rank-nav">
+  <div class="rn-btn on" onclick="showRank('sabiqoon',this)">
+    <span class="en-inl">As-Sabiqoon <span class="rank-num">I</span></span>
+    <span class="ur-inl">سابقون <span class="rank-num">۱</span></span>
+    <div class="ar">السَّابِقُون</div>
+  </div>
+  <div class="rn-btn" onclick="showRank('siddiqoon',this)">
+    <span class="en-inl">As-Siddiqoon <span class="rank-num">II</span></span>
+    <span class="ur-inl">صدیقون <span class="rank-num">۲</span></span>
+    <div class="ar">الصِّدِّيقُون</div>
+  </div>
+  <div class="rn-btn" onclick="showRank('shuhada',this)">
+    <span class="en-inl">Ash-Shuhada <span class="rank-num">III</span></span>
+    <span class="ur-inl">شہداء <span class="rank-num">۳</span></span>
+    <div class="ar">الشُّهَدَاء</div>
+  </div>
+  <div class="rn-btn" onclick="showRank('salihoon',this)">
+    <span class="en-inl">As-Salihoon <span class="rank-num">IV</span></span>
+    <span class="ur-inl">صالحون <span class="rank-num">۴</span></span>
+    <div class="ar">الصَّالِحُون</div>
+  </div>
+  <div class="rn-btn" onclick="showRank('muqtasid',this)">
+    <span class="en-inl">Al-Muqtasid <span class="rank-num">V</span></span>
+    <span class="ur-inl">مقتصد <span class="rank-num">۵</span></span>
+    <div class="ar">الْمُقْتَصِد</div>
+  </div>
+  <div class="rn-btn" onclick="showRank('zalim',this)">
+    <span class="en-inl">Zalim li-Nafsih <span class="rank-num">VI</span></span>
+    <span class="ur-inl">ظالم لنفسہ <span class="rank-num">۶</span></span>
+    <div class="ar">الظَّالِم لِنَفْسِهِ</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- RANK 1: AS-SABIQOON -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="rank-section active" id="sec-sabiqoon">
+
+<div class="rank-hdr">
+  <div class="rank-hdr-num en-blk">Rank I · The Foremost · Al-Waqiah 56 · Al-Fatir 35:32</div>
+  <div class="rank-hdr-num ur-blk">درجہ اول · الواقعہ ۵۶ · فاطر ۳۵:۳۲</div>
+  <div class="rank-hdr-ar">السَّابِقُون</div>
+  <div class="rank-hdr-en en-blk">As-Sabiqoon — The Foremost</div>
+  <div class="rank-hdr-ur ur-blk">السابقون — آگے بڑھنے والے</div>
+  <div class="rank-hdr-rule"></div>
+  <div class="rank-hdr-root en-blk">Root: س — ب — ق · To precede · To race ahead · To arrive first · The Quran names them twice then calls them: Al-Muqarraboon</div>
+  <div class="rank-hdr-root ur-blk">جڑ: س — ب — ق · پہلے پہنچنا · دوڑ کر آگے جانا</div>
+  <div class="rank-hdr-intro en-blk">The Sabiqoon are the highest human station below Prophethood in the eschatological classification. Named twice without interrogation in Al-Waqiah — the rhetorical device the Quran reserves for the most important. Then immediately named: Al-Muqarraboon — the brought-near. Their station is proximity to Allah. Not paradise — proximity. The Quran says they will be "a few from the later generations" — a challenge written into revelation itself.</div>
+  <div class="rank-hdr-intro-ur ur-blk">سابقون نبوت کے بعد سب سے اعلیٰ اخروی درجہ۔ الواقعہ میں دو بار بلا سوال نامزد — قرآن کا وہ اسلوب جو سب سے اہم کے لیے مخصوص ہے۔ پھر نام: المقربون۔ ان کا مقام اللہ سے قربت — جنت نہیں، قربت۔</div>
+</div>
+
+<div class="root-analysis">
+  <div class="ra-label"><span class="en-blk">Root Word Analysis — س ب ق</span><span class="ur-blk">جڑ کا تجزیہ — س ب ق</span></div>
+  <div class="ra-root">سَبَقَ · يَسْبِقُ · سَابِق · السَّابِقُون · اسْتِبَاق</div>
+  <div class="ra-letters">
+    <div class="ra-letter"><span class="ra-letter-ar">س</span><span class="ra-letter-en">S</span></div>
+    <div class="ra-letter"><span class="ra-letter-ar">ب</span><span class="ra-letter-en">B</span></div>
+    <div class="ra-letter"><span class="ra-letter-ar">ق</span><span class="ra-letter-en">Q</span></div>
+  </div>
+  <div class="ra-meaning en-blk">S-B-Q in classical Arabic carries the image of a race — not a casual walk, but deliberate urgent forward movement toward a destination that matters. Sabaqa (he preceded) — Yasbiqu (he outpaces) — Sabiq (one who races ahead) — Istibaq (mutual racing, competing to arrive first). The root does not merely mean "first" — it implies the act of racing was chosen. A person chooses to be Sabiq. The Quran uses this root in 35:32 with bi-idhniLlah (by Allah's permission) to prevent pride: the racing is real and chosen, but the opening of the heart to race was given. Both are true simultaneously.</div>
+  <div class="ra-meaning-ur ur-blk">س-ب-ق عربی میں دوڑ کی تصویر — آہستہ چلنا نہیں، جان بوجھ کر اہم منزل کی طرف تیز حرکت۔ سبق — یسبق — سابق — استباق (ایک دوسرے سے آگے جانے کی کوشش)۔ جڑ صرف «پہلا» نہیں کہتی — یہ بتاتی ہے کہ دوڑ کا انتخاب کیا گیا۔ انسان سابق بننا چنتا ہے — لیکن دوڑنے کے لیے دل کا کھلنا اللہ کا عطیہ ہے۔</div>
+  <div class="ra-forms">
+    <div class="ra-form"><div class="ra-form-ar">السَّابِقُون</div><div class="ra-form-en en-blk">The Foremost</div><div class="ra-form-en ur-blk">سابقون</div></div>
+    <div class="ra-form"><div class="ra-form-ar">سَابِق بِالْخَيْرَات</div><div class="ra-form-en en-blk">Foremost in good deeds</div><div class="ra-form-en ur-blk">نیکیوں میں آگے</div></div>
+    <div class="ra-form"><div class="ra-form-ar">اسْتَبَقَا</div><div class="ra-form-en en-blk">They raced (Yusuf 12:25)</div><div class="ra-form-en ur-blk">دونوں دوڑے</div></div>
+    <div class="ra-form"><div class="ra-form-ar">سَارِعُوا</div><div class="ra-form-en en-blk">Race/Hasten (3:133)</div><div class="ra-form-en ur-blk">دوڑو</div></div>
+  </div>
+  <div class="ra-count en-blk">✦ S-B-Q appears across multiple Quranic contexts — always in the sense of deliberate urgent movement toward what matters most</div>
+  <div class="ra-count ur-blk">✦ س-ب-ق قرآن میں متعدد جگہ — ہمیشہ اہم منزل کی طرف جان بوجھ کر تیز حرکت کے معنی میں</div>
+</div>
+
+<div class="era-divider">
+  <div class="era-dot era-middle"></div>
+  <div class="era-label en-blk">Middle Makki · Al-Waqiah 56 — The Primary Passage</div>
+  <div class="era-label-ur ur-blk">اوسط مکی · الواقعہ ۵۶ — اصل مقام</div>
+  <div class="era-line"></div>
+</div>
+
+<div class="ayah-card" id="s-waq-10">
+  <div class="ayah-card-hdr" onclick="toggleCard('s-waq-10')">
+    <span class="rev-badge rev-middle en-blk">Rev. #46</span>
+    <span class="rev-badge rev-middle ur-blk">ترتیب #46</span>
+    <span class="card-ref">Al-Waqiah 56:10-12</span>
+    <span class="card-preview">وَالسَّابِقُونَ السَّابِقُونَ ۞ أُولَٰئِكَ الْمُقَرَّبُونَ</span>
+    <span class="card-chevron">›</span>
+  </div>
+  <div class="card-body">
+    <div class="ayah-arabic">وَالسَّابِقُونَ السَّابِقُونَ ۞ أُولَٰئِكَ الْمُقَرَّبُونَ ۞ فِي جَنَّاتِ النَّعِيمِ</div>
+    <div class="ayah-tr-en en-blk">"And the Foremost — the Foremost. Those are the ones brought near — in Gardens of Delight."</div>
+    <div class="ayah-tr-ur ur-blk">«اور سابقون — سابقون۔ یہی مقرب ہیں — نعمتوں کے باغوں میں۔»</div>
+    <div class="ayah-ref-line">Surah Al-Waqiah 56:10-12</div>
+    <div class="ctx-box">
+      <div class="ctx-lbl en-blk">The Double Naming — Why It Matters</div>
+      <div class="ctx-txt en-blk">The Quran uses interrogative magnification for the other two groups: "The People of the Right — what are the People of the Right?" — emphasising their importance through a rhetorical question. But for the Sabiqoon: no question. Just the name twice. Was-Sabiqoona as-Sabiqoon. The repetition in classical Arabic grammar is called tawkid (emphasis, confirmation) — but here it also functions as identity. They are so defined by their racing that the word itself is their description. Then immediately: Ula'ika al-Muqarraboon — those are the brought-near. Not "those will enter paradise" but "those are brought near." Present tense. Ontological. This is their identity, not merely their reward.</div>
+      <div class="ctx-txt-ur ur-blk">دوسرے گروہوں کے لیے استفہام: «اصحاب الیمین — کیا ہیں اصحاب الیمین؟» لیکن سابقون کے لیے: کوئی سوال نہیں۔ صرف نام دو بار۔ پھر: المقربون — مضارع۔ یہ ان کی شناخت ہے، صرف انعام نہیں۔</div>
+    </div>
+    <div class="root-box">
+      <div class="root-lbl en-blk">Key Term</div>
+      <span class="root-wd">الْمُقَرَّبُون</span>
+      <span class="root-fm">· Q-R-B · The brought-near (passive) — Allah brought them</span>
+      <div class="root-mn en-blk">Muqarraboon — passive participle of qarraba (to bring near). Allah brought them near — they did not achieve proximity through their own effort alone. The same root as Qurban (sacrifice — something offered to draw near), Qareeb (close), Qarib (to approach). The passive voice is the theological precision: the Sabiqoon raced (active) and were brought near (passive). Both the human action and the divine response are present in these two words.</div>
+      <div class="root-mn-ur ur-blk">مقربون — قرّب کا مفعول بہ۔ اللہ نے قریب کیا۔ قربان (قریب کرنے کی پیشکش) — قریب — قارب ایک جڑ سے۔ سابقون دوڑے (فاعل) اور قریب کیے گئے (مفعول)۔ دونوں ایک ساتھ۔</div>
+    </div>
+    <div class="uniq-box">
+      <div class="uniq-lbl en-blk">What This Passage Uniquely Establishes</div>
+      <div class="uniq-txt en-blk">The highest human station is not power, knowledge, piety, or worship — it is proximity. Muqarraboon. Being near to Allah. The entire taxonomy of the Quran has one ultimate measure: closeness to the One. Every other rank describes a quality or action. The Sabiqoon are described by where they end up: near. This reframes everything — the purpose of all spiritual development is not achievement but approach.</div>
+      <div class="uniq-txt-ur ur-blk">سب سے اعلیٰ مقام طاقت، علم، تقویٰ یا عبادت نہیں — قربت ہے۔ المقربون۔ قرآن کی پوری درجہ بندی کا ایک پیمانہ: ذاتِ واحد کے قریب ہونا۔</div>
+    </div>
+    <div class="notes-sec">
+      <div class="notes-hdr"><span class="en-blk">Personal Notes</span><span class="ur-blk">ذاتی نوٹس</span></div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--gold)"></div><span class="en-blk">The highest station is proximity — not achievement. What does this change about motivation?</span><span class="ur-blk">اعلیٰ مقام قربت ہے، کارنامہ نہیں — یہ محرک کو کیسے بدلتا ہے؟</span><span class="nsv" id="sv-s1-1"></span></div>
+        <textarea class="note-ta" id="note-s1-1" placeholder="Do you pursue spiritual practice for achievement, for fear, or for proximity? What is actually driving you?" oninput="autoSave('s1-1',this.value)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="ayah-card" id="s-waq-13">
+  <div class="ayah-card-hdr" onclick="toggleCard('s-waq-13')">
+    <span class="rev-badge rev-middle en-blk">Rev. #46</span>
+    <span class="rev-badge rev-middle ur-blk">ترتیب #46</span>
+    <span class="card-ref">Al-Waqiah 56:13-14</span>
+    <span class="card-preview">ثُلَّةٌ مِّنَ الْأَوَّلِينَ ۞ وَقَلِيلٌ مِّنَ الْآخِرِينَ</span>
+    <span class="card-chevron">›</span>
+  </div>
+  <div class="card-body">
+    <div class="ayah-arabic">ثُلَّةٌ مِّنَ الْأَوَّلِينَ ۞ وَقَلِيلٌ مِّنَ الْآخِرِينَ</div>
+    <div class="ayah-tr-en en-blk">"A large group from the earlier generations — and a few from the later ones."</div>
+    <div class="ayah-tr-ur ur-blk">«اگلوں میں سے ایک بڑی جماعت — اور پچھلوں میں سے تھوڑے۔»</div>
+    <div class="ayah-ref-line">Surah Al-Waqiah 56:13-14</div>
+    <div class="ctx-box">
+      <div class="ctx-lbl en-blk">The Diminishing Sabiqoon — A Challenge Not a Destiny</div>
+      <div class="ctx-txt en-blk">The Quran explicitly states the Sabiqoon will be fewer in later generations. Thulla (a large group) from the Awwaleen — Qaleel (a few) from the Akhireen. This is one of the most sobering statements in the entire Quran for any believer living after the first generations. Ibn Kathir records that the Companions were disturbed by this when it was revealed — until the next passage clarified that the People of the Right from later generations would be in equal numbers to earlier ones (56:39-40). The Sabiqoon become rarer. The saved do not. The implication: the middle path remains accessible but the highest becomes increasingly rare — not because it is closed, but because fewer choose to race.</div>
+      <div class="ctx-txt-ur ur-blk">اگلوں میں ثلۃ — پچھلوں میں قلیل۔ ابن کثیر: صحابہ اس آیت سے پریشان ہوئے — یہاں تک کہ اگلی آیات نے واضح کیا اصحاب الیمین بعد والوں میں بھی برابر۔ سابقون نادر ہوتے ہیں — نجات نہیں۔</div>
+    </div>
+    <div class="root-box">
+      <div class="root-lbl en-blk">Key Term</div>
+      <span class="root-wd">قَلِيلٌ</span>
+      <span class="root-fm">· Q-L-L · Few, small in number — deliberate Quranic word choice</span>
+      <div class="root-mn en-blk">Qaleel — few, small. Not none. The Quran does not say the Sabiqoon will not exist in later generations — it says they will be few. This is the challenge embedded in revelation: the path is open, the few who walk it are real and present in every generation, but they are few. Ibn al-Qayyim used this ayah to argue that the path of the Sabiqoon requires a deliberate counter-cultural choice — because culture, comfort, and social expectation all pull toward the Muqtasid middle, not the racing front.</div>
+      <div class="root-mn-ur ur-blk">قلیل — تھوڑے، کم تعداد میں۔ صفر نہیں۔ ہر زمانے میں سابقون موجود ہیں — لیکن کم۔ ابن القیم: سابقون کا راستہ جان بوجھ کر ثقافت کے خلاف انتخاب مانگتا ہے۔</div>
+    </div>
+    <div class="uniq-box">
+      <div class="uniq-lbl en-blk">What This Ayah Uniquely Demands</div>
+      <div class="uniq-txt en-blk">The Quran is telling every reader who lives in "later generations" that the Sabiqoon of their time will be few — and asking implicitly: will you be among them? This is not pessimism — it is the sharpest possible motivation. The rarity makes the choice more significant, not less achievable. It also explains why the path feels counter-cultural: it is supposed to. The Sabiqoon in any era are going against the grain of their time.</div>
+      <div class="uniq-txt-ur ur-blk">قرآن ہر بعد والے قاری سے پوچھ رہا ہے: کیا آپ اس تھوڑے میں ہوں گے؟ نادر پن راستے کو مشکل نہیں بناتا — انتخاب کو زیادہ اہم بناتا ہے۔</div>
+    </div>
+    <div class="notes-sec">
+      <div class="notes-hdr"><span class="en-blk">Personal Notes</span><span class="ur-blk">ذاتی نوٹس</span></div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--teal)"></div><span class="en-blk">The Sabiqoon are few in later generations — does knowing this increase your aspiration or your resignation?</span><span class="ur-blk">سابقون بعد میں تھوڑے — کیا یہ جاننا آپ کی خواہش بڑھاتا ہے یا مایوسی؟</span><span class="nsv" id="sv-s1-2"></span></div>
+        <textarea class="note-ta" id="note-s1-2" placeholder="Honest reaction to this ayah: does the rarity challenge you or make you accept average?" oninput="autoSave('s1-2',this.value)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="era-divider">
+  <div class="era-dot era-middle"></div>
+  <div class="era-label en-blk">Middle Makki · Al-Fatir 35:32 — The Same Rank in This Life</div>
+  <div class="era-label-ur ur-blk">اوسط مکی · فاطر ۳۵:۳۲ — اس زندگی میں یہی درجہ</div>
+  <div class="era-line"></div>
+</div>
+
+<div class="ayah-card" id="s-fatir-32">
+  <div class="ayah-card-hdr" onclick="toggleCard('s-fatir-32')">
+    <span class="rev-badge rev-middle en-blk">Rev. #43</span>
+    <span class="rev-badge rev-middle ur-blk">ترتیب #43</span>
+    <span class="card-ref">Al-Fatir 35:32</span>
+    <span class="card-preview">وَمِنْهُمْ سَابِقٌ بِالْخَيْرَاتِ بِإِذْنِ اللَّهِ</span>
+    <span class="card-chevron">›</span>
+  </div>
+  <div class="card-body">
+    <div class="ayah-arabic">وَمِنْهُمْ سَابِقٌ بِالْخَيْرَاتِ بِإِذْنِ اللَّهِ ۚ ذَٰلِكَ هُوَ الْفَضْلُ الْكَبِيرُ</div>
+    <div class="ayah-tr-en en-blk">"And among them is one who races ahead in good deeds by the permission of Allah — that is the great bounty."</div>
+    <div class="ayah-tr-ur ur-blk">«اور ان میں سے وہ ہے جو اللہ کے اذن سے نیکیوں میں آگے بڑھ گیا — یہی بڑا فضل ہے۔»</div>
+    <div class="ayah-ref-line">Surah Al-Fatir 35:32</div>
+    <div class="ctx-box">
+      <div class="ctx-lbl en-blk">Bi-idhniLlah — The Most Important Qualifier in This Verse</div>
+      <div class="ctx-txt en-blk">The Zalim li-nafsih and the Muqtasid have no qualifier attached — they operate by their own effort and default. The Sabiq bil-khayrat is specifically qualified: bi-idhniLlah — by Allah's permission. This is the Quran's antidote to the spiritual pride that would inevitably follow from being at the highest tier. The racing is real. The effort is real. The choice is real. But the opening of the heart that makes racing possible — that was given. Al-Ghazali uses this verse as the foundation for his entire teaching on tawfiq (divine facilitation): a person strives and Allah opens. The striving without the opening produces strain. The opening without striving produces nothing. Both are required — and the verse keeps the human action and the divine gift in precise balance.</div>
+      <div class="ctx-txt-ur ur-blk">ظالم اور مقتصد کے ساتھ کوئی قید نہیں — لیکن سابق کے ساتھ: باذن اللہ۔ روحانی غرور کا تریاق۔ دوڑ حقیقی، انتخاب حقیقی — لیکن دوڑنے کے لیے دل کا کھلنا عطاء تھا۔ الغزالی: یہ آیت توفیق کی پوری تعلیم کی بنیاد ہے۔</div>
+    </div>
+    <div class="uniq-box">
+      <div class="uniq-lbl en-blk">The Description That Completes Al-Waqiah</div>
+      <div class="uniq-txt en-blk">Al-Waqiah tells us where the Sabiqoon end up (Al-Muqarraboon — proximity). Al-Fatir tells us what they look like in this life (racing in good deeds, sustained, by Allah's grace). Together: the Sabiq in this world is the Muqarrab in the next. The station of the next life is the continuation of the state of this life. This makes the Sabiq's path visible — it is not a mystical unreachable destination. It is the person who, right now, races rather than walks, sustains rather than drifts, and attributes his ability to race to Allah rather than to himself.</div>
+      <div class="uniq-txt-ur ur-blk">الواقعہ بتاتی ہے سابقون کہاں پہنچتے ہیں (مقربون)۔ فاطر بتاتی ہے وہ اس زندگی میں کیسے لگتے ہیں (نیکیوں میں دوڑنا، مستقل، اللہ کے فضل سے)۔ اگلی دنیا کا مقام اس دنیا کی کیفیت کا تسلسل ہے۔</div>
+    </div>
+    <div class="notes-sec">
+      <div class="notes-hdr"><span class="en-blk">Personal Notes</span><span class="ur-blk">ذاتی نوٹس</span></div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--amber)"></div><span class="en-blk">Bi-idhniLlah — when you do something well spiritually, where do you place the credit?</span><span class="ur-blk">باذن اللہ — جب روحانی لحاظ سے کچھ اچھا کریں، سہرا کہاں جاتا ہے؟</span><span class="nsv" id="sv-s1-3"></span></div>
+        <textarea class="note-ta" id="note-s1-3" placeholder="Do you feel pride when you do extra worship? Or do you feel gratitude that Allah opened it for you?" oninput="autoSave('s1-3',this.value)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="era-divider">
+  <div class="era-dot era-madani"></div>
+  <div class="era-label en-blk">Madani — The Racing Commanded Directly</div>
+  <div class="era-label-ur ur-blk">مدنی — دوڑنے کا براہ راست حکم</div>
+  <div class="era-line"></div>
+</div>
+
+<div class="ayah-card" id="s-imran-133">
+  <div class="ayah-card-hdr" onclick="toggleCard('s-imran-133')">
+    <span class="rev-badge rev-madani en-blk">Rev. #89</span>
+    <span class="rev-badge rev-madani ur-blk">ترتیب #89</span>
+    <span class="card-ref">Al-Imran 3:133</span>
+    <span class="card-preview">وَسَارِعُوا إِلَىٰ مَغْفِرَةٍ مِّن رَّبِّكُمْ</span>
+    <span class="card-chevron">›</span>
+  </div>
+  <div class="card-body">
+    <div class="ayah-arabic">وَسَارِعُوا إِلَىٰ مَغْفِرَةٍ مِّن رَّبِّكُمْ وَجَنَّةٍ عَرْضُهَا السَّمَاوَاتُ وَالْأَرْضُ أُعِدَّتْ لِلْمُتَّقِينَ</div>
+    <div class="ayah-tr-en en-blk">"And race toward forgiveness from your Lord and a Garden whose width is the heavens and the earth — prepared for the Muttaqeen."</div>
+    <div class="ayah-tr-ur ur-blk">«اور اپنے رب کی مغفرت اور اس جنت کی طرف دوڑو جس کی چوڑائی آسمانوں اور زمین جتنی ہے — متقین کے لیے تیار ہے۔»</div>
+    <div class="ayah-ref-line">Surah Al-Imran 3:133</div>
+    <div class="ctx-box">
+      <div class="ctx-lbl en-blk">The Command Form — Saari'oo</div>
+      <div class="ctx-txt en-blk">Saari'oo — imperative plural of saaara (to race, to make haste). The same verb used for the running between Safa and Marwa in Hajj. The Quran is not suggesting or recommending — it is commanding. Race. The destination: first, maghfira (forgiveness — the clearing of the past) then jannah. Notice the sequence: forgiveness before paradise. The Sabiq does not race toward reward — he races toward the clearing of what stands between him and Allah. The reward follows, but it is not the goal. This is the inner orientation that distinguishes the Sabiq from the person who performs the same acts for a different reason.</div>
+      <div class="ctx-txt-ur ur-blk">سارعوا — فعل امر۔ صفا مروہ کی سعی والا فعل۔ منزل: پہلے مغفرت، پھر جنت۔ ترتیب اہم: سابق اجر کی طرف نہیں دوڑتا — اللہ اور اس کے درمیان حائل چیز دور کرنے کی طرف دوڑتا ہے۔</div>
+    </div>
+    <div class="sunnah-box">
+      <div class="sun-lbl en-blk">Connected Sunnah — The Best of People</div>
+      <div class="sun-ar">خَيْرُ النَّاسِ مَنْ طَالَ عُمُرُهُ وَحَسُنَ عَمَلُهُ</div>
+      <div class="sun-en en-blk">"The best of people is one whose life is long and whose deeds are good."</div>
+      <div class="sun-ur ur-blk">«سب سے بہتر وہ ہے جس کی عمر لمبی ہو اور عمل اچھا ہو۔»</div>
+      <div class="sun-src">Tirmidhi 2329 — Hasan <span class="grade g-hasan">◈ Hasan</span></div>
+    </div>
+    <div class="notes-sec">
+      <div class="notes-hdr"><span class="en-blk">Personal Notes</span><span class="ur-blk">ذاتی نوٹس</span></div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--gold)"></div><span class="en-blk">You are commanded to race — what in your life right now is slowing you to a walk?</span><span class="ur-blk">آپ کو دوڑنے کا حکم ہے — ابھی کیا چیز آپ کو چلنے پر مجبور کر رہی ہے؟</span><span class="nsv" id="sv-s1-4"></span></div>
+        <textarea class="note-ta" id="note-s1-4" placeholder="Specific honest answer. Not what should slow you — what actually does." oninput="autoSave('s1-4',this.value)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="sec-lbl en-blk">Scholarly Analysis — What the Sabiqoon Actually Look Like</div>
+<div class="sec-lbl ur-blk" style="font-family:var(--font-arab);font-size:14px;color:var(--gold);padding:18px 0 14px">سابقون کی شناخت — علماء کا تجزیہ</div>
+
+<div class="scholars-lbl en-blk">✦ Four Scholars · Their Defining Analytical Insight on As-Sabiqoon</div>
+<div class="scholars-lbl ur-blk">✦ چار علماء · سابقون پر ان کی اہم تجزیاتی بصیرت</div>
+
+<div class="scholar-card" id="sc-sab-ibn-qayyim">
+  <div class="sc-hdr" onclick="toggleScholar('sc-sab-ibn-qayyim')">
+    <div class="sc-badge">ق</div>
+    <div>
+      <div class="sc-name">Ibn al-Qayyim al-Jawziyyah (d. 751 AH)</div>
+      <div class="sc-text en-blk">Madarij al-Salikin · Al-Wabil al-Sayyib · The Station Analysis</div>
+      <div class="sc-text ur-blk">مدارج السالکین · الوابل الصیب · درجات کا تجزیہ</div>
+    </div>
+    <div class="sc-chev">›</div>
+  </div>
+  <div class="sc-body">
+    <div class="sc-quote en-blk">"The Sabiq is not one who simply performs the obligatory and adds the voluntary — this describes the Muqtasid at best. The Sabiq is one whose inward state is continuously operating even when all outward acts have been completed. His dhikr does not stop when his prayer ends. His muraqabah does not cease when he is in the marketplace. His love of Allah operates as a background condition of every moment, not a state he enters for specific acts. The racing is first of the heart, then of the limbs."</div>
+    <div class="sc-quote-ur ur-blk">«سابق وہ نہیں جو صرف فرض ادا کرے اور نوافل جوڑے — یہ زیادہ سے زیادہ مقتصد ہے۔ سابق وہ ہے جس کی باطنی کیفیت تمام ظاہری اعمال کے بعد بھی مسلسل کام کرتی رہے۔ اس کا ذکر نماز کے بعد نہیں رکتا۔ بازار میں مراقبہ ختم نہیں ہوتا۔ اللہ کی محبت ہر لمحے کی پس منظر شرط ہے۔ دوڑ پہلے دل کی، پھر اعضاء کی۔»</div>
+    <div class="sc-analysis en-blk">Ibn al-Qayyim's most important contribution to understanding the Sabiqoon: he shifts the definition from outward quantity of acts to inward continuity of state. The Sabiq and Muqtasid may perform identical outward acts — same prayers, same fasts, same charity. What differs is the inward operating system: the Muqtasid's inner state is intermittent; the Sabiq's is continuous. This is why the Sabiq's acts produce transformative effects while the identical acts of the Muqtasid produce reward without the same inner transformation. Ibn al-Qayyim traces this through Madarij al-Salikin in the stations of Yaqazah (wakefulness), Tawbah, Muhasabah, Inabah, and eventually Mahabbah — the Sabiq is the one who has passed through all of these into a state where the inner machinery operates without constant effort.</div>
+    <div class="sc-analysis-ur ur-blk">ابن القیم کا سب سے اہم کردار: وہ تعریف کو ظاہری مقدار سے باطنی تسلسل کی طرف منتقل کرتے ہیں۔ سابق اور مقتصد ایک جیسے ظاہری اعمال کر سکتے ہیں — فرق باطنی نظام میں ہے: مقتصد کی کیفیت متقطع، سابق کی مسلسل۔</div>
+    <div class="sc-source">Madarij al-Salikin, Vol. 1 — Station of Yaqazah through Mahabbah · Al-Wabil al-Sayyib, Chapter on Dhikr's effects on the heart</div>
+  </div>
+</div>
+
+<div class="scholar-card" id="sc-sab-ghazali">
+  <div class="sc-hdr" onclick="toggleScholar('sc-sab-ghazali')">
+    <div class="sc-badge">غ</div>
+    <div>
+      <div class="sc-name">Abu Hamid al-Ghazali (d. 505 AH)</div>
+      <div class="sc-text en-blk">Ihya Ulum al-Din · The Systematic Framework</div>
+      <div class="sc-text ur-blk">احیاء علوم الدین · منظم فریم ورک</div>
+    </div>
+    <div class="sc-chev">›</div>
+  </div>
+  <div class="sc-body">
+    <div class="sc-quote en-blk">"Know that people are of three kinds in relation to the Next World: the heedless who are occupied with this world entirely; the one who knows the Next World but whose nafs pulls him toward this world — he fights himself constantly; and the one who has broken the nafs's pull entirely so that his heart is at rest in the remembrance of Allah and his limbs race toward good deeds the way a hungry man races toward food. This third is the Sabiq, and his racing is no longer effort — it is nature."</div>
+    <div class="sc-quote-ur ur-blk">«جانو کہ لوگ آخرت کے لحاظ سے تین قسم: دنیا میں غرق غافل؛ آخرت جاننے والا لیکن نفس اسے دنیا کی طرف کھینچتا — مسلسل لڑتا ہے؛ اور وہ جس نے نفس کی کشش بالکل توڑ دی — دل اللہ کے ذکر میں مطمئن، اعضاء نیکی کی طرف دوڑتے ہیں جیسے بھوکا کھانے کی طرف دوڑتا ہے۔ یہ تیسرا سابق ہے، اور اس کی دوڑ اب محنت نہیں — فطرت ہے۔»</div>
+    <div class="sc-analysis en-blk">Al-Ghazali's key insight is that the Sabiq's racing is not willpower — it has become second nature. He draws a sharp distinction between the second category (the fighting believer, the Muqtasid) and the third (the Sabiq): both perform the same acts, but the second performs them against resistance while the third performs them with a momentum that has replaced resistance with ease. Al-Ghazali traces this transformation specifically to the purification of the nafs through sustained practice of mujahadah (self-striving), until the nafs no longer resists and the heart's natural orientation toward Allah becomes the dominant operating state. His framework is trainable — it is a progression, not a gift.</div>
+    <div class="sc-analysis-ur ur-blk">الغزالی کی اہم بصیرت: سابق کی دوڑ قوتِ ارادی نہیں — دوسری فطرت بن گئی ہے۔ دوسری اور تیسری قسم میں فرق: دونوں ایک جیسے اعمال — لیکن دوسرا مزاحمت کے ساتھ، تیسرا رفتار کے ساتھ۔ یہ مجاہدے سے حاصل ہوتا ہے۔</div>
+    <div class="sc-source">Ihya Ulum al-Din, Book 40 — Dhikr al-Mawt; Book 31 — Tawbah; Book 36 — Mahabbah</div>
+  </div>
+</div>
+
+<div class="scholar-card" id="sc-sab-muhasibi">
+  <div class="sc-hdr" onclick="toggleScholar('sc-sab-muhasibi')">
+    <div class="sc-badge">م</div>
+    <div>
+      <div class="sc-name">Al-Harith al-Muhasibi (d. 243 AH)</div>
+      <div class="sc-text en-blk">Al-Ri'ayah li-Huquqillah · The Sincerity Test</div>
+      <div class="sc-text ur-blk">الرعایۃ لحقوق اللہ · خلوص کا امتحان</div>
+    </div>
+    <div class="sc-chev">›</div>
+  </div>
+  <div class="sc-body">
+    <div class="sc-quote en-blk">"Ask yourself about every act of racing: am I racing toward Allah or am I racing toward being seen as one who races? The nafs is subtle. It can imitate the racing of the Sabiqoon while being entirely motivated by the desire for the reputation of a Sabiq. True racing is known by what you do when no one is watching and when there is nothing to gain socially from the act."</div>
+    <div class="sc-quote-ur ur-blk">«ہر دوڑنے والے عمل کے بارے میں خود سے پوچھو: کیا میں اللہ کی طرف دوڑ رہا ہوں یا سابق سمجھے جانے کی طرف؟ نفس باریک ہے۔ یہ سابقون کی دوڑ کی نقل کر سکتا ہے جبکہ اصل محرک سابق کی شہرت ہو۔ اصلی دوڑ اس وقت پہچانی جاتی ہے جب کوئی نہ دیکھ رہا ہو۔»</div>
+    <div class="sc-analysis en-blk">Al-Muhasibi's contribution is the most psychologically uncomfortable: he questions the motivation of the racing itself. His entire framework in Al-Ri'ayah is built on the detection of riya (ostentation) — the spiritual counterfeiter inside every person. His point about the Sabiqoon is sharp: the nafs can simulate racing for the reward of being known as a Sabiq. The true test is hiddenness — does your racing continue when it produces no social benefit, no reputation, no recognition? The Sabiq races in the unseen. The person imitating the Sabiq needs an audience. This is the Muhasibi test that no outward observable measure can determine.</div>
+    <div class="sc-analysis-ur ur-blk">المحاسبی کا کردار سب سے نفسیاتی طور پر تکلیف دہ: وہ خود دوڑ کی نیت پر سوال کرتا ہے۔ نفس سابق کی شہرت کے لیے دوڑ کی نقل کر سکتا ہے۔ اصلی امتحان: چھپ کر کیا کرتے ہیں؟</div>
+    <div class="sc-source">Al-Ri'ayah li-Huquqillah — Chapter on Riya and its subtle forms · Risalat al-Mustarshidin</div>
+  </div>
+</div>
+
+<div class="scholar-card" id="sc-sab-ataullah">
+  <div class="sc-hdr" onclick="toggleScholar('sc-sab-ataullah')">
+    <div class="sc-badge">ع</div>
+    <div>
+      <div class="sc-name">Ibn Ata'illah al-Iskandari (d. 709 AH)</div>
+      <div class="sc-text en-blk">Al-Hikam al-Ata'iyyah · The State Description</div>
+      <div class="sc-text ur-blk">الحکم العطائیۃ · کیفیت کا بیان</div>
+    </div>
+    <div class="sc-chev">›</div>
+  </div>
+  <div class="sc-body">
+    <div class="sc-quote en-blk">"Your racing toward Him is a sign that He has already turned toward you — for how could the door open from your side alone? Do not attribute your racing to your own resolve. The resolve was given. The opening was given. You were given the experience of racing so that you might discover who gave you the legs."</div>
+    <div class="sc-quote-ur ur-blk">«اس کی طرف آپ کی دوڑ اس بات کی علامت ہے کہ وہ پہلے ہی آپ کی طرف متوجہ ہو گیا — کیونکہ دروازہ صرف آپ کی طرف سے کیسے کھل سکتا ہے؟ اپنی دوڑ کو اپنے عزم سے نہ جوڑیں۔ عزم دیا گیا۔ کھلنا دیا گیا۔ آپ کو دوڑنے کا تجربہ اس لیے دیا گیا کہ آپ جان سکیں کہ ٹانگیں کس نے دیں۔»</div>
+    <div class="sc-analysis en-blk">Ibn Ata'illah does not teach the Sabiqoon — he describes the state to those who are already in it or approaching it. His Hikam are aphorisms that function as mirrors, not manuals. His point on the Sabiqoon is the deepest theological reversal: the racing is real, but the racing itself is evidence of something already given. The Muqarrab was already being moved toward proximity before he chose to race. The choice to race was the human side of a divine initiative. This does not eliminate the human responsibility — it transforms its understanding. You race not to achieve proximity but because proximity is already being offered and your racing is the acceptance of the offer.</div>
+    <div class="sc-analysis-ur ur-blk">ابن عطاء اللہ سابقون کو نہیں سکھاتے — وہ اس کیفیت میں موجود لوگوں کے لیے آئینہ بناتے ہیں۔ دوڑ قربت حاصل کرنے کے لیے نہیں — بلکہ قربت پہلے سے پیش کی جا رہی تھی اور آپ کی دوڑ اس کی قبولیت ہے۔</div>
+    <div class="sc-source">Al-Hikam al-Ata'iyyah — Aphorisms 1-12 on divine initiative and human response</div>
+  </div>
+</div>
+
+<div class="insight">
+  <div class="insight-lbl en-blk">◈ Where the Scholars Diverge — The Critical Tension</div>
+  <div class="insight-lbl ur-blk">◈ جہاں علماء مختلف ہوتے ہیں — اہم کشیدگی</div>
+  <div class="insight-txt en-blk">Ibn al-Qayyim and Al-Ghazali both emphasise the trainable, achievable, effortful path to becoming Sabiq — the stations, the mujahadah, the sustained practice. Al-Muhasibi would interrogate the sincerity of that effort. Ibn Ata'illah would say the effort itself was a gift and reframes the entire transaction. These are not contradictions — they are four lenses applied at four different points on the path. Al-Ghazali's framework is for the person starting out. Al-Muhasibi's is for the person who thinks they have arrived. Ibn al-Qayyim's is for the person mapping the territory. Ibn Ata'illah's is for the person already in the territory who needs to understand what is happening to them.</div>
+  <div class="insight-txt-ur ur-blk">ابن القیم اور الغزالی: قابلِ حصول، محنت طلب راستہ — درجات، مجاہدہ، مستقل عمل۔ المحاسبی اس محنت کی خلوص پر سوال کرتے۔ ابن عطاء اللہ: محنت خود تحفہ تھی۔ یہ تضاد نہیں — چار مختلف مقامات پر چار عدسے۔</div>
+</div>
+
+<div class="notes-sec" style="border:1px solid var(--border2);border-radius:10px;padding:16px 18px;margin-top:4px">
+  <div class="notes-hdr"><span class="en-blk">Personal Synthesis — As-Sabiqoon</span><span class="ur-blk">ذاتی خلاصہ — السابقون</span></div>
+  <div class="note-f">
+    <div class="note-lbl"><div class="nd" style="background:var(--gold)"></div><span class="en-blk">After all four ayat and four scholars — what does Sabiq mean to me personally?</span><span class="ur-blk">چاروں آیات اور چاروں علماء کے بعد — سابق میرے لیے ذاتی طور پر کیا معنی رکھتا ہے؟</span><span class="nsv" id="sv-s1-synth"></span></div>
+    <textarea class="note-ta" id="note-s1-synth" style="min-height:100px" placeholder="Write your own synthesis: what racing means for your specific situation, what it would look like in your daily life, and which scholar's lens feels most relevant to where you are right now." oninput="autoSave('s1-synth',this.value)"></textarea>
+  </div>
+</div>
+
+</div><!-- end sabiqoon -->
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- RANK 2: AS-SIDDIQOON -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="rank-section" id="sec-siddiqoon">
+
+<div class="rank-hdr">
+  <div class="rank-hdr-num en-blk">Rank II · The Utterly Truthful · Al-Nisa 4:69 · Al-Hadid 57:19</div>
+  <div class="rank-hdr-num ur-blk">درجہ دوم · النساء ۴:۶۹ · الحدید ۵۷:۱۹</div>
+  <div class="rank-hdr-ar">الصِّدِّيقُون</div>
+  <div class="rank-hdr-en en-blk">As-Siddiqoon — The Utterly Truthful</div>
+  <div class="rank-hdr-ur ur-blk">الصدیقون — مکمل سچائی والے</div>
+  <div class="rank-hdr-rule"></div>
+  <div class="rank-hdr-root en-blk">Root: ص — د — ق · Truth · Complete alignment of inner and outer · The intensified form: one who is truthful in every dimension simultaneously</div>
+  <div class="rank-hdr-root ur-blk">جڑ: ص — د — ق · سچ · ظاہر اور باطن کی مکمل ہم آہنگی</div>
+  <div class="rank-hdr-intro en-blk">The Siddiq is the highest human station after Prophethood — named in Al-Nisa 4:69 as the second tier of divine favour. Abu Bakr al-Siddiq RA was given this title by the Prophet ﷺ — the only Companion to receive a Quranic rank-title during his lifetime. The root S-D-Q appears 155+ times in the Quran in its various forms. What makes the Siddiq distinct from the Salih and the Sabiq is the completeness of inner-outer alignment — no gap between what is believed, said, and done. Ibn al-Qayyim calls this the highest achievable human station.</div>
+  <div class="rank-hdr-intro-ur ur-blk">صدیق نبوت کے بعد سب سے اعلیٰ انسانی مقام۔ ابوبکر صدیق رضی اللہ عنہ کو نبی ﷺ نے یہ لقب دیا — واحد صحابی جنہیں زندگی میں قرآنی مقام ملا۔ صدیق کو باقیوں سے ممتاز کرنے والی چیز: ایمان، قول اور عمل میں کوئی فرق نہیں۔</div>
+</div>
+
+<div class="root-analysis">
+  <div class="ra-label"><span class="en-blk">Root Word Analysis — ص د ق</span><span class="ur-blk">جڑ کا تجزیہ — ص د ق</span></div>
+  <div class="ra-root">صَدَقَ · صِدْق · صَادِق · صِدِّيق · تَصْدِيق · مُصَادَقَة</div>
+  <div class="ra-letters">
+    <div class="ra-letter"><span class="ra-letter-ar">ص</span><span class="ra-letter-en">S</span></div>
+    <div class="ra-letter"><span class="ra-letter-ar">د</span><span class="ra-letter-en">D</span></div>
+    <div class="ra-letter"><span class="ra-letter-ar">ق</span><span class="ra-letter-en">Q</span></div>
+  </div>
+  <div class="ra-meaning en-blk">S-D-Q carries the sense of something being real, solid, and matching its description. Sadaqa (he was truthful) — Sidq (truth as a quality) — Sadiq (truthful person) — Siddiq (the intensified form: one who is deeply, constitutionally, habitually truthful in every dimension). The morphological form Siddiq (fi'leel) in Arabic indicates the intensification and habituation of a quality — the same form as Sikkeeth (one who constantly keeps silent), Simmeer (habitual night-talker). The Siddiq's truthfulness is not an act — it is a constitutive character trait that operates across all layers simultaneously: belief is true, word matches belief, action matches word, inward state matches outward appearance. Any gap in any layer means the person has not yet arrived.</div>
+  <div class="ra-meaning-ur ur-blk">ص-د-ق میں کوئی چیز حقیقی، ٹھوس اور اپنی تعریف سے مطابق ہونے کا مفہوم۔ صدیق (فعّیل) — عربی میں یہ صرف سچا نہیں، مکمل طور پر عادی سچا۔ صدیق کی سچائی فعل نہیں — شخصیت کی بنیادی خصوصیت جو ہر پرت میں ایک ساتھ کام کرے: یقین، قول، عمل، باطن — سب ایک۔</div>
+  <div class="ra-forms">
+    <div class="ra-form"><div class="ra-form-ar">الصِّدِّيق</div><div class="ra-form-en en-blk">The Utterly Truthful</div><div class="ra-form-en ur-blk">صدیق</div></div>
+    <div class="ra-form"><div class="ra-form-ar">صِدْق</div><div class="ra-form-en en-blk">Truthfulness (noun)</div><div class="ra-form-en ur-blk">سچائی</div></div>
+    <div class="ra-form"><div class="ra-form-ar">تَصْدِيق</div><div class="ra-form-en en-blk">Confirmation / Affirming true</div><div class="ra-form-en ur-blk">تصدیق</div></div>
+    <div class="ra-form"><div class="ra-form-ar">الصَّادِقِين</div><div class="ra-form-en en-blk">The truthful ones (pl.)</div><div class="ra-form-en ur-blk">سچے لوگ</div></div>
+  </div>
+  <div class="ra-count en-blk">✦ S-D-Q appears 155+ times — Siddiq as a title appears for humans only in the context of the highest spiritual station</div>
+  <div class="ra-count ur-blk">✦ ص-د-ق ۱۵۵ سے زیادہ بار — صدیق بطور لقب صرف اعلیٰ ترین روحانی مقام میں</div>
+</div>
+
+<div class="era-divider">
+  <div class="era-dot era-madani"></div>
+  <div class="era-label en-blk">Madani · Al-Nisa 4:69 — The Station Named</div>
+  <div class="era-label-ur ur-blk">مدنی · النساء ۴:۶۹ — درجے کا نام</div>
+  <div class="era-line"></div>
+</div>
+
+<div class="ayah-card" id="sd-nisa-69">
+  <div class="ayah-card-hdr" onclick="toggleCard('sd-nisa-69')">
+    <span class="rev-badge rev-madani en-blk">Madani</span>
+    <span class="rev-badge rev-madani ur-blk">مدنی</span>
+    <span class="card-ref">Al-Nisa 4:69</span>
+    <span class="card-preview">فَأُولَٰئِكَ مَعَ الَّذِينَ أَنْعَمَ اللَّهُ عَلَيْهِم مِّنَ النَّبِيِّينَ وَالصِّدِّيقِينَ</span>
+    <span class="card-chevron">›</span>
+  </div>
+  <div class="card-body">
+    <div class="ayah-arabic">فَأُولَٰئِكَ مَعَ الَّذِينَ أَنْعَمَ اللَّهُ عَلَيْهِم مِّنَ النَّبِيِّينَ وَالصِّدِّيقِينَ وَالشُّهَدَاءِ وَالصَّالِحِينَ ۚ وَحَسُنَ أُولَٰئِكَ رَفِيقًا</div>
+    <div class="ayah-tr-en en-blk">"Those will be with the ones upon whom Allah has bestowed favour: the Prophets, the Siddiqoon, the Witnesses, and the Righteous — and excellent are those as companions."</div>
+    <div class="ayah-tr-ur ur-blk">«وہ ان لوگوں کے ساتھ ہوں گے جن پر اللہ نے نعمت فرمائی: انبیاء، صدیقین، شہداء اور صالحین — اور کیا خوب ساتھی ہیں۔»</div>
+    <div class="ayah-ref-line">Surah Al-Nisa 4:69</div>
+    <div class="ctx-box">
+      <div class="ctx-lbl en-blk">The Placement of Siddiqoon — Second After Prophethood</div>
+      <div class="ctx-txt en-blk">The order in this ayah is not casual — it is a ranked sequence. Nabiyyoon (Prophets) — then Siddiqoon — then Shuhada — then Salihoon. The Siddiqoon are placed above the Shuhada and Salihoon. This is the Quran's direct confirmation that the station of complete truthfulness is higher than martyrdom in the path of Allah. This seems counterintuitive until you understand what Siddiqiyyah actually requires: complete inner-outer alignment in every dimension of life, sustained over a lifetime, with no gap ever. Martyrdom is a single moment of ultimate truth. Siddiqiyyah is every moment of every day, without exception.</div>
+      <div class="ctx-txt-ur ur-blk">آیت کی ترتیب غیر رسمی نہیں — درجہ بند سلسلہ ہے۔ صدیقون شہداء سے اوپر۔ یہ عجیب لگتا ہے — یہاں تک کہ سمجھیں کہ صدیقیت اصل میں کیا مانگتی ہے: زندگی کے ہر پہلو میں، ہر لمحے، بغیر کسی استثناء کے مکمل ہم آہنگی۔ شہادت ایک لمحہ ہے۔ صدیقیت ہر لمحہ ہے۔</div>
+    </div>
+    <div class="root-box">
+      <div class="root-lbl en-blk">The Siddiq's Defining Quality</div>
+      <span class="root-wd">لَا فَرْق</span>
+      <span class="root-fm">· No gap · Between what is believed, said, and done</span>
+      <div class="root-mn en-blk">The classical scholars define Siddiqiyyah as the complete absence of any gap between: (1) what is believed in the heart; (2) what is declared with the tongue; (3) what is done with the limbs; (4) what is shown in public; (5) what is done in private. Any single gap — between belief and speech, between speech and action, between public and private — removes the person from the station of Siddiq. This is why the title is rare and why Abu Bakr RA received it: not because he performed the most acts, but because he had no gap in any dimension at any time.</div>
+      <div class="root-mn-ur ur-blk">صدیقیت: (۱) جو دل میں یقین؛ (۲) جو زبان کہے؛ (۳) جو اعضاء کریں؛ (۴) علانیہ؛ (۵) پوشیدہ — ان میں کوئی فرق نہیں۔ ایک بھی فرق صدیق کا درجہ ختم کرتا ہے۔ ابوبکر رضی اللہ عنہ نے سب سے زیادہ اعمال نہیں کیے — ہر پہلو میں فرق نہیں تھا۔</div>
+    </div>
+    <div class="notes-sec">
+      <div class="notes-hdr"><span class="en-blk">Personal Notes</span><span class="ur-blk">ذاتی نوٹس</span></div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--gold)"></div><span class="en-blk">Where is the gap in your own life — between belief and speech? Speech and action? Public and private?</span><span class="ur-blk">آپ کی زندگی میں فرق کہاں ہے — یقین اور قول؟ قول اور عمل؟ علانیہ اور پوشیدہ؟</span><span class="nsv" id="sv-sd-1"></span></div>
+        <textarea class="note-ta" id="note-sd-1" placeholder="Honest self-examination. Not what you believe should be true — where the gap actually exists." oninput="autoSave('sd-1',this.value)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="era-divider">
+  <div class="era-dot era-madani"></div>
+  <div class="era-label en-blk">Madani · Al-Hadid 57:19 — Siddiq and Shahid Together</div>
+  <div class="era-label-ur ur-blk">مدنی · الحدید ۵۷:۱۹ — صدیق اور شہید ایک ساتھ</div>
+  <div class="era-line"></div>
+</div>
+
+<div class="ayah-card" id="sd-hadid-19">
+  <div class="ayah-card-hdr" onclick="toggleCard('sd-hadid-19')">
+    <span class="rev-badge rev-madani en-blk">Rev. #94</span>
+    <span class="rev-badge rev-madani ur-blk">ترتیب #94</span>
+    <span class="card-ref">Al-Hadid 57:19</span>
+    <span class="card-preview">وَالَّذِينَ آمَنُوا بِاللَّهِ وَرُسُلِهِ أُولَٰئِكَ هُمُ الصِّدِّيقُونَ</span>
+    <span class="card-chevron">›</span>
+  </div>
+  <div class="card-body">
+    <div class="ayah-arabic">وَالَّذِينَ آمَنُوا بِاللَّهِ وَرُسُلِهِ أُولَٰئِكَ هُمُ الصِّدِّيقُونَ ۖ وَالشُّهَدَاءُ عِندَ رَبِّهِمْ لَهُمْ أَجْرُهُمْ وَنُورُهُمْ</div>
+    <div class="ayah-tr-en en-blk">"And those who believe in Allah and His messengers — those are the Siddiqoon. And the witnesses — with their Lord they will have their reward and their light."</div>
+    <div class="ayah-tr-ur ur-blk">«اور وہ جو اللہ اور اس کے رسولوں پر ایمان لائے — یہی صدیقون ہیں۔ اور شہداء — اپنے رب کے پاس ان کا اجر اور ان کا نور ہے۔»</div>
+    <div class="ayah-ref-line">Surah Al-Hadid 57:19</div>
+    <div class="ctx-box">
+      <div class="ctx-lbl en-blk">The Definition of Siddiqoon in This Ayah</div>
+      <div class="ctx-txt en-blk">This is the most direct Quranic definition of who the Siddiqoon are: those who believe in Allah and His messengers. At first this seems to describe all believers — but the precision is in the word Siddiqoon itself. The intensified form implies that their iman (belief) has reached the level of complete confirmation — not a belief that doubts, not a belief that is compartmentalised, but an iman so thorough that it has transformed every dimension of the person. Ibn Abbas: "Everyone who believes in Allah and His messengers is called Siddiq in this ayah — but the one who reaches the station of Siddiqiyyah in 4:69 is the one whose iman has no exception in any part of his life."</div>
+      <div class="ctx-txt-ur ur-blk">سب سے براہ راست قرآنی تعریف: جو اللہ اور رسولوں پر ایمان لائے۔ ابن عباس: ہر مومن یہاں صدیق کہلاتا ہے — لیکن ۴:۶۹ کے درجے تک وہ پہنچتا ہے جس کے ایمان میں زندگی کے کسی حصے میں کوئی استثناء نہ ہو۔</div>
+    </div>
+    <div class="uniq-box">
+      <div class="uniq-lbl en-blk">The Light — What Distinguishes Them at the End</div>
+      <div class="uniq-txt en-blk">The Shuhada are described here as having their reward AND their light (wa-nooruhum). The same light (noor) that appears on the Day of Judgment for the believers in 57:12 — running before them. The Siddiqoon are identified by their iman; the Shuhada by their light. Both stations arrive at the same divine mercy but from different paths. The Siddiq arrives through the completeness of inner-outer truth. The Shahid arrives through the ultimate testimony of sacrifice.</div>
+      <div class="uniq-txt-ur ur-blk">شہداء کے لیے: اجر اور نور۔ صدیقون: ایمان کی مکملیت سے پہنچتے۔ شہداء: آخری گواہی سے۔ دونوں ایک ہی رحمت تک مختلف راستوں سے۔</div>
+    </div>
+    <div class="notes-sec">
+      <div class="notes-hdr"><span class="en-blk">Personal Notes</span><span class="ur-blk">ذاتی نوٹس</span></div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--teal)"></div><span class="en-blk">Iman that has no exception in any part of life — what parts of your life are currently exempt from your iman?</span><span class="ur-blk">ایمان جس میں زندگی کے کسی حصے میں کوئی استثناء نہ ہو — ابھی کون سے حصے آپ کے ایمان سے مستثنیٰ ہیں؟</span><span class="nsv" id="sv-sd-2"></span></div>
+        <textarea class="note-ta" id="note-sd-2" placeholder="Which areas of your life operate as if Allah is not watching — business decisions, private conversations, online behaviour, personal relationships?" oninput="autoSave('sd-2',this.value)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="era-divider">
+  <div class="era-dot era-madani"></div>
+  <div class="era-label en-blk">Madani · Al-Maidah 5:75 — The Siddiq in Specific Context</div>
+  <div class="era-label-ur ur-blk">مدنی · المائدہ ۵:۷۵ — خاص سیاق میں صدیق</div>
+  <div class="era-line"></div>
+</div>
+
+<div class="ayah-card" id="sd-maidah-75">
+  <div class="ayah-card-hdr" onclick="toggleCard('sd-maidah-75')">
+    <span class="rev-badge rev-madani en-blk">Rev. #112</span>
+    <span class="rev-badge rev-madani ur-blk">ترتیب #112</span>
+    <span class="card-ref">Al-Maidah 5:75</span>
+    <span class="card-preview">مَّا الْمَسِيحُ ابْنُ مَرْيَمَ إِلَّا رَسُولٌ قَدْ خَلَتْ مِن قَبْلِهِ الرُّسُلُ وَأُمُّهُ صِدِّيقَةٌ</span>
+    <span class="card-chevron">›</span>
+  </div>
+  <div class="card-body">
+    <div class="ayah-arabic">مَّا الْمَسِيحُ ابْنُ مَرْيَمَ إِلَّا رَسُولٌ قَدْ خَلَتْ مِن قَبْلِهِ الرُّسُلُ وَأُمُّهُ صِدِّيقَةٌ</div>
+    <div class="ayah-tr-en en-blk">"The Messiah, son of Maryam, was no more than a Messenger — messengers have passed before him. And his mother was a Siddiqah."</div>
+    <div class="ayah-tr-ur ur-blk">«مسیح ابن مریم ایک رسول کے سوا کچھ نہیں — ان سے پہلے بھی رسول گزرے۔ اور ان کی ماں صدیقہ تھیں۔»</div>
+    <div class="ayah-ref-line">Surah Al-Maidah 5:75</div>
+    <div class="ctx-box">
+      <div class="ctx-lbl en-blk">Maryam AS — A Siddiqah Without Prophethood</div>
+      <div class="ctx-txt en-blk">The Quran gives Maryam AS the title Siddiqah — the feminine form of Siddiq. This is an extraordinary confirmation: the station of Siddiqiyyah is achievable without Prophethood, and it is achievable by a woman. Maryam AS confirmed every message from Allah without hesitation, without the support of a husband, without social protection, in conditions that would produce doubt in most people. Her Siddiqiyyah was demonstrated precisely when the truth was most costly — when bearing it meant social humiliation and accusations. The Siddiq's truthfulness is not tested in comfortable conditions. It is revealed in the hardest ones.</div>
+      <div class="ctx-txt-ur ur-blk">مریم علیہ السلام کو صدیقہ کا لقب — نبوت کے بغیر صدیقیت ممکن ہے، اور ایک عورت اسے پا سکتی ہے۔ مریم علیہ السلام کی صدیقیت اس وقت ظاہر ہوئی جب سچ سب سے مہنگا تھا — سماجی ذلت اور الزامات کے سامنے۔</div>
+    </div>
+    <div class="uniq-box">
+      <div class="uniq-lbl en-blk">What This Ayah Uniquely Establishes About Siddiqiyyah</div>
+      <div class="uniq-txt en-blk">Siddiqiyyah does not require extraordinary acts, miracles, scholarship, or a specific social role. Maryam AS's Siddiqiyyah was demonstrated entirely through the quality of her inner-outer alignment when that alignment was most costly. The station is available to anyone — scholar or illiterate, man or woman, in authority or in obscurity. The only requirement is: no gap, at any time, in any dimension, regardless of cost. This is both the most accessible definition of the station and the most demanding.</div>
+      <div class="uniq-txt-ur ur-blk">صدیقیت کے لیے غیر معمولی اعمال، معجزات، یا خاص سماجی مقام ضروری نہیں۔ ہر کوئی — عالم یا ناخواندہ، مرد یا عورت۔ ایک شرط: کوئی فرق نہیں، کسی وقت بھی، کسی پہلو میں بھی، قیمت کچھ بھی ہو۔</div>
+    </div>
+    <div class="sunnah-box">
+      <div class="sun-lbl en-blk">Connected Sunnah — The Prophet ﷺ on Abu Bakr RA</div>
+      <div class="sun-ar">مَا سَبَقَكُمْ أَبُو بَكْرٍ بِكَثْرَةِ صَلَاةٍ وَلَا صِيَامٍ وَلَكِنْ بِشَيْءٍ وَقَرَ فِي صَدْرِهِ</div>
+      <div class="sun-en en-blk">"Abu Bakr did not surpass you by the quantity of his prayer or fasting — but by something that settled in his chest."</div>
+      <div class="sun-ur ur-blk">«ابوبکر نے تم سے نماز یا روزے کی مقدار میں نہیں بڑھ کر فضیلت پائی — بلکہ کسی چیز سے جو ان کے سینے میں جم گئی۔»</div>
+      <div class="sun-src">Authenticated by scholars — Ibn al-Qayyim cites in Madarij al-Salikin <span class="grade g-hasan">◈ Hasan</span></div>
+    </div>
+    <div class="notes-sec">
+      <div class="notes-hdr"><span class="en-blk">Personal Notes</span><span class="ur-blk">ذاتی نوٹس</span></div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--amber)"></div><span class="en-blk">Abu Bakr's something in the chest — what is that something, and do you have it?</span><span class="ur-blk">ابوبکر کے سینے میں وہ چیز — وہ کیا تھی، اور کیا آپ کے پاس ہے؟</span><span class="nsv" id="sv-sd-3"></span></div>
+        <textarea class="note-ta" id="note-sd-3" placeholder="What do you think 'the thing that settled in his chest' actually was? And is there anything like it in your chest right now?" oninput="autoSave('sd-3',this.value)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="sec-lbl en-blk">Scholarly Analysis — The Siddiqiyyah Station</div>
+<div class="sec-lbl ur-blk" style="font-family:var(--font-arab);font-size:14px;color:var(--gold);padding:18px 0 14px">صدیقیت کا درجہ — علماء کا تجزیہ</div>
+
+<div class="scholars-lbl en-blk">✦ Three Scholars · Defining the Siddiq's Inner Reality</div>
+<div class="scholars-lbl ur-blk">✦ تین علماء · صدیق کی باطنی حقیقت</div>
+
+<div class="scholar-card" id="sc-sd-ibn-qayyim">
+  <div class="sc-hdr" onclick="toggleScholar('sc-sd-ibn-qayyim')">
+    <div class="sc-badge">ق</div>
+    <div>
+      <div class="sc-name">Ibn al-Qayyim — Madarij al-Salikin</div>
+      <div class="sc-text en-blk">The Complete Station Analysis · The Five Dimensions of Sidq</div>
+      <div class="sc-text ur-blk">مکمل درجہ تجزیہ · صدق کے پانچ پہلو</div>
+    </div>
+    <div class="sc-chev">›</div>
+  </div>
+  <div class="sc-body">
+    <div class="sc-quote en-blk">"Sidq has five dimensions that must all be present simultaneously for a person to be called Siddiq: Sidq al-Niyyah (truthfulness of intention — the act is done purely for Allah); Sidq al-Azm (truthfulness of resolve — when you decide to do something good, you actually do it); Sidq al-Wafa (truthfulness of fulfilling — you fulfil what you promised, including what you promised to Allah); Sidq al-'Amal (truthfulness of action — the outward act matches the inward state); and Sidq fi Maqamat al-Deen (truthfulness in the stations — when you claim to have fear, you actually have fear; when you claim love, it is real love). The Siddiq has no gap in any of these five. That is what 'something settled in the chest' means."</div>
+    <div class="sc-quote-ur ur-blk">«صدق کے پانچ پہلو بیک وقت موجود ہونے چاہئیں: نیت میں صدق؛ عزم میں صدق؛ وفا میں صدق؛ عمل میں صدق؛ دین کے مقامات میں صدق۔ صدیق کے پاس ان پانچوں میں سے کوئی فرق نہیں۔ یہی «سینے میں جمی چیز» ہے۔»</div>
+    <div class="sc-analysis en-blk">Ibn al-Qayyim's five-dimensional framework is the most analytically rigorous treatment of Siddiqiyyah in the classical literature. Each dimension represents a different potential gap: most people have sidq in one or two dimensions but gaps in the others. A person who has truthful intention but weak resolve (starts many good acts and completes few) fails at Sidq al-Azm. A person who fulfils promises to others but not to Allah fails at Sidq al-Wafa. A person whose outward piety is greater than their inward state fails at Sidq al-'Amal. The Siddiq has closed all five gaps — not temporarily, but as a constitutive state.</div>
+    <div class="sc-analysis-ur ur-blk">پانچ پہلوی فریم ورک سب سے تجزیاتی معالجہ ہے۔ ہر پہلو ایک مختلف ممکنہ فرق ہے۔ اکثر لوگوں کے ایک یا دو پہلوؤں میں صدق لیکن باقی میں فرق۔ صدیق نے پانچوں بند کیے — عارضی طور پر نہیں، بلکہ مستقل کیفیت کے طور پر۔</div>
+    <div class="sc-source">Madarij al-Salikin — Station of Sidq, Vol. 2, full chapter</div>
+  </div>
+</div>
+
+<div class="scholar-card" id="sc-sd-muhasibi">
+  <div class="sc-hdr" onclick="toggleScholar('sc-sd-muhasibi')">
+    <div class="sc-badge">م</div>
+    <div>
+      <div class="sc-name">Al-Muhasibi — Al-Ri'ayah</div>
+      <div class="sc-text en-blk">The Hidden Gap — What Breaks Siddiqiyyah Without Anyone Knowing</div>
+      <div class="sc-text ur-blk">پوشیدہ فرق — کیا چیز صدیقیت توڑتی ہے بغیر کسی کو معلوم ہوئے</div>
+    </div>
+    <div class="sc-chev">›</div>
+  </div>
+  <div class="sc-body">
+    <div class="sc-quote en-blk">"The greatest enemy of Siddiqiyyah is not lying — it is the habitual small compromises that the nafs permits because they are not obviously lying. The person who presents himself as more pious than he is. The person who claims a station of closeness to Allah that he has not actually reached. The person whose public worship is more careful than his private worship. These are not lies in the ordinary sense — but they are gaps between the outward and the inward, and they are precisely what prevents the station of Siddiq from being reached."</div>
+    <div class="sc-quote-ur ur-blk">«صدیقیت کا سب سے بڑا دشمن جھوٹ نہیں — وہ چھوٹے چھوٹے روزمرہ سمجھوتے ہیں جو نفس اس لیے جائز دیتا ہے کہ وہ واضح جھوٹ نہیں۔ جو اپنے آپ کو اصل سے زیادہ متقی ظاہر کرے۔ جو قربت کا دعویٰ کرے جہاں تک نہیں پہنچا۔ جس کی علانیہ عبادت پوشیدہ سے بہتر ہو۔»</div>
+    <div class="sc-analysis en-blk">Al-Muhasibi's contribution is the most practically applicable: he identifies the subtle gaps that look like not-lying but function as gaps. His Al-Ri'ayah is essentially a catalogue of these subtle forms of inner-outer misalignment. His most important observation about the Siddiq: the person who has genuine Siddiqiyyah often appears less impressive than those who are performing it, precisely because the Siddiq does not perform anything more than his actual inner state. This means that the most visibly pious person in a room may be further from Siddiqiyyah than the quiet one in the corner whose public presentation exactly matches his private reality.</div>
+    <div class="sc-analysis-ur ur-blk">المحاسبی کا کردار سب سے عملی: وہ باریک فرقوں کی نشاندہی کرتے ہیں جو جھوٹ جیسے نہیں لگتے لیکن فرق ہیں۔ اہم مشاہدہ: حقیقی صدیق اکثر کم متاثر کن لگتا ہے، کیونکہ وہ اصل باطنی کیفیت سے زیادہ کچھ نہیں دکھاتا۔</div>
+    <div class="sc-source">Al-Ri'ayah li-Huquqillah — Chapter on subtle forms of showing off and their relation to inner-outer alignment</div>
+  </div>
+</div>
+
+<div class="scholar-card" id="sc-sd-ghazali">
+  <div class="sc-hdr" onclick="toggleScholar('sc-sd-ghazali')">
+    <div class="sc-badge">غ</div>
+    <div>
+      <div class="sc-name">Al-Ghazali — Ihya Ulum al-Din</div>
+      <div class="sc-text en-blk">The Path to Siddiqiyyah — What Produces the Settled Chest</div>
+      <div class="sc-text ur-blk">صدیقیت کا راستہ — مطمئن سینہ کیا بناتا ہے</div>
+    </div>
+    <div class="sc-chev">›</div>
+  </div>
+  <div class="sc-body">
+    <div class="sc-quote en-blk">"The something that settled in Abu Bakr's chest was not an act — it was a state of certainty (yaqeen) so complete that doubt had no surface to attach to. He believed, he saw, he acted — and these three were one movement without interval. Most people believe first, then doubt second, then act third — with gaps and intervals and reversals between each. The Siddiq has compressed these into simultaneity. This compression is the product of sustained muhasabah, prolonged dhikr, and the complete vanquishing of the desires that create the gap between belief and action."</div>
+    <div class="sc-quote-ur ur-blk">«ابوبکر کے سینے میں جمی چیز عمل نہیں — یقین کی ایسی کیفیت تھی جس پر شک کے لیے کوئی جگہ نہ تھی۔ انہوں نے یقین کیا، دیکھا، عمل کیا — اور یہ تینوں بغیر وقفے کے ایک حرکت تھی۔ الغزالی کا راستہ: مستقل محاسبہ، طویل ذکر، اور ان خواہشات کا مکمل خاتمہ جو یقین اور عمل کے درمیان فرق پیدا کرتی ہیں۔»</div>
+    <div class="sc-analysis en-blk">Al-Ghazali provides the practical pathway that Ibn al-Qayyim describes analytically. His Ihya traces the journey through the inner science of the soul — from the clearing of the blameworthy traits (the third quarter of Ihya) to the cultivation of the praiseworthy ones (fourth quarter) — toward the state where yaqeen (certainty) becomes so consolidated that the gap between knowledge and action vanishes. He frames Abu Bakr's station as the destination of the entire Ihya's programme — a person whose inner work has been completed to the degree that the nafs no longer produces friction between knowing and doing.</div>
+    <div class="sc-analysis-ur ur-blk">الغزالی عملی راستہ فراہم کرتا ہے: احیاء کا پورا پروگرام ابوبکر کے مقام کی طرف — وہ شخص جس کا باطنی کام اس درجے تک مکمل ہو کہ نفس جاننے اور کرنے کے درمیان رگڑ نہ پیدا کرے۔</div>
+    <div class="sc-source">Ihya Ulum al-Din — Book 21 (Tawbah) through Book 40 (Dhikr al-Mawt) — the complete interior programme</div>
+  </div>
+</div>
+
+<div class="notes-sec" style="border:1px solid var(--border2);border-radius:10px;padding:16px 18px;margin-top:8px">
+  <div class="notes-hdr"><span class="en-blk">Personal Synthesis — As-Siddiqoon</span><span class="ur-blk">ذاتی خلاصہ — الصدیقون</span></div>
+  <div class="note-f">
+    <div class="note-lbl"><div class="nd" style="background:var(--gold)"></div><span class="en-blk">Using Ibn al-Qayyim's five dimensions — where specifically is your sidq weakest right now?</span><span class="ur-blk">ابن القیم کے پانچ پہلو — ابھی کون سا سب سے کمزور ہے؟</span><span class="nsv" id="sv-sd-synth"></span></div>
+    <textarea class="note-ta" id="note-sd-synth" style="min-height:100px" placeholder="Sidq al-Niyyah · Sidq al-Azm · Sidq al-Wafa · Sidq al-'Amal · Sidq fi al-Maqamat — honest placement in each, and where the gap is widest." oninput="autoSave('sd-synth',this.value)"></textarea>
+  </div>
+</div>
+
+</div><!-- end siddiqoon -->
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- RANK 3: ASH-SHUHADA -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="rank-section" id="sec-shuhada">
+
+<div class="rank-hdr">
+  <div class="rank-hdr-num en-blk">Rank III · The Witnesses · Al-Nisa 4:69 · Al-Hadid 57:19 · Al-Imran 3:169</div>
+  <div class="rank-hdr-num ur-blk">درجہ سوم · النساء ۴:۶۹ · الحدید ۵۷:۱۹ · آل عمران ۳:۱۶۹</div>
+  <div class="rank-hdr-ar">الشُّهَدَاء</div>
+  <div class="rank-hdr-en en-blk">Ash-Shuhada — The Witnesses / Martyrs</div>
+  <div class="rank-hdr-ur ur-blk">الشہداء — گواہ / شہید</div>
+  <div class="rank-hdr-rule"></div>
+  <div class="rank-hdr-root en-blk">Root: ش — ه — د · To witness · To be present · To testify · The Shahid is one who bears witness — with presence, with testimony, ultimately with life</div>
+  <div class="rank-hdr-root ur-blk">جڑ: ش — ہ — د · گواہ ہونا · موجود ہونا · گواہی دینا</div>
+  <div class="rank-hdr-intro en-blk">Shuhada is the plural of Shahid — witness. In Arabic the root SH-H-D carries three overlapping meanings: to witness (to be present and observe), to testify (to declare what one has witnessed), and to be present at (shahida al-waq'a — he witnessed the event). The classical martyr is the ultimate witness — one who testified with their life. But the Sunnah expands this significantly. And theologically, the living Shahid — one whose every act is conscious testimony to the reality of Allah — is equally understood in the tradition.</div>
+  <div class="rank-hdr-intro-ur ur-blk">شہداء — شاہد کی جمع۔ ش-ہ-د کے تین معانی: گواہ ہونا، گواہی دینا، موجود ہونا۔ کلاسیکل شہید: جس نے اپنی جان سے گواہی دی۔ لیکن سنت اسے وسیع کرتی ہے۔ اور الٰہیاتی طور پر زندہ شہید — جس کا ہر عمل اللہ کی حقیقت کی شعوری گواہی ہو — بھی روایت میں مراد ہے۔</div>
+</div>
+
+<div class="root-analysis">
+  <div class="ra-label"><span class="en-blk">Root Word Analysis — ش ه د</span><span class="ur-blk">جڑ کا تجزیہ — ش ہ د</span></div>
+  <div class="ra-root">شَهِدَ · شَاهِد · شَهِيد · شُهَدَاء · شَهَادَة · مَشْهَد</div>
+  <div class="ra-letters">
+    <div class="ra-letter"><span class="ra-letter-ar">ش</span><span class="ra-letter-en">SH</span></div>
+    <div class="ra-letter"><span class="ra-letter-ar">ه</span><span class="ra-letter-en">H</span></div>
+    <div class="ra-letter"><span class="ra-letter-ar">د</span><span class="ra-letter-en">D</span></div>
+  </div>
+  <div class="ra-meaning en-blk">SH-H-D carries the sense of being present as a witness and declaring what was witnessed. Shahida (he witnessed/was present) — Shahid (one who bears witness — also a name of Allah, Al-Shahid, the All-Witnessing) — Shaheed (martyr — one who testified ultimately) — Shahada (testimony — the most important word in Islam: La ilaha illallah is the Shahada, the testimony). The connection between martyr and testimony is not etymological coincidence: the martyr's death is the act by which his testimony becomes permanent and beyond doubt. A living person can recant. The martyr's testimony cannot be retracted.</div>
+  <div class="ra-meaning-ur ur-blk">ش-ہ-د: موجود ہو کر گواہی دینا۔ شاہد (اللہ کے ناموں میں سے ایک — الشہید) — شہید (شہادت دینے والا) — شہادۃ (گواہی — کلمۂ شہادت اسی جڑ سے)۔ شہید اور گواہی کا تعلق اتفاق نہیں: شہید کی موت اس کی گواہی کو مستقل اور ناقابلِ واپسی بناتی ہے۔</div>
+  <div class="ra-forms">
+    <div class="ra-form"><div class="ra-form-ar">شَهَادَة</div><div class="ra-form-en en-blk">Testimony (Kalima)</div><div class="ra-form-en ur-blk">گواہی / کلمہ</div></div>
+    <div class="ra-form"><div class="ra-form-ar">الشَّهِيد</div><div class="ra-form-en en-blk">Martyr / Allah's name</div><div class="ra-form-en ur-blk">شہید / اسمِ الٰہی</div></div>
+    <div class="ra-form"><div class="ra-form-ar">شَاهِدِين</div><div class="ra-form-en en-blk">Those witnessing</div><div class="ra-form-en ur-blk">گواہ ہونے والے</div></div>
+    <div class="ra-form"><div class="ra-form-ar">مَشْهَد</div><div class="ra-form-en en-blk">The scene / place of witnessing</div><div class="ra-form-en ur-blk">منظر / مشہد</div></div>
+  </div>
+  <div class="ra-count en-blk">✦ SH-H-D appears 160+ times — including as one of Allah's 99 names (Al-Shahid)</div>
+  <div class="ra-count ur-blk">✦ ش-ہ-د ۱۶۰ سے زیادہ بار — اللہ کے ۹۹ ناموں میں الشہید شامل</div>
+</div>
+
+<div class="era-divider">
+  <div class="era-dot era-middle"></div>
+  <div class="era-label en-blk">Early-Middle Makki · Al-Imran 3:169 — The Shahid's State After Death</div>
+  <div class="era-label-ur ur-blk">اوائل مکی · آل عمران ۳:۱۶۹ — موت کے بعد شہید کی حالت</div>
+  <div class="era-line"></div>
+</div>
+
+<div class="ayah-card" id="sh-imran-169">
+  <div class="ayah-card-hdr" onclick="toggleCard('sh-imran-169')">
+    <span class="rev-badge rev-middle en-blk">Rev. #89</span>
+    <span class="rev-badge rev-middle ur-blk">ترتیب #89</span>
+    <span class="card-ref">Al-Imran 3:169-170</span>
+    <span class="card-preview">وَلَا تَحْسَبَنَّ الَّذِينَ قُتِلُوا فِي سَبِيلِ اللَّهِ أَمْوَاتًا</span>
+    <span class="card-chevron">›</span>
+  </div>
+  <div class="card-body">
+    <div class="ayah-arabic">وَلَا تَحْسَبَنَّ الَّذِينَ قُتِلُوا فِي سَبِيلِ اللَّهِ أَمْوَاتًا ۚ بَلْ أَحْيَاءٌ عِندَ رَبِّهِمْ يُرْزَقُونَ ۞ فَرِحِينَ بِمَا آتَاهُمُ اللَّهُ مِن فَضْلِهِ</div>
+    <div class="ayah-tr-en en-blk">"And do not think of those who were killed in the path of Allah as dead — rather they are alive with their Lord, being provided for. Rejoicing in what Allah has given them of His bounty."</div>
+    <div class="ayah-tr-ur ur-blk">«اور جو اللہ کی راہ میں قتل کیے گئے انہیں مردہ نہ سمجھو — بلکہ وہ زندہ ہیں اپنے رب کے پاس، رزق دیے جاتے ہیں۔ اللہ نے جو فضل دیا اس پر خوش ہیں۔»</div>
+    <div class="ayah-ref-line">Surah Al-Imran 3:169-170</div>
+    <div class="ctx-box">
+      <div class="ctx-lbl en-blk">The Living Dead — What Shahada Does to Death</div>
+      <div class="ctx-txt en-blk">The Quran makes an extraordinary ontological claim: the Shuhada are not dead. They are alive. The verse uses the emphatic negative La Tahsabanna (do not at all consider) — indicating that the opposite assumption is the natural one, the one that needs to be corrected. The correction is fundamental: death in the path of Allah is not death. It is a transition into a state of being "with their Lord" (inda rabbihim) — the same phrase used for the Muqarraboon. Fariheena (rejoicing) in the present participle — it is their ongoing state, not a one-time event. They are alive, provided for, and rejoicing right now.</div>
+      <div class="ctx-txt-ur ur-blk">غیر معمولی وجودیاتی دعویٰ: شہداء مردہ نہیں۔ زندہ ہیں۔ «لا تحسبن» — قوی نفی۔ عندربہم — مقربون کے لیے بھی یہی لفظ۔ فارحین — مضارع — ابھی بھی خوشی میں ہیں۔</div>
+    </div>
+    <div class="root-box">
+      <div class="root-lbl en-blk">Key Term</div>
+      <span class="root-wd">عِندَ رَبِّهِمْ</span>
+      <span class="root-fm">· 'Inda Rabbihim · With their Lord — the highest proximity</span>
+      <div class="root-mn en-blk">'Inda (with, at, near) + Rabbihim (their Lord). This is the same expression used throughout the Quran for the most intimate divine proximity — the same station described as Muqarraboon for the Sabiqoon. The Shuhada have their station described in the same language as the Foremost. Their path was different (ultimate sacrifice in a single moment) but the destination (proximity to Allah) is the same. This confirms that Shahada is not merely a meritorious act — it is one of the paths to the highest proximity.</div>
+      <div class="root-mn-ur ur-blk">عند ربہم — وہی تعبیر جو مقربون کے لیے۔ شہداء نے مختلف راستے سے (ایک لمحے کی قربانی) وہی منزل پائی (اللہ کی قربت)۔</div>
+    </div>
+    <div class="notes-sec">
+      <div class="notes-hdr"><span class="en-blk">Personal Notes</span><span class="ur-blk">ذاتی نوٹس</span></div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--gold)"></div><span class="en-blk">The Shuhada are alive, provided for, and rejoicing — what does this do to your relationship with death?</span><span class="ur-blk">شہداء زندہ، رزق پاتے، خوش — یہ موت سے آپ کے تعلق کو کیا کرتا ہے؟</span><span class="nsv" id="sv-sh-1"></span></div>
+        <textarea class="note-ta" id="note-sh-1" placeholder="Does the Quran's description of the Shahid's state change how you think about dying? About living?" oninput="autoSave('sh-1',this.value)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="era-divider">
+  <div class="era-dot era-purple"></div>
+  <div class="era-label en-blk">Sunnah — The Seven Types of Shahid</div>
+  <div class="era-label-ur ur-blk">سنت — سات قسم کے شہداء</div>
+  <div class="era-line"></div>
+</div>
+
+<div class="sh-card">
+  <div class="sh-lbl en-blk">The Prophet ﷺ — Expanding the Definition Beyond the Battlefield</div>
+  <div class="sh-lbl ur-blk">نبی ﷺ — تعریف کو میدانِ جنگ سے آگے وسیع کرنا</div>
+  <div class="sh-ar">الشُّهَدَاءُ خَمْسَةٌ: الْمَطْعُونُ، وَالْمَبْطُونُ، وَالْغَرِيقُ، وَصَاحِبُ الْهَدْمِ، وَالشَّهِيدُ فِي سَبِيلِ اللَّهِ</div>
+  <div class="sh-en en-blk">"The martyrs are five: one who dies of plague, one who dies of a stomach illness, one who drowns, one who dies under a collapsing structure, and the martyr in the path of Allah."</div>
+  <div class="sh-ur ur-blk">«شہداء پانچ ہیں: طاعون میں مرنے والا، پیٹ کی بیماری میں، ڈوبنے والا، ڈھانچے کے گرنے سے، اور اللہ کی راہ میں شہید۔»</div>
+  <div class="sh-src">Sahih Bukhari 2829, Muslim 1914 <span class="grade g-sahih">✦ Sahih</span></div>
+</div>
+
+<div class="sh-card">
+  <div class="sh-lbl en-blk">Additional Types — The Woman in Childbirth and the Defender</div>
+  <div class="sh-lbl ur-blk">اضافی اقسام — ولادت اور دفاع</div>
+  <div class="sh-ar">وَمَنْ قُتِلَ دُونَ مَالِهِ فَهُوَ شَهِيدٌ، وَمَنْ قُتِلَ دُونَ دَمِهِ فَهُوَ شَهِيدٌ، وَمَنْ قُتِلَ دُونَ دِينِهِ فَهُوَ شَهِيدٌ، وَمَنْ قُتِلَ دُونَ أَهْلِهِ فَهُوَ شَهِيدٌ</div>
+  <div class="sh-en en-blk">"Whoever is killed defending his wealth is a martyr. Whoever is killed defending his blood (life) is a martyr. Whoever is killed defending his religion is a martyr. Whoever is killed defending his family is a martyr."</div>
+  <div class="sh-ur ur-blk">«جو اپنے مال کی حفاظت میں قتل ہو شہید ہے۔ جو اپنی جان بچاتے قتل ہو شہید ہے۔ جو اپنے دین کی حفاظت میں قتل ہو شہید ہے۔ جو اپنے اہل کی حفاظت میں قتل ہو شہید ہے۔»</div>
+  <div class="sh-src">Abu Dawud 4772, Tirmidhi 1421 — Sahih <span class="grade g-sahih">✦ Sahih</span></div>
+</div>
+
+<div class="insight">
+  <div class="insight-lbl en-blk">◈ The Analytical Core — What Unifies All Types of Shahid</div>
+  <div class="insight-lbl ur-blk">◈ تجزیاتی مرکز — کیا چیز تمام شہداء کو جوڑتی ہے</div>
+  <div class="insight-txt en-blk">The classical scholars — especially Ibn al-Qayyim in Zad al-Ma'ad — noted that what unifies all the types of Shahid is not the manner of death but the quality of the testimony. Every type of Shahid died while engaged in something that constitutes testimony to a truth greater than the self: the plague victim who accepted his condition as Allah's decree; the drowning one; the one defending his family. What makes the battlefield Shahid the paradigm is not that he died violently but that the entirety of his final act was testimony — his presence on the battlefield was already an act of bearing witness to the supremacy of Allah over the fear of death. The living Shahid — every person whose life is a continuous act of testimony — is understood in this tradition as sharing in the spiritual reality of this station without the physical death.</div>
+  <div class="insight-txt-ur ur-blk">ابن القیم (زاد المعاد): تمام شہداء کو جوڑنے والی چیز موت کا طریقہ نہیں — گواہی کا معیار ہے۔ میدانِ جنگ کا شہید مثال ہے کیونکہ اس کا آخری عمل مکمل گواہی تھا۔ زندہ شہید جس کی زندگی مسلسل گواہی ہو اس روحانی حقیقت میں شریک ہے۔</div>
+</div>
+
+<div class="notes-sec" style="border:1px solid var(--border2);border-radius:10px;padding:16px 18px;margin-top:8px">
+  <div class="notes-hdr"><span class="en-blk">Personal Synthesis — Ash-Shuhada</span><span class="ur-blk">ذاتی خلاصہ — الشہداء</span></div>
+  <div class="note-f">
+    <div class="note-lbl"><div class="nd" style="background:var(--gold)"></div><span class="en-blk">In what ways is your life a testimony — and in what ways is it not?</span><span class="ur-blk">کن طریقوں سے آپ کی زندگی گواہی ہے — اور کن میں نہیں؟</span><span class="nsv" id="sv-sh-synth"></span></div>
+    <textarea class="note-ta" id="note-sh-synth" style="min-height:100px" placeholder="The Shahid's life is a testimony. Examine your daily life: which acts are acts of testimony to the supremacy of Allah? Which acts contradict that testimony?" oninput="autoSave('sh-synth',this.value)"></textarea>
+  </div>
+</div>
+
+</div><!-- end shuhada -->
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- RANK 4: AS-SALIHOON -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="rank-section" id="sec-salihoon">
+
+<div class="rank-hdr">
+  <div class="rank-hdr-num en-blk">Rank IV · The Righteous · Foundation of All Higher Ranks</div>
+  <div class="rank-hdr-num ur-blk">درجہ چہارم · تمام اعلیٰ درجات کی بنیاد</div>
+  <div class="rank-hdr-ar">الصَّالِحُون</div>
+  <div class="rank-hdr-en en-blk">As-Salihoon — The Righteous</div>
+  <div class="rank-hdr-ur ur-blk">الصالحون — نیکوکار</div>
+  <div class="rank-hdr-rule"></div>
+  <div class="rank-hdr-root en-blk">Root: ص — ل — ح · Soundness · Wholeness · Being in a right and correct state · Salaha (it was sound/right) — Aslaha (he reformed/corrected)</div>
+  <div class="rank-hdr-root ur-blk">جڑ: ص — ل — ح · درستی · مکملیت · صحیح حالت میں ہونا</div>
+  <div class="rank-hdr-intro en-blk">As-Salihoon is the entry rank — the fourth station in Al-Nisa 4:69, the baseline of divine favour. This is not a low station — Ibrahim AS, Musa AS, Sulayman AS, and Isa AS all prayed to be joined with the Saliheen. The Quran's most repeated construction is "amanu wa amilu al-salihat" (they believed and did righteous deeds) — the foundational formula. Every higher rank contains this. The Siddiq is a Salih. The Sabiq is a Salih. The station is the ground floor without which no higher floor can be built.</div>
+  <div class="rank-hdr-intro-ur ur-blk">صالحون — داخلی درجہ، النساء ۴:۶۹ میں چوتھا۔ کم درجہ نہیں — ابراہیم، موسیٰ، سلیمان، عیسیٰ علیہم السلام سب نے صالحین میں شامل ہونے کی دعا کی۔ «آمنوا وعملوا الصالحات» — قرآن کی سب سے دہرائی گئی ترکیب۔ ہر اعلیٰ درجے میں یہ شامل۔</div>
+</div>
+
+<div class="root-analysis">
+  <div class="ra-label"><span class="en-blk">Root Word Analysis — ص ل ح</span><span class="ur-blk">جڑ کا تجزیہ — ص ل ح</span></div>
+  <div class="ra-root">صَلَحَ · صَالِح · صَلَاح · إِصْلَاح · مُصْلِح · صَلَّحَ</div>
+  <div class="ra-letters">
+    <div class="ra-letter"><span class="ra-letter-ar">ص</span><span class="ra-letter-en">S</span></div>
+    <div class="ra-letter"><span class="ra-letter-ar">ل</span><span class="ra-letter-en">L</span></div>
+    <div class="ra-letter"><span class="ra-letter-ar">ح</span><span class="ra-letter-en">H</span></div>
+  </div>
+  <div class="ra-meaning en-blk">S-L-H carries the sense of a thing being in its proper, sound, correct state. Salaha (it is sound/right) — Salih (one whose state is sound — in correct relation to Allah and to other people) — Islah (reform — restoring what has gone wrong to its correct state) — Muslih (reformer — one who corrects). The Salih is not merely someone who avoids evil — he is someone whose entire orientation is toward what is sound, correct, and in its right place. The Quran uses the formula "amanu wa amilu al-salihat" (believed and did salihat) 70+ times — salihat meaning acts that are sound, correct, in their right form and intention.</div>
+  <div class="ra-meaning-ur ur-blk">ص-ل-ح: کوئی چیز اپنی درست، صحیح حالت میں ہونا۔ صالح — اصلاح — مصلح۔ صالح صرف برائی سے بچنے والا نہیں — وہ جس کی پوری سمت درست، صحیح، اور اپنی جگہ ہے۔ «آمنوا وعملوا الصالحات» ۷۰ سے زیادہ بار — صالحات: درست اعمال۔</div>
+  <div class="ra-forms">
+    <div class="ra-form"><div class="ra-form-ar">الصَّالِحُون</div><div class="ra-form-en en-blk">The Righteous</div><div class="ra-form-en ur-blk">صالحون</div></div>
+    <div class="ra-form"><div class="ra-form-ar">الصَّالِحَات</div><div class="ra-form-en en-blk">Righteous deeds</div><div class="ra-form-en ur-blk">نیک اعمال</div></div>
+    <div class="ra-form"><div class="ra-form-ar">إِصْلَاح</div><div class="ra-form-en en-blk">Reform / Correction</div><div class="ra-form-en ur-blk">اصلاح</div></div>
+    <div class="ra-form"><div class="ra-form-ar">مُصْلِح</div><div class="ra-form-en en-blk">Reformer</div><div class="ra-form-en ur-blk">مصلح</div></div>
+  </div>
+  <div class="ra-count en-blk">✦ S-L-H appears 180+ times — "amanu wa amilu al-salihat" alone appears 70+ times as the Quran's fundamental believer-formula</div>
+  <div class="ra-count ur-blk">✦ ص-ل-ح ۱۸۰ سے زیادہ بار — «آمنوا وعملوا الصالحات» اکیلے ۷۰ سے زیادہ بار</div>
+</div>
+
+<div class="era-divider">
+  <div class="era-dot era-middle"></div>
+  <div class="era-label en-blk">The Prophets Who Prayed for This Station</div>
+  <div class="era-label-ur ur-blk">انبیاء جنہوں نے اس درجے کی دعا کی</div>
+  <div class="era-line"></div>
+</div>
+
+<div class="ayah-card" id="sl-shuara-83">
+  <div class="ayah-card-hdr" onclick="toggleCard('sl-shuara-83')">
+    <span class="rev-badge rev-middle en-blk">Middle Makki</span>
+    <span class="rev-badge rev-middle ur-blk">اوسط مکی</span>
+    <span class="card-ref">Al-Shu'ara 26:83-85</span>
+    <span class="card-preview">رَبِّ هَبْ لِي حُكْمًا وَأَلْحِقْنِي بِالصَّالِحِينَ</span>
+    <span class="card-chevron">›</span>
+  </div>
+  <div class="card-body">
+    <div class="ayah-arabic">رَبِّ هَبْ لِي حُكْمًا وَأَلْحِقْنِي بِالصَّالِحِينَ ۞ وَاجْعَل لِّي لِسَانَ صِدْقٍ فِي الْآخِرِينَ ۞ وَاجْعَلْنِي مِن وَرَثَةِ جَنَّةِ النَّعِيمِ</div>
+    <div class="ayah-tr-en en-blk">"My Lord — grant me wisdom and join me with the Saliheen. And give me a tongue of truth among later generations. And make me among the inheritors of the Garden of Delight."</div>
+    <div class="ayah-tr-ur ur-blk">«میرے رب — مجھے حکمت دے اور صالحین میں شامل کر۔ اور بعد والوں میں میرے لیے سچائی کی زبان رکھ۔ اور مجھے نعمتوں کے باغ کے وارثوں میں بنا۔»</div>
+    <div class="ayah-ref-line">Surah Al-Shu'ara 26:83-85 — Ibrahim AS's prayer</div>
+    <div class="ctx-box">
+      <div class="ctx-lbl en-blk">Ibrahim AS Prays to Be Among the Saliheen</div>
+      <div class="ctx-txt en-blk">Ibrahim AS — the Friend of Allah (Khalilullah), the one who passed every test, whose millah (way) the Quran calls us to follow, the father of the prophets — makes a prayer. He asks to be joined with the Saliheen. Not Siddiqoon. Not the highest station. The Saliheen. This is not because Ibrahim AS had not reached higher — it is the Quranic model of how the greatest souls speak. They do not claim their station. They ask for it. And the station they ask for is the foundational one: join me with those who are sound, who are in right relation, who do what is right. This is also why the Quran says the prayer of Ibrahim is the model prayer — he knew what the foundation was.</div>
+      <div class="ctx-txt-ur ur-blk">ابراہیم علیہ السلام — خلیل اللہ، ہر آزمائش پاس کرنے والے، جن کی ملت کی اتباع حکم — دعا کرتے ہیں: صالحین میں شامل کر۔ بڑی روحیں اپنا درجہ نہیں مانگتیں — وہ بنیاد مانگتی ہیں۔</div>
+    </div>
+    <div class="uniq-box">
+      <div class="uniq-lbl en-blk">The Three-Part Prayer — Its Sequence</div>
+      <div class="uniq-txt en-blk">Ibrahim AS asks for three things in sequence: Hukm (wisdom, judgment — the ability to see and decide correctly) → joining with the Saliheen → a tongue of truth that will endure. This sequence is architectural: wisdom produces the ability to act rightly, which makes one Salih, which produces lasting truthful speech. The Saliheen station is in the middle — the product of wisdom and the producer of lasting truth. This places Salih not as the bottom of a hierarchy but as the central axis of a complete spiritual life.</div>
+      <div class="uniq-txt-ur ur-blk">ابراہیم کی تین دعائیں ترتیب میں: حکم → صالحین میں شامل → سچائی کی زبان۔ یہ ترتیب تعمیری ہے: حکمت → صحیح عمل (صالح) → دیرپا سچائی۔ صالح درجہ مرکزی محور ہے۔</div>
+    </div>
+    <div class="notes-sec">
+      <div class="notes-hdr"><span class="en-blk">Personal Notes</span><span class="ur-blk">ذاتی نوٹس</span></div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--gold)"></div><span class="en-blk">Ibrahim AS prayed for wisdom first, then the Salih station. What does this suggest about the relationship between understanding and righteousness?</span><span class="ur-blk">ابراہیم علیہ السلام نے پہلے حکمت مانگی پھر صالح — یہ سمجھ اور نیکی کے تعلق کے بارے میں کیا بتاتا ہے؟</span><span class="nsv" id="sv-sl-1"></span></div>
+        <textarea class="note-ta" id="note-sl-1" placeholder="Can you be truly Salih without wisdom (hukm)? What would it mean to act rightly without understanding why?" oninput="autoSave('sl-1',this.value)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="ayah-card" id="sl-anbiya-105">
+  <div class="ayah-card-hdr" onclick="toggleCard('sl-anbiya-105')">
+    <span class="rev-badge rev-middle en-blk">Middle Makki</span>
+    <span class="rev-badge rev-middle ur-blk">اوسط مکی</span>
+    <span class="card-ref">Al-Anbiya 21:105</span>
+    <span class="card-preview">أَنَّ الْأَرْضَ يَرِثُهَا عِبَادِيَ الصَّالِحُونَ</span>
+    <span class="card-chevron">›</span>
+  </div>
+  <div class="card-body">
+    <div class="ayah-arabic">وَلَقَدْ كَتَبْنَا فِي الزَّبُورِ مِن بَعْدِ الذِّكْرِ أَنَّ الْأَرْضَ يَرِثُهَا عِبَادِيَ الصَّالِحُونَ</div>
+    <div class="ayah-tr-en en-blk">"And We have already written in the Zabur after the Dhikr that the earth shall be inherited by My righteous servants."</div>
+    <div class="ayah-tr-ur ur-blk">«اور ہم نے ذکر کے بعد زبور میں لکھ دیا کہ زمین میرے صالح بندوں کے وارث ہوں گے۔»</div>
+    <div class="ayah-ref-line">Surah Al-Anbiya 21:105</div>
+    <div class="ctx-box">
+      <div class="ctx-lbl en-blk">The Saliheen Inherit the Earth — The Eschatological Promise</div>
+      <div class="ctx-txt en-blk">The Quran references a written decree — in the Zabur (Psalms of Dawud AS) and confirmed again after the Dhikr (the original heavenly scripture) — that the earth's inheritance belongs to the Saliheen. This is among the most important political-eschatological statements in the Quran: ultimate authority over the earth is reserved not for the powerful, not for the numerous, but for the Saliheen. The word Waratha (inherit) means coming into what was already rightfully yours — the Saliheen do not conquer the earth, they receive what was always written for them. This ayah gives the Salih station a cosmic dimension: it is not merely personal — it is the mechanism by which the world is ultimately corrected.</div>
+      <div class="ctx-txt-ur ur-blk">قرآن ایک تحریری فیصلے کا حوالہ دیتا ہے: زمین کا وارث صالحون۔ ورث — وہ جو پہلے سے حق تھا اسے پانا۔ صالح درجے کا کائناتی پہلو: یہ صرف ذاتی نہیں — یہ وہ طریقہ ہے جس سے دنیا بالآخر درست ہوتی ہے۔</div>
+    </div>
+    <div class="notes-sec">
+      <div class="notes-hdr"><span class="en-blk">Personal Notes</span><span class="ur-blk">ذاتی نوٹس</span></div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--teal)"></div><span class="en-blk">The Saliheen inherit the earth — this gives righteousness a world-historical dimension. Does it change your motivation for being Salih?</span><span class="ur-blk">صالحون زمین کے وارث — نیکی کو عالمی تاریخی پہلو دیتا ہے۔ کیا یہ صالح ہونے کا محرک بدلتا ہے؟</span><span class="nsv" id="sv-sl-2"></span></div>
+        <textarea class="note-ta" id="note-sl-2" placeholder="If the Saliheen ultimately inherit the earth — what is the relationship between personal righteousness and the state of the world?" oninput="autoSave('sl-2',this.value)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="notes-sec" style="border:1px solid var(--border2);border-radius:10px;padding:16px 18px;margin-top:8px">
+  <div class="notes-hdr"><span class="en-blk">Personal Synthesis — As-Salihoon</span><span class="ur-blk">ذاتی خلاصہ — الصالحون</span></div>
+  <div class="note-f">
+    <div class="note-lbl"><div class="nd" style="background:var(--gold)"></div><span class="en-blk">The Salih station is the foundation — are you building on a Salih foundation right now?</span><span class="ur-blk">صالح درجہ بنیاد ہے — کیا آپ ابھی صالح بنیاد پر تعمیر کر رہے ہیں؟</span><span class="nsv" id="sv-sl-synth"></span></div>
+    <textarea class="note-ta" id="note-sl-synth" style="min-height:100px" placeholder="What would it mean for your acts to be truly salih — sound in form AND intention? Where are your acts currently sound and where are they not?" oninput="autoSave('sl-synth',this.value)"></textarea>
+  </div>
+</div>
+
+</div><!-- end salihoon -->
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- RANK 5: AL-MUQTASID -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="rank-section" id="sec-muqtasid">
+
+<div class="rank-hdr">
+  <div class="rank-hdr-num en-blk">Rank V · The Moderate · Al-Fatir 35:32 · The Reliable Middle</div>
+  <div class="rank-hdr-num ur-blk">درجہ پنجم · فاطر ۳۵:۳۲ · قابلِ اعتماد درمیانی راستہ</div>
+  <div class="rank-hdr-ar">الْمُقْتَصِد</div>
+  <div class="rank-hdr-en en-blk">Al-Muqtasid — The Moderate One</div>
+  <div class="rank-hdr-ur ur-blk">المقتصد — اعتدال والا</div>
+  <div class="rank-hdr-rule"></div>
+  <div class="rank-hdr-root en-blk">Root: ق — ص — د · The middle path · Purposeful moderation · Not randomness but directed balance · Qasd = purposeful direction toward a goal</div>
+  <div class="rank-hdr-root ur-blk">جڑ: ق — ص — د · درمیانی راستہ · بامقصد اعتدال · قصد = مقصد کی طرف سوچی سمجھی سمت</div>
+  <div class="rank-hdr-intro en-blk">The Muqtasid is the honest middle — the person who fulfils what is obligatory and avoids what is forbidden, but does not consistently go beyond to the voluntary. This is not the minimum — it is the reliable, sustainable baseline of a sound Muslim life. The Quran places him between the Zalim li-nafsih (who falls short) and the Sabiq bil-khayrat (who races ahead). Understanding this station honestly is important because most Muslims live in it and do not acknowledge it — either overestimating themselves as Sabiq or underestimating themselves as Zalim. Honest placement in this station is itself a form of Sidq.</div>
+  <div class="rank-hdr-intro-ur ur-blk">مقتصد سچا درمیانی — فرض ادا کرتا، حرام سے بچتا، لیکن نوافل میں باقاعدہ نہیں۔ یہ کم سے کم نہیں — قابلِ اعتماد، پائیدار بنیاد۔ زیادہ تر مسلمان یہاں ہیں اور مانتے نہیں۔ اس درجے میں خود کو ایمانداری سے رکھنا خود صدق کی ایک شکل ہے۔</div>
+</div>
+
+<div class="root-analysis">
+  <div class="ra-label"><span class="en-blk">Root Word Analysis — ق ص د</span><span class="ur-blk">جڑ کا تجزیہ — ق ص د</span></div>
+  <div class="ra-root">قَصَدَ · مُقْتَصِد · قَصْد · قَاصِد · اقْتِصَاد</div>
+  <div class="ra-letters">
+    <div class="ra-letter"><span class="ra-letter-ar">ق</span><span class="ra-letter-en">Q</span></div>
+    <div class="ra-letter"><span class="ra-letter-ar">ص</span><span class="ra-letter-en">S</span></div>
+    <div class="ra-letter"><span class="ra-letter-ar">د</span><span class="ra-letter-en">D</span></div>
+  </div>
+  <div class="ra-meaning en-blk">Q-S-D carries the idea of purposeful directed movement — not random, not extreme, but aimed and moderate. Qasada (he aimed for, he directed himself toward) — Qasd (purpose, direction) — Muqtasid (one who takes the middle directed path). The root also gives Iqtisad (economics — the management of resources with purposeful moderation). The Muqtasid is not passive — his moderation is active and directed. He is not stuck between two extremes by confusion. He has made a purposeful choice to remain in the middle. Al-Ghazali: this is honourable, sustainable, and what is required of every Muslim before any higher station can be built.</div>
+  <div class="ra-meaning-ur ur-blk">ق-ص-د: بامقصد متوجہ حرکت — نہ بے ترتیب، نہ انتہا پسند، بلکہ نشانہ بند اور اعتدال پسند۔ اقتصاد (معیشت — وسائل کا بامقصد اعتدال) اسی جڑ سے۔ مقتصد غیر فعال نہیں — اس کا اعتدال فعال اور سوچا سمجھا ہے۔</div>
+  <div class="ra-forms">
+    <div class="ra-form"><div class="ra-form-ar">الْمُقْتَصِد</div><div class="ra-form-en en-blk">The Moderate</div><div class="ra-form-en ur-blk">اعتدال والا</div></div>
+    <div class="ra-form"><div class="ra-form-ar">قَصْد</div><div class="ra-form-en en-blk">Purpose / Middle way</div><div class="ra-form-en ur-blk">قصد / درمیان</div></div>
+    <div class="ra-form"><div class="ra-form-ar">اقْتِصَاد</div><div class="ra-form-en en-blk">Economy / Moderation</div><div class="ra-form-en ur-blk">اقتصاد</div></div>
+  </div>
+  <div class="ra-count en-blk">✦ The Muqtasid appears specifically in Al-Fatir 35:32 — also referenced in Al-Maidah 5:66 and Luqman 31:32 in related contexts</div>
+  <div class="ra-count ur-blk">✦ مقتصد خاص طور پر فاطر ۳۵:۳۲ میں — المائدہ ۵:۶۶ اور لقمان ۳۱:۳۲ میں بھی</div>
+</div>
+
+<div class="era-divider">
+  <div class="era-dot era-middle"></div>
+  <div class="era-label en-blk">Al-Fatir 35:32 — The Muqtasid Placed Between the Two Extremes</div>
+  <div class="era-label-ur ur-blk">فاطر ۳۵:۳۲ — مقتصد دو انتہاؤں کے درمیان</div>
+  <div class="era-line"></div>
+</div>
+
+<div class="ayah-card" id="mq-fatir-32">
+  <div class="ayah-card-hdr" onclick="toggleCard('mq-fatir-32')">
+    <span class="rev-badge rev-middle en-blk">Middle Makki</span>
+    <span class="rev-badge rev-middle ur-blk">اوسط مکی</span>
+    <span class="card-ref">Al-Fatir 35:32</span>
+    <span class="card-preview">وَمِنْهُمْ مُّقْتَصِدٌ</span>
+    <span class="card-chevron">›</span>
+  </div>
+  <div class="card-body">
+    <div class="ayah-arabic">ثُمَّ أَوْرَثْنَا الْكِتَابَ الَّذِينَ اصْطَفَيْنَا مِنْ عِبَادِنَا ۖ فَمِنْهُمْ ظَالِمٌ لِّنَفْسِهِ وَمِنْهُمْ مُّقْتَصِدٌ وَمِنْهُمْ سَابِقٌ بِالْخَيْرَاتِ بِإِذْنِ اللَّهِ</div>
+    <div class="ayah-tr-en en-blk">"Then We caused to inherit the Book those We chose from Our servants. Among them is one who wrongs himself, and among them is one who is moderate, and among them is one who is foremost in good deeds by permission of Allah."</div>
+    <div class="ayah-tr-ur ur-blk">«پھر ہم نے کتاب کا وارث بنایا جنہیں ہم نے چنا — ان میں ظالم لنفسہ ہے، ان میں مقتصد ہے، اور ان میں باذن اللہ نیکیوں میں سابق ہے۔»</div>
+    <div class="ayah-ref-line">Surah Al-Fatir 35:32</div>
+    <div class="ctx-box">
+      <div class="ctx-lbl en-blk">The Middle Position — What It Actually Contains</div>
+      <div class="ctx-txt en-blk">The Muqtasid is between the Zalim li-nafsih and the Sabiq bil-khayrat. Classical scholars differ on whether the verse is listed in ascending or descending order — Ibn Kathir and most say ascending (Zalim → Muqtasid → Sabiq). Some note that the Zalim is mentioned first as a mercy — even the one who wrongs himself is among the chosen. The Muqtasid fulfils: all five pillars performed correctly, the obligatory fasts and zakah and hajj if capable, avoidance of the clearly prohibited, basic honesty and justice in dealings. He does not consistently add nawafil, does not have a sustained dhikr practice beyond what is prescribed, and his inner life is functional but not continuously operating. Al-Qurtubi: this is the majority of the saved.</div>
+      <div class="ctx-txt-ur ur-blk">مقتصد ظالم اور سابق کے درمیان۔ ابن کثیر: ترتیب صعودی (ظالم → مقتصد → سابق)۔ مقتصد: پانچوں ارکان درست، واجبات ادا، محرمات سے پرہیز، نوافل میں باقاعدہ نہیں، ذکر مستقل نہیں۔ قرطبی: یہ نجات پانے والوں کی اکثریت ہے۔</div>
+    </div>
+    <div class="insight">
+      <div class="insight-lbl en-blk">◈ The Honest Diagnosis — Most Muslims Are Here</div>
+      <div class="insight-lbl ur-blk">◈ ایمانداری سے تشخیص — اکثر مسلمان یہاں ہیں</div>
+      <div class="insight-txt en-blk">The most important thing to understand about the Muqtasid station is that it is not the destination — it is the honest starting point for most people. Al-Ghazali uses this station as the baseline from which the Ihya's programme begins: you must first be a functioning Muqtasid before any of the higher stations can be built. The person who thinks they are already Sabiq when they are actually Muqtasid has introduced a gap between their self-assessment and their reality — which is itself a violation of Sidq. The Muqtasid who knows they are Muqtasid and honestly desires to become Sabiq is already closer to Sidq than the person who claims Sabiq status they have not reached.</div>
+      <div class="insight-txt-ur ur-blk">مقتصد منزل نہیں — اکثر لوگوں کے لیے ایمانداری سے ابتدائی نقطہ ہے۔ الغزالی: احیاء کا پروگرام یہاں سے شروع ہوتا ہے۔ جو مقتصد ہو کر سابق سمجھے اس نے خود ارزیابی اور حقیقت میں فرق کیا — صدق کی خلاف ورزی۔</div>
+    </div>
+    <div class="notes-sec">
+      <div class="notes-hdr"><span class="en-blk">Personal Notes</span><span class="ur-blk">ذاتی نوٹس</span></div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--amber)"></div><span class="en-blk">Are you a Muqtasid? What would it take to honestly acknowledge this without either false humility or false ambition?</span><span class="ur-blk">کیا آپ مقتصد ہیں؟ جھوٹی عاجزی یا جھوٹی خواہش کے بغیر اسے ایمانداری سے ماننے کے لیے کیا چاہیے؟</span><span class="nsv" id="sv-mq-1"></span></div>
+        <textarea class="note-ta" id="note-mq-1" style="min-height:100px" placeholder="Honest assessment: Do you fulfil all the obligatory? Do you avoid all the forbidden? Does your inner life operate beyond the prescribed minimum? Place yourself honestly." oninput="autoSave('mq-1',this.value)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- end muqtasid -->
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- RANK 6: ZALIM LI-NAFSIH -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="rank-section" id="sec-zalim">
+
+<div class="rank-hdr">
+  <div class="rank-hdr-num en-blk">Rank VI · The One Who Wrongs His Own Soul · Al-Fatir 35:32</div>
+  <div class="rank-hdr-num ur-blk">درجہ ششم · فاطر ۳۵:۳۲</div>
+  <div class="rank-hdr-ar">الظَّالِم لِنَفْسِهِ</div>
+  <div class="rank-hdr-en en-blk">Zalim li-Nafsih — Wronging One's Own Soul</div>
+  <div class="rank-hdr-ur ur-blk">ظالم لنفسہ — اپنے نفس پر ظلم</div>
+  <div class="rank-hdr-rule"></div>
+  <div class="rank-hdr-root en-blk">Root: ظ — ل — م · Darkness · Wrongness · Placing something in other than its right place · Zulm toward the self</div>
+  <div class="rank-hdr-root ur-blk">جڑ: ظ — ل — م · اندھیرا · غلطی · چیز کو غلط جگہ رکھنا</div>
+  <div class="rank-hdr-intro en-blk">The Zalim li-nafsih is among the chosen — among the inheritors of the Book — and yet he wrongs himself. This is the most unsettling rank in the entire taxonomy because it describes a person with full access to the truth who is not living up to it. The Prophet Adam AS himself is the first person in the Quran to describe himself with this phrase (7:23). The rank is not outside the community of the saved — its relationship to salvation depends on tawbah and ultimately Allah's mercy. But it is the station that demands the most honest self-examination.</div>
+  <div class="rank-hdr-intro-ur ur-blk">ظالم لنفسہ منتخب میں شامل — کتاب کے وارثوں میں — اور پھر بھی خود پر ظلم کرتا ہے۔ پوری تصنیف میں سب سے تکلیف دہ درجہ: حق تک مکمل رسائی رکھنے والا جو اس کے مطابق نہیں جیتا۔ آدم علیہ السلام قرآن میں پہلے شخص جنہوں نے خود کو یہ کہا (۷:۲۳)۔</div>
+</div>
+
+<div class="root-analysis">
+  <div class="ra-label"><span class="en-blk">Root Word Analysis — ظ ل م</span><span class="ur-blk">جڑ کا تجزیہ — ظ ل م</span></div>
+  <div class="ra-root">ظَلَمَ · ظُلْم · ظَالِم · ظُلُمَات · مَظْلُوم</div>
+  <div class="ra-letters">
+    <div class="ra-letter"><span class="ra-letter-ar">ظ</span><span class="ra-letter-en">ZH</span></div>
+    <div class="ra-letter"><span class="ra-letter-ar">ل</span><span class="ra-letter-en">L</span></div>
+    <div class="ra-letter"><span class="ra-letter-ar">م</span><span class="ra-letter-en">M</span></div>
+  </div>
+  <div class="ra-meaning en-blk">Zh-L-M in classical Arabic originally means darkness — zulumat (darknesses, 6:63), the deepest dark of the night or ocean. From this comes the secondary meaning: wrongness, placing something in other than its right place. Zulm toward another is oppression — putting them in a position that is not theirs by right. Zulm toward the self (li-nafsih) is the inner darkness of placing the nafs in conditions of sin, heedlessness, or distance from Allah — conditions that are not its right state. The Zalim li-nafsih creates inner darkness for himself. Not for others primarily — for himself.</div>
+  <div class="ra-meaning-ur ur-blk">ظ-ل-م اصلاً اندھیرے کے معنی — ظلمات، رات کی گہری تاریکی۔ پھر: چیز کو غلط جگہ رکھنا۔ ذات پر ظلم: نفس کو گناہ، غفلت، اللہ سے دوری کی حالت میں رکھنا — جو اس کی صحیح حالت نہیں۔ ظالم لنفسہ اپنے لیے اندھیرا پیدا کرتا ہے۔</div>
+  <div class="ra-forms">
+    <div class="ra-form"><div class="ra-form-ar">ظَالِم لِنَفْسِهِ</div><div class="ra-form-en en-blk">Wronging own soul</div><div class="ra-form-en ur-blk">اپنے نفس پر ظالم</div></div>
+    <div class="ra-form"><div class="ra-form-ar">ظُلُمَات</div><div class="ra-form-en en-blk">Darknesses</div><div class="ra-form-en ur-blk">اندھیرے</div></div>
+    <div class="ra-form"><div class="ra-form-ar">ظَلَمْنَا أَنفُسَنَا</div><div class="ra-form-en en-blk">We wronged ourselves</div><div class="ra-form-en ur-blk">ہم نے خود پر ظلم کیا</div></div>
+  </div>
+  <div class="ra-count en-blk">✦ Zh-L-M appears 290+ times — among the most frequent roots in the Quran, used for cosmic injustice and personal spiritual failure alike</div>
+  <div class="ra-count ur-blk">✦ ظ-ل-م ۲۹۰ سے زیادہ بار — کائناتی ناانصافی اور ذاتی روحانی ناکامی دونوں کے لیے</div>
+</div>
+
+<div class="era-divider">
+  <div class="era-dot era-middle"></div>
+  <div class="era-label en-blk">The First Zalim li-Nafsih in the Quran — Adam AS</div>
+  <div class="era-label-ur ur-blk">قرآن میں پہلا ظالم لنفسہ — آدم علیہ السلام</div>
+  <div class="era-line"></div>
+</div>
+
+<div class="ayah-card" id="zl-araf-23">
+  <div class="ayah-card-hdr" onclick="toggleCard('zl-araf-23')">
+    <span class="rev-badge rev-middle en-blk">Middle Makki</span>
+    <span class="rev-badge rev-middle ur-blk">اوسط مکی</span>
+    <span class="card-ref">Al-A'raf 7:23</span>
+    <span class="card-preview">رَبَّنَا ظَلَمْنَا أَنفُسَنَا</span>
+    <span class="card-chevron">›</span>
+  </div>
+  <div class="card-body">
+    <div class="ayah-arabic">قَالَا رَبَّنَا ظَلَمْنَا أَنفُسَنَا وَإِن لَّمْ تَغْفِرْ لَنَا وَتَرْحَمْنَا لَنَكُونَنَّ مِنَ الْخَاسِرِينَ</div>
+    <div class="ayah-tr-en en-blk">"They said: Our Lord — we have wronged ourselves. And if You do not forgive us and have mercy on us, we will surely be among the losers."</div>
+    <div class="ayah-tr-ur ur-blk">«دونوں نے کہا: ہمارے رب — ہم نے اپنے آپ پر ظلم کیا۔ اور اگر آپ نے ہمیں معاف نہ کیا اور رحم نہ کیا تو ہم ضرور گھاٹے والوں میں ہوں گے۔»</div>
+    <div class="ayah-ref-line">Surah Al-A'raf 7:23 — Adam AS and Hawwa AS</div>
+    <div class="ctx-box">
+      <div class="ctx-lbl en-blk">What Adam AS's Tawbah Reveals About This Station</div>
+      <div class="ctx-txt en-blk">Adam AS is a prophet — the first human — and his first documented act after the error is to say: Rabbana zalamna anfusana (Our Lord — we have wronged ourselves). This is the defining characteristic of the Zalim li-nafsih who will eventually be saved: they acknowledge the zulm. They do not blame the circumstances (Iblis made me do it), they do not minimise it, they do not delay the acknowledgment. "We wronged ourselves" — first person plural, immediate, direct, to Allah. The contrast with Iblis is deliberate: Iblis blamed Allah ("because You misled me"). Adam AS blamed himself. This difference is the difference between a person who remains in the Zalim station and one who moves through it and beyond.</div>
+      <div class="ctx-txt-ur ur-blk">آدم علیہ السلام نبی تھے — اور غلطی کے بعد ان کا پہلا عمل: ربنا ظلمنا انفسنا۔ ظالم لنفسہ جو بچتا ہے وہ ظلم تسلیم کرتا ہے۔ ابلیس سے فرق: ابلیس نے اللہ کو الزام دیا۔ آدم علیہ السلام نے خود کو۔ یہی فرق ظالم رہنے اور آگے بڑھنے کا فرق ہے۔</div>
+    </div>
+    <div class="root-box">
+      <div class="root-lbl en-blk">The Escape — Tawbah as the Exit from Zulm</div>
+      <span class="root-wd">إِن لَّمْ تَغْفِرْ لَنَا</span>
+      <span class="root-fm">· Unless You forgive — acknowledging dependence completely</span>
+      <div class="root-mn en-blk">Adam AS's prayer is theologically precise: "If You do not forgive AND have mercy." Two separate divine acts — maghfira (forgiveness — the covering/removal of the sin) and rahma (mercy — the positive inflow of grace). The Zalim li-nafsih needs both: the removal of the sin AND the positive restoration. He cannot restore himself through his own effort. This acknowledgment of complete dependence is itself part of tawbah — the recognition that the exit from the Zalim station requires divine action, not merely human effort. The human contribution is the acknowledgment and the return. The divine contribution is the forgiveness and the mercy.</div>
+      <div class="root-mn-ur ur-blk">آدم علیہ السلام کی دعا: «اگر تم نے معاف نہ کیا اور رحم نہ کیا»۔ دو الگ الٰہی افعال — مغفرت (گناہ کا ڈھانپنا) اور رحمت (فضل کا آنا)۔ ظالم لنفسہ کو دونوں چاہئیں۔ انسانی حصہ: اقرار اور واپسی۔ الٰہی حصہ: مغفرت اور رحمت۔</div>
+    </div>
+    <div class="uniq-box">
+      <div class="uniq-lbl en-blk">The Prophet in the Zalim Station — What This Means</div>
+      <div class="uniq-txt en-blk">The fact that the Quran records a Prophet — the father of humanity — using the phrase "zalamna anfusana" is the most important thing about this rank. It means: this station is not a marker of being outside the saved community. It is a transient state that even the greatest souls have passed through. The permanent Zalim li-nafsih is the one who refuses to acknowledge the zulm. The transient Zalim — Adam AS's type — acknowledges, seeks forgiveness, and moves. Every person on the spiritual path has been in this station. The question is whether they acknowledged it or stayed in it.</div>
+      <div class="uniq-txt-ur ur-blk">قرآن ایک نبی کو «ظلمنا انفسنا» کہتے ریکارڈ کرتا ہے — یہ درجے کی سب سے اہم بات ہے: یہ نجات سے باہر نہیں۔ مستقل ظالم: وہ جو ظلم تسلیم کرنے سے انکار کرے۔ عارضی ظالم — آدم علیہ السلام کی قسم — تسلیم کرتا اور آگے بڑھتا ہے۔</div>
+    </div>
+    <div class="notes-sec">
+      <div class="notes-hdr"><span class="en-blk">Personal Notes</span><span class="ur-blk">ذاتی نوٹس</span></div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--gold)"></div><span class="en-blk">What zulm toward yourself are you currently engaged in — and have you acknowledged it?</span><span class="ur-blk">ابھی آپ کی طرف سے اپنے آپ پر کون سا ظلم ہو رہا ہے — اور کیا تسلیم کیا؟</span><span class="nsv" id="sv-zl-1"></span></div>
+        <textarea class="note-ta" id="note-zl-1" placeholder="Adam AS said it immediately and directly — zalamna anfusana. What is the equivalent sentence you need to say right now?" oninput="autoSave('zl-1',this.value)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="era-divider">
+  <div class="era-dot era-madani"></div>
+  <div class="era-label en-blk">Madani — The Exit from Zulm: The Wide Mercy</div>
+  <div class="era-label-ur ur-blk">مدنی — ظلم سے نکلنا: وسیع رحمت</div>
+  <div class="era-line"></div>
+</div>
+
+<div class="ayah-card" id="zl-zumar-53">
+  <div class="ayah-card-hdr" onclick="toggleCard('zl-zumar-53')">
+    <span class="rev-badge rev-madani en-blk">Late Makki / Madani</span>
+    <span class="rev-badge rev-madani ur-blk">اواخر مکی / مدنی</span>
+    <span class="card-ref">Al-Zumar 39:53</span>
+    <span class="card-preview">قُلْ يَا عِبَادِيَ الَّذِينَ أَسْرَفُوا عَلَىٰ أَنفُسِهِمْ</span>
+    <span class="card-chevron">›</span>
+  </div>
+  <div class="card-body">
+    <div class="ayah-arabic">قُلْ يَا عِبَادِيَ الَّذِينَ أَسْرَفُوا عَلَىٰ أَنفُسِهِمْ لَا تَقْنَطُوا مِن رَّحْمَةِ اللَّهِ ۚ إِنَّ اللَّهَ يَغْفِرُ الذُّنُوبَ جَمِيعًا ۚ إِنَّهُ هُوَ الْغَفُورُ الرَّحِيمُ</div>
+    <div class="ayah-tr-en en-blk">"Say: O My servants who have transgressed against themselves — do not despair of the mercy of Allah. Indeed Allah forgives all sins. Indeed He is the Forgiving, the Merciful."</div>
+    <div class="ayah-tr-ur ur-blk">«کہو: اے میرے بندو جنہوں نے اپنے آپ پر زیادتی کی — اللہ کی رحمت سے مایوس نہ ہو۔ بے شک اللہ تمام گناہ معاف کرتا ہے۔ بے شک وہ بخشنے والا، رحم کرنے والا ہے۔»</div>
+    <div class="ayah-ref-line">Surah Al-Zumar 39:53</div>
+    <div class="ctx-box">
+      <div class="ctx-lbl en-blk">The Most Merciful Ayah for the Zalim li-Nafsih</div>
+      <div class="ctx-txt en-blk">Ibn Abbas called this the most hopeful ayah in the Quran. Allah speaks in the first person — "O My servants" — addressing precisely the category of Al-Fatir 35:32: those who have transgressed against themselves (asrafoo ala anfusihim — exceeded the limits at the cost of their own souls). The command: La taqnatoo — do not despair. The despair of Allah's mercy is itself a sin greater than many of the sins that caused the despair. Then the extraordinary statement: Inna Allaha yaghfiru al-dhunuba jamee'an — Allah forgives ALL sins. Not most. Not the small ones. All. The qualifier: without shirk — 4:116 limits this to sins not involving shirk. Within that limit: all.</div>
+      <div class="ctx-txt-ur ur-blk">ابن عباس: قرآن کی سب سے امید افزا آیت۔ اللہ پہلے شخص میں — «اے میرے بندو» — ان کو مخاطب جنہوں نے خود پر زیادتی کی۔ حکم: ناامید نہ ہو۔ اللہ کی رحمت سے ناامیدی خود گناہ ہے۔ پھر: تمام گناہ معاف کرتا ہے — سوائے شرک کے (۴:۱۱۶)۔</div>
+    </div>
+    <div class="uniq-box">
+      <div class="uniq-lbl en-blk">The Sequence That Exits the Zalim Station</div>
+      <div class="uniq-txt en-blk">Al-Zumar 39:54 immediately follows: "And turn to your Lord and submit to Him." The full sequence for exiting the Zalim station: (1) Do not despair — because despair is its own trap; (2) Acknowledge the sin — La taqnatoo assumes the person knows what they have done; (3) Turn back (Aniboo ila rabbikum) — Inabah, turning back, the Awwaab quality; (4) Submit (wa-aslimoo lahu — surrender to Him). Four steps. None of them require perfection before beginning. The Zalim who does these four exits the station. The Zalim who does not — remains.</div>
+      <div class="uniq-txt-ur ur-blk">الزمر ۳۹:۵۴ فوری بعد: «اور اپنے رب کی طرف رجوع کرو اور اس کے سامنے سر تسلیم کرو»۔ ظالم درجے سے نکلنے کا سلسلہ: (۱) ناامید نہ ہو؛ (۲) گناہ تسلیم کرو؛ (۳) واپس مڑو (انابہ)؛ (۴) سر تسلیم کرو۔ چار قدم — ان میں سے کوئی بھی پہلے کمال نہیں مانگتا۔</div>
+    </div>
+    <div class="notes-sec">
+      <div class="notes-hdr"><span class="en-blk">Personal Notes</span><span class="ur-blk">ذاتی نوٹس</span></div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--teal)"></div><span class="en-blk">Allah says do not despair of His mercy — is there an area of your life where you have given up on His mercy?</span><span class="ur-blk">اللہ کہتا ہے ناامید نہ ہو — کیا آپ کی زندگی کا کوئی حصہ ہے جہاں آپ نے اللہ کی رحمت سے ناامیدی قبول کر لی؟</span><span class="nsv" id="sv-zl-2"></span></div>
+        <textarea class="note-ta" id="note-zl-2" placeholder="What sins or failures have you filed as 'beyond forgiveness'? This ayah is addressing exactly that file." oninput="autoSave('zl-2',this.value)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="notes-sec" style="border:1px solid var(--border2);border-radius:10px;padding:16px 18px;margin-top:8px">
+  <div class="notes-hdr"><span class="en-blk">Personal Synthesis — Zalim li-Nafsih</span><span class="ur-blk">ذاتی خلاصہ — ظالم لنفسہ</span></div>
+  <div class="note-f">
+    <div class="note-lbl"><div class="nd" style="background:var(--amber)"></div><span class="en-blk">Adam AS moved through this station — what is the specific zulm you need to acknowledge and move through?</span><span class="ur-blk">آدم علیہ السلام اس درجے سے گزرے — کون سا ظلم ہے جسے آپ کو تسلیم کرنا اور آگے بڑھنا ہے؟</span><span class="nsv" id="sv-zl-synth"></span></div>
+    <textarea class="note-ta" id="note-zl-synth" style="min-height:100px" placeholder="Use Adam AS's words as a template: 'Rabbana zalamna anfusana' — then complete the prayer with what comes after. Then write the four steps of exit: Do not despair · Acknowledge · Turn back · Submit." oninput="autoSave('zl-synth',this.value)"></textarea>
+  </div>
+</div>
+
+</div><!-- end zalim -->
+
+<!-- FILE NAVIGATION -->
+<div class="sec-lbl en-blk" style="margin-top:32px">Continue — The Four Files</div>
+<div class="sec-lbl ur-blk" style="font-family:var(--font-arab);font-size:14px;color:var(--gold);padding:18px 0 14px;margin-top:12px">آگے — چار فائلیں</div>
+
+<div class="file-links">
+  <a href="ranks_map.html" class="file-link">
+    <div class="fl-num">File 1 of 4</div>
+    <div class="fl-title">The Map</div>
+    <div class="fl-desc">Overview · Classification systems · Cross-reference</div>
+    <span class="fl-badge fl-ready">Complete</span>
+  </a>
+  <a href="#" class="file-link current">
+    <div class="fl-num">File 2 of 4</div>
+    <div class="fl-title">Eschatological Ranks</div>
+    <div class="fl-desc">Six ranks · Full ayah analysis · Sunnah · Scholarly views</div>
+    <span class="fl-badge fl-ready">Current</span>
+  </a>
+  <a href="ranks_characteristics.html" class="file-link">
+    <div class="fl-num">File 3 of 4</div>
+    <div class="fl-title">Characteristic Ranks</div>
+    <div class="fl-desc">Muhsinoon · Muttaqoon · Awliya · Mukhlasoon · Awwaaboon · Ulu al-Albab</div>
+    <span class="fl-badge fl-coming">Next Session</span>
+  </a>
+  <a href="ranks_path.html" class="file-link">
+    <div class="fl-num">File 4 of 4</div>
+    <div class="fl-title">The Path</div>
+    <div class="fl-desc">Quranic codes for ascending · Practices mapped to rank development</div>
+    <span class="fl-badge fl-coming">Session 4</span>
+  </a>
+</div>
+
+</div><!-- end page -->
+<div id="toast"></div>
+
+<script>
+var LANG='en';
+var timers={};
+
+function setLang(l){
+  LANG=l;
+  document.getElementById('lt-en').classList.toggle('on',l==='en');
+  document.getElementById('lt-ur').classList.toggle('on',l==='ur');
+  document.body.classList.toggle('ur-mode',l==='ur');
+  document.documentElement.setAttribute('lang',l==='ur'?'ur':'en');
+}
+
+function showRank(id,btn){
+  document.querySelectorAll('.rank-section').forEach(function(s){s.classList.remove('active');});
+  document.querySelectorAll('.rn-btn').forEach(function(b){b.classList.remove('on');});
+  document.getElementById('sec-'+id).classList.add('active');
+  if(btn)btn.classList.add('on');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function toggleCard(id){
+  document.getElementById(id).classList.toggle('open');
+}
+
+function toggleAxis(id){
+  document.getElementById(id).classList.toggle('open');
+}
+
+function toggleScholar(id){
+  document.getElementById(id).classList.toggle('open');
+}
+
+function autoSave(key,val){
+  clearTimeout(timers[key]);
+  timers[key]=setTimeout(function(){
+    var sk='resc_'+key;
+    if(val.trim()){localStorage.setItem(sk,val);}else{localStorage.removeItem(sk);}
+    var sv=document.getElementById('sv-'+key);
+    if(sv){sv.textContent=val.trim()?'Saved ✓':'';sv.classList.add('flash');setTimeout(function(){sv.classList.remove('flash');},1800);}
+  },900);
+}
+
+function loadAll(){
+  for(var i=0;i<localStorage.length;i++){
+    var k=localStorage.key(i);
+    if(k&&k.startsWith('resc_')){
+      var fk=k.substring(5);
+      var el=document.getElementById('note-'+fk);
+      var sv=document.getElementById('sv-'+fk);
+      if(el){el.value=localStorage.getItem(k)||'';if(sv&&el.value.trim())sv.textContent='Saved';}
+    }
+  }
+}
+
+window.addEventListener('DOMContentLoaded',function(){loadAll();});
+</script>
+</body>
+</html>
