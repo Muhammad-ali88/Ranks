@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inner Quality Ranks — Al-Awwaaboon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg0:#04070D;--bg1:#080E1C;--bg2:#0C1528;--bg3:#111E35;--bg4:#162440;
+  --gold:#C9A84C;--gold2:#E2C97A;--gold3:#F5E9C0;
+  --golddim:rgba(201,168,76,.08);--goldbdr:rgba(201,168,76,.18);--goldglow:rgba(201,168,76,.22);
+  --teal:#2FB89A;--tealdim:rgba(47,184,154,.08);--tealbdr:rgba(47,184,154,.22);
+  --blue:#7AABF0;--bluedim:rgba(122,171,240,.08);--bluebdr:rgba(122,171,240,.22);
+  --amber:#E0A030;--amberdim:rgba(224,160,48,.08);--amberbdr:rgba(224,160,48,.22);
+  --purple:#A87FD0;--purpledim:rgba(168,127,208,.08);--purplebdr:rgba(168,127,208,.22);
+  --text:#D4CBB8;--text2:#8A9BB0;--text3:#4A5B70;
+  --border:rgba(201,168,76,.10);--border2:rgba(201,168,76,.05);
+  --font-head:'Cinzel',serif;--font-body:'Lora',serif;--font-arab:'Noto Naskh Arabic',serif;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg0);color:var(--text);font-family:var(--font-body);min-height:100vh;overflow-x:hidden;padding-bottom:80px}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:var(--bg1)}::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(ellipse 800px 500px at 20% 10%,rgba(201,168,76,.025),transparent 60%),
+             radial-gradient(ellipse 600px 400px at 80% 80%,rgba(47,184,154,.02),transparent 60%);}
+.hdr{position:sticky;top:0;z-index:90;background:rgba(4,7,13,.97);border-bottom:1px solid var(--border2);backdrop-filter:blur(20px);padding:0 22px;height:56px;display:flex;align-items:center;gap:14px}
+.hdr-ar{font-family:var(--font-arab);font-size:22px;color:var(--gold);text-shadow:0 0 20px rgba(201,168,76,.3)}
+.hdr-titles{flex:1}
+.hdr-title{font-family:var(--font-head);font-size:10px;letter-spacing:2px;color:var(--gold2);text-transform:uppercase}
+.hdr-sub{font-family:var(--font-head);font-size:8px;letter-spacing:1px;color:var(--text3);text-transform:uppercase;margin-top:2px}
+.lang-toggle{display:flex;gap:2px;background:rgba(255,255,255,.04);border:1px solid var(--goldbdr);border-radius:20px;padding:3px}
+.lt{font-family:var(--font-head);font-size:9px;letter-spacing:.8px;padding:3px 10px;border-radius:16px;cursor:pointer;transition:all .2s;color:var(--text3);user-select:none}
+.lt.on{background:var(--gold);color:#000;font-weight:700}
+.back-link{font-family:var(--font-head);font-size:8.5px;letter-spacing:.8px;color:var(--text3);text-decoration:none;padding:5px 10px;border:1px solid var(--border2);border-radius:6px;transition:all .15s;text-transform:uppercase;flex-shrink:0}
+.back-link:hover{color:var(--gold2);border-color:var(--goldbdr)}
+.file-nav{background:rgba(8,14,28,.8);border-bottom:1px solid var(--border2);padding:10px 22px;display:flex;gap:8px;flex-wrap:wrap;position:sticky;top:56px;z-index:80;backdrop-filter:blur(16px)}
+.fn-btn{font-family:var(--font-head);font-size:8px;letter-spacing:1px;text-transform:uppercase;padding:6px 14px;border-radius:7px;border:1px solid var(--border2);color:var(--text3);cursor:pointer;transition:all .2s;text-decoration:none;display:inline-block}
+.fn-btn:hover{color:var(--gold2);border-color:var(--goldbdr)}
+.fn-btn.current{background:var(--golddim);border-color:var(--goldbdr);color:var(--gold2)}
+.fn-sep{color:var(--text3);font-size:10px;align-self:center;opacity:.4}
+.tab-nav{background:rgba(8,14,28,.6);border-bottom:1px solid var(--border2);padding:8px 22px;display:flex;gap:6px;flex-wrap:wrap;position:sticky;top:103px;z-index:70;backdrop-filter:blur(16px)}
+.tn-btn{font-family:var(--font-head);font-size:7.5px;letter-spacing:.8px;text-transform:uppercase;padding:5px 12px;border-radius:6px;border:1px solid var(--border2);color:var(--text3);cursor:pointer;transition:all .2s;text-decoration:none;display:inline-block}
+.tn-btn:hover{color:var(--gold2);border-color:var(--goldbdr)}
+.tn-btn.current{background:var(--golddim);border-color:var(--goldbdr);color:var(--gold2)}
+.page{position:relative;z-index:1;max-width:860px;margin:0 auto;padding:32px 20px 60px}
+.rank-hdr{text-align:center;padding:24px 20px 32px;border-bottom:1px solid var(--border2);margin-bottom:28px}
+.rank-hdr-num{font-family:var(--font-head);font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--text3);margin-bottom:10px}
+.rank-hdr-ar{font-family:var(--font-arab);font-size:clamp(40px,7vw,62px);color:var(--gold);text-shadow:0 0 40px rgba(201,168,76,.2);line-height:1.2;margin-bottom:8px}
+.rank-hdr-en{font-family:var(--font-head);font-size:clamp(13px,2.5vw,18px);font-weight:700;color:#fff;letter-spacing:2px;text-transform:uppercase;margin-bottom:5px}
+.rank-hdr-ur{font-family:var(--font-arab);font-size:clamp(15px,2.5vw,20px);color:var(--gold2);margin-bottom:14px}
+.rank-hdr-rule{width:100px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 16px}
+.rank-hdr-root{font-family:var(--font-head);font-size:9px;letter-spacing:1.5px;color:var(--text3);text-transform:uppercase;margin-bottom:14px}
+.rank-hdr-intro{font-size:13px;color:var(--text2);line-height:1.9;max-width:640px;margin:0 auto;font-style:italic}
+.rank-hdr-intro-ur{font-family:var(--font-arab);font-size:14px;color:var(--text2);direction:rtl;text-align:center;line-height:2;max-width:640px;margin:4px auto 0}
+.key-banner{background:linear-gradient(135deg,rgba(201,168,76,.10),rgba(201,168,76,.04));border:1px solid var(--goldbdr);border-radius:12px;padding:18px 22px;margin-bottom:24px;text-align:center;position:relative;overflow:hidden}
+.key-banner::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.key-banner-label{font-family:var(--font-head);font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.key-banner-ar{font-family:var(--font-arab);font-size:clamp(18px,3.5vw,26px);color:var(--gold2);direction:rtl;line-height:1.9;margin-bottom:6px}
+.key-banner-tr{font-size:12px;color:var(--text2);font-style:italic;margin-bottom:4px}
+.key-banner-tr-ur{font-family:var(--font-arab);font-size:13px;color:var(--text2);direction:rtl;line-height:1.9;margin-bottom:6px}
+.key-banner-insight{font-size:11.5px;color:var(--text3);line-height:1.75;border-top:1px solid var(--goldbdr);padding-top:10px;margin-top:6px}
+.key-banner-insight-ur{font-family:var(--font-arab);font-size:12px;color:var(--text3);direction:rtl;text-align:center;line-height:2;margin-top:4px}
+.key-banner-ref{font-family:var(--font-head);font-size:8.5px;color:var(--gold);letter-spacing:.6px;margin-top:6px}
+.root-analysis{background:var(--bg2);border:1px solid var(--goldbdr);border-radius:12px;padding:20px 22px;margin-bottom:24px;position:relative;overflow:hidden}
+.root-analysis::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.ra-label{font-family:var(--font-head);font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.ra-label::after{content:'';flex:1;height:1px;background:var(--border2)}
+.ra-root{font-family:var(--font-arab);font-size:28px;color:var(--gold2);direction:rtl;margin-bottom:12px}
+.ra-letters{display:flex;gap:10px;flex-direction:row-reverse;margin-bottom:14px}
+.ra-letter{background:rgba(201,168,76,.06);border:1px solid var(--goldbdr);border-radius:8px;padding:8px 14px;text-align:center}
+.ra-letter-ar{font-family:var(--font-arab);font-size:22px;color:var(--gold2);display:block}
+.ra-letter-en{font-family:var(--font-head);font-size:8px;color:var(--text3);letter-spacing:.5px;margin-top:4px;display:block}
+.ra-meaning{font-size:13px;color:var(--text2);line-height:1.8;margin-bottom:10px}
+.ra-meaning-ur{font-family:var(--font-arab);font-size:14px;color:var(--text2);direction:rtl;text-align:right;line-height:2;margin-bottom:10px}
+.ra-forms{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.ra-form{background:var(--bg3);border:1px solid var(--border2);border-radius:6px;padding:6px 12px;text-align:center}
+.ra-form-ar{font-family:var(--font-arab);font-size:16px;color:var(--gold2);direction:rtl}
+.ra-form-en{font-family:var(--font-head);font-size:8px;color:var(--text3);letter-spacing:.5px;margin-top:2px}
+.ra-count{font-family:var(--font-head);font-size:9px;color:var(--teal);letter-spacing:.5px}
+.distinction-box{background:var(--bg2);border:1px solid var(--tealbdr);border-radius:10px;padding:16px 20px;margin-bottom:24px;position:relative;overflow:hidden}
+.distinction-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--teal),transparent)}
+.distinction-box-lbl{font-family:var(--font-head);font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.distinction-box-lbl::after{content:'';flex:1;height:1px;background:rgba(47,184,154,.15)}
+.distinction-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:10px}
+.dist-item-ar{font-family:var(--font-arab);font-size:22px;color:var(--gold2);direction:rtl;margin-bottom:5px}
+.dist-item-lbl{font-family:var(--font-head);font-size:8px;letter-spacing:1px;text-transform:uppercase;color:var(--teal);margin-bottom:5px}
+.dist-item-def{font-size:12px;color:var(--text2);line-height:1.75}
+.dist-item-def-ur{font-family:var(--font-arab);font-size:12.5px;color:var(--text2);direction:rtl;text-align:right;line-height:2;margin-top:3px}
+.era-divider{display:flex;align-items:center;gap:12px;margin:28px 0 16px}
+.era-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.era-early{background:var(--amber)}.era-middle{background:var(--gold)}.era-late{background:var(--teal)}.era-madani{background:var(--blue)}.era-purple{background:var(--purple)}
+.era-label{font-family:var(--font-head);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text2)}
+.era-label-ur{font-family:var(--font-arab);font-size:13px;color:var(--text2)}
+.era-line{flex:1;height:1px;background:var(--border2)}
+.ayah-card{background:var(--bg2);border:1px solid var(--border2);border-radius:12px;margin-bottom:10px;overflow:hidden;transition:border-color .2s}
+.ayah-card.open{border-color:var(--goldbdr)}
+.ayah-card-hdr{display:flex;align-items:center;gap:10px;padding:13px 18px;cursor:pointer;user-select:none}
+.rev-badge{font-family:var(--font-head);font-size:7.5px;letter-spacing:.8px;padding:3px 8px;border-radius:5px;flex-shrink:0;text-transform:uppercase}
+.rev-early{background:var(--amberdim);border:1px solid var(--amberbdr);color:var(--amber)}
+.rev-middle{background:var(--golddim);border:1px solid var(--goldbdr);color:var(--gold2)}
+.rev-late{background:var(--tealdim);border:1px solid var(--tealbdr);color:var(--teal)}
+.rev-madani{background:var(--bluedim);border:1px solid var(--bluebdr);color:var(--blue)}
+.card-ref{font-family:var(--font-head);font-size:10px;color:var(--gold);font-weight:600;flex-shrink:0}
+.card-preview{font-family:var(--font-arab);font-size:16px;color:var(--gold2);direction:rtl;flex:1;text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:.75}
+.card-chevron{color:var(--text3);font-size:16px;transition:transform .25s;flex-shrink:0}
+.ayah-card.open .card-chevron{transform:rotate(90deg);color:var(--gold)}
+.card-body{display:none;padding:0 18px 20px;border-top:1px solid var(--border2)}
+.ayah-card.open .card-body{display:block}
+.ayah-arabic{font-family:var(--font-arab);font-size:clamp(18px,3.5vw,26px);color:var(--gold2);direction:rtl;text-align:right;line-height:2.2;padding:18px 0 12px;text-shadow:0 0 20px rgba(201,168,76,.1);border-bottom:1px solid var(--border2);margin-bottom:12px}
+.ayah-tr-en{font-size:13px;color:var(--text);font-style:italic;line-height:1.85;margin-bottom:6px;border-left:3px solid var(--goldbdr);padding:8px 14px;border-radius:0 6px 6px 0;background:rgba(201,168,76,.03)}
+.ayah-tr-ur{font-family:var(--font-arab);font-size:14px;color:var(--text);direction:rtl;text-align:right;line-height:2;border-right:3px solid var(--goldbdr);padding:8px 14px 8px 8px;border-radius:6px 0 0 6px;background:rgba(201,168,76,.03);margin-bottom:6px}
+.ayah-ref-line{font-family:var(--font-head);font-size:9px;color:var(--gold);letter-spacing:.8px;margin-bottom:14px}
+.ctx-box{background:rgba(0,0,0,.2);border-left:3px solid var(--amber);border-radius:0 8px 8px 0;padding:11px 14px;margin-bottom:12px}
+.ctx-lbl{font-family:var(--font-head);font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:var(--amber);margin-bottom:5px}
+.ctx-txt{font-size:12px;color:var(--text2);line-height:1.75}
+.ctx-txt-ur{font-family:var(--font-arab);font-size:13px;color:var(--text2);direction:rtl;text-align:right;line-height:2}
+.root-box{background:rgba(201,168,76,.04);border:1px solid var(--goldbdr);border-radius:8px;padding:11px 14px;margin-bottom:12px}
+.root-lbl{font-family:var(--font-head);font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:var(--gold);margin-bottom:7px}
+.root-wd{font-family:var(--font-arab);font-size:19px;color:var(--gold2);direction:rtl;display:inline-block;margin-left:8px}
+.root-fm{font-size:11px;color:var(--text3);letter-spacing:.3px}
+.root-mn{font-size:12px;color:var(--text2);line-height:1.7;margin-top:6px}
+.root-mn-ur{font-family:var(--font-arab);font-size:13px;color:var(--text2);direction:rtl;text-align:right;line-height:2;margin-top:5px}
+.uniq-box{background:var(--tealdim);border:1px solid var(--tealbdr);border-radius:8px;padding:11px 14px;margin-bottom:12px}
+.uniq-lbl{font-family:var(--font-head);font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:var(--teal);margin-bottom:5px}
+.uniq-txt{font-size:12.5px;color:var(--text);line-height:1.75}
+.uniq-txt-ur{font-family:var(--font-arab);font-size:13px;color:var(--text);direction:rtl;text-align:right;line-height:2}
+.sunnah-box{background:var(--purpledim);border:1px solid var(--purplebdr);border-radius:8px;padding:11px 14px;margin-bottom:12px}
+.sun-lbl{font-family:var(--font-head);font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:var(--purple);margin-bottom:8px}
+.sun-ar{font-family:var(--font-arab);font-size:16px;color:var(--gold2);direction:rtl;text-align:right;line-height:2;margin-bottom:5px}
+.sun-en{font-size:12px;color:var(--text2);font-style:italic;line-height:1.7;margin-bottom:5px}
+.sun-ur{font-family:var(--font-arab);font-size:13px;color:var(--text2);direction:rtl;text-align:right;line-height:2;margin-bottom:5px}
+.sun-src{font-family:var(--font-head);font-size:8.5px;color:var(--purple);letter-spacing:.5px}
+.grade{display:inline-block;font-family:var(--font-head);font-size:7.5px;padding:2px 7px;border-radius:4px;margin-left:6px}
+.g-sahih{background:var(--tealdim);border:1px solid var(--tealbdr);color:var(--teal)}
+.g-hasan{background:var(--golddim);border:1px solid var(--goldbdr);color:var(--gold2)}
+.insight{background:linear-gradient(135deg,rgba(201,168,76,.06),rgba(201,168,76,.03));border:1px solid var(--goldbdr);border-radius:10px;padding:14px 18px;margin-bottom:14px}
+.insight-lbl{font-family:var(--font-head);font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.insight-lbl::after{content:'';flex:1;height:1px;background:var(--border2)}
+.insight-txt{font-size:12.5px;color:var(--text2);line-height:1.85}
+.insight-txt-ur{font-family:var(--font-arab);font-size:13.5px;color:var(--text2);direction:rtl;text-align:right;line-height:2;margin-top:6px}
+.scholar-card{background:var(--bg3);border:1px solid var(--border2);border-radius:10px;padding:15px 17px;margin-bottom:9px;overflow:hidden;transition:border-color .2s}
+.scholar-card.open{border-color:var(--purplebdr)}
+.sc-hdr{display:flex;align-items:center;gap:12px;cursor:pointer;user-select:none}
+.sc-badge{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--font-arab);font-size:13px;color:var(--gold2);background:var(--purpledim);border:1px solid var(--purplebdr);flex-shrink:0}
+.sc-name{font-family:var(--font-head);font-size:9.5px;letter-spacing:.5px;color:var(--text);font-weight:600}
+.sc-text{font-family:var(--font-head);font-size:8px;letter-spacing:.3px;color:var(--purple);margin-top:2px}
+.sc-chev{color:var(--text3);font-size:14px;transition:transform .25s;margin-left:auto;flex-shrink:0}
+.scholar-card.open .sc-chev{transform:rotate(90deg);color:var(--purple)}
+.sc-body{display:none;margin-top:12px;padding-top:10px;border-top:1px solid var(--border2)}
+.scholar-card.open .sc-body{display:block}
+.sc-quote{font-size:12px;color:var(--text);font-style:italic;line-height:1.8;border-left:2px solid var(--purple);padding:8px 12px;background:rgba(168,127,208,.04);border-radius:0 6px 6px 0;margin-bottom:10px}
+.sc-quote-ur{font-family:var(--font-arab);font-size:13px;color:var(--text);direction:rtl;text-align:right;line-height:2;border-right:2px solid var(--purple);padding:8px 12px;background:rgba(168,127,208,.04);border-radius:6px 0 0 6px;margin-bottom:10px}
+.sc-analysis{font-size:12px;color:var(--text2);line-height:1.75}
+.sc-analysis-ur{font-family:var(--font-arab);font-size:13px;color:var(--text2);direction:rtl;text-align:right;line-height:2;margin-top:5px}
+.sc-source{font-family:var(--font-head);font-size:8px;color:var(--purple);letter-spacing:.4px;margin-top:8px}
+.scholars-lbl{font-family:var(--font-head);font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--purple);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.scholars-lbl::after{content:'';flex:1;height:1px;background:rgba(168,127,208,.15)}
+.notes-sec{margin-top:14px;border-top:1px solid var(--border2);padding-top:12px}
+.notes-hdr{font-family:var(--font-head);font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:var(--text2);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.notes-hdr::after{content:'';flex:1;height:1px;background:var(--border2)}
+.note-f{margin-bottom:7px}
+.note-lbl{font-family:var(--font-head);font-size:7.5px;letter-spacing:.8px;text-transform:uppercase;color:var(--text3);margin-bottom:4px;display:flex;align-items:center;gap:6px}
+.nd{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.nsv{font-family:var(--font-head);font-size:7px;letter-spacing:.3px;color:var(--text3);margin-left:auto;transition:color .3s}
+.nsv.flash{color:var(--teal)}
+.note-ta{width:100%;min-height:72px;background:rgba(255,255,255,.03);border:1px solid var(--border2);border-radius:7px;outline:none;padding:10px 12px;font-family:var(--font-body);font-size:12.5px;color:var(--text);line-height:1.75;resize:vertical;transition:border-color .2s}
+.note-ta:focus{border-color:var(--goldbdr)}
+.note-ta::placeholder{color:var(--text3);font-style:italic;font-size:11.5px}
+.sh-card{background:var(--bg2);border:1px solid var(--border2);border-radius:12px;padding:18px 20px;margin-bottom:10px}
+.sh-lbl{font-family:var(--font-head);font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:var(--purple);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.sh-lbl::after{content:'';flex:1;height:1px;background:var(--border2)}
+.sh-ar{font-family:var(--font-arab);font-size:clamp(14px,3vw,18px);color:var(--gold2);direction:rtl;text-align:right;line-height:2;margin-bottom:9px;padding:10px 14px;background:rgba(201,168,76,.04);border-radius:7px}
+.sh-en{font-size:12.5px;color:var(--text);font-style:italic;line-height:1.8;margin-bottom:6px}
+.sh-ur{font-family:var(--font-arab);font-size:14px;color:var(--text);direction:rtl;text-align:right;line-height:2;margin-bottom:6px}
+.sh-src{font-family:var(--font-head);font-size:8.5px;color:var(--purple);letter-spacing:.5px}
+.sec-lbl{font-family:var(--font-head);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:12px;padding:28px 0 16px}
+.sec-lbl::after{content:'';flex:1;height:1px;background:var(--border2)}
+.synth-box{border:1px solid var(--border2);border-radius:10px;padding:16px 18px;margin-top:8px}
+.file-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:12px}
+.file-link{background:var(--bg2);border:1px solid var(--border2);border-radius:10px;padding:14px 16px;text-decoration:none;transition:all .2s;display:block}
+.file-link:hover{border-color:var(--goldbdr);background:rgba(201,168,76,.04)}
+.file-link.current{border-color:var(--goldbdr);background:var(--golddim);cursor:default}
+.fl-num{font-family:var(--font-head);font-size:8px;letter-spacing:1px;color:var(--text3);text-transform:uppercase;margin-bottom:5px}
+.fl-title{font-family:var(--font-head);font-size:10px;letter-spacing:.5px;color:var(--gold2);margin-bottom:4px}
+.fl-desc{font-size:11px;color:var(--text3);line-height:1.6}
+.fl-badge{display:inline-block;font-family:var(--font-head);font-size:7px;padding:1px 6px;border-radius:4px;margin-top:6px}
+.fl-ready{background:var(--tealdim);border:1px solid var(--tealbdr);color:var(--teal)}
+.fl-coming{background:var(--amberdim);border:1px solid var(--amberbdr);color:var(--amber)}
+.en-blk{display:block}.ur-blk{display:none}
+body.ur-mode .en-blk{display:none}
+body.ur-mode .ur-blk{display:block}
+.en-inl{display:inline}.ur-inl{display:none}
+body.ur-mode .en-inl{display:none}
+body.ur-mode .ur-inl{display:inline}
+#toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(40px);background:rgba(12,21,40,.98);border:1px solid var(--goldbdr);border-radius:8px;padding:9px 20px;font-family:var(--font-head);font-size:9px;letter-spacing:1px;color:var(--gold2);z-index:300;opacity:0;transition:all .25s;pointer-events:none;white-space:nowrap}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+@media(max-width:600px){.page{padding:20px 14px 60px}.distinction-row{grid-template-columns:1fr}.ra-letters{gap:6px}.ra-letter{padding:6px 10px}}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <div class="hdr-ar">أَوَّاب</div>
+  <div class="hdr-titles">
+    <div class="hdr-title en-blk">Inner Quality Ranks — File 3B · Tab II</div>
+    <div class="hdr-title ur-blk">باطنی اوصاف کے درجات — فائل ۳B · ٹیب ۲</div>
+    <div class="hdr-sub en-blk">Al-Awwaaboon — The Constant Returners</div>
+    <div class="hdr-sub ur-blk">الاوابون — مسلسل لوٹنے والے</div>
+  </div>
+  <div class="lang-toggle">
+    <div class="lt on" id="lt-en" onclick="setLang('en')">EN</div>
+    <div class="lt" id="lt-ur" onclick="setLang('ur')">اردو</div>
+  </div>
+  <a href="ranks_map.html" class="back-link">← Map</a>
+</div>
+
+<div class="file-nav">
+  <a href="ranks_map.html" class="fn-btn">1 · Map</a>
+  <span class="fn-sep">›</span>
+  <a href="ranks_eschatological.html" class="fn-btn">2 · Eschatological</a>
+  <span class="fn-sep">›</span>
+  <a href="ranks_divine_love.html" class="fn-btn">3A · Divine Love</a>
+  <span class="fn-sep">›</span>
+  <span class="fn-btn current">3B · Inner Qualities</span>
+  <span class="fn-sep">›</span>
+  <a href="ranks_path.html" class="fn-btn">4 · The Path</a>
+</div>
+
+<div class="tab-nav">
+  <a href="ranks_inner_qualities_mukhlisoon.html" class="tn-btn">I · Mukhlisoon</a>
+  <span class="tn-btn current">II · Awwaaboon</span>
+  <a href="riq_sabiroon.html" class="tn-btn">III · Sabiroon</a>
+  <a href="riq_shakiroon.html" class="tn-btn">IV · Shakiroon</a>
+  <a href="riq_qaanitoon.html" class="tn-btn">V · Qaanitoon</a>
+  <a href="riq_ululalbab.html" class="tn-btn">VI · Ulu al-Albab</a>
+  <a href="riq_rasikhoon.html" class="tn-btn">VII · Rasikhoon</a>
+</div>
+
+<div class="page">
+
+<div class="rank-hdr">
+  <div class="rank-hdr-num en-blk">File 3B · Tab II · Habitual Return as Constitutive Character</div>
+  <div class="rank-hdr-num ur-blk">فائل ۳B · ٹیب ۲ · عادی واپسی بطور ذاتی کردار</div>
+  <div class="rank-hdr-ar">الْأَوَّابُون</div>
+  <div class="rank-hdr-en en-blk">Al-Awwaaboon — The Constant Returners</div>
+  <div class="rank-hdr-ur ur-blk">الاوابون — مسلسل لوٹنے والے</div>
+  <div class="rank-hdr-rule"></div>
+  <div class="rank-hdr-root en-blk">Root: أ — و — ب · To return · To come back repeatedly · Awwab = one for whom returning is nature</div>
+  <div class="rank-hdr-root ur-blk">جڑ: أ — و — ب · واپس آنا · بار بار لوٹنا · اواب = وہ جس کی فطرت لوٹنا ہے</div>
+  <div class="rank-hdr-intro en-blk">The Awwaaboon are not those who repent once — Tawbah is a single return. The Awwab is the person for whom returning to Allah after every drift has become constitutive of their character. It is the habitual, continuous orientation of return. Ibn al-Qayyim considers this one of the highest characteristics in the Quran because it describes not a peak moment of repentance but a permanent inner orientation. The Quran names both Dawud (AS) and Ayyub (AS) with this title — two prophets whose defining quality was not that they never drifted, but that their nature was always to return.</div>
+  <div class="rank-hdr-intro-ur ur-blk">اوابون وہ نہیں جو ایک بار توبہ کریں — توبہ ایک واپسی ہے۔ اواب وہ ہے جس کے لیے ہر غفلت کے بعد اللہ کی طرف لوٹنا اس کے کردار کا حصہ بن گیا ہو۔ ابن القیم اسے قرآن کی اعلیٰ ترین صفات میں سے ایک سمجھتے ہیں — یہ توبہ کا لمحہ نہیں، مستقل باطنی رخ ہے۔</div>
+</div>
+
+<!-- KEY BANNER -->
+<div class="key-banner">
+  <div class="key-banner-label en-blk">The Reward of the Awwaaboon — Surah Qaf 50:32</div>
+  <div class="key-banner-label ur-blk">اوابون کا اجر — سورۃ ق ۵۰:۳۲</div>
+  <div class="key-banner-ar">هَٰذَا مَا تُوعَدُونَ لِكُلِّ أَوَّابٍ حَفِيظٍ</div>
+  <div class="key-banner-tr en-blk">"This is what you were promised — for every Awwab, Hafeez (constant returner, preserver)."</div>
+  <div class="key-banner-tr-ur ur-blk">«یہ وہی ہے جس کا تم سے وعدہ تھا — ہر اواب، حفیظ کے لیے۔»</div>
+  <div class="key-banner-insight en-blk">This is the statement made at the gates of Paradise. The two qualities named together: Awwab (constant returner to Allah) and Hafeez (one who preserved — their covenant, their worship, their limits). The Awwab is promised Paradise directly. The pairing with Hafeez is significant: returning is not enough without preserving. The Awwab returns AND preserves what they return with.</div>
+  <div class="key-banner-insight-ur ur-blk">یہ جنت کے دروازوں پر کہا جائے گا۔ دو صفات: اواب (مسلسل لوٹنے والا) اور حفیظ (محافظ)۔ صرف لوٹنا کافی نہیں — جو لے کر لوٹے اسے محفوظ بھی رکھنا۔</div>
+  <div class="key-banner-ref">Surah Qaf 50:32</div>
+</div>
+
+<!-- ROOT ANALYSIS -->
+<div class="root-analysis">
+  <div class="ra-label"><span class="en-blk">Root — أ و ب</span><span class="ur-blk">جڑ — أ و ب</span></div>
+  <div class="ra-root">آبَ · أَوْبَة · أَوَّاب · مَآب · تَأَوَّبَ</div>
+  <div class="ra-letters">
+    <div class="ra-letter"><span class="ra-letter-ar">أ</span><span class="ra-letter-en">A</span></div>
+    <div class="ra-letter"><span class="ra-letter-ar">و</span><span class="ra-letter-en">W</span></div>
+    <div class="ra-letter"><span class="ra-letter-ar">ب</span><span class="ra-letter-en">B</span></div>
+  </div>
+  <div class="ra-meaning en-blk">A-W-B carries the primary meaning of returning to a place or state — specifically returning home, returning to one's origin. Aba means he returned. Ma'ab is the place of return, the destination one returns to. Awwab is the intensive form (fi'al pattern) — not merely one who returns, but one for whom returning is a defining, repeated, constitutive action. The intensive morphological form signals that this is not an occasional act but a habitual orientation. The root is distinct from Tawbah (T-W-B) — which also means return but specifically the return of repentance after sin. Awb is the broader return to Allah as one's origin and center, which encompasses but is not limited to repentance after sin. Every drift from Allah — in attention, in priority, in reliance — is followed by return for the Awwab.</div>
+  <div class="ra-meaning-ur ur-blk">أ-و-ب کا بنیادی مطلب کسی جگہ یا حالت کی طرف واپس آنا ہے — خاص طور پر گھر لوٹنا، اپنی اصل کی طرف لوٹنا۔ مآب = واپسی کی جگہ۔ اواب (فعّال) — گشتی صیغہ: وہ جس کے لیے لوٹنا عادت اور فطرت ہے۔ توبہ (ت-و-ب) سے مختلف — توبہ گناہ کے بعد مخصوص واپسی، اوب اللہ کی طرف وسیع تر واپسی جو توبہ سمیت ہر غفلت کے بعد ہوتی ہے۔</div>
+  <div class="ra-forms">
+    <div class="ra-form"><div class="ra-form-ar">آبَ</div><div class="ra-form-en en-blk">He returned</div><div class="ra-form-en ur-blk">وہ لوٹا</div></div>
+    <div class="ra-form"><div class="ra-form-ar">أَوَّاب</div><div class="ra-form-en en-blk">Constant returner</div><div class="ra-form-en ur-blk">مسلسل لوٹنے والا</div></div>
+    <div class="ra-form"><div class="ra-form-ar">مَآب</div><div class="ra-form-en en-blk">Place of return</div><div class="ra-form-en ur-blk">واپسی کی جگہ</div></div>
+    <div class="ra-form"><div class="ra-form-ar">أَوْبَة</div><div class="ra-form-en en-blk">A single return</div><div class="ra-form-en ur-blk">ایک واپسی</div></div>
+  </div>
+  <div class="ra-count en-blk">✦ A-W-B and its forms appear 12 times in the Quran · Awwab (intensive) applied to Dawud AS, Ayyub AS, and to the believers entering Paradise · Ma'ab appears as a name for the final return to Allah</div>
+  <div class="ra-count ur-blk">✦ أ-و-ب قرآن میں ۱۲ بار · اواب — داود علیہ السلام، ایوب علیہ السلام، اور جنت میں داخل ہونے والوں کے لیے · مآب — اللہ کی طرف حتمی واپسی کا نام</div>
+</div>
+
+<!-- AWWAB VS TAIB DISTINCTION -->
+<div class="distinction-box">
+  <div class="distinction-box-lbl en-blk">The Critical Distinction — Awwab vs Taib</div>
+  <div class="distinction-box-lbl ur-blk">اہم فرق — اواب بمقابلہ تائب</div>
+  <div class="distinction-row">
+    <div>
+      <div class="dist-item-ar">تَائِب</div>
+      <div class="dist-item-lbl en-blk">Al-Taib — The Repentant</div>
+      <div class="dist-item-lbl ur-blk">التائب — توبہ کرنے والا</div>
+      <div class="dist-item-def en-blk">One who has returned after sin. A single act of return directed specifically at repentance from a specific wrong. Tawbah is the commanded response to sin — every believer must be Taib. The root T-W-B is specifically about the return from disobedience.</div>
+      <div class="dist-item-def-ur ur-blk">گناہ کے بعد لوٹنے والا۔ ایک مخصوص گناہ سے توبہ کی واحد واپسی۔ ہر مومن پر واجب۔ ت-و-ب گناہ سے واپسی کے لیے مخصوص۔</div>
+    </div>
+    <div>
+      <div class="dist-item-ar">أَوَّاب</div>
+      <div class="dist-item-lbl en-blk">Al-Awwab — The Constant Returner</div>
+      <div class="dist-item-lbl ur-blk">الاواب — مسلسل لوٹنے والا</div>
+      <div class="dist-item-def en-blk">One for whom returning to Allah has become constitutive — after every drift in attention, priority, reliance, not only after sin. The Awwab does not wait for a major transgression to return — any distance from Allah, however subtle, triggers return. This is a permanent orientation, not a response to a specific event.</div>
+      <div class="dist-item-def-ur ur-blk">وہ جس کے لیے اللہ کی طرف لوٹنا فطرت بن گئی — ہر غفلت کے بعد، صرف گناہ کے بعد نہیں۔ اواب کسی بڑی نافرمانی کا انتظار نہیں کرتا۔ ہر دوری، چاہے کتنی ہی لطیف ہو، واپسی کا سبب بنتی ہے۔</div>
+    </div>
+  </div>
+</div>
+
+<div class="sec-lbl"><span class="en-inl">The Ayat — In Revelation Order</span><span class="ur-inl">آیات — ترتیب نزولی میں</span></div>
+
+<!-- AYAH 1: 38:17 — Dawud AS named Awwab -->
+<div class="era-divider">
+  <div class="era-dot era-middle"></div>
+  <div class="era-label en-blk">Middle Makki · Sad 38:17 — Dawud AS Named Awwab</div>
+  <div class="era-label-ur ur-blk">درمیانی مکی · ص ۳۸:۱۷ — داود علیہ السلام کو اواب کہا گیا</div>
+  <div class="era-line"></div>
+</div>
+<div class="ayah-card" id="aw-3817">
+  <div class="ayah-card-hdr" onclick="toggleCard('aw-3817')">
+    <span class="rev-badge rev-middle en-blk">Rev. #38</span><span class="rev-badge rev-middle ur-blk">ترتیب #38</span>
+    <span class="card-ref">Sad 38:17</span>
+    <span class="card-preview">وَاذْكُرْ عَبْدَنَا دَاوُودَ ذَا الْأَيْدِ ۖ إِنَّهُ أَوَّابٌ</span>
+    <span class="card-chevron">›</span>
+  </div>
+  <div class="card-body">
+    <div class="ayah-arabic">وَاذْكُرْ عَبْدَنَا دَاوُودَ ذَا الْأَيْدِ ۖ إِنَّهُ أَوَّابٌ</div>
+    <div class="ayah-tr-en en-blk">"And remember Our servant Dawud — possessor of strength. Indeed he was Awwab."</div>
+    <div class="ayah-tr-ur ur-blk">«اور ہمارے بندے داود کو یاد کرو — طاقت والے۔ بے شک وہ اواب تھے۔»</div>
+    <div class="ayah-ref-line">Surah Sad 38:17</div>
+    <div class="ctx-box">
+      <div class="ctx-lbl en-blk">Context — Strength Paired With Awwab</div>
+      <div class="ctx-txt en-blk">The Quran describes Dawud (AS) with two qualities together: Dhu al-Ayd (possessor of strength — physical, spiritual, political) and Awwab (constant returner). The pairing is deliberate. Strength without Awwab becomes self-reliance. Awwab without strength becomes passivity. The Quran holds both together as the model. Dawud (AS) was a king, a warrior, a prophet — immense outer power. And his defining inner quality was constant return to Allah. The greater his power, the more his return was needed. Ibn Kathir notes that Dawud (AS) would divide his nights and days between worship, fasting, and affairs of his kingdom — and that he never let any period pass without returning to Allah in prayer.</div>
+      <div class="ctx-txt-ur ur-blk">دو صفات: ذو الأيد (طاقت والے) اور اواب (مسلسل لوٹنے والے)۔ جوڑ جان بوجھ کر۔ طاقت بغیر اواب کے خود انحصاری بنتی ہے۔ داود (علیہ السلام) بادشاہ، جنگجو، نبی — عظیم بیرونی قوت۔ اور ان کی باطنی خصوصیت: مسلسل اللہ کی طرف واپسی۔</div>
+    </div>
+    <div class="uniq-box">
+      <div class="uniq-lbl en-blk">What This Ayah Uniquely Establishes</div>
+      <div class="uniq-txt en-blk">This is the first Quranic application of Awwab to a specific person. Allah calls Dawud (AS) "Our servant" — Abdana, with the possessive — before naming his qualities. The title of Abdana is the highest designation: not just a servant but specifically Allah's own servant. Then the qualities. The sequence matters: first the relationship (Our servant), then the strength, then the Awwab. The Awwab quality is presented as the explanation and completion of his servanthood — as if to say: what made him truly "Our servant" was his constant return.</div>
+      <div class="uniq-txt-ur ur-blk">یہ قرآن میں اواب کا کسی شخص پر پہلا اطلاق ہے۔ اللہ نے «عبدنا» (ہمارا بندہ) کہا — ملکیت کے ساتھ — پھر اوصاف۔ ترتیب: پہلے تعلق (ہمارا بندہ)، پھر طاقت، پھر اواب۔ جیسے اواب ہی اس کی عبودیت کی تکمیل اور وضاحت ہو۔</div>
+    </div>
+    <div class="notes-sec">
+      <div class="notes-hdr"><span class="en-blk">Personal Notes</span><span class="ur-blk">ذاتی نوٹس</span></div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--teal)"></div><span class="en-blk">Strength and Awwab are paired. In your own life — does greater capacity (work, responsibility, achievement) pull you toward or away from constant return to Allah?</span><span class="ur-blk">طاقت اور اواب جوڑے گئے۔ آپ کی زندگی میں — زیادہ صلاحیت اللہ کی طرف واپسی میں مدد کرتی ہے یا دور لے جاتی ہے؟</span><span class="nsv" id="sv-aw3817a"></span></div>
+        <textarea class="note-ta" id="note-aw3817a" placeholder="The greater Dawud AS became, the more his Awwab quality was needed. How does this apply to you?" oninput="autoSave('aw3817a',this.value)"></textarea>
+      </div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--gold)"></div><span class="en-blk">Allah calls him "Our servant" first — before listing his qualities. What does it mean that the Awwab quality completes and explains his servanthood?</span><span class="ur-blk">اللہ نے پہلے «ہمارا بندہ» کہا — پھر اوصاف۔ اواب کا اس کی عبودیت کو مکمل کرنا — کیا مطلب ہے؟</span><span class="nsv" id="sv-aw3817b"></span></div>
+        <textarea class="note-ta" id="note-aw3817b" placeholder="True servanthood is not a static state — it is continuously maintained through constant return..." oninput="autoSave('aw3817b',this.value)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- AYAH 2: 38:30 — Dawud and Sulayman AS -->
+<div class="era-divider">
+  <div class="era-dot era-middle"></div>
+  <div class="era-label en-blk">Middle Makki · Sad 38:30 — Sulayman AS Also Named Awwab</div>
+  <div class="era-label-ur ur-blk">درمیانی مکی · ص ۳۸:۳۰ — سلیمان علیہ السلام کو بھی اواب کہا گیا</div>
+  <div class="era-line"></div>
+</div>
+<div class="ayah-card" id="aw-3830">
+  <div class="ayah-card-hdr" onclick="toggleCard('aw-3830')">
+    <span class="rev-badge rev-middle en-blk">Rev. #38</span><span class="rev-badge rev-middle ur-blk">ترتیب #38</span>
+    <span class="card-ref">Sad 38:30</span>
+    <span class="card-preview">وَوَهَبْنَا لِدَاوُودَ سُلَيْمَانَ ۚ نِعْمَ الْعَبْدُ ۖ إِنَّهُ أَوَّابٌ</span>
+    <span class="card-chevron">›</span>
+  </div>
+  <div class="card-body">
+    <div class="ayah-arabic">وَوَهَبْنَا لِدَاوُودَ سُلَيْمَانَ ۚ نِعْمَ الْعَبْدُ ۖ إِنَّهُ أَوَّابٌ</div>
+    <div class="ayah-tr-en en-blk">"And We gave Dawud, Sulayman — an excellent servant! Indeed he was Awwab."</div>
+    <div class="ayah-tr-ur ur-blk">«اور ہم نے داود کو سلیمان عطا کیا — کیا ہی اچھا بندہ! بے شک وہ اواب تھے۔»</div>
+    <div class="ayah-ref-line">Surah Sad 38:30</div>
+    <div class="ctx-box">
+      <div class="ctx-lbl en-blk">Context — Ni'ma al-Abd (What an Excellent Servant) Explained by Awwab</div>
+      <div class="ctx-txt en-blk">The Quran praises Sulayman (AS) with Ni'ma al-Abd — "what an excellent servant" — a superlative declaration of servanthood. Then the explanation: "Indeed he was Awwab." The structure is identical to the Dawud (AS) verse: servanthood praised, then Awwab given as the defining quality. This repetition in the same surah, in the same structure, for father and son, is the Quran establishing a pattern: what makes a servant excellent is the Awwab quality. Sulayman (AS) possessed the greatest kingdom ever given to any human. Horses, wind, jinn were at his command. And what the Quran chooses to explain his servanthood with is: constant return to Allah.</div>
+      <div class="ctx-txt-ur ur-blk">«نعم العبد» — کیا ہی اچھا بندہ — پھر وضاحت: «إنه أواب»۔ باپ اور بیٹے کے لیے ایک ہی سورت میں ایک ہی ساخت — قرآن نمونہ قائم کر رہا ہے: بہترین بندے کو اواب بناتا ہے۔ سلیمان کا پاس سب سے عظیم بادشاہت تھی — اور قرآن ان کی عبودیت کی وضاحت اواب سے کرتا ہے۔</div>
+    </div>
+    <div class="uniq-box">
+      <div class="uniq-lbl en-blk">What This Ayah Uniquely Establishes</div>
+      <div class="uniq-txt en-blk">Two prophets, greatest king and his son, the greatest kingdom ever given to a human — and both are defined in the Quran's praise by Awwab alone. This establishes that material power and divine favor do not prevent drift — they may increase the need for constant return. The greater Allah's gift, the greater the pull toward self-sufficiency. The Awwab quality is the corrective to every form of self-sufficiency that power and abundance naturally produce. The fact that Sulayman (AS) — who was given what no one before or after would be given — is praised specifically for Awwab tells us something precise about what Allah values most in those He gives most to.</div>
+      <div class="uniq-txt-ur ur-blk">دو نبی، باپ اور بیٹا، انسان کو دی گئی سب سے بڑی بادشاہت — اور دونوں کی تعریف صرف اواب سے۔ الٰہی نعمت خود کفائی پیدا کرتی ہے — اواب اس کا علاج ہے۔ جسے اللہ سب سے زیادہ دیتا ہے، اس سے اللہ سب سے زیادہ اواب چاہتا ہے۔</div>
+    </div>
+    <div class="notes-sec">
+      <div class="notes-hdr"><span class="en-blk">Personal Notes</span><span class="ur-blk">ذاتی نوٹس</span></div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--teal)"></div><span class="en-blk">Sulayman AS had the greatest kingdom ever given — and his praise is Awwab. Does abundance in your life pull you toward or away from return to Allah?</span><span class="ur-blk">سلیمان کے پاس سب سے بڑی بادشاہت تھی — اور تعریف اواب۔ آپ کی زندگی میں فراوانی اللہ کی طرف واپسی میں مدد کرتی ہے یا رکاوٹ؟</span><span class="nsv" id="sv-aw3830a"></span></div>
+        <textarea class="note-ta" id="note-aw3830a" placeholder="Comfort and abundance tend toward self-sufficiency. What is your mechanism for return when things are going well?" oninput="autoSave('aw3830a',this.value)"></textarea>
+      </div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--gold)"></div><span class="en-blk">The Quran uses the same structure — servanthood praised, Awwab as explanation — for both Dawud and Sulayman AS. What pattern is being established about what makes a servant excellent?</span><span class="ur-blk">ایک ہی ساخت — عبودیت کی تعریف، پھر اواب — باپ اور بیٹے کے لیے۔ بہترین بندے کے بارے میں کیا نمونہ قائم ہو رہا ہے؟</span><span class="nsv" id="sv-aw3830b"></span></div>
+        <textarea class="note-ta" id="note-aw3830b" placeholder="Excellence in servanthood is not about the quantity of acts — it is about the quality of return..." oninput="autoSave('aw3830b',this.value)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- AYAH 3: 38:44 — Ayyub AS Named Awwab -->
+<div class="era-divider">
+  <div class="era-dot era-middle"></div>
+  <div class="era-label en-blk">Middle Makki · Sad 38:44 — Ayyub AS Named Awwab After Suffering</div>
+  <div class="era-label-ur ur-blk">درمیانی مکی · ص ۳۸:۴۴ — ایوب علیہ السلام کو تکلیف کے بعد اواب کہا گیا</div>
+  <div class="era-line"></div>
+</div>
+<div class="ayah-card" id="aw-3844">
+  <div class="ayah-card-hdr" onclick="toggleCard('aw-3844')">
+    <span class="rev-badge rev-middle en-blk">Rev. #38</span><span class="rev-badge rev-middle ur-blk">ترتیب #38</span>
+    <span class="card-ref">Sad 38:44</span>
+    <span class="card-preview">إِنَّا وَجَدْنَاهُ صَابِرًا ۚ نِّعْمَ الْعَبْدُ ۖ إِنَّهُ أَوَّابٌ</span>
+    <span class="card-chevron">›</span>
+  </div>
+  <div class="card-body">
+    <div class="ayah-arabic">إِنَّا وَجَدْنَاهُ صَابِرًا ۚ نِّعْمَ الْعَبْدُ ۖ إِنَّهُ أَوَّابٌ</div>
+    <div class="ayah-tr-en en-blk">"Indeed We found him patient — what an excellent servant! Indeed he was Awwab."</div>
+    <div class="ayah-tr-ur ur-blk">«بے شک ہم نے اسے صابر پایا — کیا ہی اچھا بندہ! بے شک وہ اواب تھے۔»</div>
+    <div class="ayah-ref-line">Surah Sad 38:44 · Context: after the full trial of Ayyub AS (38:41-44)</div>
+    <div class="ctx-box">
+      <div class="ctx-lbl en-blk">Context — The Trial of Ayyub AS and the Verdict</div>
+      <div class="ctx-txt en-blk">Ayyub (AS) was afflicted with severe harm (38:41) — the most extended trial of any prophet in the Quran. He called to his Lord: "Harm has touched me, and You are the Most Merciful of the merciful" (21:83). Allah responded (38:43). Then the verdict: "We found him Sabir (patient)" — and then: "Ni'ma al-Abd — indeed he was Awwab." Three prophets in the same surah — Dawud, Sulayman, Ayyub — all described with Ni'ma al-Abd and Awwab. The different contexts are deliberate: Dawud had strength and kingship, Sulayman had the greatest kingdom, Ayyub had devastating trial. In all three contexts — power, abundance, suffering — the defining quality is the same: Awwab. This is the Quran's statement that Awwab transcends circumstance.</div>
+      <div class="ctx-txt-ur ur-blk">ایوب (علیہ السلام) کو سخت تکلیف — قرآن میں کسی نبی کی سب سے طویل آزمائش۔ انہوں نے پکارا۔ اللہ نے جواب دیا۔ پھر فیصلہ: «صابر پایا» — پھر: «نعم العبد — إنه أواب»۔ تین نبی، ایک سورت — طاقت، فراوانی، تکلیف — تینوں میں ایک ہی خصوصیت: اواب۔ قرآن کا بیان: اواب حالات سے ماورا ہے۔</div>
+    </div>
+    <div class="uniq-box">
+      <div class="uniq-lbl en-blk">What This Ayah Uniquely Establishes</div>
+      <div class="uniq-txt en-blk">Sabr (patience) and Awwab are paired in the same verdict. Ayyub (AS) did not simply endure — his endurance was an expression of constant return. He did not drift from Allah during the trial; the trial itself was the occasion for deeper return. This is the highest form of Awwab: when the very difficulty that would pull others away becomes the mechanism of return. Ibn al-Qayyim notes this in Uddat al-Sabirin: the patient person does not merely wait — they turn the trial into an occasion for proximity to Allah. Ayyub's (AS) Awwab quality is demonstrated precisely in how he handled loss, not in his prosperity.</div>
+      <div class="uniq-txt-ur ur-blk">صبر اور اواب ایک ہی فیصلے میں۔ ایوب نے صرف برداشت نہیں کیا — ان کا صبر مسلسل واپسی کا اظہار تھا۔ آزمائش خود قربت کا موقع بنی۔ یہ اواب کی بلند ترین شکل: جو دوسروں کو دور لے جائے وہ واپسی کا ذریعہ بن جائے۔</div>
+    </div>
+    <div class="notes-sec">
+      <div class="notes-hdr"><span class="en-blk">Personal Notes</span><span class="ur-blk">ذاتی نوٹس</span></div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--teal)"></div><span class="en-blk">Ayyub AS turned his suffering into an occasion for deeper return — not escape from Allah but deeper entry. In your own trials, what is your typical response — distance or return?</span><span class="ur-blk">ایوب نے تکلیف کو گہری واپسی کا موقع بنایا۔ آپ کی آزمائشوں میں آپ کا ردعمل — دوری یا واپسی؟</span><span class="nsv" id="sv-aw3844a"></span></div>
+        <textarea class="note-ta" id="note-aw3844a" placeholder="Think of a recent difficulty. Did it pull you toward Allah or away? What made the difference?" oninput="autoSave('aw3844a',this.value)"></textarea>
+      </div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--gold)"></div><span class="en-blk">Three prophets — strength, abundance, suffering — all praised with Awwab. What does it mean that the quality transcends all three conditions?</span><span class="ur-blk">تین نبی — طاقت، فراوانی، تکلیف — سب کی تعریف اواب سے۔ تینوں حالات میں ایک ہی صفت — کیا مطلب؟</span><span class="nsv" id="sv-aw3844b"></span></div>
+        <textarea class="note-ta" id="note-aw3844b" placeholder="Awwab is not a response to circumstances — it is independent of them. How does this change how you think about your relationship with Allah?" oninput="autoSave('aw3844b',this.value)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- AYAH 4: 17:25 -->
+<div class="era-divider">
+  <div class="era-dot era-late"></div>
+  <div class="era-label en-blk">Late Makki · Al-Isra 17:25 — The Awwaabeen and Their Lord</div>
+  <div class="era-label-ur ur-blk">اواخر مکی · الاسراء ۱۷:۲۵ — اوابین اور ان کا رب</div>
+  <div class="era-line"></div>
+</div>
+<div class="ayah-card" id="aw-1725">
+  <div class="ayah-card-hdr" onclick="toggleCard('aw-1725')">
+    <span class="rev-badge rev-late en-blk">Rev. #50</span><span class="rev-badge rev-late ur-blk">ترتیب #50</span>
+    <span class="card-ref">Al-Isra 17:25</span>
+    <span class="card-preview">رَّبُّكُمْ أَعْلَمُ بِمَا فِي نُفُوسِكُمْ ۚ إِن تَكُونُوا صَالِحِينَ فَإِنَّهُ كَانَ لِلْأَوَّابِينَ غَفُورًا</span>
+    <span class="card-chevron">›</span>
+  </div>
+  <div class="card-body">
+    <div class="ayah-arabic">رَّبُّكُمْ أَعْلَمُ بِمَا فِي نُفُوسِكُمْ ۚ إِن تَكُونُوا صَالِحِينَ فَإِنَّهُ كَانَ لِلْأَوَّابِينَ غَفُورًا</div>
+    <div class="ayah-tr-en en-blk">"Your Lord knows best what is in your souls. If you are righteous — then indeed He has always been Ghafoor (Forgiving) to the Awwaabeen."</div>
+    <div class="ayah-tr-ur ur-blk">«تمہارا رب خوب جانتا ہے جو تمہارے دلوں میں ہے۔ اگر تم صالح ہو — تو بے شک وہ اوابین کے لیے بہت بخشنے والا ہے۔»</div>
+    <div class="ayah-ref-line">Surah Al-Isra 17:25 · Context: in the section on rights of parents</div>
+    <div class="ctx-box">
+      <div class="ctx-lbl en-blk">Context — Forgiveness Tied Directly to Awwab Character</div>
+      <div class="ctx-txt en-blk">This ayah appears in the context of parents: Allah commands excellence to parents (17:23-24) and then addresses what happens when a child has wronged a parent who has now died — they cannot be corrected now. The Quran says: your Lord knows what is in your souls. If you are Saliheen (righteous in your intention and orientation), then He has always been Ghafoor (Forgiving) to the Awwaabeen. The structure is significant: Ghafoor is attached specifically to al-Awwaabeen, not to al-Muslimeen or al-Mu'mineen generally. The divine forgiveness is described as the specific counterpart to the Awwab quality — as if to say: the one who constantly returns will always find Allah's forgiveness waiting.</div>
+      <div class="ctx-txt-ur ur-blk">والدین کے حقوق کے سیاق میں: اللہ جانتا ہے جو دلوں میں ہے۔ اگر صالح ہو تو وہ اوابین کے لیے غفور ہے۔ غفور خاص طور پر اوابین سے جوڑا — عام مومنین سے نہیں۔ جیسے: مسلسل لوٹنے والے کو اللہ کی بخشش ہمیشہ ملے گی۔</div>
+    </div>
+    <div class="uniq-box">
+      <div class="uniq-lbl en-blk">What This Ayah Uniquely Establishes</div>
+      <div class="uniq-txt en-blk">This is the only ayah that directly connects divine forgiveness (Ghafoor) specifically to the Awwaabeen. The word Kana (was / has always been) makes it a permanent divine attribute in relation to this quality: He has always been Ghafoor to the Awwaabeen — past, present, and future. This means the Awwab never needs to wonder whether their return will be accepted. The return itself is the guarantee of forgiveness. The Quran is establishing that the Awwab quality creates a permanent, guaranteed channel of divine mercy — not conditional on perfection, not conditional on the severity of what they drifted into, but conditional only on the return itself.</div>
+      <div class="uniq-txt-ur ur-blk">یہ واحد آیت ہے جو غفور کو خاص طور پر اوابین سے جوڑتی ہے۔ «کان» — وہ ہمیشہ اوابین کے لیے غفور رہا ہے۔ اواب کو کبھی سوچنا نہیں کہ واپسی قبول ہوگی — واپسی خود بخشش کی ضمانت ہے۔ اواب کی صفت رحمت کا مستقل چینل کھولتی ہے۔</div>
+    </div>
+    <div class="notes-sec">
+      <div class="notes-hdr"><span class="en-blk">Personal Notes</span><span class="ur-blk">ذاتی نوٹس</span></div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--teal)"></div><span class="en-blk">Allah has always been Ghafoor specifically to the Awwaabeen. Does the knowledge that your return is always met with forgiveness change how quickly you return after drifting?</span><span class="ur-blk">اللہ ہمیشہ اوابین کے لیے غفور ہے۔ کیا یہ جاننا کہ واپسی ہمیشہ بخشش سے ملتی ہے، آپ کی واپسی کو تیز کرتا ہے؟</span><span class="nsv" id="sv-aw1725a"></span></div>
+        <textarea class="note-ta" id="note-aw1725a" placeholder="What slows your return after drifting? Does fear of rejection play a role — and what does this ayah say to that fear?" oninput="autoSave('aw1725a',this.value)"></textarea>
+      </div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--gold)"></div><span class="en-blk">Forgiveness is conditional not on the severity of the drift but on the return itself. What does this say about how Allah has designed the relationship with the Awwaabeen?</span><span class="ur-blk">بخشش غفلت کی شدت پر نہیں — واپسی پر منحصر ہے۔ اللہ نے اوابین کے ساتھ تعلق کیسے بنایا ہے؟</span><span class="nsv" id="sv-aw1725b"></span></div>
+        <textarea class="note-ta" id="note-aw1725b" placeholder="The Awwab does not need to earn their way back — they only need to turn. What is the spiritual implication of a forgiveness that requires only the turning?" oninput="autoSave('aw1725b',this.value)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- AYAH 5: 50:32 -->
+<div class="era-divider">
+  <div class="era-dot era-late"></div>
+  <div class="era-label en-blk">Late Makki · Qaf 50:32 — Paradise Promised to Every Awwab Hafeez</div>
+  <div class="era-label-ur ur-blk">اواخر مکی · ق ۵۰:۳۲ — ہر اواب حفیظ کو جنت کا وعدہ</div>
+  <div class="era-line"></div>
+</div>
+<div class="ayah-card" id="aw-5032">
+  <div class="ayah-card-hdr" onclick="toggleCard('aw-5032')">
+    <span class="rev-badge rev-late en-blk">Rev. #34</span><span class="rev-badge rev-late ur-blk">ترتیب #34</span>
+    <span class="card-ref">Qaf 50:32</span>
+    <span class="card-preview">هَٰذَا مَا تُوعَدُونَ لِكُلِّ أَوَّابٍ حَفِيظٍ</span>
+    <span class="card-chevron">›</span>
+  </div>
+  <div class="card-body">
+    <div class="ayah-arabic">وَأُزْلِفَتِ الْجَنَّةُ لِلْمُتَّقِينَ غَيْرَ بَعِيدٍ ۝ هَٰذَا مَا تُوعَدُونَ لِكُلِّ أَوَّابٍ حَفِيظٍ</div>
+    <div class="ayah-tr-en en-blk">"And Paradise is brought near to the Muttaqeen — not far off. This is what you were promised — for every Awwab, Hafeez."</div>
+    <div class="ayah-tr-ur ur-blk">«اور جنت متقین کے قریب لائی جائے گی — دور نہیں۔ یہ وہی ہے جس کا تم سے وعدہ تھا — ہر اواب، حفیظ کے لیے۔»</div>
+    <div class="ayah-ref-line">Surah Qaf 50:31-32</div>
+    <div class="ctx-box">
+      <div class="ctx-lbl en-blk">Context — At the Gates of Paradise</div>
+      <div class="ctx-txt en-blk">This is the scene of the Day of Judgment. Paradise is brought near to the Muttaqeen. Then the announcement: "This is what you were promised — for every Awwab Hafeez." The two qualities are paired: Awwab (constant returner) and Hafeez (preserver). Ibn Kathir explains Hafeez here as one who preserved: the covenant with Allah, the limits of Allah, the times of prayer, the obligations. The Awwab returns after every drift. The Hafeez preserves what they return with — they do not drift repeatedly in the same direction, losing each return. Together they describe the complete spiritual character: the Awwab who returns and the Hafeez who holds what they return with.</div>
+      <div class="ctx-txt-ur ur-blk">قیامت کا منظر۔ جنت متقین کے قریب۔ پھر اعلان: «یہ وعدہ — ہر اواب، حفیظ کے لیے۔» ابن کثیر: حفیظ وہ جس نے محفوظ رکھا — اللہ کا عہد، حدود، نمازوں کے اوقات، فرائض۔ اواب لوٹتا ہے، حفیظ جو لے کر لوٹا اسے تھامتا ہے۔</div>
+    </div>
+    <div class="uniq-box">
+      <div class="uniq-lbl en-blk">What This Ayah Uniquely Establishes</div>
+      <div class="uniq-txt en-blk">The word Kullin (every) — "for every Awwab Hafeez" — is absolute. There is no exception stated. Every single person with these two qualities is included in this promise. The promise is made at the gates of Paradise — this is not a general exhortation but the announcement of fulfillment. And it is the Awwab quality specifically — not the most acts of worship, not the highest rank of scholar, not the most trials endured — that is announced at this moment. The Quran is saying: what brings a person to the gates of Paradise is the combination of returning constantly and preserving what the return built.</div>
+      <div class="uniq-txt-ur ur-blk">«کل» (ہر) — مطلق۔ کوئی استثناء نہیں۔ ہر اواب حفیظ اس وعدے میں شامل۔ جنت کے دروازوں پر اعلان — عمومی نصیحت نہیں، تکمیل کا اعلان ہے۔ اور اواب کی صفت — نہ سب سے زیادہ عبادت، نہ سب سے بڑے عالم — جنت تک پہنچاتی ہے۔</div>
+    </div>
+    <div class="notes-sec">
+      <div class="notes-hdr"><span class="en-blk">Personal Notes</span><span class="ur-blk">ذاتی نوٹس</span></div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--teal)"></div><span class="en-blk">The promise is for every Awwab Hafeez — absolute, no exceptions stated. What does it mean to be among those this announcement is made for?</span><span class="ur-blk">وعدہ ہر اواب حفیظ کے لیے — مطلق۔ ان میں سے ہونے کا کیا مطلب ہے؟</span><span class="nsv" id="sv-aw5032a"></span></div>
+        <textarea class="note-ta" id="note-aw5032a" placeholder="If the path to this announcement is Awwab + Hafeez — returning constantly and preserving — what is the concrete shape of this in your daily life?" oninput="autoSave('aw5032a',this.value)"></textarea>
+      </div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--gold)"></div><span class="en-blk">Awwab paired with Hafeez — returning is not enough without preserving. Where in your life do you return well but fail to preserve what the return built?</span><span class="ur-blk">اواب اور حفیظ — واپسی کافی نہیں بغیر حفاظت کے۔ آپ کی زندگی میں کہاں آپ اچھی طرح لوٹتے ہیں لیکن واپسی سے بنی چیز محفوظ نہیں رکھ پاتے؟</span><span class="nsv" id="sv-aw5032b"></span></div>
+        <textarea class="note-ta" id="note-aw5032b" placeholder="Think of cycles where you have returned with clarity or resolve and then lost it again. What would Hafeez look like in those situations?" oninput="autoSave('aw5032b',this.value)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STANDALONE HADITH -->
+<div class="sec-lbl"><span class="en-inl">Authenticated Sunnah on Return and Tawbah</span><span class="ur-inl">توبہ اور واپسی پر مستند سنت</span></div>
+
+<div class="sh-card">
+  <div class="sh-lbl en-blk">✦ The Door of Tawbah — Always Open</div>
+  <div class="sh-lbl ur-blk">✦ توبہ کا دروازہ — ہمیشہ کھلا</div>
+  <div class="sh-ar">إِنَّ اللَّهَ يَبْسُطُ يَدَهُ بِاللَّيْلِ لِيَتُوبَ مُسِيءُ النَّهَارِ، وَيَبْسُطُ يَدَهُ بِالنَّهَارِ لِيَتُوبَ مُسِيءُ اللَّيْلِ، حَتَّى تَطْلُعَ الشَّمْسُ مِنْ مَغْرِبِهَا</div>
+  <div class="sh-en en-blk">"Indeed Allah extends His hand by night so that the one who sinned by day may repent, and extends His hand by day so that the one who sinned by night may repent — until the sun rises from the west."</div>
+  <div class="sh-ur ur-blk">«بے شک اللہ رات کو اپنا ہاتھ پھیلاتا ہے تاکہ دن کا گناہ کار توبہ کرے، اور دن کو ہاتھ پھیلاتا ہے تاکہ رات کا گناہ کار توبہ کرے — یہاں تک کہ سورج مغرب سے طلوع ہو۔»</div>
+  <div class="sh-src">Narrator: Abu Musa al-Ash'ari (RA) · Sahih Muslim, Hadith 2759 <span class="grade g-sahih">✦ Sahih</span></div>
+</div>
+
+<div class="sh-card">
+  <div class="sh-lbl en-blk">✦ Every Son of Adam Errs — The Best Are Those Who Return</div>
+  <div class="sh-lbl ur-blk">✦ ہر انسان خطا کرتا ہے — بہترین وہ جو لوٹیں</div>
+  <div class="sh-ar">كُلُّ بَنِي آدَمَ خَطَّاءٌ، وَخَيْرُ الْخَطَّائِينَ التَّوَّابُونَ</div>
+  <div class="sh-en en-blk">"Every son of Adam commits errors, and the best of those who err are those who constantly repent and return."</div>
+  <div class="sh-ur ur-blk">«ہر بنی آدم خطا کرتا ہے، اور خطا کرنے والوں میں بہترین وہ ہیں جو بہت توبہ کرتے ہیں۔»</div>
+  <div class="sh-src">Narrator: Anas ibn Malik (RA) · Sunan al-Tirmidhi, Hadith 2499 · Graded Hasan by al-Albani <span class="grade g-hasan">◈ Hasan</span></div>
+</div>
+
+<div class="sh-card">
+  <div class="sh-lbl en-blk">✦ Allah's Joy at the Return of His Servant</div>
+  <div class="sh-lbl ur-blk">✦ بندے کی واپسی پر اللہ کی خوشی</div>
+  <div class="sh-ar">لَلَّهُ أَشَدُّ فَرَحًا بِتَوْبَةِ عَبْدِهِ حِينَ يَتُوبُ إِلَيْهِ مِنْ أَحَدِكُمْ كَانَ عَلَى رَاحِلَتِهِ بِأَرْضِ فَلَاةٍ</div>
+  <div class="sh-en en-blk">"Allah is more joyful at the repentance of His servant when he returns to Him than one of you would be if he were on his mount in a barren land (and had lost it, then found it)."</div>
+  <div class="sh-ur ur-blk">«اللہ اپنے بندے کی توبہ پر اس سے زیادہ خوش ہوتا ہے جتنا تم میں سے کوئی ہوتا جب وہ بیابان میں اپنی سواری پر ہو (اور اسے کھو دے پھر پائے)۔»</div>
+  <div class="sh-src">Narrator: Ibn Mas'ud (RA) · Sahih Muslim, Hadith 2747 <span class="grade g-sahih">✦ Sahih</span></div>
+</div>
+
+<!-- SCHOLARS -->
+<div class="sec-lbl"><span class="en-inl">Scholar Perspectives</span><span class="ur-inl">علماء کے نظریات</span></div>
+<div class="scholars-lbl en-blk">Two Classical Authorities on the Awwab Quality</div>
+<div class="scholars-lbl ur-blk">اواب کی صفت پر دو کلاسیکی علماء</div>
+
+<div class="scholar-card" id="sc-ibnqayyim-aw">
+  <div class="sc-hdr" onclick="toggleScholar('sc-ibnqayyim-aw')">
+    <div class="sc-badge">ق</div>
+    <div>
+      <div class="sc-name">Ibn al-Qayyim al-Jawziyyah (d. 751H)</div>
+      <div class="sc-text en-blk">Madarij al-Salikin · Awwab vs Taib — Habitual vs Occasional</div>
+      <div class="sc-text ur-blk">مدارج السالکین · اواب بمقابلہ تائب</div>
+    </div>
+    <div class="sc-chev">›</div>
+  </div>
+  <div class="sc-body">
+    <div class="sc-quote en-blk">Ibn al-Qayyim distinguishes the Awwab from the Taib with precision in Madarij al-Salikin. The Taib returns after a specific sin — this is the minimum required of every believer. The Awwab is one for whom return has become the default orientation of the heart — they do not need a major sin to trigger return; any moment of inattention, any drift in reliance from Allah, any preoccupation with the world that causes forgetfulness of Allah — all of these trigger return in the Awwab, because the Awwab's heart is oriented toward Allah as its natural resting place.</div>
+    <div class="sc-quote-ur ur-blk">ابن القیم مدارج میں اواب اور تائب میں دقیق فرق کرتے ہیں۔ تائب مخصوص گناہ کے بعد لوٹتا ہے — ہر مومن پر فرض۔ اواب وہ ہے جس کا دل بطور ڈیفالٹ اللہ کی طرف رخ کرتا ہے — کسی بڑے گناہ کا انتظار نہیں؛ بے توجہی، اللہ پر بھروسے میں کمی — سب اواب میں واپسی پیدا کرتے ہیں۔</div>
+    <div class="sc-analysis en-blk">Ibn al-Qayyim considers the Awwab quality among the highest characteristics in the Quran precisely because it describes a permanent inner orientation rather than a response to events. The Taib responds to sin; the Awwab does not need sin to return — the default of the heart is already oriented toward Allah, so any deviation from that orientation is immediately noticed and corrected. This is why the Quran applies Awwab to the greatest prophets: their defining quality was not that they never drifted but that their nature was constitutively oriented toward return. Ibn al-Qayyim in Uddat al-Sabirin also notes that the Awwab and the Sabir are related: the Awwab who returns in difficulty is simultaneously practicing Sabr.</div>
+    <div class="sc-analysis-ur ur-blk">ابن القیم اواب کو اعلیٰ ترین صفات میں سمجھتے ہیں کیونکہ یہ واقعات کے ردعمل نہیں — مستقل باطنی رخ ہے۔ تائب گناہ کا جواب دیتا ہے؛ اواب کو گناہ کا انتظار نہیں — دل کا ڈیفالٹ اللہ کی طرف ہے۔ عدۃ الصابرین میں: اواب اور صابر جڑے ہیں — مشکل میں لوٹنے والا بیک وقت صبر کر رہا ہے۔</div>
+    <div class="sc-source">Ibn al-Qayyim · Madarij al-Salikin · Manzilat al-Inabah wal-Tawbah · Vol. 1</div>
+  </div>
+</div>
+
+<div class="scholar-card" id="sc-ghazali-aw">
+  <div class="sc-hdr" onclick="toggleScholar('sc-ghazali-aw')">
+    <div class="sc-badge">غ</div>
+    <div>
+      <div class="sc-name">Imam Al-Ghazali (d. 505H)</div>
+      <div class="sc-text en-blk">Ihya Ulum al-Deen · Kitab al-Tawbah · Making Return a Constitutive Habit</div>
+      <div class="sc-text ur-blk">احیاء علوم الدین · کتاب التوبہ · واپسی کو عادت بنانا</div>
+    </div>
+    <div class="sc-chev">›</div>
+  </div>
+  <div class="sc-body">
+    <div class="sc-quote en-blk">Al-Ghazali in the Ihya treats Tawbah as a station that must be continuously renewed — not completed once and left behind. He distinguishes between Tawbah as an act (a return from a specific sin) and Tawbah as a station (an ongoing orientation of the heart toward Allah that produces continuous return). The latter is what the Quran calls Awwab — the person for whom return has become habitual at the level of character, not occasional at the level of behavior.</div>
+    <div class="sc-quote-ur ur-blk">الغزالی احیاء میں توبہ کو ایک مسلسل تجدید شدہ مقام کے طور پر دیکھتے ہیں — ایک بار مکمل نہیں ہوتی۔ توبہ بطور عمل (مخصوص گناہ سے واپسی) اور توبہ بطور مقام (دل کا اللہ کی طرف مستقل رخ) میں فرق کرتے ہیں۔ دوسرا مقام قرآن کا اواب ہے۔</div>
+    <div class="sc-analysis en-blk">Al-Ghazali's practical contribution in Kitab al-Tawbah is the methodology for building the Awwab character. He identifies three components: recognition of the drift (which requires muhasabah — self-accounting), remorse at the drift (which is the emotional fuel for return), and resolution to orient toward Allah again. For the Awwab, these three steps become so rapid and habitual that they occur almost automatically — the recognition triggers the remorse which triggers the return without extended delay. Al-Ghazali's practical instruction: practice this cycle deliberately until it becomes constitutive. This is how a person builds the Awwab character rather than merely performing occasional tawbah.</div>
+    <div class="sc-analysis-ur ur-blk">الغزالی کا عملی حصہ: اواب کردار بنانے کا طریقہ۔ تین جزء: غفلت کو پہچاننا (محاسبہ سے)، غفلت پر ندامت، اللہ کی طرف رخ کرنے کا عزم۔ اواب کے لیے یہ تین مراحل اتنے تیز اور عادی ہو جاتے ہیں کہ قریباً خودبخود ہوتے ہیں۔ عملی ہدایت: اس چکر کو جان بوجھ کر مشق کرو یہاں تک کہ فطرت بن جائے۔</div>
+    <div class="sc-source">Al-Ghazali · Ihya Ulum al-Deen · Kitab al-Tawbah · Quarter of Destructive Matters</div>
+  </div>
+</div>
+
+<!-- SYNTHESIS -->
+<div class="sec-lbl"><span class="en-inl">Personal Synthesis</span><span class="ur-inl">ذاتی خلاصہ</span></div>
+<div class="synth-box">
+  <div class="notes-hdr"><span class="en-blk">Personal Synthesis — Al-Awwaaboon</span><span class="ur-blk">ذاتی خلاصہ — الاوابون</span></div>
+  <div class="note-f">
+    <div class="note-lbl"><div class="nd" style="background:var(--gold)"></div><span class="en-blk">Three prophets in the same surah — power, abundance, suffering — all praised with Awwab. Ibn al-Qayyim says this is one of the highest qualities because it is constitutive not reactive. What would it mean for you personally to make return to Allah your default orientation — not your response to sin, but your nature?</span><span class="ur-blk">تین نبی — طاقت، فراوانی، تکلیف — سب اواب سے۔ اللہ کی طرف واپسی کو اپنی فطرت بنانا — ردعمل نہیں — آپ کے لیے کیا معنی رکھتا ہے؟</span><span class="nsv" id="sv-synth-aw"></span></div>
+    <textarea class="note-ta" id="note-synth-aw" style="min-height:100px" placeholder="Consider: what would change in your day if return to Allah was your default setting — triggered not by sin but by any drift in attention or priority? What would the first practical step be?" oninput="autoSave('synth-aw',this.value)"></textarea>
+  </div>
+</div>
+
+<!-- FILE NAVIGATION -->
+<div class="sec-lbl" style="margin-top:36px"><span class="en-inl">Continue — File 3B Tabs</span><span class="ur-inl">آگے — فائل ۳B ٹیبز</span></div>
+<div class="file-links">
+  <a href="ranks_inner_qualities_mukhlisoon.html" class="file-link">
+    <div class="fl-num">Tab I</div>
+    <div class="fl-title">Mukhlisoon</div>
+    <div class="fl-desc">Active vs Passive · Iblis testimony</div>
+    <span class="fl-badge fl-ready">Complete</span>
+  </a>
+  <a href="#" class="file-link current">
+    <div class="fl-num">Tab II</div>
+    <div class="fl-title">Awwaaboon</div>
+    <div class="fl-desc">Habitual returners · A-W-B root</div>
+    <span class="fl-badge fl-ready">Current</span>
+  </a>
+  <a href="riq_sabiroon.html" class="file-link">
+    <div class="fl-num">Tab III</div>
+    <div class="fl-title">Sabiroon</div>
+    <div class="fl-desc">Three types of Sabr</div>
+    <span class="fl-badge fl-coming">Next</span>
+  </a>
+  <a href="riq_shakiroon.html" class="file-link">
+    <div class="fl-num">Tab IV</div>
+    <div class="fl-title">Shakiroon</div>
+    <div class="fl-desc">Few of My servants are grateful</div>
+    <span class="fl-badge fl-coming">Pending</span>
+  </a>
+  <a href="riq_qaanitoon.html" class="file-link">
+    <div class="fl-num">Tab V</div>
+    <div class="fl-title">Qaanitoon</div>
+    <div class="fl-desc">Sustained inner devotion</div>
+    <span class="fl-badge fl-coming">Pending</span>
+  </a>
+  <a href="riq_ululalbab.html" class="file-link">
+    <div class="fl-num">Tab VI</div>
+    <div class="fl-title">Ulu al-Albab</div>
+    <div class="fl-desc">People of the Lubb · 16 occurrences</div>
+    <span class="fl-badge fl-coming">Pending</span>
+  </a>
+  <a href="riq_rasikhoon.html" class="file-link">
+    <div class="fl-num">Tab VII</div>
+    <div class="fl-title">Rasikhoon</div>
+    <div class="fl-desc">Firmly grounded in knowledge</div>
+    <span class="fl-badge fl-coming">Pending</span>
+  </a>
+</div>
+
+</div>
+<div id="toast"></div>
+
+<script>
+var LANG='en';
+var timers={};
+function setLang(l){
+  LANG=l;
+  document.getElementById('lt-en').classList.toggle('on',l==='en');
+  document.getElementById('lt-ur').classList.toggle('on',l==='ur');
+  document.body.classList.toggle('ur-mode',l==='ur');
+  document.documentElement.setAttribute('lang',l==='ur'?'ur':'en');
+}
+function toggleCard(id){document.getElementById(id).classList.toggle('open');}
+function toggleScholar(id){document.getElementById(id).classList.toggle('open');}
+function autoSave(key,val){
+  clearTimeout(timers[key]);
+  timers[key]=setTimeout(function(){
+    var sk='riq_'+key;
+    if(val.trim()){localStorage.setItem(sk,val);}else{localStorage.removeItem(sk);}
+    var sv=document.getElementById('sv-'+key);
+    if(sv){sv.textContent=val.trim()?'Saved \u2713':'';sv.classList.add('flash');setTimeout(function(){sv.classList.remove('flash');},1800);}
+  },900);
+}
+function loadAll(){
+  for(var i=0;i<localStorage.length;i++){
+    var k=localStorage.key(i);
+    if(k&&k.startsWith('riq_')){
+      var fk=k.substring(4);
+      var el=document.getElementById('note-'+fk);
+      var sv=document.getElementById('sv-'+fk);
+      if(el){el.value=localStorage.getItem(k)||'';if(sv&&el.value.trim())sv.textContent='Saved';}
+    }
+  }
+}
+window.addEventListener('DOMContentLoaded',function(){loadAll();});
+</script>
+</body>
+</html>

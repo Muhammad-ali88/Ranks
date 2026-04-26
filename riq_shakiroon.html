@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inner Quality Ranks — Al-Shakiroon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg0:#04070D;--bg1:#080E1C;--bg2:#0C1528;--bg3:#111E35;
+  --gold:#C9A84C;--gold2:#E2C97A;
+  --golddim:rgba(201,168,76,.08);--goldbdr:rgba(201,168,76,.18);
+  --teal:#2FB89A;--tealdim:rgba(47,184,154,.08);--tealbdr:rgba(47,184,154,.22);
+  --blue:#7AABF0;--bluedim:rgba(122,171,240,.08);--bluebdr:rgba(122,171,240,.22);
+  --amber:#E0A030;--amberdim:rgba(224,160,48,.08);--amberbdr:rgba(224,160,48,.22);
+  --purple:#A87FD0;--purpledim:rgba(168,127,208,.08);--purplebdr:rgba(168,127,208,.22);
+  --text:#D4CBB8;--text2:#8A9BB0;--text3:#4A5B70;
+  --border2:rgba(201,168,76,.05);
+  --font-head:'Cinzel',serif;--font-body:'Lora',serif;--font-arab:'Noto Naskh Arabic',serif;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg0);color:var(--text);font-family:var(--font-body);min-height:100vh;overflow-x:hidden;padding-bottom:80px}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 800px 500px at 20% 10%,rgba(201,168,76,.025),transparent 60%)}
+.hdr{position:sticky;top:0;z-index:90;background:rgba(4,7,13,.97);border-bottom:1px solid var(--border2);backdrop-filter:blur(20px);padding:0 22px;height:56px;display:flex;align-items:center;gap:14px}
+.hdr-ar{font-family:var(--font-arab);font-size:22px;color:var(--gold)}
+.hdr-titles{flex:1}
+.hdr-title{font-family:var(--font-head);font-size:10px;letter-spacing:2px;color:var(--gold2);text-transform:uppercase}
+.hdr-sub{font-family:var(--font-head);font-size:8px;letter-spacing:1px;color:var(--text3);text-transform:uppercase;margin-top:2px}
+.lang-toggle{display:flex;gap:2px;background:rgba(255,255,255,.04);border:1px solid var(--goldbdr);border-radius:20px;padding:3px}
+.lt{font-family:var(--font-head);font-size:9px;letter-spacing:.8px;padding:3px 10px;border-radius:16px;cursor:pointer;transition:all .2s;color:var(--text3);user-select:none}
+.lt.on{background:var(--gold);color:#000;font-weight:700}
+.back-link{font-family:var(--font-head);font-size:8.5px;color:var(--text3);text-decoration:none;padding:5px 10px;border:1px solid var(--border2);border-radius:6px;transition:all .15s;text-transform:uppercase;flex-shrink:0}
+.back-link:hover{color:var(--gold2)}
+.file-nav{background:rgba(8,14,28,.8);border-bottom:1px solid var(--border2);padding:10px 22px;display:flex;gap:8px;flex-wrap:wrap;position:sticky;top:56px;z-index:80;backdrop-filter:blur(16px)}
+.fn-btn{font-family:var(--font-head);font-size:8px;letter-spacing:1px;text-transform:uppercase;padding:6px 14px;border-radius:7px;border:1px solid var(--border2);color:var(--text3);cursor:pointer;transition:all .2s;text-decoration:none;display:inline-block}
+.fn-btn:hover{color:var(--gold2);border-color:var(--goldbdr)}
+.fn-btn.current{background:var(--golddim);border-color:var(--goldbdr);color:var(--gold2)}
+.fn-sep{color:var(--text3);font-size:10px;align-self:center;opacity:.4}
+.tab-nav{background:rgba(8,14,28,.6);border-bottom:1px solid var(--border2);padding:8px 22px;display:flex;gap:6px;flex-wrap:wrap;position:sticky;top:103px;z-index:70;backdrop-filter:blur(16px)}
+.tn-btn{font-family:var(--font-head);font-size:7.5px;letter-spacing:.8px;text-transform:uppercase;padding:5px 12px;border-radius:6px;border:1px solid var(--border2);color:var(--text3);text-decoration:none;display:inline-block;transition:all .2s}
+.tn-btn:hover{color:var(--gold2);border-color:var(--goldbdr)}
+.tn-btn.current{background:var(--golddim);border-color:var(--goldbdr);color:var(--gold2)}
+.page{position:relative;z-index:1;max-width:860px;margin:0 auto;padding:32px 20px 60px}
+.rank-hdr{text-align:center;padding:24px 20px 32px;border-bottom:1px solid var(--border2);margin-bottom:28px}
+.rank-hdr-num{font-family:var(--font-head);font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--text3);margin-bottom:10px}
+.rank-hdr-ar{font-family:var(--font-arab);font-size:clamp(40px,7vw,62px);color:var(--gold);line-height:1.2;margin-bottom:8px}
+.rank-hdr-en{font-family:var(--font-head);font-size:clamp(13px,2.5vw,18px);font-weight:700;color:#fff;letter-spacing:2px;text-transform:uppercase;margin-bottom:5px}
+.rank-hdr-rule{width:100px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 16px}
+.rank-hdr-root{font-family:var(--font-head);font-size:9px;letter-spacing:1.5px;color:var(--text3);text-transform:uppercase;margin-bottom:14px}
+.rank-hdr-intro{font-size:13px;color:var(--text2);line-height:1.9;max-width:640px;margin:0 auto;font-style:italic}
+.rank-hdr-intro-ur{font-family:var(--font-arab);font-size:14px;color:var(--text2);direction:rtl;text-align:center;line-height:2;max-width:640px;margin:4px auto 0}
+.key-banner{background:linear-gradient(135deg,rgba(201,168,76,.10),rgba(201,168,76,.04));border:1px solid var(--goldbdr);border-radius:12px;padding:18px 22px;margin-bottom:24px;text-align:center;position:relative;overflow:hidden}
+.key-banner::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.key-banner-label{font-family:var(--font-head);font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.key-banner-ar{font-family:var(--font-arab);font-size:clamp(18px,3.5vw,26px);color:var(--gold2);direction:rtl;line-height:1.9;margin-bottom:6px}
+.key-banner-tr{font-size:12px;color:var(--text2);font-style:italic;margin-bottom:4px}
+.key-banner-tr-ur{font-family:var(--font-arab);font-size:13px;color:var(--text2);direction:rtl;line-height:1.9;margin-bottom:6px}
+.key-banner-insight{font-size:11.5px;color:var(--text3);line-height:1.75;border-top:1px solid var(--goldbdr);padding-top:10px;margin-top:6px}
+.key-banner-insight-ur{font-family:var(--font-arab);font-size:12px;color:var(--text3);direction:rtl;text-align:center;line-height:2;margin-top:4px}
+.key-banner-ref{font-family:var(--font-head);font-size:8.5px;color:var(--gold);margin-top:6px}
+.root-box-main{background:var(--bg2);border:1px solid var(--goldbdr);border-radius:12px;padding:20px 22px;margin-bottom:24px;position:relative;overflow:hidden}
+.root-box-main::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.ra-label{font-family:var(--font-head);font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.ra-label::after{content:'';flex:1;height:1px;background:rgba(201,168,76,.08)}
+.ra-root{font-family:var(--font-arab);font-size:28px;color:var(--gold2);direction:rtl;margin-bottom:12px}
+.ra-letters{display:flex;gap:10px;flex-direction:row-reverse;margin-bottom:14px}
+.ra-letter{background:rgba(201,168,76,.06);border:1px solid var(--goldbdr);border-radius:8px;padding:8px 14px;text-align:center}
+.ra-letter-ar{font-family:var(--font-arab);font-size:22px;color:var(--gold2);display:block}
+.ra-letter-en{font-family:var(--font-head);font-size:8px;color:var(--text3);margin-top:4px;display:block}
+.ra-meaning{font-size:13px;color:var(--text2);line-height:1.8;margin-bottom:10px}
+.ra-meaning-ur{font-family:var(--font-arab);font-size:14px;color:var(--text2);direction:rtl;text-align:right;line-height:2;margin-bottom:10px}
+.ra-count{font-family:var(--font-head);font-size:9px;color:var(--teal)}
+.three-levels{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:24px}
+.lv-card{background:var(--bg2);border:1px solid var(--border2);border-radius:10px;padding:14px 16px;position:relative;overflow:hidden}
+.lv-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
+.lv-1::before{background:linear-gradient(90deg,transparent,var(--teal),transparent)}
+.lv-2::before{background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.lv-3::before{background:linear-gradient(90deg,transparent,var(--purple),transparent)}
+.lv-num{font-family:var(--font-head);font-size:8px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:7px}
+.lv-num-1{color:var(--teal)}.lv-num-2{color:var(--gold)}.lv-num-3{color:var(--purple)}
+.lv-ar{font-family:var(--font-arab);font-size:17px;color:var(--gold2);direction:rtl;margin-bottom:5px}
+.lv-en{font-family:var(--font-head);font-size:8.5px;color:var(--text);margin-bottom:5px}
+.lv-def{font-size:11.5px;color:var(--text2);line-height:1.7}
+.lv-def-ur{font-family:var(--font-arab);font-size:12px;color:var(--text2);direction:rtl;text-align:right;line-height:2;margin-top:4px}
+.sec-lbl{font-family:var(--font-head);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:12px;padding:28px 0 16px}
+.sec-lbl::after{content:'';flex:1;height:1px;background:rgba(201,168,76,.08)}
+.era-divider{display:flex;align-items:center;gap:12px;margin:20px 0 12px}
+.era-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.era-late{background:var(--teal)}.era-madani{background:var(--blue)}.era-middle{background:var(--gold)}.era-early{background:var(--amber)}
+.era-label{font-family:var(--font-head);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text2)}
+.era-label-ur{font-family:var(--font-arab);font-size:13px;color:var(--text2)}
+.era-line{flex:1;height:1px;background:rgba(201,168,76,.05)}
+.ayah-card{background:var(--bg2);border:1px solid var(--border2);border-radius:12px;margin-bottom:10px;overflow:hidden;transition:border-color .2s}
+.ayah-card.open{border-color:var(--goldbdr)}
+.ayah-card-hdr{display:flex;align-items:center;gap:10px;padding:13px 18px;cursor:pointer;user-select:none}
+.rev-badge{font-family:var(--font-head);font-size:7.5px;padding:3px 8px;border-radius:5px;flex-shrink:0;text-transform:uppercase}
+.rev-late{background:var(--tealdim);border:1px solid var(--tealbdr);color:var(--teal)}
+.rev-madani{background:var(--bluedim);border:1px solid var(--bluebdr);color:var(--blue)}
+.rev-middle{background:var(--golddim);border:1px solid var(--goldbdr);color:var(--gold2)}
+.card-ref{font-family:var(--font-head);font-size:10px;color:var(--gold);font-weight:600;flex-shrink:0}
+.card-preview{font-family:var(--font-arab);font-size:16px;color:var(--gold2);direction:rtl;flex:1;text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:.75}
+.card-chevron{color:var(--text3);font-size:16px;transition:transform .25s;flex-shrink:0}
+.ayah-card.open .card-chevron{transform:rotate(90deg);color:var(--gold)}
+.card-body{display:none;padding:0 18px 20px;border-top:1px solid var(--border2)}
+.ayah-card.open .card-body{display:block}
+.ayah-arabic{font-family:var(--font-arab);font-size:clamp(18px,3.5vw,26px);color:var(--gold2);direction:rtl;text-align:right;line-height:2.2;padding:18px 0 12px;border-bottom:1px solid var(--border2);margin-bottom:12px}
+.ayah-tr-en{font-size:13px;color:var(--text);font-style:italic;line-height:1.85;margin-bottom:6px;border-left:3px solid var(--goldbdr);padding:8px 14px;border-radius:0 6px 6px 0;background:rgba(201,168,76,.03)}
+.ayah-tr-ur{font-family:var(--font-arab);font-size:14px;color:var(--text);direction:rtl;text-align:right;line-height:2;border-right:3px solid var(--goldbdr);padding:8px 14px 8px 8px;border-radius:6px 0 0 6px;background:rgba(201,168,76,.03);margin-bottom:6px}
+.ayah-ref-line{font-family:var(--font-head);font-size:9px;color:var(--gold);margin-bottom:14px}
+.ctx-box{background:rgba(0,0,0,.2);border-left:3px solid var(--amber);border-radius:0 8px 8px 0;padding:11px 14px;margin-bottom:12px}
+.ctx-lbl{font-family:var(--font-head);font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:var(--amber);margin-bottom:5px}
+.ctx-txt{font-size:12px;color:var(--text2);line-height:1.75}
+.ctx-txt-ur{font-family:var(--font-arab);font-size:13px;color:var(--text2);direction:rtl;text-align:right;line-height:2}
+.uniq-box{background:var(--tealdim);border:1px solid var(--tealbdr);border-radius:8px;padding:11px 14px;margin-bottom:12px}
+.uniq-lbl{font-family:var(--font-head);font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:var(--teal);margin-bottom:5px}
+.uniq-txt{font-size:12.5px;color:var(--text);line-height:1.75}
+.uniq-txt-ur{font-family:var(--font-arab);font-size:13px;color:var(--text);direction:rtl;text-align:right;line-height:2}
+.scholar-card{background:var(--bg3);border:1px solid var(--border2);border-radius:10px;padding:15px 17px;margin-bottom:9px;overflow:hidden;transition:border-color .2s}
+.scholar-card.open{border-color:var(--purplebdr)}
+.sc-hdr{display:flex;align-items:center;gap:12px;cursor:pointer;user-select:none}
+.sc-badge{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--font-arab);font-size:13px;color:var(--gold2);background:var(--purpledim);border:1px solid var(--purplebdr);flex-shrink:0}
+.sc-name{font-family:var(--font-head);font-size:9.5px;color:var(--text);font-weight:600}
+.sc-text{font-family:var(--font-head);font-size:8px;color:var(--purple);margin-top:2px}
+.sc-chev{color:var(--text3);font-size:14px;transition:transform .25s;margin-left:auto;flex-shrink:0}
+.scholar-card.open .sc-chev{transform:rotate(90deg);color:var(--purple)}
+.sc-body{display:none;margin-top:12px;padding-top:10px;border-top:1px solid var(--border2)}
+.scholar-card.open .sc-body{display:block}
+.sc-quote{font-size:12px;color:var(--text);font-style:italic;line-height:1.8;border-left:2px solid var(--purple);padding:8px 12px;background:rgba(168,127,208,.04);border-radius:0 6px 6px 0;margin-bottom:10px}
+.sc-quote-ur{font-family:var(--font-arab);font-size:13px;color:var(--text);direction:rtl;text-align:right;line-height:2;border-right:2px solid var(--purple);padding:8px 12px;background:rgba(168,127,208,.04);border-radius:6px 0 0 6px;margin-bottom:10px}
+.sc-analysis{font-size:12px;color:var(--text2);line-height:1.75}
+.sc-analysis-ur{font-family:var(--font-arab);font-size:13px;color:var(--text2);direction:rtl;text-align:right;line-height:2;margin-top:5px}
+.sc-source{font-family:var(--font-head);font-size:8px;color:var(--purple);margin-top:8px}
+.scholars-lbl{font-family:var(--font-head);font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--purple);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.scholars-lbl::after{content:'';flex:1;height:1px;background:rgba(168,127,208,.15)}
+.sh-card{background:var(--bg2);border:1px solid var(--border2);border-radius:12px;padding:18px 20px;margin-bottom:10px}
+.sh-lbl{font-family:var(--font-head);font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:var(--purple);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.sh-lbl::after{content:'';flex:1;height:1px;background:var(--border2)}
+.sh-ar{font-family:var(--font-arab);font-size:clamp(14px,3vw,18px);color:var(--gold2);direction:rtl;text-align:right;line-height:2;margin-bottom:9px;padding:10px 14px;background:rgba(201,168,76,.04);border-radius:7px}
+.sh-en{font-size:12.5px;color:var(--text);font-style:italic;line-height:1.8;margin-bottom:6px}
+.sh-ur{font-family:var(--font-arab);font-size:14px;color:var(--text);direction:rtl;text-align:right;line-height:2;margin-bottom:6px}
+.sh-src{font-family:var(--font-head);font-size:8.5px;color:var(--purple)}
+.grade{display:inline-block;font-family:var(--font-head);font-size:7.5px;padding:2px 7px;border-radius:4px;margin-left:6px}
+.g-sahih{background:var(--tealdim);border:1px solid var(--tealbdr);color:var(--teal)}
+.g-hasan{background:var(--golddim);border:1px solid var(--goldbdr);color:var(--gold2)}
+.notes-sec{margin-top:14px;border-top:1px solid var(--border2);padding-top:12px}
+.notes-hdr{font-family:var(--font-head);font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:var(--text2);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.notes-hdr::after{content:'';flex:1;height:1px;background:var(--border2)}
+.note-f{margin-bottom:7px}
+.note-lbl{font-family:var(--font-head);font-size:7.5px;letter-spacing:.8px;text-transform:uppercase;color:var(--text3);margin-bottom:4px;display:flex;align-items:center;gap:6px}
+.nd{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.nsv{font-family:var(--font-head);font-size:7px;color:var(--text3);margin-left:auto;transition:color .3s}
+.nsv.flash{color:var(--teal)}
+.note-ta{width:100%;min-height:72px;background:rgba(255,255,255,.03);border:1px solid var(--border2);border-radius:7px;outline:none;padding:10px 12px;font-family:var(--font-body);font-size:12.5px;color:var(--text);line-height:1.75;resize:vertical;transition:border-color .2s}
+.note-ta:focus{border-color:var(--goldbdr)}
+.note-ta::placeholder{color:var(--text3);font-style:italic;font-size:11.5px}
+.synth-box{border:1px solid var(--border2);border-radius:10px;padding:16px 18px;margin-top:8px}
+.file-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-top:12px}
+.file-link{background:var(--bg2);border:1px solid var(--border2);border-radius:10px;padding:14px 16px;text-decoration:none;transition:all .2s;display:block}
+.file-link:hover{border-color:var(--goldbdr)}
+.file-link.current{border-color:var(--goldbdr);background:var(--golddim);cursor:default}
+.fl-num{font-family:var(--font-head);font-size:8px;color:var(--text3);text-transform:uppercase;margin-bottom:5px}
+.fl-title{font-family:var(--font-head);font-size:10px;color:var(--gold2);margin-bottom:4px}
+.fl-desc{font-size:11px;color:var(--text3);line-height:1.6}
+.fl-badge{display:inline-block;font-family:var(--font-head);font-size:7px;padding:1px 6px;border-radius:4px;margin-top:6px}
+.fl-ready{background:var(--tealdim);border:1px solid var(--tealbdr);color:var(--teal)}
+.fl-coming{background:var(--amberdim);border:1px solid var(--amberbdr);color:var(--amber)}
+.en-blk{display:block}.ur-blk{display:none}
+body.ur-mode .en-blk{display:none}
+body.ur-mode .ur-blk{display:block}
+.en-inl{display:inline}.ur-inl{display:none}
+body.ur-mode .en-inl{display:none}
+body.ur-mode .ur-inl{display:inline}
+@media(max-width:600px){.page{padding:20px 14px 60px}.three-levels{grid-template-columns:1fr}.ra-letters{gap:6px}}
+</style>
+</head>
+<body>
+<div class="hdr">
+  <div class="hdr-ar">شُكْر</div>
+  <div class="hdr-titles">
+    <div class="hdr-title en-blk">Inner Quality Ranks — File 3B · Tab IV</div>
+    <div class="hdr-title ur-blk">باطنی اوصاف — فائل ۳B · ٹیب ۴</div>
+    <div class="hdr-sub en-blk">Al-Shakiroon — The Grateful</div>
+    <div class="hdr-sub ur-blk">الشاکرون — شکرگزار</div>
+  </div>
+  <div class="lang-toggle">
+    <div class="lt on" id="lt-en" onclick="setLang('en')">EN</div>
+    <div class="lt" id="lt-ur" onclick="setLang('ur')">اردو</div>
+  </div>
+  <a href="ranks_map.html" class="back-link">← Map</a>
+</div>
+<div class="file-nav">
+  <a href="ranks_map.html" class="fn-btn">1 · Map</a>
+  <span class="fn-sep">›</span>
+  <a href="ranks_eschatological.html" class="fn-btn">2 · Eschatological</a>
+  <span class="fn-sep">›</span>
+  <a href="ranks_divine_love.html" class="fn-btn">3A · Divine Love</a>
+  <span class="fn-sep">›</span>
+  <span class="fn-btn current">3B · Inner Qualities</span>
+  <span class="fn-sep">›</span>
+  <a href="ranks_path.html" class="fn-btn">4 · The Path</a>
+</div>
+<div class="tab-nav">
+  <a href="ranks_inner_qualities_mukhlisoon.html" class="tn-btn">I · Mukhlisoon</a>
+  <a href="riq_awwaaboon.html" class="tn-btn">II · Awwaaboon</a>
+  <a href="riq_sabiroon.html" class="tn-btn">III · Sabiroon</a>
+  <span class="tn-btn current">IV · Shakiroon</span>
+  <a href="riq_qaanitoon.html" class="tn-btn">V · Qaanitoon</a>
+  <a href="riq_ululalbab.html" class="tn-btn">VI · Ulu al-Albab</a>
+  <a href="riq_rasikhoon.html" class="tn-btn">VII · Rasikhoon</a>
+</div>
+
+<div class="page">
+<div class="rank-hdr">
+  <div class="rank-hdr-num en-blk">File 3B · Tab IV · Rarity · Three Levels · The Automatic Increase</div>
+  <div class="rank-hdr-num ur-blk">فائل ۳B · ٹیب ۴ · نادریت · تین درجے · خودکار اضافہ</div>
+  <div class="rank-hdr-ar">الشَّاكِرُون</div>
+  <div class="rank-hdr-en en-blk">Al-Shakiroon — The Grateful Ones</div>
+  <div class="rank-hdr-rule"></div>
+  <div class="rank-hdr-root en-blk">Root: ش — ك — ر · To recognize a gift and respond rightly · Shukr = tongue + heart + limbs all responding to the Giver</div>
+  <div class="rank-hdr-root ur-blk">جڑ: ش — ك — ر · نعمت کو پہچاننا اور درست جواب دینا · شکر = زبان، دل، اعضاء سب دینے والے کی طرف</div>
+  <div class="rank-hdr-intro en-blk">The Quran calls the Shakiroon rare — "few of My servants are grateful" (34:13). This rarity is not accidental. Complete Shukr has three levels: the tongue praises (the easiest), the heart recognizes that the gift is from Allah alone (harder), and the limbs use the gift in obedience to Allah (the hardest and the only complete Shukr). Most stop at the tongue. The Shakiroon reach all three. And for them alone, Allah has declared an automatic, guaranteed increase: "If you are grateful I will surely increase you" (14:7). No other quality receives this unconditional divine promise of increase.</div>
+  <div class="rank-hdr-intro-ur ur-blk">قرآن شاکرین کو نادر کہتا ہے — «میرے بندوں میں سے کم ہی شکرگزار ہیں» (۳۴:۱۳)۔ مکمل شکر کے تین درجے: زبان سے تعریف (آسان)، دل سے پہچاننا کہ نعمت صرف اللہ سے ہے (مشکل)، اعضاء سے نعمت کو اللہ کی اطاعت میں استعمال کرنا (مشکل ترین اور صرف یہی مکمل شکر)۔ اور صرف ان کے لیے: «اگر شکر کرو تو ضرور بڑھاؤں گا» (۱۴:۷) — غیرمشروط الٰہی وعدہ۔</div>
+</div>
+
+<!-- KEY BANNER -->
+<div class="key-banner">
+  <div class="key-banner-label en-blk">The Automatic Divine Increase — Ibrahim 14:7</div>
+  <div class="key-banner-label ur-blk">خودکار الٰہی اضافہ — ابراہیم ۱۴:۷</div>
+  <div class="key-banner-ar">لَئِن شَكَرْتُمْ لَأَزِيدَنَّكُمْ ۖ وَلَئِن كَفَرْتُمْ إِنَّ عَذَابِي لَشَدِيدٌ</div>
+  <div class="key-banner-tr en-blk">"If you are grateful, I will surely increase you — and if you are ungrateful, indeed My punishment is severe."</div>
+  <div class="key-banner-tr-ur ur-blk">«اگر شکر کرو تو ضرور بڑھاؤں گا — اور اگر ناشکری کرو تو بے شک میرا عذاب سخت ہے۔»</div>
+  <div class="key-banner-insight en-blk">La-azeedannakum — the lam of oath + the nun of emphasis. This is Allah swearing to increase the grateful. The increase is not specified — in what? In this blessing, in other blessings, in Iman, in closeness to Allah. The unspecified increase is more significant than a specified one — it covers all dimensions. Ibn al-Qayyim notes that Shukr is one of only two qualities (with Sabr) that encompasses the entirety of the deen: Sabr in difficulty, Shukr in ease — the believer's entire life is covered by these two.</div>
+  <div class="key-banner-insight-ur ur-blk">«لأزيدنكم» — لامِ قسم + نونِ تاکید۔ اللہ شکرگزاروں کو بڑھانے کی قسم کھاتا ہے۔ اضافہ غیرمعین — کس چیز میں؟ ہر طرف سے۔ غیرمعین اضافہ معین سے زیادہ وسیع۔ ابن القیم: شکر اور صبر دو صفات جو دین کا پورا احاطہ کرتی ہیں — مشکل میں صبر، آسانی میں شکر۔</div>
+  <div class="key-banner-ref">Surah Ibrahim 14:7</div>
+</div>
+
+<!-- ROOT -->
+<div class="root-box-main">
+  <div class="ra-label"><span class="en-blk">Root — ش ك ر</span><span class="ur-blk">جڑ — ش ك ر</span></div>
+  <div class="ra-root">شَكَرَ · شُكْر · شَاكِر · شَكُور · شَكَّار</div>
+  <div class="ra-letters">
+    <div class="ra-letter"><span class="ra-letter-ar">ش</span><span class="ra-letter-en">SH</span></div>
+    <div class="ra-letter"><span class="ra-letter-ar">ك</span><span class="ra-letter-en">K</span></div>
+    <div class="ra-letter"><span class="ra-letter-ar">ر</span><span class="ra-letter-en">R</span></div>
+  </div>
+  <div class="ra-meaning en-blk">SH-K-R originally means the recognition of a benefit and the appropriate response to its giver. The classical Arabic sense includes a physical dimension — shakara al-ba'ir means the camel fattened on little grass, visibly showing the benefit it received. Shukr applied to humans means: recognizing that a gift came from Allah, attributing it to Him (not to oneself or chance), and responding in a way that shows that recognition — with praise, with use of the gift in His service. Shakoor (very grateful — one of Allah's names) is the intensive form. The Quran applies this name to Allah meaning He returns the servant's small acts with great reward — and to rare humans who embody it constitutively.</div>
+  <div class="ra-meaning-ur ur-blk">ش-ك-ر: فائدہ کو پہچاننا اور دینے والے کو مناسب جواب دینا۔ اصل عربی: شكر البعير — اونٹ تھوڑی گھاس سے موٹا ہو گیا، نعمت ظاہر کرے۔ انسانی شکر: پہچاننا کہ نعمت اللہ سے ہے، اسے اللہ سے منسوب کرنا، اس طرح جواب دینا جو پہچان ظاہر کرے۔ شکور (اللہ کا نام) — شدید صیغہ۔</div>
+  <div class="ra-count en-blk">✦ SH-K-R appears 75 times in the Quran · Allah is Al-Shakoor (very grateful — returns small acts greatly) · Shukr is explicitly declared rare: "few of My servants are grateful" (34:13)</div>
+  <div class="ra-count ur-blk">✦ ش-ك-ر قرآن میں ۷۵ بار · اللہ الشکور ہے · شکر صریحاً نادر قرار دیا: «میرے بندوں میں کم ہی شکرگزار ہیں» (۳۴:۱۳)</div>
+</div>
+
+<!-- THREE LEVELS -->
+<div class="sec-lbl"><span class="en-inl">The Three Levels of Shukr — Al-Ghazali's Framework</span><span class="ur-inl">شکر کے تین درجے — الغزالی کا خاکہ</span></div>
+<div class="three-levels">
+  <div class="lv-card lv-1">
+    <div class="lv-num lv-num-1 en-blk">Level I — Tongue</div>
+    <div class="lv-num lv-num-1 ur-blk">درجہ اول — زبان</div>
+    <div class="lv-ar">شُكْرُ اللِّسَان</div>
+    <div class="lv-en en-blk">Hamd — Praise and acknowledgment</div>
+    <div class="lv-en ur-blk">حمد — تعریف اور اعتراف</div>
+    <div class="lv-def en-blk">Saying Alhamdulillah, attributing the blessing verbally to Allah. The starting point — necessary but not sufficient. Most people's Shukr stops here. It is the easiest because it costs nothing.</div>
+    <div class="lv-def-ur ur-blk">الحمدللہ کہنا، نعمت کو زبانی اللہ سے منسوب کرنا۔ ضروری لیکن کافی نہیں۔ آسان ترین — کچھ قربان نہیں ہوتا۔</div>
+  </div>
+  <div class="lv-card lv-2">
+    <div class="lv-num lv-num-2 en-blk">Level II — Heart</div>
+    <div class="lv-num lv-num-2 ur-blk">درجہ دوم — دل</div>
+    <div class="lv-ar">شُكْرُ الْقَلْب</div>
+    <div class="lv-en en-blk">Recognition — Genuinely attributing to Allah</div>
+    <div class="lv-en ur-blk">پہچان — دل سے اللہ سے منسوب کرنا</div>
+    <div class="lv-def en-blk">The heart genuinely recognizing: this came from Allah, not from my skill, effort, or luck. The nafs naturally attributes success to itself. Shukr of the heart is the active correction of that attribution — a harder and more constant work.</div>
+    <div class="lv-def-ur ur-blk">دل کا حقیقی پہچاننا: یہ اللہ سے آیا، میری ذہانت یا قسمت سے نہیں۔ نفس قدرتی طور پر کامیابی خود سے منسوب کرتا ہے۔ دل کا شکر اس منسوب کاری کی فعال تصحیح ہے۔</div>
+  </div>
+  <div class="lv-card lv-3">
+    <div class="lv-num lv-num-3 en-blk">Level III — Limbs</div>
+    <div class="lv-num lv-num-3 ur-blk">درجہ سوم — اعضاء</div>
+    <div class="lv-ar">شُكْرُ الْجَوَارِح</div>
+    <div class="lv-en en-blk">Using the gift in Allah's obedience</div>
+    <div class="lv-en ur-blk">نعمت کو اللہ کی اطاعت میں استعمال کرنا</div>
+    <div class="lv-def en-blk">Using what Allah gave — wealth, health, intellect, time, position — in His service and obedience. This is the only complete Shukr. Using Allah's gift in disobedience is Kufr al-ni'mah (ingratitude with the gift itself). The Shakiroon reach all three simultaneously.</div>
+    <div class="lv-def-ur ur-blk">اللہ کی دی ہوئی نعمت — مال، صحت، عقل، وقت، مقام — اس کی اطاعت میں استعمال کرنا۔ صرف یہی مکمل شکر ہے۔ اللہ کی نعمت کو نافرمانی میں استعمال کرنا = کفرِ نعمت۔</div>
+  </div>
+</div>
+
+<div class="sec-lbl"><span class="en-inl">The Ayat — In Revelation Order</span><span class="ur-inl">آیات — ترتیب نزولی میں</span></div>
+
+<!-- 14:7 -->
+<div class="era-divider">
+  <div class="era-dot era-late"></div>
+  <div class="era-label en-blk">Late Makki · Ibrahim 14:7 — The Automatic Increase</div>
+  <div class="era-label-ur ur-blk">اواخر مکی · ابراہیم ۱۴:۷</div>
+  <div class="era-line"></div>
+</div>
+<div class="ayah-card" id="sh-147">
+  <div class="ayah-card-hdr" onclick="toggleCard('sh-147')">
+    <span class="rev-badge rev-late en-blk">Rev. #72</span><span class="rev-badge rev-late ur-blk">ترتیب #72</span>
+    <span class="card-ref">Ibrahim 14:7</span>
+    <span class="card-preview">لَئِن شَكَرْتُمْ لَأَزِيدَنَّكُمْ</span>
+    <span class="card-chevron">›</span>
+  </div>
+  <div class="card-body">
+    <div class="ayah-arabic">وَإِذْ تَأَذَّنَ رَبُّكُمْ لَئِن شَكَرْتُمْ لَأَزِيدَنَّكُمْ ۖ وَلَئِن كَفَرْتُمْ إِنَّ عَذَابِي لَشَدِيدٌ</div>
+    <div class="ayah-tr-en en-blk">"And when your Lord announced: If you are grateful, I will surely increase you — and if you are ungrateful, indeed My punishment is severe."</div>
+    <div class="ayah-tr-ur ur-blk">«اور جب تمہارے رب نے اعلان کیا: اگر شکر کرو تو ضرور بڑھاؤں گا — اور اگر ناشکری کرو تو میرا عذاب سخت ہے۔»</div>
+    <div class="ayah-ref-line">Surah Ibrahim 14:7 · Part of Musa AS's reminder to Bani Israel</div>
+    <div class="ctx-box">
+      <div class="ctx-lbl en-blk">Context — A Divine Announcement, Not a Condition</div>
+      <div class="ctx-txt en-blk">Ta'adhdhana rabbukum — the verb means He announced with full authority, He made an absolute declaration. This is not a conditional offer ("if you try this, maybe...") — it is a divine announcement with the force of an oath. La-azeedannakum: the lam of oath and the nun of emphasis together make this the strongest possible affirmation in Arabic. Allah is swearing that He will increase the grateful. The increase is unspecified — which means it covers all dimensions of the servant's life. Ibn Kathir: the increase may be in the very blessing that was thanked for, or in other blessings, or in the blessing of the akhirah, or in closeness to Allah — the unspecified increase is the most comprehensive.</div>
+      <div class="ctx-txt-ur ur-blk">تأذن ربكم — مکمل اختیار کے ساتھ اعلان۔ مشروط پیشکش نہیں — الٰہی اعلان قسم کی طاقت سے۔ «لأزيدنكم»: لامِ قسم اور نونِ تاکید — عربی میں سب سے مضبوط تاکید۔ اضافہ غیرمعین — تمام ابعاد پر محیط۔ ابن کثیر: اضافہ اسی نعمت میں، دیگر نعمتوں میں، آخرت میں، اللہ سے قربت میں۔</div>
+    </div>
+    <div class="uniq-box">
+      <div class="uniq-lbl en-blk">What This Ayah Uniquely Establishes</div>
+      <div class="uniq-txt en-blk">This is the only ayah in the Quran that states an automatic, sworn divine increase tied directly to a single quality. Other rewards are promised — Paradise, forgiveness, mercy — but this one is a sworn guarantee of increase in this life and the next without specifying a ceiling. The contrast with Kufr al-ni'mah (ingratitude) in the same ayah is also significant: the opposite of Shukr is not simply "not being thankful" — it is Kufr. Ingratitude is placed in the category of disbelief because denying that Allah is the source of the gift is, in essence, a form of denial of Him.</div>
+      <div class="uniq-txt-ur ur-blk">قرآن کی واحد آیت جو کسی ایک صفت سے براہ راست جڑا خودکار، قسم شدہ الٰہی اضافہ بیان کرتی ہے۔ ناشکری کا مقابل خصوصاً اہم: کفر۔ ناشکری = اللہ کو نعمت کا سرچشمہ ماننے سے انکار = انکار کی ایک شکل۔</div>
+    </div>
+    <div class="notes-sec">
+      <div class="notes-hdr"><span class="en-blk">Personal Notes</span><span class="ur-blk">ذاتی نوٹس</span></div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--teal)"></div><span class="en-blk">Allah swears to increase the grateful — no ceiling stated. In your own life, what would it mean to systematically unlock this increase? What stops you from reaching all three levels of Shukr?</span><span class="ur-blk">اللہ شکرگزاروں کو بڑھانے کی قسم کھاتا ہے۔ آپ کی زندگی میں اس اضافے کو منظم طریقے سے کھولنے کا کیا مطلب ہوگا؟</span><span class="nsv" id="sv-sh147a"></span></div>
+        <textarea class="note-ta" id="note-sh147a" placeholder="Most Shukr stops at the tongue. What would it take for you to add the heart level — genuinely attributing every good thing to Allah, not to your own efforts?" oninput="autoSave('sh147a',this.value)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 27:40 -->
+<div class="era-divider">
+  <div class="era-dot era-late"></div>
+  <div class="era-label en-blk">Late Makki · Al-Naml 27:40 — Shukr as Benefit to Oneself</div>
+  <div class="era-label-ur ur-blk">اواخر مکی · النمل ۲۷:۴۰</div>
+  <div class="era-line"></div>
+</div>
+<div class="ayah-card" id="sh-2740">
+  <div class="ayah-card-hdr" onclick="toggleCard('sh-2740')">
+    <span class="rev-badge rev-late en-blk">Rev. #48</span><span class="rev-badge rev-late ur-blk">ترتیب #48</span>
+    <span class="card-ref">Al-Naml 27:40</span>
+    <span class="card-preview">هَٰذَا مِن فَضْلِ رَبِّي لِيَبْلُوَنِي أَأَشْكُرُ أَمْ أَكْفُرُ</span>
+    <span class="card-chevron">›</span>
+  </div>
+  <div class="card-body">
+    <div class="ayah-arabic">قَالَ هَٰذَا مِن فَضْلِ رَبِّي لِيَبْلُوَنِي أَأَشْكُرُ أَمْ أَكْفُرُ ۖ وَمَن شَكَرَ فَإِنَّمَا يَشْكُرُ لِنَفْسِهِ ۖ وَمَن كَفَرَ فَإِنَّ رَبِّي غَنِيٌّ كَرِيمٌ</div>
+    <div class="ayah-tr-en en-blk">"He said: This is from the grace of my Lord — to test me whether I am grateful or ungrateful. And whoever is grateful is only grateful for his own soul's benefit — and whoever is ungrateful, my Lord is Self-Sufficient, Generous."</div>
+    <div class="ayah-tr-ur ur-blk">«اس نے کہا: یہ میرے رب کے فضل سے ہے — تاکہ وہ مجھے آزمائے کہ میں شکر کرتا ہوں یا ناشکری۔ اور جو شکر کرتا ہے وہ اپنے ہی نفع کے لیے شکر کرتا ہے — اور جو ناشکری کرتا ہے تو میرا رب بے نیاز، کریم ہے۔»</div>
+    <div class="ayah-ref-line">Surah Al-Naml 27:40 · Sulayman AS when the throne of Bilqis arrived</div>
+    <div class="ctx-box">
+      <div class="ctx-lbl en-blk">Context — Sulayman AS Responding to an Extraordinary Gift</div>
+      <div class="ctx-txt en-blk">When the throne of the Queen of Sheba arrived before Sulayman (AS) by a miracle, his immediate response was: "This is from the grace of my Lord — to test me whether I am grateful or ungrateful." He did not attribute it to his own kingdom, his own power, his own command. He attributed it to Allah's grace. And then he stated the key theological principle: "Whoever is grateful is only grateful for his own soul's benefit." Shukr does not benefit Allah — He is Ghani (Self-Sufficient). Shukr benefits the one who performs it, because it is the condition of the increase (14:7), it maintains the channel of blessing, and it keeps the heart correctly oriented. This is Sulayman (AS) — the greatest king given to any human — demonstrating Level II Shukr (heart attribution) at the moment of receiving.</div>
+      <div class="ctx-txt-ur ur-blk">ملکہ سبا کا تخت معجزانہ طور پر آیا — سلیمان کا فوری ردعمل: «یہ میرے رب کے فضل سے ہے۔» اپنی بادشاہت یا طاقت سے نہیں۔ پھر اہم الٰہیاتی اصول: «جو شکر کرتا ہے اپنے نفع کے لیے۔» شکر اللہ کو فائدہ نہیں — وہ غنی ہے۔ شکر کرنے والے کو فائدہ — اضافے کی شرط، نعمت کا چینل، دل کا درست رخ۔</div>
+    </div>
+    <div class="uniq-box">
+      <div class="uniq-lbl en-blk">What This Ayah Uniquely Establishes</div>
+      <div class="uniq-txt en-blk">Shukr is an act of self-benefit, not of giving something to Allah. "Wa man shakara fa-innama yashkuru li-nafsihi" — the Shukr returns entirely to the servant. This is a profound reorientation: Shukr is not a duty performed for Allah's sake in the sense of Him needing it — it is an act of spiritual self-preservation and self-growth. The one who fails to be grateful does not harm Allah (Ghani Kareem — Self-Sufficient, Generous). They harm only themselves, cutting off the channel of increase and losing the benefit that gratitude produces in the soul. The ayah also establishes that every gift is a test — specifically a test of Shukr or Kufr. Every blessing is a question: will you attribute this to Me or to yourself?</div>
+      <div class="uniq-txt-ur ur-blk">شکر نفع بخشتا ہے کرنے والے کو — اللہ کو نہیں۔ گہرا نئی سمت: شکر روحانی خود بقا اور ترقی کا عمل ہے۔ ناشکری کرنے والا اللہ کو نہیں نقصان پہنچاتا — خود کو اضافے کا چینل کاٹ دیتا ہے۔ ہر نعمت آزمائش ہے: کیا تم اسے میری طرف منسوب کرو گے یا اپنی طرف؟</div>
+    </div>
+    <div class="notes-sec">
+      <div class="notes-hdr"><span class="en-blk">Personal Notes</span><span class="ur-blk">ذاتی نوٹس</span></div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--teal)"></div><span class="en-blk">Every blessing is a test of Shukr or Kufr. When you succeed — in work, finances, relationships — what is your immediate internal attribution? To yourself or to Allah?</span><span class="ur-blk">ہر نعمت شکر یا کفر کی آزمائش ہے۔ کامیابی پر آپ کی فوری داخلی منسوبیت — خود سے یا اللہ سے؟</span><span class="nsv" id="sv-sh2740a"></span></div>
+        <textarea class="note-ta" id="note-sh2740a" placeholder="Think of your last major success. What was your first internal thought — did you feel you earned it, or that it was from Allah's grace? Sulayman AS responded immediately..." oninput="autoSave('sh2740a',this.value)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 34:13 -->
+<div class="era-divider">
+  <div class="era-dot era-late"></div>
+  <div class="era-label en-blk">Late Makki · Saba 34:13 — The Rarity Declaration</div>
+  <div class="era-label-ur ur-blk">اواخر مکی · سبا ۳۴:۱۳ — نادریت کا اعلان</div>
+  <div class="era-line"></div>
+</div>
+<div class="ayah-card" id="sh-3413">
+  <div class="ayah-card-hdr" onclick="toggleCard('sh-3413')">
+    <span class="rev-badge rev-late en-blk">Rev. #58</span><span class="rev-badge rev-late ur-blk">ترتیب #58</span>
+    <span class="card-ref">Saba 34:13</span>
+    <span class="card-preview">وَقَلِيلٌ مِّنْ عِبَادِيَ الشَّكُورُ</span>
+    <span class="card-chevron">›</span>
+  </div>
+  <div class="card-body">
+    <div class="ayah-arabic">اعْمَلُوا آلَ دَاوُودَ شُكْرًا ۚ وَقَلِيلٌ مِّنْ عِبَادِيَ الشَّكُورُ</div>
+    <div class="ayah-tr-en en-blk">"Work, O family of Dawud, in gratitude — and few of My servants are the Shakoor."</div>
+    <div class="ayah-tr-ur ur-blk">«عمل کرو اے آل داود — شکر کرتے ہوئے — اور میرے بندوں میں کم ہی شکور ہیں۔»</div>
+    <div class="ayah-ref-line">Surah Saba 34:13 · Speaking to the family of Dawud AS</div>
+    <div class="ctx-box">
+      <div class="ctx-lbl en-blk">Context — The Command and the Rarity Together</div>
+      <div class="ctx-txt en-blk">The command Ishkuru (be grateful) is given to the family of Dawud (AS) — those given the greatest gifts: prophethood, kingship, the mastery of metals and craft (34:10-11). The command is not simply to say Alhamdulillah — it is I'malu shukran: work as gratitude. The shukr is expressed through work — through using the gifts in Allah's service. This is Level III Shukr (limbs). Immediately after the command: "few of My servants are the Shakoor." The family of Dawud — the greatest given — are being told that even among the servants of Allah, those who truly reach the Shakoor level are few. The rarity is established not as discouragement but as a precision about where the work is.</div>
+      <div class="ctx-txt-ur ur-blk">حکم آلِ داود کو — جنہیں سب سے زیادہ دیا گیا۔ اعملوا شكراً: کام کرو بطورِ شکر۔ شکر کام سے ظاہر ہو — نعمتوں کو اللہ کی خدمت میں استعمال کرنا۔ یہ درجہ سوم شکر ہے۔ پھر فوراً: «میرے بندوں میں کم ہی شکور ہیں۔» سب سے زیادہ دیے گئے بھی — بتانا کہ کام کہاں ہے۔</div>
+    </div>
+    <div class="uniq-box">
+      <div class="uniq-lbl en-blk">What This Ayah Uniquely Establishes</div>
+      <div class="uniq-txt en-blk">Wa-qaleelun min ibadiya al-Shakoor — "and few of My servants are the Shakoor." This is Allah's own declaration about the rarity of complete gratitude. The word used is Shakoor — the intensive, constitutive form — not simply Shakir (one who thanks). The Shakoor is one for whom gratitude has become constitutive of character, not an occasional act. And this is explicitly rare among all of Allah's servants — not just unbelievers, but among the servants of Allah broadly. The implication: even those who worship regularly, even those who believe — few reach the level where all three levels of Shukr operate simultaneously and constitutively. This rarity is not Allah's lament — it is a map showing where the highest work is.</div>
+      <div class="uniq-txt-ur ur-blk">«وقليل من عبادي الشكور» — اللہ کا خود اعلان کامل شکر کی نادریت کا۔ شکور (شدید، ذاتی صیغہ) — نہ صرف شاکر۔ شکور وہ جس کے لیے شکر فطرت بن گئی۔ اور یہ اللہ کے تمام بندوں میں صریحاً نادر ہے — صرف کافروں میں نہیں۔ نادریت نقشہ ہے — بتاتی ہے کہ اعلیٰ ترین کام کہاں ہے۔</div>
+    </div>
+    <div class="notes-sec">
+      <div class="notes-hdr"><span class="en-blk">Personal Notes</span><span class="ur-blk">ذاتی نوٹس</span></div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--teal)"></div><span class="en-blk">I'malu shukran — work as gratitude, not just say it. Where in your life are you using Allah's gifts (wealth, intellect, health, skills) in His service versus in indulgence or heedlessness?</span><span class="ur-blk">اعملوا شكراً — بطورِ شکر کام کرو، صرف کہو نہیں۔ آپ کی زندگی میں اللہ کی نعمتیں — مال، عقل، صحت، مہارت — اس کی خدمت میں یا نفسانی خواہشات میں؟</span><span class="nsv" id="sv-sh3413a"></span></div>
+        <textarea class="note-ta" id="note-sh3413a" placeholder="List the main gifts Allah has given you. For each: are they being used in His service (Level III Shukr) or primarily for yourself?" oninput="autoSave('sh3413a',this.value)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HADITH -->
+<div class="sec-lbl"><span class="en-inl">Authenticated Sunnah on Shukr</span><span class="ur-inl">شکر پر مستند سنت</span></div>
+<div class="sh-card">
+  <div class="sh-lbl en-blk">✦ Shukr for Small Things — Shukr for the Great</div>
+  <div class="sh-lbl ur-blk">✦ چھوٹی چیز کا شکر — بڑی چیز کا شکر</div>
+  <div class="sh-ar">مَنْ لَا يَشْكُرُ الْقَلِيلَ لَا يَشْكُرُ الْكَثِيرَ</div>
+  <div class="sh-en en-blk">"Whoever does not give thanks for the little will not give thanks for the great."</div>
+  <div class="sh-ur ur-blk">«جو چھوٹی چیز کا شکر نہیں کرتا وہ بڑی چیز کا بھی شکر نہیں کرتا۔»</div>
+  <div class="sh-src">Narrator: Abu Sa'id al-Khudri (RA) · Musnad Ahmad, Hadith 18449 · Graded Hasan by al-Arna'ut <span class="grade g-hasan">◈ Hasan</span></div>
+</div>
+<div class="sh-card">
+  <div class="sh-lbl en-blk">✦ The Prayer of the Prophet for Shukr</div>
+  <div class="sh-lbl ur-blk">✦ نبی کریم کی شکر کے لیے دعا</div>
+  <div class="sh-ar">اللَّهُمَّ أَعِنِّي عَلَى ذِكْرِكَ وَشُكْرِكَ وَحُسْنِ عِبَادَتِكَ</div>
+  <div class="sh-en en-blk">"O Allah, help me to remember You, to be grateful to You, and to worship You in the best manner."</div>
+  <div class="sh-ur ur-blk">«اے اللہ، مجھے اپنا ذکر کرنے، اپنا شکر کرنے اور بہترین طریقے سے عبادت کرنے میں مدد فرما۔»</div>
+  <div class="sh-src">Narrator: Mu'adh ibn Jabal (RA) · Sunan Abu Dawud, Hadith 1522 · Graded Sahih by al-Albani <span class="grade g-sahih">✦ Sahih</span></div>
+</div>
+<div class="sh-card">
+  <div class="sh-lbl en-blk">✦ Shukr Preserves Blessing</div>
+  <div class="sh-lbl ur-blk">✦ شکر نعمت کی حفاظت کرتا ہے</div>
+  <div class="sh-ar">النِّعَمُ وَحْشِيَّةٌ فَاسْتَعِيدُوهَا بِالشُّكْرِ</div>
+  <div class="sh-en en-blk">"Blessings are wild — tame them through gratitude."</div>
+  <div class="sh-ur ur-blk">«نعمتیں وحشی ہیں — انہیں شکر سے قابو کرو۔»</div>
+  <div class="sh-src">Attributed to Ibn Abbas (RA) and cited by al-Ghazali in Ihya · Ibn al-Qayyim in Uddat al-Sabirin</div>
+</div>
+
+<!-- SCHOLARS -->
+<div class="sec-lbl"><span class="en-inl">Scholar Perspectives</span><span class="ur-inl">علماء کے نظریات</span></div>
+<div class="scholars-lbl en-blk">Two Classical Authorities on Shukr</div>
+<div class="scholars-lbl ur-blk">شکر پر دو کلاسیکی علماء</div>
+
+<div class="scholar-card" id="sc-ibnqayyim-sh">
+  <div class="sc-hdr" onclick="toggleScholar('sc-ibnqayyim-sh')">
+    <div class="sc-badge">ق</div>
+    <div>
+      <div class="sc-name">Ibn al-Qayyim al-Jawziyyah (d. 751H)</div>
+      <div class="sc-text en-blk">Uddat al-Sabirin · Sabr and Shukr as the Two Poles of the Deen</div>
+      <div class="sc-text ur-blk">عدۃ الصابرین · صبر اور شکر — دین کے دو قطب</div>
+    </div>
+    <div class="sc-chev">›</div>
+  </div>
+  <div class="sc-body">
+    <div class="sc-quote en-blk">Ibn al-Qayyim opens Uddat al-Sabirin with the observation that the entirety of the deen can be captured in two stations: Sabr and Shukr. Sabr is the response to difficulty — restraining the nafs from panic, complaint, or prohibited responses. Shukr is the response to ease and blessing — recognizing the gift, attributing it to Allah, and using it in His service. Together they cover the entirety of human experience. The believer whose entire life is not difficulty is Shakir; whose entire life is not ease is Sabir. But human life oscillates between both — and the complete believer has both stations active simultaneously.</div>
+    <div class="sc-quote-ur ur-blk">ابن القیم عدۃ الصابرین اس مشاہدے سے کھولتے ہیں کہ دین کا پورا احاطہ دو مقامات میں: صبر اور شکر۔ مشکل کا جواب صبر، آسانی اور نعمت کا جواب شکر۔ دونوں مل کر انسانی تجربے کا پورا احاطہ کرتے ہیں۔ مکمل مومن دونوں مقامات ایک ساتھ رکھتا ہے۔</div>
+    <div class="sc-analysis en-blk">Ibn al-Qayyim's most important contribution on Shukr is his insistence that Shukr is not a feeling but a structure — it has three components that must all operate. The first (tongue) without the second (heart) is hypocrisy. The second without the third (limbs) is incomplete. And crucially: the opposite of Shukr is not ingratitude in the ordinary sense — it is Kufr al-ni'mah, using Allah's gift against Him. The person who receives health from Allah and uses it in disobedience is not merely ungrateful — they are committing Kufr al-ni'mah. Ibn al-Qayyim considers this the most practically dangerous implication of failing in Level III Shukr.</div>
+    <div class="sc-analysis-ur ur-blk">ابن القیم کا اہم ترین تعاون: شکر احساس نہیں — ساخت ہے۔ تین اجزاء سب لازم۔ زبان بغیر دل کے ریاکاری۔ دل بغیر اعضاء کے ادھورا۔ اور اہم: شکر کی ضد عام ناشکری نہیں — کفرِ نعمت ہے۔ اللہ کی نعمت کو نافرمانی میں استعمال کرنا = کفرِ نعمت۔</div>
+    <div class="sc-source">Ibn al-Qayyim · Uddat al-Sabirin wa Dhakhirat al-Shakirin · Opening Chapters</div>
+  </div>
+</div>
+
+<div class="scholar-card" id="sc-ghazali-sh">
+  <div class="sc-hdr" onclick="toggleScholar('sc-ghazali-sh')">
+    <div class="sc-badge">غ</div>
+    <div>
+      <div class="sc-name">Imam Al-Ghazali (d. 505H)</div>
+      <div class="sc-text en-blk">Ihya · Kitab al-Sabr wal-Shukr · Three Levels and Practical Cultivation</div>
+      <div class="sc-text ur-blk">احیاء · کتاب الصبر والشکر · تین درجے اور عملی کاشت</div>
+    </div>
+    <div class="sc-chev">›</div>
+  </div>
+  <div class="sc-body">
+    <div class="sc-quote en-blk">Al-Ghazali in the Ihya develops the three-level framework of Shukr in the most systematic treatment in classical Islamic literature. He establishes that Level I (tongue) without Level II (heart) is a kind of lie — saying Alhamdulillah while internally attributing the blessing to oneself or to secondary causes. Level II without Level III is a form of spiritual hoarding — recognizing the gift but not deploying it. The complete Shukr is the integration of all three: the tongue praises, the heart attributes genuinely to Allah, and the limbs use the gift in His service.</div>
+    <div class="sc-quote-ur ur-blk">الغزالی احیاء میں شکر کا تین درجاتی خاکہ سب سے منظم شکل میں۔ درجہ اول بغیر درجہ دوم کے جھوٹ کی ایک قسم — الحمدللہ کہنا جبکہ اندر سے نعمت خود سے منسوب۔ درجہ دوم بغیر درجہ سوم کے روحانی ذخیرہ اندوزی — پہچاننا لیکن استعمال نہ کرنا۔ مکمل شکر تینوں کا انضمام۔</div>
+    <div class="sc-analysis en-blk">Al-Ghazali's practical instruction for building the Shukr habit: begin each morning by consciously counting three blessings that were present yesterday that you did not earn — health, sight, the ability to think, food, safety. For each, deliberately attribute it to Allah, not to your own provision or merit. Then ask: am I using this in His service? This deliberate daily practice, when repeated, trains the heart to automatically attribute to Allah and trains the limbs to respond in service. The Shakoor of 34:13 is not born — they are built through this practice until it becomes constitutive.</div>
+    <div class="sc-analysis-ur ur-blk">الغزالی کی عملی ہدایت شکر کی عادت بنانے کے لیے: ہر صبح تین نعمتیں شمار کریں جو کل موجود تھیں اور آپ نے نہیں کمائیں — صحت، بینائی، سوچنے کی صلاحیت۔ ہر ایک کو جان بوجھ کر اللہ سے منسوب کریں۔ پھر پوچھیں: کیا میں اسے اس کی خدمت میں استعمال کر رہا ہوں؟ یہ عمل جب دہرایا جائے تو دل خودبخود اللہ سے منسوب کرنا سیکھ لیتا ہے — اور شکور بنتا ہے۔</div>
+    <div class="sc-source">Al-Ghazali · Ihya Ulum al-Deen · Kitab al-Sabr wal-Shukr · Quarter of Salvations</div>
+  </div>
+</div>
+
+<!-- SYNTHESIS -->
+<div class="sec-lbl"><span class="en-inl">Personal Synthesis</span><span class="ur-inl">ذاتی خلاصہ</span></div>
+<div class="synth-box">
+  <div class="notes-hdr"><span class="en-blk">Personal Synthesis — Al-Shakiroon</span><span class="ur-blk">ذاتی خلاصہ — الشاکرون</span></div>
+  <div class="note-f">
+    <div class="note-lbl"><div class="nd" style="background:var(--gold)"></div><span class="en-blk">Few of My servants are the Shakoor. Allah swears to increase the grateful — no ceiling. The three levels all required. Where are you, honestly, among the three levels — and what would moving to the next level concretely require?</span><span class="ur-blk">میرے بندوں میں کم ہی شکور۔ اللہ بڑھانے کی قسم کھاتا ہے — بے حد۔ تین درجے سب لازم۔ آپ ایمانداری سے کس درجے پر ہیں — اگلے درجے پر جانا کیا مانگتا ہے؟</span><span class="nsv" id="sv-synth-sh"></span></div>
+    <textarea class="note-ta" id="note-synth-sh" style="min-height:100px" placeholder="Al-Ghazali's daily practice: count three unearned blessings, attribute them to Allah, ask if they are being used in His service. What would your honest assessment be today?" oninput="autoSave('synth-sh',this.value)"></textarea>
+  </div>
+</div>
+
+<div class="sec-lbl" style="margin-top:36px"><span class="en-inl">Continue — File 3B Tabs</span><span class="ur-inl">آگے — فائل ۳B ٹیبز</span></div>
+<div class="file-links">
+  <a href="ranks_inner_qualities_mukhlisoon.html" class="file-link">
+    <div class="fl-num">Tab I</div><div class="fl-title">Mukhlisoon</div><div class="fl-desc">Active vs Passive</div>
+    <span class="fl-badge fl-ready">Complete</span>
+  </a>
+  <a href="riq_awwaaboon.html" class="file-link">
+    <div class="fl-num">Tab II</div><div class="fl-title">Awwaaboon</div><div class="fl-desc">Habitual returners</div>
+    <span class="fl-badge fl-ready">Complete</span>
+  </a>
+  <a href="riq_sabiroon.html" class="file-link">
+    <div class="fl-num">Tab III</div><div class="fl-title">Sabiroon</div><div class="fl-desc">Three types</div>
+    <span class="fl-badge fl-ready">Complete</span>
+  </a>
+  <a href="#" class="file-link current">
+    <div class="fl-num">Tab IV</div><div class="fl-title">Shakiroon</div><div class="fl-desc">Few are truly grateful</div>
+    <span class="fl-badge fl-ready">Current</span>
+  </a>
+  <a href="riq_qaanitoon.html" class="file-link">
+    <div class="fl-num">Tab V</div><div class="fl-title">Qaanitoon</div><div class="fl-desc">Sustained devotion</div>
+    <span class="fl-badge fl-coming">Next</span>
+  </a>
+  <a href="riq_ululalbab.html" class="file-link">
+    <div class="fl-num">Tab VI</div><div class="fl-title">Ulu al-Albab</div><div class="fl-desc">People of the Lubb</div>
+    <span class="fl-badge fl-coming">Pending</span>
+  </a>
+  <a href="riq_rasikhoon.html" class="file-link">
+    <div class="fl-num">Tab VII</div><div class="fl-title">Rasikhoon</div><div class="fl-desc">Firmly grounded</div>
+    <span class="fl-badge fl-coming">Pending</span>
+  </a>
+</div>
+</div>
+
+<script>
+var LANG='en';
+var timers={};
+function setLang(l){
+  LANG=l;
+  document.getElementById('lt-en').classList.toggle('on',l==='en');
+  document.getElementById('lt-ur').classList.toggle('on',l==='ur');
+  document.body.classList.toggle('ur-mode',l==='ur');
+}
+function toggleCard(id){document.getElementById(id).classList.toggle('open');}
+function toggleScholar(id){document.getElementById(id).classList.toggle('open');}
+function autoSave(key,val){
+  clearTimeout(timers[key]);
+  timers[key]=setTimeout(function(){
+    var sk='riq_'+key;
+    if(val.trim()){localStorage.setItem(sk,val);}else{localStorage.removeItem(sk);}
+    var sv=document.getElementById('sv-'+key);
+    if(sv){sv.textContent=val.trim()?'Saved \u2713':'';sv.classList.add('flash');setTimeout(function(){sv.classList.remove('flash');},1800);}
+  },900);
+}
+function loadAll(){
+  for(var i=0;i<localStorage.length;i++){
+    var k=localStorage.key(i);
+    if(k&&k.startsWith('riq_')){
+      var fk=k.substring(4);
+      var el=document.getElementById('note-'+fk);
+      var sv=document.getElementById('sv-'+fk);
+      if(el){el.value=localStorage.getItem(k)||'';if(sv&&el.value.trim())sv.textContent='Saved';}
+    }
+  }
+}
+window.addEventListener('DOMContentLoaded',function(){loadAll();});
+</script>
+</body>
+</html>

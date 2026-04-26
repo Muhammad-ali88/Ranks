@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inner Quality Ranks — Al-Qaanitoon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg0:#04070D;--bg1:#080E1C;--bg2:#0C1528;--bg3:#111E35;
+  --gold:#C9A84C;--gold2:#E2C97A;
+  --golddim:rgba(201,168,76,.08);--goldbdr:rgba(201,168,76,.18);
+  --teal:#2FB89A;--tealdim:rgba(47,184,154,.08);--tealbdr:rgba(47,184,154,.22);
+  --blue:#7AABF0;--bluedim:rgba(122,171,240,.08);--bluebdr:rgba(122,171,240,.22);
+  --amber:#E0A030;--amberdim:rgba(224,160,48,.08);--amberbdr:rgba(224,160,48,.22);
+  --purple:#A87FD0;--purpledim:rgba(168,127,208,.08);--purplebdr:rgba(168,127,208,.22);
+  --text:#D4CBB8;--text2:#8A9BB0;--text3:#4A5B70;
+  --border2:rgba(201,168,76,.05);
+  --font-head:'Cinzel',serif;--font-body:'Lora',serif;--font-arab:'Noto Naskh Arabic',serif;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg0);color:var(--text);font-family:var(--font-body);min-height:100vh;overflow-x:hidden;padding-bottom:80px}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 800px 500px at 20% 10%,rgba(201,168,76,.025),transparent 60%)}
+.hdr{position:sticky;top:0;z-index:90;background:rgba(4,7,13,.97);border-bottom:1px solid var(--border2);backdrop-filter:blur(20px);padding:0 22px;height:56px;display:flex;align-items:center;gap:14px}
+.hdr-ar{font-family:var(--font-arab);font-size:22px;color:var(--gold)}
+.hdr-titles{flex:1}
+.hdr-title{font-family:var(--font-head);font-size:10px;letter-spacing:2px;color:var(--gold2);text-transform:uppercase}
+.hdr-sub{font-family:var(--font-head);font-size:8px;letter-spacing:1px;color:var(--text3);text-transform:uppercase;margin-top:2px}
+.lang-toggle{display:flex;gap:2px;background:rgba(255,255,255,.04);border:1px solid var(--goldbdr);border-radius:20px;padding:3px}
+.lt{font-family:var(--font-head);font-size:9px;padding:3px 10px;border-radius:16px;cursor:pointer;transition:all .2s;color:var(--text3);user-select:none}
+.lt.on{background:var(--gold);color:#000;font-weight:700}
+.back-link{font-family:var(--font-head);font-size:8.5px;color:var(--text3);text-decoration:none;padding:5px 10px;border:1px solid var(--border2);border-radius:6px;text-transform:uppercase;flex-shrink:0}
+.file-nav{background:rgba(8,14,28,.8);border-bottom:1px solid var(--border2);padding:10px 22px;display:flex;gap:8px;flex-wrap:wrap;position:sticky;top:56px;z-index:80;backdrop-filter:blur(16px)}
+.fn-btn{font-family:var(--font-head);font-size:8px;letter-spacing:1px;text-transform:uppercase;padding:6px 14px;border-radius:7px;border:1px solid var(--border2);color:var(--text3);text-decoration:none;display:inline-block;transition:all .2s}
+.fn-btn:hover{color:var(--gold2);border-color:var(--goldbdr)}
+.fn-btn.current{background:var(--golddim);border-color:var(--goldbdr);color:var(--gold2)}
+.fn-sep{color:var(--text3);font-size:10px;align-self:center;opacity:.4}
+.tab-nav{background:rgba(8,14,28,.6);border-bottom:1px solid var(--border2);padding:8px 22px;display:flex;gap:6px;flex-wrap:wrap;position:sticky;top:103px;z-index:70;backdrop-filter:blur(16px)}
+.tn-btn{font-family:var(--font-head);font-size:7.5px;letter-spacing:.8px;text-transform:uppercase;padding:5px 12px;border-radius:6px;border:1px solid var(--border2);color:var(--text3);text-decoration:none;display:inline-block;transition:all .2s}
+.tn-btn:hover{color:var(--gold2);border-color:var(--goldbdr)}
+.tn-btn.current{background:var(--golddim);border-color:var(--goldbdr);color:var(--gold2)}
+.page{position:relative;z-index:1;max-width:860px;margin:0 auto;padding:32px 20px 60px}
+.rank-hdr{text-align:center;padding:24px 20px 32px;border-bottom:1px solid var(--border2);margin-bottom:28px}
+.rank-hdr-num{font-family:var(--font-head);font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--text3);margin-bottom:10px}
+.rank-hdr-ar{font-family:var(--font-arab);font-size:clamp(40px,7vw,62px);color:var(--gold);line-height:1.2;margin-bottom:8px}
+.rank-hdr-en{font-family:var(--font-head);font-size:clamp(13px,2.5vw,18px);font-weight:700;color:#fff;letter-spacing:2px;text-transform:uppercase;margin-bottom:5px}
+.rank-hdr-rule{width:100px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 16px}
+.rank-hdr-root{font-family:var(--font-head);font-size:9px;letter-spacing:1.5px;color:var(--text3);text-transform:uppercase;margin-bottom:14px}
+.rank-hdr-intro{font-size:13px;color:var(--text2);line-height:1.9;max-width:640px;margin:0 auto;font-style:italic}
+.rank-hdr-intro-ur{font-family:var(--font-arab);font-size:14px;color:var(--text2);direction:rtl;text-align:center;line-height:2;max-width:640px;margin:4px auto 0}
+.key-banner{background:linear-gradient(135deg,rgba(201,168,76,.10),rgba(201,168,76,.04));border:1px solid var(--goldbdr);border-radius:12px;padding:18px 22px;margin-bottom:24px;text-align:center;position:relative;overflow:hidden}
+.key-banner::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.key-banner-label{font-family:var(--font-head);font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.key-banner-ar{font-family:var(--font-arab);font-size:clamp(18px,3.5vw,26px);color:var(--gold2);direction:rtl;line-height:1.9;margin-bottom:6px}
+.key-banner-tr{font-size:12px;color:var(--text2);font-style:italic;margin-bottom:4px}
+.key-banner-tr-ur{font-family:var(--font-arab);font-size:13px;color:var(--text2);direction:rtl;line-height:1.9;margin-bottom:6px}
+.key-banner-insight{font-size:11.5px;color:var(--text3);line-height:1.75;border-top:1px solid var(--goldbdr);padding-top:10px;margin-top:6px}
+.key-banner-insight-ur{font-family:var(--font-arab);font-size:12px;color:var(--text3);direction:rtl;text-align:center;line-height:2;margin-top:4px}
+.key-banner-ref{font-family:var(--font-head);font-size:8.5px;color:var(--gold);margin-top:6px}
+.root-box-main{background:var(--bg2);border:1px solid var(--goldbdr);border-radius:12px;padding:20px 22px;margin-bottom:24px;position:relative;overflow:hidden}
+.root-box-main::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.ra-label{font-family:var(--font-head);font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.ra-label::after{content:'';flex:1;height:1px;background:rgba(201,168,76,.08)}
+.ra-root{font-family:var(--font-arab);font-size:28px;color:var(--gold2);direction:rtl;margin-bottom:12px}
+.ra-letters{display:flex;gap:10px;flex-direction:row-reverse;margin-bottom:14px}
+.ra-letter{background:rgba(201,168,76,.06);border:1px solid var(--goldbdr);border-radius:8px;padding:8px 14px;text-align:center}
+.ra-letter-ar{font-family:var(--font-arab);font-size:22px;color:var(--gold2);display:block}
+.ra-letter-en{font-family:var(--font-head);font-size:8px;color:var(--text3);margin-top:4px;display:block}
+.ra-meaning{font-size:13px;color:var(--text2);line-height:1.8;margin-bottom:10px}
+.ra-meaning-ur{font-family:var(--font-arab);font-size:14px;color:var(--text2);direction:rtl;text-align:right;line-height:2;margin-bottom:10px}
+.ra-count{font-family:var(--font-head);font-size:9px;color:var(--teal)}
+.distinction-box{background:var(--bg2);border:1px solid var(--tealbdr);border-radius:10px;padding:16px 20px;margin-bottom:24px;position:relative;overflow:hidden}
+.distinction-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--teal),transparent)}
+.distinction-lbl{font-family:var(--font-head);font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.distinction-lbl::after{content:'';flex:1;height:1px;background:rgba(47,184,154,.15)}
+.dist-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:10px}
+.dist-ar{font-family:var(--font-arab);font-size:22px;color:var(--gold2);direction:rtl;margin-bottom:5px}
+.dist-lbl-t{font-family:var(--font-head);font-size:8px;letter-spacing:1px;text-transform:uppercase;color:var(--teal);margin-bottom:5px}
+.dist-def{font-size:12px;color:var(--text2);line-height:1.75}
+.dist-def-ur{font-family:var(--font-arab);font-size:12.5px;color:var(--text2);direction:rtl;text-align:right;line-height:2;margin-top:3px}
+.sec-lbl{font-family:var(--font-head);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:12px;padding:28px 0 16px}
+.sec-lbl::after{content:'';flex:1;height:1px;background:rgba(201,168,76,.08)}
+.era-divider{display:flex;align-items:center;gap:12px;margin:20px 0 12px}
+.era-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.era-late{background:var(--teal)}.era-madani{background:var(--blue)}.era-middle{background:var(--gold)}.era-early{background:var(--amber)}
+.era-label{font-family:var(--font-head);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text2)}
+.era-label-ur{font-family:var(--font-arab);font-size:13px;color:var(--text2)}
+.era-line{flex:1;height:1px;background:rgba(201,168,76,.05)}
+.ayah-card{background:var(--bg2);border:1px solid var(--border2);border-radius:12px;margin-bottom:10px;overflow:hidden;transition:border-color .2s}
+.ayah-card.open{border-color:var(--goldbdr)}
+.ayah-card-hdr{display:flex;align-items:center;gap:10px;padding:13px 18px;cursor:pointer;user-select:none}
+.rev-badge{font-family:var(--font-head);font-size:7.5px;padding:3px 8px;border-radius:5px;flex-shrink:0;text-transform:uppercase}
+.rev-late{background:var(--tealdim);border:1px solid var(--tealbdr);color:var(--teal)}
+.rev-madani{background:var(--bluedim);border:1px solid var(--bluebdr);color:var(--blue)}
+.card-ref{font-family:var(--font-head);font-size:10px;color:var(--gold);font-weight:600;flex-shrink:0}
+.card-preview{font-family:var(--font-arab);font-size:16px;color:var(--gold2);direction:rtl;flex:1;text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:.75}
+.card-chevron{color:var(--text3);font-size:16px;transition:transform .25s;flex-shrink:0}
+.ayah-card.open .card-chevron{transform:rotate(90deg);color:var(--gold)}
+.card-body{display:none;padding:0 18px 20px;border-top:1px solid var(--border2)}
+.ayah-card.open .card-body{display:block}
+.ayah-arabic{font-family:var(--font-arab);font-size:clamp(18px,3.5vw,26px);color:var(--gold2);direction:rtl;text-align:right;line-height:2.2;padding:18px 0 12px;border-bottom:1px solid var(--border2);margin-bottom:12px}
+.ayah-tr-en{font-size:13px;color:var(--text);font-style:italic;line-height:1.85;margin-bottom:6px;border-left:3px solid var(--goldbdr);padding:8px 14px;border-radius:0 6px 6px 0;background:rgba(201,168,76,.03)}
+.ayah-tr-ur{font-family:var(--font-arab);font-size:14px;color:var(--text);direction:rtl;text-align:right;line-height:2;border-right:3px solid var(--goldbdr);padding:8px 14px 8px 8px;border-radius:6px 0 0 6px;background:rgba(201,168,76,.03);margin-bottom:6px}
+.ayah-ref-line{font-family:var(--font-head);font-size:9px;color:var(--gold);margin-bottom:14px}
+.ctx-box{background:rgba(0,0,0,.2);border-left:3px solid var(--amber);border-radius:0 8px 8px 0;padding:11px 14px;margin-bottom:12px}
+.ctx-lbl{font-family:var(--font-head);font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:var(--amber);margin-bottom:5px}
+.ctx-txt{font-size:12px;color:var(--text2);line-height:1.75}
+.ctx-txt-ur{font-family:var(--font-arab);font-size:13px;color:var(--text2);direction:rtl;text-align:right;line-height:2}
+.uniq-box{background:var(--tealdim);border:1px solid var(--tealbdr);border-radius:8px;padding:11px 14px;margin-bottom:12px}
+.uniq-lbl{font-family:var(--font-head);font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:var(--teal);margin-bottom:5px}
+.uniq-txt{font-size:12.5px;color:var(--text);line-height:1.75}
+.uniq-txt-ur{font-family:var(--font-arab);font-size:13px;color:var(--text);direction:rtl;text-align:right;line-height:2}
+.maryam-box{background:linear-gradient(135deg,rgba(168,127,208,.10),rgba(168,127,208,.04));border:1px solid var(--purplebdr);border-radius:12px;padding:16px 20px;margin-bottom:20px;position:relative;overflow:hidden}
+.maryam-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--purple),transparent)}
+.maryam-lbl{font-family:var(--font-head);font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:var(--purple);margin-bottom:10px}
+.maryam-ar{font-family:var(--font-arab);font-size:clamp(17px,3vw,22px);color:var(--gold2);direction:rtl;line-height:2;margin-bottom:7px}
+.maryam-tr{font-size:12px;color:var(--text2);font-style:italic;line-height:1.8;margin-bottom:5px}
+.maryam-tr-ur{font-family:var(--font-arab);font-size:13px;color:var(--text2);direction:rtl;text-align:right;line-height:2;margin-bottom:5px}
+.maryam-note{font-size:12px;color:var(--text3);line-height:1.75;border-top:1px solid var(--purplebdr);padding-top:8px;margin-top:4px}
+.maryam-note-ur{font-family:var(--font-arab);font-size:13px;color:var(--text3);direction:rtl;text-align:right;line-height:2;margin-top:4px}
+.maryam-ref{font-family:var(--font-head);font-size:8.5px;color:var(--purple);margin-top:5px}
+.scholar-card{background:var(--bg3);border:1px solid var(--border2);border-radius:10px;padding:15px 17px;margin-bottom:9px;overflow:hidden;transition:border-color .2s}
+.scholar-card.open{border-color:var(--purplebdr)}
+.sc-hdr{display:flex;align-items:center;gap:12px;cursor:pointer;user-select:none}
+.sc-badge{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--font-arab);font-size:13px;color:var(--gold2);background:var(--purpledim);border:1px solid var(--purplebdr);flex-shrink:0}
+.sc-name{font-family:var(--font-head);font-size:9.5px;color:var(--text);font-weight:600}
+.sc-text{font-family:var(--font-head);font-size:8px;color:var(--purple);margin-top:2px}
+.sc-chev{color:var(--text3);font-size:14px;transition:transform .25s;margin-left:auto;flex-shrink:0}
+.scholar-card.open .sc-chev{transform:rotate(90deg);color:var(--purple)}
+.sc-body{display:none;margin-top:12px;padding-top:10px;border-top:1px solid var(--border2)}
+.scholar-card.open .sc-body{display:block}
+.sc-quote{font-size:12px;color:var(--text);font-style:italic;line-height:1.8;border-left:2px solid var(--purple);padding:8px 12px;background:rgba(168,127,208,.04);border-radius:0 6px 6px 0;margin-bottom:10px}
+.sc-quote-ur{font-family:var(--font-arab);font-size:13px;color:var(--text);direction:rtl;text-align:right;line-height:2;border-right:2px solid var(--purple);padding:8px 12px;background:rgba(168,127,208,.04);border-radius:6px 0 0 6px;margin-bottom:10px}
+.sc-analysis{font-size:12px;color:var(--text2);line-height:1.75}
+.sc-analysis-ur{font-family:var(--font-arab);font-size:13px;color:var(--text2);direction:rtl;text-align:right;line-height:2;margin-top:5px}
+.sc-source{font-family:var(--font-head);font-size:8px;color:var(--purple);margin-top:8px}
+.scholars-lbl{font-family:var(--font-head);font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--purple);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.scholars-lbl::after{content:'';flex:1;height:1px;background:rgba(168,127,208,.15)}
+.sh-card{background:var(--bg2);border:1px solid var(--border2);border-radius:12px;padding:18px 20px;margin-bottom:10px}
+.sh-lbl{font-family:var(--font-head);font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:var(--purple);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.sh-lbl::after{content:'';flex:1;height:1px;background:var(--border2)}
+.sh-ar{font-family:var(--font-arab);font-size:clamp(14px,3vw,18px);color:var(--gold2);direction:rtl;text-align:right;line-height:2;margin-bottom:9px;padding:10px 14px;background:rgba(201,168,76,.04);border-radius:7px}
+.sh-en{font-size:12.5px;color:var(--text);font-style:italic;line-height:1.8;margin-bottom:6px}
+.sh-ur{font-family:var(--font-arab);font-size:14px;color:var(--text);direction:rtl;text-align:right;line-height:2;margin-bottom:6px}
+.sh-src{font-family:var(--font-head);font-size:8.5px;color:var(--purple)}
+.grade{display:inline-block;font-family:var(--font-head);font-size:7.5px;padding:2px 7px;border-radius:4px;margin-left:6px}
+.g-sahih{background:var(--tealdim);border:1px solid var(--tealbdr);color:var(--teal)}
+.g-hasan{background:var(--golddim);border:1px solid var(--goldbdr);color:var(--gold2)}
+.notes-sec{margin-top:14px;border-top:1px solid var(--border2);padding-top:12px}
+.notes-hdr{font-family:var(--font-head);font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:var(--text2);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.notes-hdr::after{content:'';flex:1;height:1px;background:var(--border2)}
+.note-f{margin-bottom:7px}
+.note-lbl{font-family:var(--font-head);font-size:7.5px;letter-spacing:.8px;text-transform:uppercase;color:var(--text3);margin-bottom:4px;display:flex;align-items:center;gap:6px}
+.nd{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.nsv{font-family:var(--font-head);font-size:7px;color:var(--text3);margin-left:auto;transition:color .3s}
+.nsv.flash{color:var(--teal)}
+.note-ta{width:100%;min-height:72px;background:rgba(255,255,255,.03);border:1px solid var(--border2);border-radius:7px;outline:none;padding:10px 12px;font-family:var(--font-body);font-size:12.5px;color:var(--text);line-height:1.75;resize:vertical;transition:border-color .2s}
+.note-ta:focus{border-color:var(--goldbdr)}
+.note-ta::placeholder{color:var(--text3);font-style:italic;font-size:11.5px}
+.synth-box{border:1px solid var(--border2);border-radius:10px;padding:16px 18px;margin-top:8px}
+.file-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-top:12px}
+.file-link{background:var(--bg2);border:1px solid var(--border2);border-radius:10px;padding:14px 16px;text-decoration:none;transition:all .2s;display:block}
+.file-link:hover{border-color:var(--goldbdr)}
+.file-link.current{border-color:var(--goldbdr);background:var(--golddim);cursor:default}
+.fl-num{font-family:var(--font-head);font-size:8px;color:var(--text3);text-transform:uppercase;margin-bottom:5px}
+.fl-title{font-family:var(--font-head);font-size:10px;color:var(--gold2);margin-bottom:4px}
+.fl-desc{font-size:11px;color:var(--text3);line-height:1.6}
+.fl-badge{display:inline-block;font-family:var(--font-head);font-size:7px;padding:1px 6px;border-radius:4px;margin-top:6px}
+.fl-ready{background:var(--tealdim);border:1px solid var(--tealbdr);color:var(--teal)}
+.fl-coming{background:var(--amberdim);border:1px solid var(--amberbdr);color:var(--amber)}
+.en-blk{display:block}.ur-blk{display:none}
+body.ur-mode .en-blk{display:none}
+body.ur-mode .ur-blk{display:block}
+.en-inl{display:inline}.ur-inl{display:none}
+body.ur-mode .en-inl{display:none}
+body.ur-mode .ur-inl{display:inline}
+@media(max-width:600px){.page{padding:20px 14px 60px}.dist-row{grid-template-columns:1fr}.ra-letters{gap:6px}}
+</style>
+</head>
+<body>
+<div class="hdr">
+  <div class="hdr-ar">قُنُوت</div>
+  <div class="hdr-titles">
+    <div class="hdr-title en-blk">Inner Quality Ranks — File 3B · Tab V</div>
+    <div class="hdr-title ur-blk">باطنی اوصاف — فائل ۳B · ٹیب ۵</div>
+    <div class="hdr-sub en-blk">Al-Qaanitoon — The Continuously Devoted</div>
+    <div class="hdr-sub ur-blk">القانتون — مسلسل عبودیت والے</div>
+  </div>
+  <div class="lang-toggle">
+    <div class="lt on" id="lt-en" onclick="setLang('en')">EN</div>
+    <div class="lt" id="lt-ur" onclick="setLang('ur')">اردو</div>
+  </div>
+  <a href="ranks_map.html" class="back-link">← Map</a>
+</div>
+<div class="file-nav">
+  <a href="ranks_map.html" class="fn-btn">1 · Map</a>
+  <span class="fn-sep">›</span>
+  <a href="ranks_eschatological.html" class="fn-btn">2 · Eschatological</a>
+  <span class="fn-sep">›</span>
+  <a href="ranks_divine_love.html" class="fn-btn">3A · Divine Love</a>
+  <span class="fn-sep">›</span>
+  <span class="fn-btn current">3B · Inner Qualities</span>
+  <span class="fn-sep">›</span>
+  <a href="ranks_path.html" class="fn-btn">4 · The Path</a>
+</div>
+<div class="tab-nav">
+  <a href="ranks_inner_qualities_mukhlisoon.html" class="tn-btn">I · Mukhlisoon</a>
+  <a href="riq_awwaaboon.html" class="tn-btn">II · Awwaaboon</a>
+  <a href="riq_sabiroon.html" class="tn-btn">III · Sabiroon</a>
+  <a href="riq_shakiroon.html" class="tn-btn">IV · Shakiroon</a>
+  <span class="tn-btn current">V · Qaanitoon</span>
+  <a href="riq_ululalbab.html" class="tn-btn">VI · Ulu al-Albab</a>
+  <a href="riq_rasikhoon.html" class="tn-btn">VII · Rasikhoon</a>
+</div>
+
+<div class="page">
+<div class="rank-hdr">
+  <div class="rank-hdr-num en-blk">File 3B · Tab V · Inner Posture vs Outer Act · Sustained Devotion</div>
+  <div class="rank-hdr-num ur-blk">فائل ۳B · ٹیب ۵ · باطنی رخ بمقابلہ ظاہری عمل · مستقل عبودیت</div>
+  <div class="rank-hdr-ar">الْقَانِتُون</div>
+  <div class="rank-hdr-en en-blk">Al-Qaanitoon — The Continuously Devoted</div>
+  <div class="rank-hdr-rule"></div>
+  <div class="rank-hdr-root en-blk">Root: ق — ن — ت · Sustained, continuous devotion and obedience · Qunoot = the inner posture of continuous standing-before-Allah, not a single act</div>
+  <div class="rank-hdr-root ur-blk">جڑ: ق — ن — ت · مستمر، مسلسل عبودیت · قنوت = اللہ کے سامنے مستمر کھڑے رہنے کا باطنی رخ، کوئی ایک عمل نہیں</div>
+  <div class="rank-hdr-intro en-blk">Qunoot is one of the most misunderstood terms in the Quran because it looks like a specific act — the night prayer, the supplication in Salah. But the Quranic usage is broader and deeper. Qunoot is the continuous inner posture of devotion and obedience before Allah — the sustained standing of the heart in awareness of Allah, whether in formal prayer or outside it. The Qaanitoon are not those who pray long prayers occasionally — they are those for whom the inner posture of devotion before Allah has become their permanent orientation. Maryam (AS) is described as Qanitah — a woman in whose daily movements and night vigils this quality was total.</div>
+  <div class="rank-hdr-intro-ur ur-blk">قنوت قرآن میں سب سے زیادہ غلط سمجھے جانے والے الفاظ میں سے ہے کیونکہ یہ کوئی خاص عمل لگتا ہے۔ لیکن قرآنی استعمال وسیع تر اور گہرا ہے۔ قنوت — اللہ کے سامنے مستمر عبودیت کا باطنی رخ — چاہے نماز میں ہو یا باہر۔ قانتون وہ نہیں جو کبھی کبھی لمبی نماز پڑھیں — وہ ہیں جن کے لیے اللہ کے سامنے عبودیت کا باطنی رخ مستقل رخ بن گیا۔</div>
+</div>
+
+<!-- KEY BANNER -->
+<div class="key-banner">
+  <div class="key-banner-label en-blk">The Ten Qualities — Al-Ahzab 33:35 · Qaanitoon Among Them</div>
+  <div class="key-banner-label ur-blk">دس اوصاف — الاحزاب ۳۳:۳۵ · قانتون ان میں</div>
+  <div class="key-banner-ar">إِنَّ الْمُسْلِمِينَ وَالْمُسْلِمَاتِ وَالْمُؤْمِنِينَ وَالْمُؤْمِنَاتِ وَالْقَانِتِينَ وَالْقَانِتَاتِ</div>
+  <div class="key-banner-tr en-blk">"Indeed the Muslim men and Muslim women, the believing men and believing women, the Qaaniteen men and Qaaniteen women..."</div>
+  <div class="key-banner-tr-ur ur-blk">«بے شک مسلمان مرد اور مسلمان عورتیں، مومن مرد اور مومن عورتیں، قانت مرد اور قانت عورتیں...»</div>
+  <div class="key-banner-insight en-blk">This ayah explicitly names ten qualities in both men and women — a rare Quranic dual construction. Qunoot is listed third, after Islam and Iman. Its placement suggests it is the inner quality that follows and deepens the outer faith. And it is named for both genders explicitly — the Quran leaves no ambiguity that Qunoot is equally available and equally required of men and women. The ayah promises forgiveness and great reward for all ten qualities. Qunoot is not a higher rank closed to women — Maryam (AS) is described as the model.</div>
+  <div class="key-banner-insight-ur ur-blk">دس اوصاف مردوں اور عورتوں دونوں کے لیے — قرآن کی نادر دوہری تعمیر۔ قنوت تیسرا — اسلام اور ایمان کے بعد۔ ترتیب بتاتی ہے: باطنی صفت جو ظاہری ایمان کی گہرائی ہے۔ اور صریحاً دونوں جنسوں کے لیے — مریم علیہا السلام نمونہ۔</div>
+  <div class="key-banner-ref">Surah Al-Ahzab 33:35</div>
+</div>
+
+<!-- ROOT -->
+<div class="root-box-main">
+  <div class="ra-label"><span class="en-blk">Root — ق ن ت</span><span class="ur-blk">جڑ — ق ن ت</span></div>
+  <div class="ra-root">قَنَتَ · قُنُوت · قَانِت · قَنِيت</div>
+  <div class="ra-letters">
+    <div class="ra-letter"><span class="ra-letter-ar">ق</span><span class="ra-letter-en">Q</span></div>
+    <div class="ra-letter"><span class="ra-letter-ar">ن</span><span class="ra-letter-en">N</span></div>
+    <div class="ra-letter"><span class="ra-letter-ar">ت</span><span class="ra-letter-en">T</span></div>
+  </div>
+  <div class="ra-meaning en-blk">Q-N-T carries the core meaning of sustained, continuous obedience and devotion — not a single act but a lasting state. The classical Arabic lexicons (Ibn Faris, Mufradat al-Raghib) define Qunoot as dawam al-ta'ah — the continuity of obedience. The word is distinct from Salah (a specific act of prayer), from Dhikr (remembrance), from Ibadah (worship as acts). Qunoot is the inner posture of standing in full attention and devotion before Allah — not just in formal prayer but as the baseline orientation of the person. This is why the Quran uses it to describe entire creation (all stand in Qunoot before Allah — 2:116), the prophets (Ibrahim AS was Qanit), and Maryam (AS) — whose life was a continuous Qunoot.</div>
+  <div class="ra-meaning-ur ur-blk">ق-ن-ت: مستمر، مسلسل اطاعت اور عبودیت — ایک عمل نہیں، پائیدار حالت۔ ابن فارس، مفردات الراغب: قنوت = دوام الطاعۃ — اطاعت کا استمرار۔ نماز، ذکر، عبادت سے الگ — قنوت باطنی رخ ہے اللہ کے سامنے مکمل توجہ اور عبودیت سے کھڑے رہنے کا۔ اسی لیے قرآن اسے تمام کائنات (۲:۱۱۶)، انبیاء اور مریم علیہا السلام کے لیے استعمال کرتا ہے۔</div>
+  <div class="ra-count en-blk">✦ Q-N-T appears 13 times in the Quran · Applied to all of creation (2:116), to Ibrahim AS, to Maryam AS, and to the believers · 33:35 applies it explicitly to both men and women</div>
+  <div class="ra-count ur-blk">✦ ق-ن-ت قرآن میں ۱۳ بار · تمام کائنات (۲:۱۱۶)، ابراہیم علیہ السلام، مریم علیہا السلام، اور مومنین پر اطلاق · ۳۳:۳۵ میں صریحاً مرد اور عورت دونوں کے لیے</div>
+</div>
+
+<!-- DISTINCTION -->
+<div class="distinction-box">
+  <div class="distinction-lbl en-blk">The Critical Distinction — Qunoot as Posture vs Salah as Act</div>
+  <div class="distinction-lbl ur-blk">اہم فرق — قنوت بطور رخ بمقابلہ نماز بطور عمل</div>
+  <div class="dist-row">
+    <div>
+      <div class="dist-ar">صَلَاة</div>
+      <div class="dist-lbl-t en-blk">Salah — The Act</div>
+      <div class="dist-lbl-t ur-blk">صلاۃ — عمل</div>
+      <div class="dist-def en-blk">A specific, bounded act of worship with defined times, movements, words. It begins with Takbeer and ends with Tasleem. Five times daily. It is the most important obligatory act — but it is a specific act with a beginning and end.</div>
+      <div class="dist-def-ur ur-blk">مخصوص، محدود عبادت — متعین اوقات، حرکات، الفاظ۔ تکبیر سے شروع، سلام پر ختم۔ دن میں پانچ بار۔ اہم ترین فرض — لیکن آغاز اور اختتام والا مخصوص عمل۔</div>
+    </div>
+    <div>
+      <div class="dist-ar">قُنُوت</div>
+      <div class="dist-lbl-t en-blk">Qunoot — The Posture</div>
+      <div class="dist-lbl-t ur-blk">قنوت — باطنی رخ</div>
+      <div class="dist-def en-blk">The continuous inner standing in devotion before Allah — not bounded by times or movements. It is the orientation of the heart that does not switch off between prayers, that is present in work, in conversation, in rest. The Qanit carries this inner orientation through their entire existence — Salah is one expression of it, not the whole of it.</div>
+      <div class="dist-def-ur ur-blk">اللہ کے سامنے مستمر باطنی عبودیت — اوقات یا حرکات سے محدود نہیں۔ دل کا وہ رخ جو نمازوں کے درمیان بھی بند نہ ہو۔ قانت اپنے پورے وجود میں یہ باطنی رخ رکھتا ہے — نماز اس کا ایک اظہار ہے، پورا نہیں۔</div>
+    </div>
+  </div>
+</div>
+
+<!-- MARYAM BOX -->
+<div class="maryam-box">
+  <div class="maryam-lbl en-blk">The Quranic Model — Maryam AS, Described as Qanitah</div>
+  <div class="maryam-lbl ur-blk">قرآنی نمونہ — مریم علیہا السلام، بطورِ قانتہ</div>
+  <div class="maryam-ar">وَإِذْ قَالَتِ الْمَلَائِكَةُ يَا مَرْيَمُ إِنَّ اللَّهَ اصْطَفَاكِ وَطَهَّرَكِ وَاصْطَفَاكِ عَلَىٰ نِسَاءِ الْعَالَمِينَ ۝ يَا مَرْيَمُ اقْنُتِي لِرَبِّكِ وَاسْجُدِي وَارْكَعِي مَعَ الرَّاكِعِينَ</div>
+  <div class="maryam-tr en-blk">"And when the angels said: O Maryam — indeed Allah has chosen you and purified you and chosen you above the women of the worlds. O Maryam — be Qanitah to your Lord, and prostrate, and bow with those who bow." (3:42-43)</div>
+  <div class="maryam-tr-ur ur-blk">«اور جب فرشتوں نے کہا: اے مریم — بے شک اللہ نے تمہیں چن لیا اور پاک کیا اور تمام جہانوں کی عورتوں پر چن لیا۔ اے مریم — اپنے رب کی قانتہ رہو، سجدہ کرو، رکوع کرنے والوں کے ساتھ رکوع کرو۔» (۳:۴۲-۴۳)</div>
+  <div class="maryam-note en-blk">The command Uqnuti (be Qanitah) is given to Maryam (AS) after the declaration of her chosenness — as the defining quality of the highest honour. The sujud and ruku' that follow are expressions of the Qunoot, not separate from it. In 66:12, Allah describes her: "And Maryam daughter of Imran, who guarded her chastity — so We breathed into it of Our spirit — and she believed in the words of her Lord and His books and was of the Qaaniteen." She is described as Qanitah — and she is one of the four women described as perfect (kamulat) in the Sunnah. Her Qunoot was not occasional devotion — it was total.</div>
+  <div class="maryam-note-ur ur-blk">حکم «اقنتي» مریم علیہا السلام کو ان کے انتخاب کے اعلان کے بعد دیا گیا — اعلیٰ ترین شرف کی تعریف کرنے والی صفت۔ ۶۶:۱۲ میں: «اور مریم بنت عمران — جس نے اپنی عزت کی حفاظت کی — پھر ہم نے اس میں اپنی روح پھونکی — اور وہ قانتین میں سے تھیں۔» ان کا قنوت کبھی کبھی عبودیت نہیں تھا — مکمل اور ہمہ وقت تھا۔</div>
+  <div class="maryam-ref">Surah Al-Imran 3:42-43 · Surah Al-Tahrim 66:12</div>
+</div>
+
+<div class="sec-lbl"><span class="en-inl">The Ayat — In Revelation Order</span><span class="ur-inl">آیات — ترتیب نزولی میں</span></div>
+
+<!-- 2:238 -->
+<div class="era-divider">
+  <div class="era-dot era-madani"></div>
+  <div class="era-label en-blk">Madani · Al-Baqarah 2:238 — Guard the Salawat and Qunoot</div>
+  <div class="era-label-ur ur-blk">مدنی · البقرہ ۲:۲۳۸ — نمازوں اور قنوت کی حفاظت</div>
+  <div class="era-line"></div>
+</div>
+<div class="ayah-card" id="qn-2238">
+  <div class="ayah-card-hdr" onclick="toggleCard('qn-2238')">
+    <span class="rev-badge rev-madani en-blk">Rev. #87</span><span class="rev-badge rev-madani ur-blk">ترتیب #87</span>
+    <span class="card-ref">Al-Baqarah 2:238</span>
+    <span class="card-preview">حَافِظُوا عَلَى الصَّلَوَاتِ وَالصَّلَاةِ الْوُسْطَىٰ وَقُومُوا لِلَّهِ قَانِتِينَ</span>
+    <span class="card-chevron">›</span>
+  </div>
+  <div class="card-body">
+    <div class="ayah-arabic">حَافِظُوا عَلَى الصَّلَوَاتِ وَالصَّلَاةِ الْوُسْطَىٰ وَقُومُوا لِلَّهِ قَانِتِينَ</div>
+    <div class="ayah-tr-en en-blk">"Guard carefully all the Salawat and the middle Salah — and stand before Allah as Qaaniteen."</div>
+    <div class="ayah-tr-ur ur-blk">«تمام نمازوں کی حفاظت کرو اور درمیانی نماز کی — اور اللہ کے لیے قانتین ہو کر کھڑے رہو۔»</div>
+    <div class="ayah-ref-line">Surah Al-Baqarah 2:238</div>
+    <div class="ctx-box">
+      <div class="ctx-lbl en-blk">Context — The Salah Command and the Qunoot Qualifier</div>
+      <div class="ctx-txt en-blk">The ayah commands three things: guard all the Salawat, guard especially the middle Salah (Asr — the most easily missed in the middle of the working day), and stand before Allah as Qaaniteen. The third is not a fourth Salah — it is the quality with which the standing is to be performed. Quumu lillahi qaaniteen — stand for Allah as people of Qunoot. The Salah is the outer form. The Qunoot is the inner quality that must be present in the standing. Without Qunoot, the physical standing is form without substance. This ayah establishes that the Quran commands not just the act of Salah but the inner quality of Qunoot that must animate it.</div>
+      <div class="ctx-txt-ur ur-blk">تین احکام: تمام نمازوں کی حفاظت، درمیانی نماز کی حفاظت، قانتین ہو کر کھڑے رہو۔ تیسرا چوتھی نماز نہیں — کھڑے ہونے کی صفت ہے۔ نماز بیرونی شکل۔ قنوت وہ باطنی صفت جو اسے روح دے۔ قنوت کے بغیر کھڑا ہونا شکل بغیر مادہ۔</div>
+    </div>
+    <div class="uniq-box">
+      <div class="uniq-lbl en-blk">What This Ayah Uniquely Establishes</div>
+      <div class="uniq-txt en-blk">Qumu lillahi — stand for Allah specifically. The Qunoot in Salah is the standing in full inner attention directed to Allah — not as a physical posture but as a complete inner orientation. The command to be Qaaniteen in the Salah is essentially the command to make the outer form match the inner reality. When the feet stand but the mind and heart are elsewhere, the physical Qiyam is fulfilled but the Qunoot is not. The Quran here names the inner quality — Qunoot — as the standard to which the physical Salah should be brought. Most people have the form; the Qaanitoon have the substance.</div>
+      <div class="uniq-txt-ur ur-blk">قوموا للہ — خاص طور پر اللہ کے لیے کھڑے رہو۔ نماز میں قنوت — مکمل باطنی توجہ اللہ کی طرف۔ باہری شکل کو باطنی حقیقت سے ملانے کا حکم۔ جب پاؤں کھڑے ہوں لیکن دل اور ذہن کہیں اور ہو — قیام پورا لیکن قنوت نہیں۔ اکثر لوگوں کے پاس شکل ہے؛ قانتون کے پاس مادہ ہے۔</div>
+    </div>
+    <div class="notes-sec">
+      <div class="notes-hdr"><span class="en-blk">Personal Notes</span><span class="ur-blk">ذاتی نوٹس</span></div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--teal)"></div><span class="en-blk">Stand before Allah as Qaaniteen — the inner quality, not just the physical form. In your Salah, what percentage of your standing is Qunoot — complete inner attention to Allah?</span><span class="ur-blk">قانتین ہو کر کھڑے رہو — باطنی صفت، صرف ظاہری شکل نہیں۔ آپ کی نماز میں آپ کے کھڑے ہونے کا کتنا حصہ قنوت ہے؟</span><span class="nsv" id="sv-qn2238a"></span></div>
+        <textarea class="note-ta" id="note-qn2238a" placeholder="Honest assessment: in your last Salah, how present were you? What pulled you away — and what would it take to bring the Qunoot (inner attention) to match the Qiyam (physical standing)?" oninput="autoSave('qn2238a',this.value)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 3:17 -->
+<div class="era-divider">
+  <div class="era-dot era-madani"></div>
+  <div class="era-label en-blk">Madani · Al-Imran 3:17 — Qunoot Among the Ten Qualities of the Muttaqeen</div>
+  <div class="era-label-ur ur-blk">مدنی · آل عمران ۳:۱۷ — متقین کے دس اوصاف میں قنوت</div>
+  <div class="era-line"></div>
+</div>
+<div class="ayah-card" id="qn-317">
+  <div class="ayah-card-hdr" onclick="toggleCard('qn-317')">
+    <span class="rev-badge rev-madani en-blk">Rev. #89</span><span class="rev-badge rev-madani ur-blk">ترتیب #89</span>
+    <span class="card-ref">Al-Imran 3:17</span>
+    <span class="card-preview">الصَّابِرِينَ وَالصَّادِقِينَ وَالْقَانِتِينَ وَالْمُنفِقِينَ وَالْمُسْتَغْفِرِينَ بِالْأَسْحَارِ</div>
+    <span class="card-chevron">›</span>
+  </div>
+  <div class="card-body">
+    <div class="ayah-arabic">الصَّابِرِينَ وَالصَّادِقِينَ وَالْقَانِتِينَ وَالْمُنفِقِينَ وَالْمُسْتَغْفِرِينَ بِالْأَسْحَارِ</div>
+    <div class="ayah-tr-en en-blk">"The Sabiroon (patient), the Sadiqoon (truthful), the Qaaniteen (continuously devoted), the Munfiqoon (those who spend), and those who seek forgiveness in the pre-dawn hours."</div>
+    <div class="ayah-tr-ur ur-blk">«صابرین (صبر کرنے والے)، صادقین (سچے)، قانتین (مسلسل عبادت گزار)، منفقین (خرچ کرنے والے)، اور سحر میں بخشش مانگنے والے۔»</div>
+    <div class="ayah-ref-line">Surah Al-Imran 3:17 · Describing those who are given Paradise (3:15)</div>
+    <div class="ctx-box">
+      <div class="ctx-lbl en-blk">Context — Five Qualities of the People of Paradise</div>
+      <div class="ctx-txt en-blk">These five qualities describe the people promised the best of what is with Allah — mentioned after the description of the rewards of the akhirah (3:15). The Qaaniteen are listed third, between the Sadiqoon (truthful — inner quality of alignment between word and reality) and the Munfiqoon (those who spend — outer quality of generosity). Qunoot is positioned as the bridge between inner truthfulness and outer generosity — the sustained devotional orientation that animates both. Al-Tabari notes that the Qaaniteen here refers to those whose entire existence is in a state of devotion to Allah, not merely in formal prayer.</div>
+      <div class="ctx-txt-ur ur-blk">پانچ اوصاف — جنت کے وعدے والے۔ قانتین تیسرے — صادقین (باطنی صداقت) اور منفقین (ظاہری سخاوت) کے درمیان۔ قنوت پل: باطنی صداقت اور ظاہری سخاوت کو روح دینے والی مستمر عبودیت۔ الطبری: قانتین یہاں وہ جن کا پورا وجود اللہ کی عبودیت میں ہے، صرف نماز میں نہیں۔</div>
+    </div>
+    <div class="uniq-box">
+      <div class="uniq-lbl en-blk">What This Ayah Uniquely Establishes</div>
+      <div class="uniq-txt en-blk">The positioning of Qunoot between Sidq (truthfulness) and Infaq (spending in Allah's cause) reveals its function: it is the sustained inner orientation that makes both possible. Sidq — alignment of word with reality — requires a continuous inner vigilance. Infaq — spending generously — requires the inner conviction that what one has is from Allah and for His cause. Both require the Qunoot orientation. Without the sustained inner devotion, Sidq lapses into convenient truth-telling and Infaq lapses into strategic generosity. The Qaaniteen maintain the inner orientation that keeps all other qualities authentic.</div>
+      <div class="uniq-txt-ur ur-blk">صدق اور انفاق کے درمیان قنوت کی پوزیشن اس کا کام ظاہر کرتی ہے: مستمر باطنی رخ جو دونوں ممکن بناتا ہے۔ صدق کے لیے مستمر باطنی چوکسی، انفاق کے لیے یقین کہ جو کچھ ہے اللہ سے ہے۔ دونوں قنوت مانگتے ہیں۔ بغیر قنوت کے صدق سہولت کی سچائی بن جاتا ہے اور انفاق حکمت عملی کی سخاوت۔</div>
+    </div>
+    <div class="notes-sec">
+      <div class="notes-hdr"><span class="en-blk">Personal Notes</span><span class="ur-blk">ذاتی نوٹس</span></div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--teal)"></div><span class="en-blk">Qunoot is the sustained inner orientation that keeps Sidq and Infaq authentic. In your life — when your inner devotional orientation drops, does it affect the quality of your truthfulness and generosity?</span><span class="ur-blk">قنوت وہ مستمر باطنی رخ جو صدق اور انفاق کو اصلی رکھتا ہے۔ جب آپ کی باطنی عبودیت کم ہو تو کیا یہ صداقت اور سخاوت کے معیار کو متاثر کرتا ہے؟</span><span class="nsv" id="sv-qn317a"></span></div>
+        <textarea class="note-ta" id="note-qn317a" placeholder="Think of a period when you felt spiritually disconnected. Did your truthfulness and generosity in that period differ from when you felt close to Allah?" oninput="autoSave('qn317a',this.value)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 33:35 -->
+<div class="era-divider">
+  <div class="era-dot era-madani"></div>
+  <div class="era-label en-blk">Madani · Al-Ahzab 33:35 — Named for Both Men and Women Explicitly</div>
+  <div class="era-label-ur ur-blk">مدنی · الاحزاب ۳۳:۳۵ — مردوں اور عورتوں دونوں کے لیے صریحاً</div>
+  <div class="era-line"></div>
+</div>
+<div class="ayah-card" id="qn-3335">
+  <div class="ayah-card-hdr" onclick="toggleCard('qn-3335')">
+    <span class="rev-badge rev-madani en-blk">Rev. #90</span><span class="rev-badge rev-madani ur-blk">ترتیب #90</span>
+    <span class="card-ref">Al-Ahzab 33:35</span>
+    <span class="card-preview">إِنَّ الْمُسْلِمِينَ وَالْمُسْلِمَاتِ وَالْمُؤْمِنِينَ وَالْمُؤْمِنَاتِ وَالْقَانِتِينَ وَالْقَانِتَاتِ</span>
+    <span class="card-chevron">›</span>
+  </div>
+  <div class="card-body">
+    <div class="ayah-arabic">إِنَّ الْمُسْلِمِينَ وَالْمُسْلِمَاتِ وَالْمُؤْمِنِينَ وَالْمُؤْمِنَاتِ وَالْقَانِتِينَ وَالْقَانِتَاتِ وَالصَّادِقِينَ وَالصَّادِقَاتِ وَالصَّابِرِينَ وَالصَّابِرَاتِ وَالْخَاشِعِينَ وَالْخَاشِعَاتِ وَالْمُتَصَدِّقِينَ وَالْمُتَصَدِّقَاتِ وَالصَّائِمِينَ وَالصَّائِمَاتِ وَالْحَافِظِينَ فُرُوجَهُمْ وَالْحَافِظَاتِ وَالذَّاكِرِينَ اللَّهَ كَثِيرًا وَالذَّاكِرَاتِ أَعَدَّ اللَّهُ لَهُم مَّغْفِرَةً وَأَجْرًا عَظِيمًا</div>
+    <div class="ayah-tr-en en-blk">"Indeed the Muslim men and women, the believing men and women, the Qaaniteen men and women, the truthful men and women, the patient men and women, the humble men and women, the charity-giving men and women, the fasting men and women, the men and women who guard their chastity, and the men and women who remember Allah much — Allah has prepared for them forgiveness and a great reward."</div>
+    <div class="ayah-tr-ur ur-blk">«بے شک مسلمان مرد اور مسلمان عورتیں، مومن مرد اور مومن عورتیں، قانت مرد اور قانت عورتیں، سچے مرد اور سچی عورتیں، صابر مرد اور صابر عورتیں، خاشع مرد اور خاشع عورتیں، صدقہ دینے والے مرد اور عورتیں، روزہ رکھنے والے مرد اور عورتیں، عزت کی حفاظت کرنے والے مرد اور عورتیں، اور اللہ کا کثیر ذکر کرنے والے مرد اور عورتیں — اللہ نے ان کے لیے مغفرت اور عظیم اجر تیار کیا ہے۔»</div>
+    <div class="ayah-ref-line">Surah Al-Ahzab 33:35 · The only ayah listing ten spiritual qualities in both genders</div>
+    <div class="ctx-box">
+      <div class="ctx-lbl en-blk">Context — Why This Ayah Was Revealed</div>
+      <div class="ctx-txt en-blk">According to the major tafseer works (Ibn Kathir, Al-Tabari), this ayah was revealed in response to a question from Umm Salamah (RA) or Asma bint Umays (RA): the men were mentioned in the Quran but not the women in the same way. The Quran responded with this ayah — naming ten qualities explicitly in both the masculine and feminine form. The dual naming is deliberate: it is not just that women are included — they are named separately, explicitly, ensuring the Quran's address is unambiguous. Qunoot is listed third in this ten-quality list, immediately after Islam and Iman.</div>
+      <div class="ctx-txt-ur ur-blk">ابن کثیر، الطبری: یہ آیت ام سلمہ یا اسماء بنت عمیس کے سوال کے جواب میں نازل ہوئی — مردوں کا ذکر قرآن میں ہوا لیکن عورتوں کا اسی طرح نہیں۔ قرآن نے دس اوصاف مردانہ اور نسائی صیغے میں جواب دیا۔ دوہری تسمیہ جان بوجھ کر — عورتیں شامل نہیں صرف، بلکہ الگ، صریح نام لیا۔ قنوت دس اوصاف میں تیسرا — اسلام اور ایمان کے فوراً بعد۔</div>
+    </div>
+    <div class="uniq-box">
+      <div class="uniq-lbl en-blk">What This Ayah Uniquely Establishes</div>
+      <div class="uniq-txt en-blk">This is the most comprehensive single ayah on spiritual character in the Quran — ten qualities, both genders, with the promise of forgiveness and great reward. Qunoot appears third — its placement between Iman (belief) and Sidq (truthfulness) suggests it is the quality that gives Iman its depth and makes Sidq possible. The ten qualities together describe a complete spiritual human being: submission (Islam), belief (Iman), sustained devotion (Qunoot), truthfulness (Sidq), patience (Sabr), humility (Khushu'), generosity (Sadaqah), fasting (Sawm), chastity (Hifz al-furuj), and remembrance (Dhikr). Qunoot is the third — the inner sustained orientation without which the others risk becoming acts without depth.</div>
+      <div class="uniq-txt-ur ur-blk">قرآن کی سب سے جامع آیت روحانی کردار پر — دس اوصاف، دونوں جنسیں، مغفرت اور عظیم اجر کا وعدہ۔ قنوت تیسرا — ایمان اور صدق کے درمیان۔ دس اوصاف مل کر ایک مکمل روحانی انسان: اسلام، ایمان، قنوت، صدق، صبر، خشوع، صدقہ، روزہ، حفظِ فروج، ذکر۔ قنوت وہ باطنی رخ جس کے بغیر باقی اعمال گہرائی کے بغیر ہو سکتے ہیں۔</div>
+    </div>
+    <div class="notes-sec">
+      <div class="notes-hdr"><span class="en-blk">Personal Notes</span><span class="ur-blk">ذاتی نوٹس</span></div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--teal)"></div><span class="en-blk">Ten qualities — Qunoot is third, the inner sustained devotion. Looking at the full list, which of the ten is weakest for you — and is the weakness in Qunoot contributing to it?</span><span class="ur-blk">دس اوصاف — قنوت تیسرا۔ پوری فہرست دیکھ کر — کونسا سب سے کمزور ہے؟ کیا قنوت کی کمزوری اس میں حصہ ڈال رہی ہے؟</span><span class="nsv" id="sv-qn3335a"></span></div>
+        <textarea class="note-ta" id="note-qn3335a" placeholder="The ten qualities are interconnected — Qunoot animates the others. Assess yourself on each of the ten. Where is the gap, and is it rooted in the Qunoot?" oninput="autoSave('qn3335a',this.value)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HADITH -->
+<div class="sec-lbl"><span class="en-inl">Authenticated Sunnah on Qunoot and Inner Presence</span><span class="ur-inl">قنوت اور باطنی حضور پر مستند سنت</span></div>
+<div class="sh-card">
+  <div class="sh-lbl en-blk">✦ The Prayer of the Humble-Hearted — Qunoot in Salah</div>
+  <div class="sh-lbl ur-blk">✦ خاشع دل کی نماز — نماز میں قنوت</div>
+  <div class="sh-ar">أَفْضَلُ الصَّلَاةِ طُولُ الْقُنُوتِ</div>
+  <div class="sh-en en-blk">"The best of prayer is the length of Qunoot (sustained inner devotion)."</div>
+  <div class="sh-ur ur-blk">«بہترین نماز وہ ہے جس میں قنوت (مستمر باطنی عبودیت) زیادہ ہو۔»</div>
+  <div class="sh-src">Narrator: Jabir ibn Abdullah (RA) · Sahih Muslim, Hadith 756 <span class="grade g-sahih">✦ Sahih</span></div>
+</div>
+<div class="sh-card">
+  <div class="sh-lbl en-blk">✦ Allah Does Not Accept the Prayer of the Inattentive</div>
+  <div class="sh-lbl ur-blk">✦ اللہ غافل کی نماز قبول نہیں کرتا</div>
+  <div class="sh-ar">لَا يَقْبَلُ اللَّهُ صَلَاةَ مَنْ لَا يَحْضُرُ قَلْبُهُ مَعَ بَدَنِهِ</div>
+  <div class="sh-en en-blk">"Allah does not accept the prayer of one whose heart is not present with his body."</div>
+  <div class="sh-ur ur-blk">«اللہ اس شخص کی نماز قبول نہیں کرتا جس کا دل اس کے بدن کے ساتھ حاضر نہ ہو۔»</div>
+  <div class="sh-src">Cited by Ibn al-Qayyim in Al-Wabil al-Sayyib and Al-Ghazali in Ihya · on the authority of Ali ibn Abi Talib (RA)</div>
+</div>
+
+<!-- SCHOLAR -->
+<div class="sec-lbl"><span class="en-inl">Scholar Perspectives</span><span class="ur-inl">علماء کے نظریات</span></div>
+<div class="scholars-lbl en-blk">Classical Authority on Qunoot as Inner Posture</div>
+<div class="scholars-lbl ur-blk">قنوت بطور باطنی رخ پر کلاسیکی علماء</div>
+
+<div class="scholar-card" id="sc-ibnqayyim-qn">
+  <div class="sc-hdr" onclick="toggleScholar('sc-ibnqayyim-qn')">
+    <div class="sc-badge">ق</div>
+    <div>
+      <div class="sc-name">Ibn al-Qayyim al-Jawziyyah (d. 751H)</div>
+      <div class="sc-text en-blk">Al-Wabil al-Sayyib · Qunoot as the Heart's Sustained Orientation</div>
+      <div class="sc-text ur-blk">الوابل الصيب · قنوت بطور دل کا مستمر رخ</div>
+    </div>
+    <div class="sc-chev">›</div>
+  </div>
+  <div class="sc-body">
+    <div class="sc-quote en-blk">Ibn al-Qayyim in Al-Wabil al-Sayyib (The Abundant Rain) addresses the relationship between the outer acts of worship and the inner quality of Qunoot. He argues that the outer forms — Salah, Sawm, Dhikr — are the vessels, and Qunoot is the reality that fills them. A vessel without its content is empty. A Salah performed with perfect physical form but without Qunoot — without the heart's sustained attention to Allah — is a form without a soul. He cites the hadith that Allah does not accept the prayer of the one whose heart is absent as evidence that the inner quality is the intended substance of the act.</div>
+    <div class="sc-quote-ur ur-blk">ابن القیم الوابل الصيب میں ظاہری عبادت اور باطنی قنوت کا تعلق بیان کرتے ہیں۔ ظاہری اشکال — نماز، روزہ، ذکر — برتن ہیں، قنوت وہ حقیقت جو انہیں بھرتی ہے۔ برتن بغیر مواد کے خالی۔ مکمل ظاہری شکل والی نماز لیکن بغیر قنوت — روح کے بغیر شکل ہے۔</div>
+    <div class="sc-analysis en-blk">Ibn al-Qayyim's practical analysis: the person who wants to build Qunoot must first diagnose what interrupts it. He identifies three main interrupters: hawa (desire and its distractions), ghaflah (heedlessness — the mind wandering without awareness), and hasad (envy — which turns attention outward rather than upward). The cure for each: hawa is cured by Sabr; ghaflah is cured by Dhikr; hasad is cured by genuine gratitude (Shukr). This interconnection between the inner qualities is deliberate — each quality supports the others, and Qunoot is what they all converge in.</div>
+    <div class="sc-analysis-ur ur-blk">ابن القیم کا عملی تجزیہ: قنوت کی تشخیص — کیا اسے توڑتا ہے؟ تین رکاوٹیں: ہوا (خواہش اور اس کے وسوسے)، غفلت (بغیر شعور کے ذہن کا بھٹکنا)، حسد (توجہ اوپر کی بجائے باہر)۔ علاج: ہوا کا صبر سے، غفلت کا ذکر سے، حسد کا شکر سے۔ باطنی اوصاف کا باہمی تعلق جان بوجھ کر — ہر صفت دوسری کو سہارا دیتی ہے، اور قنوت وہ چیز ہے جس میں سب ملتی ہیں۔</div>
+    <div class="sc-source">Ibn al-Qayyim · Al-Wabil al-Sayyib min al-Kalim al-Tayyib · Section on the Inner Reality of Salah</div>
+  </div>
+</div>
+
+<div class="scholar-card" id="sc-ghazali-qn">
+  <div class="sc-hdr" onclick="toggleScholar('sc-ghazali-qn')">
+    <div class="sc-badge">غ</div>
+    <div>
+      <div class="sc-name">Imam Al-Ghazali (d. 505H)</div>
+      <div class="sc-text en-blk">Ihya · Kitab Asrar al-Salah · Six Inner States of Salah</div>
+      <div class="sc-text ur-blk">احیاء · کتاب اسرار الصلاۃ · نماز کی چھ باطنی حالتیں</div>
+    </div>
+    <div class="sc-chev">›</div>
+  </div>
+  <div class="sc-body">
+    <div class="sc-quote en-blk">Al-Ghazali in Kitab Asrar al-Salah (the Secrets of Prayer) from the Ihya establishes that the Salah has six inner states that must be present for it to be the real Salah: Hudur al-Qalb (presence of the heart), Tafahhum (understanding what is being said), Ta'dhim (reverence), Hayba (awe), Raja' (hope), and Haya (modesty). Hudur al-Qalb — presence of the heart — is the most fundamental. Without it, the other five cannot develop. And Hudur al-Qalb is essentially what the Quran means by Qunoot in Salah: the heart is fully present, attending to Allah, not wandering.</div>
+    <div class="sc-quote-ur ur-blk">الغزالی احیاء میں نماز کی چھ باطنی حالتیں: حضورِ قلب (دل کی حضوری)، تفہم، تعظیم، ہیبت، رجاء، حیاء۔ حضورِ قلب سب سے بنیادی — اس کے بغیر باقی پانچ نہیں بن سکتیں۔ اور حضورِ قلب یہی ہے جو قرآن نماز میں قنوت سے مراد لیتا ہے: دل مکمل حاضر، اللہ کی طرف متوجہ، بھٹکتا نہیں۔</div>
+    <div class="sc-analysis en-blk">Al-Ghazali's practical counsel: the person whose mind wanders in Salah should not try to force their attention back through willpower alone. Instead, they should reduce what fills the mind outside Salah — specifically, reduce meaningless conversation, reduce entertainment, reduce mental clutter. The mind wanders in Salah to what fills it outside Salah. The quality of Qunoot in prayer is therefore directly connected to the quality of attention devoted to Allah outside of prayer. The Qanit is not just attentive in Salah — they carry an inner orientation to Allah that is not interrupted by daily activity.</div>
+    <div class="sc-analysis-ur ur-blk">الغزالی کا عملی مشورہ: جس کا ذہن نماز میں بھٹکے وہ صرف قوت ارادی سے توجہ واپس لانے کی کوشش نہ کرے۔ نماز سے باہر ذہن کو بھرنے والی چیزیں کم کرے — بے مقصد گفتگو، تفریح، ذہنی گندگی۔ ذہن نماز میں وہاں جاتا ہے جو نماز سے باہر اسے بھرتا ہے۔ نماز میں قنوت کا معیار نماز سے باہر اللہ کی طرف توجہ کے معیار سے جڑا ہے۔</div>
+    <div class="sc-source">Al-Ghazali · Ihya Ulum al-Deen · Kitab Asrar al-Salah · Quarter of Acts of Worship</div>
+  </div>
+</div>
+
+<!-- SYNTHESIS -->
+<div class="sec-lbl"><span class="en-inl">Personal Synthesis</span><span class="ur-inl">ذاتی خلاصہ</span></div>
+<div class="synth-box">
+  <div class="notes-hdr"><span class="en-blk">Personal Synthesis — Al-Qaanitoon</span><span class="ur-blk">ذاتی خلاصہ — القانتون</span></div>
+  <div class="note-f">
+    <div class="note-lbl"><div class="nd" style="background:var(--gold)"></div><span class="en-blk">Qunoot is the sustained inner orientation to Allah — not a single act but a permanent posture. Al-Ghazali: the quality of Qunoot in prayer is directly connected to what fills the mind outside prayer. Ibn al-Qayyim: Qunoot is what all other qualities converge in. What fills your mind outside of Salah — and what would it take to shift that so your Qunoot inside Salah becomes real?</span><span class="ur-blk">قنوت مستمر باطنی رخ — ایک عمل نہیں، مستقل رخ۔ الغزالی: نماز میں قنوت نماز سے باہر ذہن کو بھرنے والی چیز سے جڑا۔ ابن القیم: قنوت میں سب باطنی اوصاف ملتے ہیں۔ نماز سے باہر آپ کا ذہن کیا بھرتا ہے — اور نماز میں حقیقی قنوت کے لیے کیا بدلنا ہوگا؟</span><span class="nsv" id="sv-synth-qn"></span></div>
+    <textarea class="note-ta" id="note-synth-qn" style="min-height:100px" placeholder="Track your mind for one day: what does it go to spontaneously? News, plans, grievances, entertainment? Then consider: what would it take to shift the default toward Allah?" oninput="autoSave('synth-qn',this.value)"></textarea>
+  </div>
+</div>
+
+<div class="sec-lbl" style="margin-top:36px"><span class="en-inl">Continue — File 3B Tabs</span><span class="ur-inl">آگے — فائل ۳B ٹیبز</span></div>
+<div class="file-links">
+  <a href="ranks_inner_qualities_mukhlisoon.html" class="file-link">
+    <div class="fl-num">Tab I</div><div class="fl-title">Mukhlisoon</div><div class="fl-desc">Active vs Passive</div>
+    <span class="fl-badge fl-ready">Complete</span>
+  </a>
+  <a href="riq_awwaaboon.html" class="file-link">
+    <div class="fl-num">Tab II</div><div class="fl-title">Awwaaboon</div><div class="fl-desc">Habitual returners</div>
+    <span class="fl-badge fl-ready">Complete</span>
+  </a>
+  <a href="riq_sabiroon.html" class="file-link">
+    <div class="fl-num">Tab III</div><div class="fl-title">Sabiroon</div><div class="fl-desc">Three types</div>
+    <span class="fl-badge fl-ready">Complete</span>
+  </a>
+  <a href="riq_shakiroon.html" class="file-link">
+    <div class="fl-num">Tab IV</div><div class="fl-title">Shakiroon</div><div class="fl-desc">Few are grateful</div>
+    <span class="fl-badge fl-ready">Complete</span>
+  </a>
+  <a href="#" class="file-link current">
+    <div class="fl-num">Tab V</div><div class="fl-title">Qaanitoon</div><div class="fl-desc">Sustained devotion</div>
+    <span class="fl-badge fl-ready">Current</span>
+  </a>
+  <a href="riq_ululalbab.html" class="file-link">
+    <div class="fl-num">Tab VI</div><div class="fl-title">Ulu al-Albab</div><div class="fl-desc">People of the Lubb</div>
+    <span class="fl-badge fl-coming">Next</span>
+  </a>
+  <a href="riq_rasikhoon.html" class="file-link">
+    <div class="fl-num">Tab VII</div><div class="fl-title">Rasikhoon</div><div class="fl-desc">Firmly grounded</div>
+    <span class="fl-badge fl-coming">Pending</span>
+  </a>
+</div>
+</div>
+
+<script>
+var LANG='en';
+var timers={};
+function setLang(l){
+  LANG=l;
+  document.getElementById('lt-en').classList.toggle('on',l==='en');
+  document.getElementById('lt-ur').classList.toggle('on',l==='ur');
+  document.body.classList.toggle('ur-mode',l==='ur');
+}
+function toggleCard(id){document.getElementById(id).classList.toggle('open');}
+function toggleScholar(id){document.getElementById(id).classList.toggle('open');}
+function autoSave(key,val){
+  clearTimeout(timers[key]);
+  timers[key]=setTimeout(function(){
+    var sk='riq_'+key;
+    if(val.trim()){localStorage.setItem(sk,val);}else{localStorage.removeItem(sk);}
+    var sv=document.getElementById('sv-'+key);
+    if(sv){sv.textContent=val.trim()?'Saved \u2713':'';sv.classList.add('flash');setTimeout(function(){sv.classList.remove('flash');},1800);}
+  },900);
+}
+function loadAll(){
+  for(var i=0;i<localStorage.length;i++){
+    var k=localStorage.key(i);
+    if(k&&k.startsWith('riq_')){
+      var fk=k.substring(4);
+      var el=document.getElementById('note-'+fk);
+      var sv=document.getElementById('sv-'+fk);
+      if(el){el.value=localStorage.getItem(k)||'';if(sv&&el.value.trim())sv.textContent='Saved';}
+    }
+  }
+}
+window.addEventListener('DOMContentLoaded',function(){loadAll();});
+</script>
+</body>
+</html>

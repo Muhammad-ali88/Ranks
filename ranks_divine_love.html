@@ -1,0 +1,1412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Quranic Human Ranks — The Divine Love Ranks</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg0:#04070D;--bg1:#080E1C;--bg2:#0C1528;--bg3:#111E35;--bg4:#162440;
+  --gold:#C9A84C;--gold2:#E2C97A;--gold3:#F5E9C0;
+  --golddim:rgba(201,168,76,.08);--goldbdr:rgba(201,168,76,.18);--goldglow:rgba(201,168,76,.22);
+  --teal:#2FB89A;--tealdim:rgba(47,184,154,.08);--tealbdr:rgba(47,184,154,.22);
+  --blue:#7AABF0;--bluedim:rgba(122,171,240,.08);--bluebdr:rgba(122,171,240,.22);
+  --amber:#E0A030;--amberdim:rgba(224,160,48,.08);--amberbdr:rgba(224,160,48,.22);
+  --purple:#A87FD0;--purpledim:rgba(168,127,208,.08);--purplebdr:rgba(168,127,208,.22);
+  --text:#D4CBB8;--text2:#8A9BB0;--text3:#4A5B70;
+  --border:rgba(201,168,76,.10);--border2:rgba(201,168,76,.05);
+  --font-head:'Cinzel',serif;--font-body:'Lora',serif;--font-arab:'Noto Naskh Arabic',serif;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg0);color:var(--text);font-family:var(--font-body);min-height:100vh;overflow-x:hidden;padding-bottom:80px}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:var(--bg1)}::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(ellipse 800px 500px at 20% 10%,rgba(201,168,76,.025),transparent 60%),
+             radial-gradient(ellipse 600px 400px at 80% 80%,rgba(47,184,154,.02),transparent 60%);}
+.hdr{position:sticky;top:0;z-index:90;background:rgba(4,7,13,.97);border-bottom:1px solid var(--border2);backdrop-filter:blur(20px);padding:0 22px;height:56px;display:flex;align-items:center;gap:14px}
+.hdr-ar{font-family:var(--font-arab);font-size:22px;color:var(--gold);text-shadow:0 0 20px rgba(201,168,76,.3)}
+.hdr-titles{flex:1}
+.hdr-title{font-family:var(--font-head);font-size:10px;letter-spacing:2px;color:var(--gold2);text-transform:uppercase}
+.hdr-sub{font-family:var(--font-head);font-size:8px;letter-spacing:1px;color:var(--text3);text-transform:uppercase;margin-top:2px}
+.lang-toggle{display:flex;gap:2px;background:rgba(255,255,255,.04);border:1px solid var(--goldbdr);border-radius:20px;padding:3px}
+.lt{font-family:var(--font-head);font-size:9px;letter-spacing:.8px;padding:3px 10px;border-radius:16px;cursor:pointer;transition:all .2s;color:var(--text3);user-select:none}
+.lt.on{background:var(--gold);color:#000;font-weight:700}
+.back-link{font-family:var(--font-head);font-size:8.5px;letter-spacing:.8px;color:var(--text3);text-decoration:none;padding:5px 10px;border:1px solid var(--border2);border-radius:6px;transition:all .15s;text-transform:uppercase;flex-shrink:0}
+.back-link:hover{color:var(--gold2);border-color:var(--goldbdr)}
+.file-nav{background:rgba(8,14,28,.8);border-bottom:1px solid var(--border2);padding:10px 22px;display:flex;gap:8px;flex-wrap:wrap;position:sticky;top:56px;z-index:80;backdrop-filter:blur(16px)}
+.fn-btn{font-family:var(--font-head);font-size:8px;letter-spacing:1px;text-transform:uppercase;padding:6px 14px;border-radius:7px;border:1px solid var(--border2);color:var(--text3);cursor:pointer;transition:all .2s;text-decoration:none;display:inline-block}
+.fn-btn:hover{color:var(--gold2);border-color:var(--goldbdr)}
+.fn-btn.current{background:var(--golddim);border-color:var(--goldbdr);color:var(--gold2)}
+.fn-sep{color:var(--text3);font-size:10px;align-self:center;opacity:.4}
+.page{position:relative;z-index:1;max-width:860px;margin:0 auto;padding:32px 20px 60px}
+.rank-nav{display:flex;gap:6px;margin-bottom:28px;flex-wrap:wrap}
+.rn-btn{font-family:var(--font-head);font-size:8.5px;letter-spacing:.8px;text-transform:uppercase;padding:9px 16px;border-radius:8px;border:1px solid var(--border);color:var(--text2);cursor:pointer;transition:all .2s;background:rgba(255,255,255,.02)}
+.rn-btn:hover{border-color:var(--goldbdr);color:var(--gold2)}
+.rn-btn.on{background:var(--golddim);border-color:var(--goldbdr);color:var(--gold2)}
+.rn-btn .ar{font-family:var(--font-arab);font-size:15px;letter-spacing:0;display:block;margin-top:3px}
+.rn-btn .rn{display:inline-block;font-size:7px;padding:1px 5px;border-radius:4px;margin-left:4px;background:var(--tealdim);border:1px solid var(--tealbdr);color:var(--teal);vertical-align:middle}
+.rank-section{display:none}.rank-section.active{display:block}
+.rank-hdr{text-align:center;padding:24px 20px 32px;border-bottom:1px solid var(--border2);margin-bottom:28px}
+.rank-hdr-num{font-family:var(--font-head);font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--text3);margin-bottom:10px}
+.rank-hdr-ar{font-family:var(--font-arab);font-size:clamp(40px,7vw,62px);color:var(--gold);text-shadow:0 0 40px rgba(201,168,76,.2);line-height:1.2;margin-bottom:8px}
+.rank-hdr-en{font-family:var(--font-head);font-size:clamp(13px,2.5vw,18px);font-weight:700;color:#fff;letter-spacing:2px;text-transform:uppercase;margin-bottom:5px}
+.rank-hdr-ur{font-family:var(--font-arab);font-size:clamp(15px,2.5vw,20px);color:var(--gold2);margin-bottom:14px}
+.rank-hdr-rule{width:100px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 16px}
+.rank-hdr-root{font-family:var(--font-head);font-size:9px;letter-spacing:1.5px;color:var(--text3);text-transform:uppercase;margin-bottom:14px}
+.rank-hdr-intro{font-size:13px;color:var(--text2);line-height:1.9;max-width:640px;margin:0 auto;font-style:italic}
+.rank-hdr-intro-ur{font-family:var(--font-arab);font-size:14px;color:var(--text2);direction:rtl;text-align:center;line-height:2;max-width:640px;margin:4px auto 0}
+.love-banner{background:linear-gradient(135deg,rgba(201,168,76,.12),rgba(201,168,76,.05));border:1px solid rgba(201,168,76,.35);border-radius:12px;padding:18px 22px;margin-bottom:24px;text-align:center;position:relative;overflow:hidden}
+.love-banner::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.love-banner-label{font-family:var(--font-head);font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.love-banner-ar{font-family:var(--font-arab);font-size:clamp(18px,3.5vw,24px);color:var(--gold2);direction:rtl;line-height:1.8;margin-bottom:6px}
+.love-banner-tr{font-size:12px;color:var(--text2);font-style:italic;margin-bottom:4px}
+.love-banner-tr-ur{font-family:var(--font-arab);font-size:13px;color:var(--text2);direction:rtl;line-height:1.9;margin-bottom:4px}
+.love-banner-ref{font-family:var(--font-head);font-size:8.5px;color:var(--gold);letter-spacing:.6px}
+.root-analysis{background:var(--bg2);border:1px solid var(--goldbdr);border-radius:12px;padding:20px 22px;margin-bottom:24px;position:relative;overflow:hidden}
+.root-analysis::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.ra-label{font-family:var(--font-head);font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.ra-label::after{content:'';flex:1;height:1px;background:var(--border2)}
+.ra-root{font-family:var(--font-arab);font-size:28px;color:var(--gold2);direction:rtl;margin-bottom:12px}
+.ra-letters{display:flex;gap:10px;flex-direction:row-reverse;margin-bottom:14px}
+.ra-letter{background:rgba(201,168,76,.06);border:1px solid var(--goldbdr);border-radius:8px;padding:8px 14px;text-align:center}
+.ra-letter-ar{font-family:var(--font-arab);font-size:22px;color:var(--gold2);display:block}
+.ra-letter-en{font-family:var(--font-head);font-size:8px;color:var(--text3);letter-spacing:.5px;margin-top:4px;display:block}
+.ra-meaning{font-size:13px;color:var(--text2);line-height:1.8;margin-bottom:10px}
+.ra-meaning-ur{font-family:var(--font-arab);font-size:14px;color:var(--text2);direction:rtl;text-align:right;line-height:2;margin-bottom:10px}
+.ra-forms{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.ra-form{background:var(--bg3);border:1px solid var(--border2);border-radius:6px;padding:6px 12px;text-align:center}
+.ra-form-ar{font-family:var(--font-arab);font-size:16px;color:var(--gold2);direction:rtl}
+.ra-form-en{font-family:var(--font-head);font-size:8px;color:var(--text3);letter-spacing:.5px;margin-top:2px}
+.ra-count{font-family:var(--font-head);font-size:9px;color:var(--teal);letter-spacing:.5px}
+.era-divider{display:flex;align-items:center;gap:12px;margin:28px 0 16px}
+.era-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.era-early{background:var(--amber)}.era-middle{background:var(--gold)}.era-late{background:var(--teal)}.era-madani{background:var(--blue)}.era-purple{background:var(--purple)}
+.era-label{font-family:var(--font-head);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text2)}
+.era-label-ur{font-family:var(--font-arab);font-size:13px;color:var(--text2)}
+.era-line{flex:1;height:1px;background:var(--border2)}
+.ayah-card{background:var(--bg2);border:1px solid var(--border2);border-radius:12px;margin-bottom:10px;overflow:hidden;transition:border-color .2s}
+.ayah-card.open{border-color:var(--goldbdr)}
+.ayah-card-hdr{display:flex;align-items:center;gap:10px;padding:13px 18px;cursor:pointer;user-select:none}
+.rev-badge{font-family:var(--font-head);font-size:7.5px;letter-spacing:.8px;padding:3px 8px;border-radius:5px;flex-shrink:0;text-transform:uppercase}
+.rev-early{background:var(--amberdim);border:1px solid var(--amberbdr);color:var(--amber)}
+.rev-middle{background:var(--golddim);border:1px solid var(--goldbdr);color:var(--gold2)}
+.rev-late{background:var(--tealdim);border:1px solid var(--tealbdr);color:var(--teal)}
+.rev-madani{background:var(--bluedim);border:1px solid var(--bluebdr);color:var(--blue)}
+.card-ref{font-family:var(--font-head);font-size:10px;color:var(--gold);font-weight:600;flex-shrink:0}
+.card-preview{font-family:var(--font-arab);font-size:16px;color:var(--gold2);direction:rtl;flex:1;text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:.75}
+.card-chevron{color:var(--text3);font-size:16px;transition:transform .25s;flex-shrink:0}
+.ayah-card.open .card-chevron{transform:rotate(90deg);color:var(--gold)}
+.card-body{display:none;padding:0 18px 20px;border-top:1px solid var(--border2)}
+.ayah-card.open .card-body{display:block}
+.ayah-arabic{font-family:var(--font-arab);font-size:clamp(18px,3.5vw,26px);color:var(--gold2);direction:rtl;text-align:right;line-height:2.2;padding:18px 0 12px;text-shadow:0 0 20px rgba(201,168,76,.1);border-bottom:1px solid var(--border2);margin-bottom:12px}
+.ayah-tr-en{font-size:13px;color:var(--text);font-style:italic;line-height:1.85;margin-bottom:6px;border-left:3px solid var(--goldbdr);padding:8px 14px;border-radius:0 6px 6px 0;background:rgba(201,168,76,.03)}
+.ayah-tr-ur{font-family:var(--font-arab);font-size:14px;color:var(--text);direction:rtl;text-align:right;line-height:2;border-right:3px solid var(--goldbdr);padding:8px 14px 8px 8px;border-radius:6px 0 0 6px;background:rgba(201,168,76,.03);margin-bottom:6px}
+.ayah-ref-line{font-family:var(--font-head);font-size:9px;color:var(--gold);letter-spacing:.8px;margin-bottom:14px}
+.ctx-box{background:rgba(0,0,0,.2);border-left:3px solid var(--amber);border-radius:0 8px 8px 0;padding:11px 14px;margin-bottom:12px}
+.ctx-lbl{font-family:var(--font-head);font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:var(--amber);margin-bottom:5px}
+.ctx-txt{font-size:12px;color:var(--text2);line-height:1.75}
+.ctx-txt-ur{font-family:var(--font-arab);font-size:13px;color:var(--text2);direction:rtl;text-align:right;line-height:2}
+.root-box{background:rgba(201,168,76,.04);border:1px solid var(--goldbdr);border-radius:8px;padding:11px 14px;margin-bottom:12px}
+.root-lbl{font-family:var(--font-head);font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:var(--gold);margin-bottom:7px}
+.root-wd{font-family:var(--font-arab);font-size:19px;color:var(--gold2);direction:rtl;display:inline-block;margin-left:8px}
+.root-fm{font-size:11px;color:var(--text3);letter-spacing:.3px}
+.root-mn{font-size:12px;color:var(--text2);line-height:1.7;margin-top:6px}
+.root-mn-ur{font-family:var(--font-arab);font-size:13px;color:var(--text2);direction:rtl;text-align:right;line-height:2;margin-top:5px}
+.uniq-box{background:var(--tealdim);border:1px solid var(--tealbdr);border-radius:8px;padding:11px 14px;margin-bottom:12px}
+.uniq-lbl{font-family:var(--font-head);font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:var(--teal);margin-bottom:5px}
+.uniq-txt{font-size:12.5px;color:var(--text);line-height:1.75}
+.uniq-txt-ur{font-family:var(--font-arab);font-size:13px;color:var(--text);direction:rtl;text-align:right;line-height:2}
+.sunnah-box{background:var(--purpledim);border:1px solid var(--purplebdr);border-radius:8px;padding:11px 14px;margin-bottom:12px}
+.sun-lbl{font-family:var(--font-head);font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:var(--purple);margin-bottom:8px}
+.sun-ar{font-family:var(--font-arab);font-size:16px;color:var(--gold2);direction:rtl;text-align:right;line-height:2;margin-bottom:5px}
+.sun-en{font-size:12px;color:var(--text2);font-style:italic;line-height:1.7;margin-bottom:5px}
+.sun-ur{font-family:var(--font-arab);font-size:13px;color:var(--text2);direction:rtl;text-align:right;line-height:2;margin-bottom:5px}
+.sun-src{font-family:var(--font-head);font-size:8.5px;color:var(--purple);letter-spacing:.5px}
+.grade{display:inline-block;font-family:var(--font-head);font-size:7.5px;padding:2px 7px;border-radius:4px;margin-left:6px}
+.g-sahih{background:var(--tealdim);border:1px solid var(--tealbdr);color:var(--teal)}
+.g-hasan{background:var(--golddim);border:1px solid var(--goldbdr);color:var(--gold2)}
+.insight{background:linear-gradient(135deg,rgba(201,168,76,.06),rgba(201,168,76,.03));border:1px solid var(--goldbdr);border-radius:10px;padding:14px 18px;margin-bottom:14px}
+.insight-lbl{font-family:var(--font-head);font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.insight-lbl::after{content:'';flex:1;height:1px;background:var(--border2)}
+.insight-txt{font-size:12.5px;color:var(--text2);line-height:1.85}
+.insight-txt-ur{font-family:var(--font-arab);font-size:13.5px;color:var(--text2);direction:rtl;text-align:right;line-height:2;margin-top:6px}
+.scholar-card{background:var(--bg3);border:1px solid var(--border2);border-radius:10px;padding:15px 17px;margin-bottom:9px;overflow:hidden;transition:border-color .2s}
+.scholar-card.open{border-color:var(--purplebdr)}
+.sc-hdr{display:flex;align-items:center;gap:12px;cursor:pointer;user-select:none}
+.sc-badge{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--font-arab);font-size:13px;color:var(--gold2);background:var(--purpledim);border:1px solid var(--purplebdr);flex-shrink:0}
+.sc-name{font-family:var(--font-head);font-size:9.5px;letter-spacing:.5px;color:var(--text);font-weight:600}
+.sc-text{font-family:var(--font-head);font-size:8px;letter-spacing:.3px;color:var(--purple);margin-top:2px}
+.sc-chev{color:var(--text3);font-size:14px;transition:transform .25s;margin-left:auto;flex-shrink:0}
+.scholar-card.open .sc-chev{transform:rotate(90deg);color:var(--purple)}
+.sc-body{display:none;margin-top:12px;padding-top:10px;border-top:1px solid var(--border2)}
+.scholar-card.open .sc-body{display:block}
+.sc-quote{font-size:12px;color:var(--text);font-style:italic;line-height:1.8;border-left:2px solid var(--purple);padding:8px 12px;background:rgba(168,127,208,.04);border-radius:0 6px 6px 0;margin-bottom:10px}
+.sc-quote-ur{font-family:var(--font-arab);font-size:13px;color:var(--text);direction:rtl;text-align:right;line-height:2;border-right:2px solid var(--purple);padding:8px 12px;background:rgba(168,127,208,.04);border-radius:6px 0 0 6px;margin-bottom:10px}
+.sc-analysis{font-size:12px;color:var(--text2);line-height:1.75}
+.sc-analysis-ur{font-family:var(--font-arab);font-size:13px;color:var(--text2);direction:rtl;text-align:right;line-height:2;margin-top:5px}
+.sc-source{font-family:var(--font-head);font-size:8px;color:var(--purple);letter-spacing:.4px;margin-top:8px}
+.scholars-lbl{font-family:var(--font-head);font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--purple);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.scholars-lbl::after{content:'';flex:1;height:1px;background:rgba(168,127,208,.15)}
+.notes-sec{margin-top:14px;border-top:1px solid var(--border2);padding-top:12px}
+.notes-hdr{font-family:var(--font-head);font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:var(--text2);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.notes-hdr::after{content:'';flex:1;height:1px;background:var(--border2)}
+.note-f{margin-bottom:7px}
+.note-lbl{font-family:var(--font-head);font-size:7.5px;letter-spacing:.8px;text-transform:uppercase;color:var(--text3);margin-bottom:4px;display:flex;align-items:center;gap:6px}
+.nd{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.nsv{font-family:var(--font-head);font-size:7px;letter-spacing:.3px;color:var(--text3);margin-left:auto;transition:color .3s}
+.nsv.flash{color:var(--teal)}
+.note-ta{width:100%;min-height:72px;background:rgba(255,255,255,.03);border:1px solid var(--border2);border-radius:7px;outline:none;padding:10px 12px;font-family:var(--font-body);font-size:12.5px;color:var(--text);line-height:1.75;resize:vertical;transition:border-color .2s}
+.note-ta:focus{border-color:var(--goldbdr)}
+.note-ta::placeholder{color:var(--text3);font-style:italic;font-size:11.5px}
+.sh-card{background:var(--bg2);border:1px solid var(--border2);border-radius:12px;padding:18px 20px;margin-bottom:10px}
+.sh-lbl{font-family:var(--font-head);font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:var(--purple);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.sh-lbl::after{content:'';flex:1;height:1px;background:var(--border2)}
+.sh-ar{font-family:var(--font-arab);font-size:clamp(14px,3vw,18px);color:var(--gold2);direction:rtl;text-align:right;line-height:2;margin-bottom:9px;padding:10px 14px;background:rgba(201,168,76,.04);border-radius:7px}
+.sh-en{font-size:12.5px;color:var(--text);font-style:italic;line-height:1.8;margin-bottom:6px}
+.sh-ur{font-family:var(--font-arab);font-size:14px;color:var(--text);direction:rtl;text-align:right;line-height:2;margin-bottom:6px}
+.sh-src{font-family:var(--font-head);font-size:8.5px;color:var(--purple);letter-spacing:.5px}
+.sec-lbl{font-family:var(--font-head);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:12px;padding:28px 0 16px}
+.sec-lbl::after{content:'';flex:1;height:1px;background:var(--border2)}
+.love-table-wrap{overflow-x:auto;border-radius:12px;border:1px solid var(--goldbdr);margin-bottom:24px}
+table.lt{width:100%;border-collapse:collapse;min-width:520px}
+table.lt th{font-family:var(--font-head);font-size:8px;letter-spacing:.8px;text-transform:uppercase;color:var(--gold);padding:10px 12px;background:rgba(201,168,76,.07);border-bottom:1px solid var(--goldbdr);text-align:left}
+table.lt td{padding:9px 12px;font-size:11.5px;border-bottom:1px solid var(--border2);vertical-align:top;line-height:1.6;color:var(--text2)}
+table.lt td:first-child{font-family:var(--font-arab);font-size:16px;color:var(--gold2);direction:rtl;text-align:right;white-space:nowrap}
+table.lt td.lref{font-family:var(--font-head);font-size:8.5px;color:var(--gold);white-space:nowrap}
+table.lt tr:last-child td{border-bottom:none}
+table.lt tr:hover td{background:rgba(201,168,76,.03)}
+.file-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin-top:12px}
+.file-link{background:var(--bg2);border:1px solid var(--border2);border-radius:10px;padding:16px 18px;text-decoration:none;transition:all .2s;display:block}
+.file-link:hover{border-color:var(--goldbdr);background:rgba(201,168,76,.04)}
+.file-link.current{border-color:var(--goldbdr);background:var(--golddim);cursor:default}
+.fl-num{font-family:var(--font-head);font-size:8px;letter-spacing:1px;color:var(--text3);text-transform:uppercase;margin-bottom:5px}
+.fl-title{font-family:var(--font-head);font-size:10px;letter-spacing:.5px;color:var(--gold2);margin-bottom:4px}
+.fl-desc{font-size:11px;color:var(--text3);line-height:1.6}
+.fl-badge{display:inline-block;font-family:var(--font-head);font-size:7px;padding:1px 6px;border-radius:4px;margin-top:6px}
+.fl-ready{background:var(--tealdim);border:1px solid var(--tealbdr);color:var(--teal)}
+.fl-coming{background:var(--amberdim);border:1px solid var(--amberbdr);color:var(--amber)}
+.synth-box{border:1px solid var(--border2);border-radius:10px;padding:16px 18px;margin-top:8px}
+.en-blk{display:block}.ur-blk{display:none}
+body.ur-mode .en-blk{display:none}
+body.ur-mode .ur-blk{display:block}
+.en-inl{display:inline}.ur-inl{display:none}
+body.ur-mode .en-inl{display:none}
+body.ur-mode .ur-inl{display:inline}
+#toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(40px);background:rgba(12,21,40,.98);border:1px solid var(--goldbdr);border-radius:8px;padding:9px 20px;font-family:var(--font-head);font-size:9px;letter-spacing:1px;color:var(--gold2);z-index:300;opacity:0;transition:all .25s;pointer-events:none;white-space:nowrap}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+@media(max-width:600px){.page{padding:20px 14px 60px}.ra-letters{gap:6px}.ra-letter{padding:6px 10px}}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <div class="hdr-ar">يُحِبُّ</div>
+  <div class="hdr-titles">
+    <div class="hdr-title en-blk">The Divine Love Ranks — File 3A</div>
+    <div class="hdr-title ur-blk">الٰہی محبت کے درجات — فائل ۳A</div>
+    <div class="hdr-sub en-blk">File 3A of 5 · Muhsinoon · Muttaqoon · Mutawakkiloon · Muqsitoon · Awliya</div>
+    <div class="hdr-sub ur-blk">فائل ۳A · محسنون · متقون · متوکلون · مقسطون · اولیاء</div>
+  </div>
+  <div class="lang-toggle">
+    <div class="lt on" id="lt-en" onclick="setLang('en')">EN</div>
+    <div class="lt" id="lt-ur" onclick="setLang('ur')">اردو</div>
+  </div>
+  <a href="ranks_map.html" class="back-link">← Map</a>
+</div>
+
+<div class="file-nav">
+  <a href="ranks_map.html" class="fn-btn">1 · Map</a>
+  <span class="fn-sep">›</span>
+  <a href="ranks_eschatological.html" class="fn-btn">2 · Eschatological</a>
+  <span class="fn-sep">›</span>
+  <span class="fn-btn current">3A · Divine Love</span>
+  <span class="fn-sep">›</span>
+  <a href="ranks_inner_qualities.html" class="fn-btn">3B · Inner Qualities</a>
+  <span class="fn-sep">›</span>
+  <a href="ranks_path.html" class="fn-btn">4 · The Path</a>
+</div>
+
+<div class="page">
+
+<!-- INTRO -->
+<div class="sec-lbl"><span class="en-inl">What "Allah Loves" Actually Means</span><span class="ur-inl">«اللہ محبت کرتا ہے» کا اصل مطلب</span></div>
+
+<p style="font-size:13px;color:var(--text2);line-height:1.9;margin-bottom:18px">
+  <span class="en-blk">The Quran uses "Inna Allaha yuhibbu" (Indeed Allah loves) for specific human types — not believers in general, but particular qualities cultivated to a degree where they become the person's dominant characteristic. These are the most intimate statements of divine regard in the entire Book. Understanding what each love statement means — theologically, linguistically, and practically — is among the most important studies in Quranic anthropology.</span>
+  <span class="ur-blk">قرآن «إِنَّ اللَّهَ يُحِبُّ» مخصوص انسانی اقسام کے لیے استعمال کرتا ہے — عام مومنوں کے لیے نہیں، بلکہ خاص اوصاف کے لیے جو شخص کی غالب خصوصیت بن گئے۔ یہ پوری کتاب میں الٰہی توجہ کے سب سے قریبی بیانات ہیں۔</span>
+</p>
+
+<div class="insight">
+  <div class="insight-lbl en-blk">◈ The Theological Weight of Divine Love</div>
+  <div class="insight-lbl ur-blk">◈ الٰہی محبت کا الٰہیاتی وزن</div>
+  <div class="insight-txt en-blk">Divine Mahabbah in Islamic theology is not an emotion in the human sense — it is an ontological orientation of Allah toward the person that produces real effects: mercy flows toward them, protection encompasses them, tawfiq opens for them, He mentions them to the angels, and believers' hearts incline toward them on earth. Ibn al-Qayyim dedicates an entire book (Tariq al-Hijratayn) to mapping these effects. The critical point: when the Quran says "Allah loves the Muhsineen," it describes a relationship of special divine attention with measurable effects — not merely admirable qualities to aspire to, but the specific qualities that open the channel of divine love.</div>
+  <div class="insight-txt-ur ur-blk">الٰہی محبت اسلامی الٰہیات میں انسانی جذبہ نہیں — اللہ کی اس شخص کی طرف وجودیاتی توجہ جو حقیقی اثرات پیدا کرتی ہے: رحمت، حفاظت، توفیق، فرشتوں میں ذکر، مومنوں کے دلوں کا جھکاؤ۔ ابن القیم (طریق الہجرتین) نے ان اثرات کا نقشہ بنایا۔ اہم نکتہ: یہ درجات صرف قابلِ رشک نہیں — یہ وہ خاص اوصاف ہیں جو الٰہی محبت کا چینل کھولتے ہیں۔</div>
+</div>
+
+<div class="love-table-wrap">
+  <table class="lt">
+    <thead><tr>
+      <th><span class="en-inl">Arabic</span><span class="ur-inl">عربی</span></th>
+      <th><span class="en-inl">Rank</span><span class="ur-inl">درجہ</span></th>
+      <th><span class="en-inl">Love Statement</span><span class="ur-inl">محبت کا بیان</span></th>
+      <th><span class="en-inl">References</span><span class="ur-inl">حوالہ جات</span></th>
+    </tr></thead>
+    <tbody>
+      <tr><td>الْمُحْسِنُون</td><td><span class="en-inl">The Beautiful-Doers</span><span class="ur-inl">محسنون</span></td><td style="font-family:var(--font-arab);direction:rtl;font-size:13px">إِنَّ اللَّهَ يُحِبُّ الْمُحْسِنِينَ</td><td class="lref">2:195 · 3:134 · 5:13</td></tr>
+      <tr><td>الْمُتَّقُون</td><td><span class="en-inl">The Shield-Bearers</span><span class="ur-inl">متقون</span></td><td style="font-family:var(--font-arab);direction:rtl;font-size:13px">إِنَّ اللَّهَ يُحِبُّ الْمُتَّقِينَ</td><td class="lref">3:76 · 9:4 · 9:7</td></tr>
+      <tr><td>الْمُتَوَكِّلُون</td><td><span class="en-inl">The Complete Reliers</span><span class="ur-inl">متوکلون</span></td><td style="font-family:var(--font-arab);direction:rtl;font-size:13px">إِنَّ اللَّهَ يُحِبُّ الْمُتَوَكِّلِينَ</td><td class="lref">3:159</td></tr>
+      <tr><td>الْمُقْسِطُون</td><td><span class="en-inl">The Just Ones</span><span class="ur-inl">مقسطون</span></td><td style="font-family:var(--font-arab);direction:rtl;font-size:13px">إِنَّ اللَّهَ يُحِبُّ الْمُقْسِطِينَ</td><td class="lref">5:42 · 49:9 · 60:8</td></tr>
+      <tr><td>أَوْلِيَاء اللَّه</td><td><span class="en-inl">Close Friends of Allah</span><span class="ur-inl">اولیاء اللہ</span></td><td style="font-family:var(--font-arab);direction:rtl;font-size:13px">لَا خَوْفٌ عَلَيْهِمْ وَلَا هُمْ يَحْزَنُونَ</td><td class="lref">10:62-64</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- RANK TABS -->
+<div class="rank-nav">
+  <div class="rn-btn on" onclick="showRank('muhsinoon',this)">
+    <span class="en-inl">Muhsinoon <span class="rn">I</span></span><span class="ur-inl">محسنون <span class="rn">۱</span></span>
+    <div class="ar">الْمُحْسِنُون</div>
+  </div>
+  <div class="rn-btn" onclick="showRank('muttaqoon',this)">
+    <span class="en-inl">Muttaqoon <span class="rn">II</span></span><span class="ur-inl">متقون <span class="rn">۲</span></span>
+    <div class="ar">الْمُتَّقُون</div>
+  </div>
+  <div class="rn-btn" onclick="showRank('mutawakkiloon',this)">
+    <span class="en-inl">Mutawakkiloon <span class="rn">III</span></span><span class="ur-inl">متوکلون <span class="rn">۳</span></span>
+    <div class="ar">الْمُتَوَكِّلُون</div>
+  </div>
+  <div class="rn-btn" onclick="showRank('muqsitoon',this)">
+    <span class="en-inl">Muqsitoon <span class="rn">IV</span></span><span class="ur-inl">مقسطون <span class="rn">۴</span></span>
+    <div class="ar">الْمُقْسِطُون</div>
+  </div>
+  <div class="rn-btn" onclick="showRank('awliya',this)">
+    <span class="en-inl">Awliya <span class="rn">V</span></span><span class="ur-inl">اولیاء <span class="rn">۵</span></span>
+    <div class="ar">الأَوْلِيَاء</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- RANK I: AL-MUHSINOON -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div class="rank-section active" id="sec-muhsinoon">
+<div class="rank-hdr">
+  <div class="rank-hdr-num en-blk">Rank I · Three Love Statements · Ihsan Defined in the Hadith of Jibreel</div>
+  <div class="rank-hdr-num ur-blk">درجہ اول · تین محبت کے بیانات · حدیثِ جبریل میں تعریف</div>
+  <div class="rank-hdr-ar">الْمُحْسِنُون</div>
+  <div class="rank-hdr-en en-blk">Al-Muhsinoon — The Beautiful-Doers</div>
+  <div class="rank-hdr-ur ur-blk">المحسنون — احسان کرنے والے</div>
+  <div class="rank-hdr-rule"></div>
+  <div class="rank-hdr-root en-blk">Root: ح — س — ن · Beauty · Excellence · Ahsana = doing something with complete excellence and full presence</div>
+  <div class="rank-hdr-root ur-blk">جڑ: ح — س — ن · خوبصورتی · بہترینی · احسن = مکمل حاضری کے ساتھ بہترین کرنا</div>
+  <div class="rank-hdr-intro en-blk">The Muhsinoon receive the love statement three times — more than any other rank. Ihsan is defined by the Prophet ﷺ in the Hadith of Jibreel as the highest of the three levels: "That you worship Allah as though you see Him — and if you do not see Him, then He sees you." The Muhsin's defining quality is not what he does but the state in which he does it — continuous awareness of being seen by Allah.</div>
+  <div class="rank-hdr-intro-ur ur-blk">محسنون کو قرآن میں تین بار محبت کا بیان ملتا ہے — کسی سے زیادہ۔ احسان حدیثِ جبریل میں تینوں سطحوں میں اعلیٰ: «اللہ کی عبادت جیسے اسے دیکھ رہے ہو۔» محسن کی خاصیت عمل نہیں — کیفیت ہے جس میں کرتا ہے۔</div>
+</div>
+
+<div class="love-banner">
+  <div class="love-banner-label en-blk">Divine Love — Appears Three Times</div>
+  <div class="love-banner-label ur-blk">الٰہی محبت — تین بار</div>
+  <div class="love-banner-ar">إِنَّ اللَّهَ يُحِبُّ الْمُحْسِنِينَ</div>
+  <div class="love-banner-tr en-blk">"Indeed Allah loves the Muhsineen."</div>
+  <div class="love-banner-tr-ur ur-blk">«بے شک اللہ محسنوں سے محبت کرتا ہے۔»</div>
+  <div class="love-banner-ref">Al-Baqarah 2:195 · Al-Imran 3:134 · Al-Maidah 5:13</div>
+</div>
+
+<div class="root-analysis">
+  <div class="ra-label"><span class="en-blk">Root — ح س ن</span><span class="ur-blk">جڑ — ح س ن</span></div>
+  <div class="ra-root">حَسُنَ · إِحْسَان · مُحْسِن · حُسْن · أَحْسَنَ · حَسَنَة</div>
+  <div class="ra-letters">
+    <div class="ra-letter"><span class="ra-letter-ar">ح</span><span class="ra-letter-en">H</span></div>
+    <div class="ra-letter"><span class="ra-letter-ar">س</span><span class="ra-letter-en">S</span></div>
+    <div class="ra-letter"><span class="ra-letter-ar">ن</span><span class="ra-letter-en">N</span></div>
+  </div>
+  <div class="ra-meaning en-blk">H-S-N is the root of beauty and excellence — Husn (beauty as quality), Hasana (a beautiful/good deed), Ihsan (doing something with fullest possible excellence — the causative-intensive form). The morphological form Ihsan is specifically the causative-intensive: not merely doing good, but doing it with complete presence and awareness. The Muhsin is one for whom this excellence has become habitual — not an occasional peak but a consistent mode of operating. The same root gives Husn al-khuluq (beautiful character) and Ihsan ila al-walidayn (excellent treatment of parents).</div>
+  <div class="ra-meaning-ur ur-blk">ح-س-ن عربی میں خوبصورتی اور بہترینی کی جڑ۔ احسان باب افعال کی کثرت شکل — صرف اچھا نہیں بلکہ مکمل حاضری کے ساتھ بہترین۔ محسن وہ ہے جس کے لیے یہ بہترینی عادت بن گئی — کبھی کبھار عروج نہیں بلکہ مستقل طریقہ کار۔</div>
+  <div class="ra-forms">
+    <div class="ra-form"><div class="ra-form-ar">إِحْسَان</div><div class="ra-form-en en-blk">Beautiful excellence</div><div class="ra-form-en ur-blk">احسان</div></div>
+    <div class="ra-form"><div class="ra-form-ar">مُحْسِن</div><div class="ra-form-en en-blk">One who does Ihsan</div><div class="ra-form-en ur-blk">محسن</div></div>
+    <div class="ra-form"><div class="ra-form-ar">حَسَنَة</div><div class="ra-form-en en-blk">Beautiful / good deed</div><div class="ra-form-en ur-blk">حسنہ</div></div>
+    <div class="ra-form"><div class="ra-form-ar">أَحْسَنَ</div><div class="ra-form-en en-blk">He did excellently</div><div class="ra-form-en ur-blk">اس نے بہترین کیا</div></div>
+  </div>
+  <div class="ra-count en-blk">✦ H-S-N appears 190+ times · Ihsan defined by the Prophet ﷺ as the highest of the three levels of the religion in the Hadith of Jibreel</div>
+  <div class="ra-count ur-blk">✦ ح-س-ن ۱۹۰ سے زیادہ بار · احسان حدیثِ جبریل میں دین کی تین سطحوں میں اعلیٰ</div>
+</div>
+
+<div class="era-divider">
+  <div class="era-dot era-madani"></div>
+  <div class="era-label en-blk">Madani · Al-Baqarah 2:195 — First Love Statement · Ihsan in Giving</div>
+  <div class="era-label-ur ur-blk">مدنی · البقرہ ۲:۱۹۵ — پہلا بیان · دینے میں احسان</div>
+  <div class="era-line"></div>
+</div>
+
+<div class="ayah-card" id="mh-195">
+  <div class="ayah-card-hdr" onclick="toggleCard('mh-195')">
+    <span class="rev-badge rev-madani en-blk">Rev. #87</span><span class="rev-badge rev-madani ur-blk">ترتیب #87</span>
+    <span class="card-ref">Al-Baqarah 2:195</span>
+    <span class="card-preview">وَأَنفِقُوا فِي سَبِيلِ اللَّهِ وَلَا تُلْقُوا بِأَيْدِيكُمْ إِلَى التَّهْلُكَةِ ۛ وَأَحْسِنُوا</span>
+    <span class="card-chevron">›</span>
+  </div>
+  <div class="card-body">
+    <div class="ayah-arabic">وَأَنفِقُوا فِي سَبِيلِ اللَّهِ وَلَا تُلْقُوا بِأَيْدِيكُمْ إِلَى التَّهْلُكَةِ ۛ وَأَحْسِنُوا ۛ إِنَّ اللَّهَ يُحِبُّ الْمُحْسِنِينَ</div>
+    <div class="ayah-tr-en en-blk">"And spend in the path of Allah — and do not cast yourselves into destruction. And do Ihsan — indeed Allah loves the Muhsineen."</div>
+    <div class="ayah-tr-ur ur-blk">«اللہ کی راہ میں خرچ کرو — اپنے آپ کو ہلاکت میں نہ ڈالو۔ اور احسان کرو — بے شک اللہ محسنوں سے محبت کرتا ہے۔»</div>
+    <div class="ayah-ref-line">Surah Al-Baqarah 2:195</div>
+    <div class="ctx-box">
+      <div class="ctx-lbl en-blk">The Command Sequence — Ihsan Placed After Spending</div>
+      <div class="ctx-txt en-blk">Context: wartime spending. The command sequence is revealing — spend → do not withhold to the point of self-harm → Wa-ahsinoo (do Ihsan). The love statement follows the Ihsan command, not the spending command. Ibn Kathir: Ihsan here means giving with complete excellence of character — not reluctantly, not minimally, but with the full beauty of the act. The critical grammatical detail: Wa-ahsinoo is imperative plural — "do Ihsan" as an active performed thing, not "be good people" as a static quality. Every act can be done with or without Ihsan. The Muhsin consistently brings Ihsan to every act until it becomes nature.</div>
+      <div class="ctx-txt-ur ur-blk">سیاق: جنگی خرچ۔ حکم: خرچ کرو → نہ روکو → واحسنوا۔ محبت کا بیان احسان کے حکم کے بعد — خرچ کے نہیں۔ ابن کثیر: احسان یہاں بہترین کردار کے ساتھ سخاوت۔ واحسنوا — فعل امر: «ابھی احسان کرو»، نہ «اچھے لوگ ہو»۔</div>
+    </div>
+    <div class="notes-sec">
+      <div class="notes-hdr"><span class="en-blk">Personal Notes</span><span class="ur-blk">ذاتی نوٹس</span></div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--gold)"></div><span class="en-blk">The last time you gave — did you give with Ihsan? What would giving with Ihsan look like for you specifically?</span><span class="ur-blk">آخری بار جب دیا — احسان کے ساتھ دیا؟</span><span class="nsv" id="sv-mh1"></span></div>
+        <textarea class="note-ta" id="note-mh1" placeholder="Think of your last act of giving or sacrifice — was it done with full presence, or mechanical?" oninput="autoSave('mh1',this.value)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="era-divider">
+  <div class="era-dot era-madani"></div>
+  <div class="era-label en-blk">Madani · Al-Imran 3:134 — The Muhsin's Character Portrait</div>
+  <div class="era-label-ur ur-blk">مدنی · آل عمران ۳:۱۳۴ — محسن کی کردار کی تصویر</div>
+  <div class="era-line"></div>
+</div>
+
+<div class="ayah-card" id="mh-134">
+  <div class="ayah-card-hdr" onclick="toggleCard('mh-134')">
+    <span class="rev-badge rev-madani en-blk">Rev. #89</span><span class="rev-badge rev-madani ur-blk">ترتیب #89</span>
+    <span class="card-ref">Al-Imran 3:133-134</span>
+    <span class="card-preview">الَّذِينَ يُنفِقُونَ فِي السَّرَّاءِ وَالضَّرَّاءِ وَالْكَاظِمِينَ الْغَيْظَ وَالْعَافِينَ عَنِ النَّاسِ</span>
+    <span class="card-chevron">›</span>
+  </div>
+  <div class="card-body">
+    <div class="ayah-arabic">الَّذِينَ يُنفِقُونَ فِي السَّرَّاءِ وَالضَّرَّاءِ وَالْكَاظِمِينَ الْغَيْظَ وَالْعَافِينَ عَنِ النَّاسِ ۗ وَاللَّهُ يُحِبُّ الْمُحْسِنِينَ</div>
+    <div class="ayah-tr-en en-blk">"Those who spend in ease and hardship, and who suppress their anger, and who pardon people — and Allah loves the Muhsineen."</div>
+    <div class="ayah-tr-ur ur-blk">«وہ جو آسانی اور تنگی میں خرچ کریں، غصہ پیئیں، لوگوں کو معاف کریں — اللہ محسنوں سے محبت کرتا ہے۔»</div>
+    <div class="ayah-ref-line">Surah Al-Imran 3:133-134</div>
+    <div class="ctx-box">
+      <div class="ctx-lbl en-blk">The Most Precise Quranic Portrait of the Muhsin — Three Qualities</div>
+      <div class="ctx-txt en-blk">(1) Yunfiqoona fi al-sarra'i wal-darra'i — spend in ease AND hardship. Not only when comfortable. The Ihsan of giving does not stop when conditions change. (2) Al-Kadhimeen al-ghayth — Kadhm = to press something back down after it has risen. The anger rose. They pressed it back. This is more honest and demanding than "not getting angry" — the Quran does not ask for absence of anger but superior management of anger that has already arisen. (3) Al-'Afeen 'an al-nas — those who pardon. Not suppress anger privately while holding a grudge — but actually pardon. Sequence: suppress → then go further and pardon. Then: the love statement. These three qualities in three hard conditions define the Muhsin more precisely than any general statement.</div>
+      <div class="ctx-txt-ur ur-blk">(۱) آسانی اور تنگی دونوں میں خرچ — احسان حالات سے مشروط نہیں۔ (۲) الکاظمین الغیظ — غصہ اُبھرا، واپس دبایا۔ قرآن غصہ نہ آنا نہیں مانگتا — اُبھرے کو سنبھالنا مانگتا ہے۔ (۳) العافین — واقعی معاف کرنا، دبا کر رکھنا نہیں۔ ترتیب: دباؤ → معاف کرو۔</div>
+    </div>
+    <div class="root-box">
+      <div class="root-lbl en-blk">Root Study — Kadhm</div>
+      <span class="root-wd">كَاظِمِين</span><span class="root-fm"> · K-Zh-M · To press back what has already risen</span>
+      <div class="root-mn en-blk">Kadhm — pressing back of something that has risen, like pressing air from a waterskin. The Kadhim al-ghayth does not prevent anger from rising — he presses it back after it has risen. This places the Muhsin's quality in the realm of the achievable: anger is human. What you do with it is the test of Ihsan. The person who says "I never get angry" has not understood this ayah. The person who says "I got angry and pressed it back" is what the Quran is describing.</div>
+      <div class="root-mn-ur ur-blk">کاظم — اُبھری چیز کو واپس دبانا۔ قرآن غصہ نہ آنے کا نہیں کہتا۔ «میں کبھی غصہ نہیں ہوتا» اس آیت کی سمجھ نہیں۔ «غصہ آیا اور دبایا» — قرآن یہی بیان کر رہا ہے۔</div>
+    </div>
+    <div class="uniq-box">
+      <div class="uniq-lbl en-blk">What This Ayah Uniquely Establishes</div>
+      <div class="uniq-txt en-blk">Ihsan is not primarily a spiritual state — it is specific character qualities demonstrated in specific hard conditions: difficulty (not just ease), in anger (not just peace), toward people who have wronged you (not just strangers). The Quran locates Ihsan precisely in the hardest interpersonal conditions. The Muhsin's awareness of being seen by Allah produces concrete results in specific difficult situations — not just in prayer.</div>
+      <div class="uniq-txt-ur ur-blk">احسان بنیادی طور پر روحانی کیفیت نہیں — مخصوص سخت حالات میں مخصوص کردار۔ قرآن احسان کو سخت ترین حالات میں رکھتا ہے۔ محسن کی آگاہی مخصوص مشکل حالات میں ٹھوس نتائج دیتی ہے — صرف نماز میں نہیں۔</div>
+    </div>
+    <div class="notes-sec">
+      <div class="notes-hdr"><span class="en-blk">Personal Notes</span><span class="ur-blk">ذاتی نوٹس</span></div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--teal)"></div><span class="en-blk">Three tests: hardship-giving · anger-suppression · pardoning. Which is your weakest right now?</span><span class="ur-blk">تین امتحان: تنگی میں دینا · غصہ دبانا · معاف کرنا۔ کون سا کمزور ترین؟</span><span class="nsv" id="sv-mh2"></span></div>
+        <textarea class="note-ta" id="note-mh2" placeholder="Which of the three do you consistently fail at — and what specific situation triggers that failure?" oninput="autoSave('mh2',this.value)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="era-divider">
+  <div class="era-dot era-madani"></div>
+  <div class="era-label en-blk">Madani · Al-Maidah 5:13 — Third Statement · Ihsan After Betrayal</div>
+  <div class="era-label-ur ur-blk">مدنی · المائدہ ۵:۱۳ — تیسرا بیان · خیانت کے بعد احسان</div>
+  <div class="era-line"></div>
+</div>
+
+<div class="ayah-card" id="mh-513">
+  <div class="ayah-card-hdr" onclick="toggleCard('mh-513')">
+    <span class="rev-badge rev-madani en-blk">Rev. #112</span><span class="rev-badge rev-madani ur-blk">ترتیب #112</span>
+    <span class="card-ref">Al-Maidah 5:13</span>
+    <span class="card-preview">فَاعْفُ عَنْهُمْ وَاصْفَحْ ۚ إِنَّ اللَّهَ يُحِبُّ الْمُحْسِنِينَ</span>
+    <span class="card-chevron">›</span>
+  </div>
+  <div class="card-body">
+    <div class="ayah-arabic">فَبِمَا نَقْضِهِم مِّيثَاقَهُمْ لَعَنَّاهُمْ وَجَعَلْنَا قُلُوبَهُمْ قَاسِيَةً ۖ فَاعْفُ عَنْهُمْ وَاصْفَحْ ۚ إِنَّ اللَّهَ يُحِبُّ الْمُحْسِنِينَ</div>
+    <div class="ayah-tr-en en-blk">"Because of their breaking of their covenant We cursed them and hardened their hearts. So pardon them and overlook — indeed Allah loves the Muhsineen."</div>
+    <div class="ayah-tr-ur ur-blk">«ان کے عہد توڑنے کی وجہ سے ہم نے لعنت دی اور دل سخت کیے۔ پس انہیں معاف کرو اور درگزر کرو — اللہ محسنوں سے محبت کرتا ہے۔»</div>
+    <div class="ayah-ref-line">Surah Al-Maidah 5:13</div>
+    <div class="ctx-box">
+      <div class="ctx-lbl en-blk">The Hardest Context — After Definitive Betrayal</div>
+      <div class="ctx-txt en-blk">The most demanding context for the love statement. People who broke covenants, were cursed, had their hearts hardened — full justification for a different response. The command: Fa'fu 'anhum wa'sfah — two verbs. 'Afw = to pardon the offence. Safh = to turn away entirely, to overlook without holding it in memory. Then: Allah loves the Muhsineen. The love statement placed specifically after betrayal, after everything that would warrant anger. Ihsan in the hardest conditions earns the love — not Ihsan in comfort.</div>
+      <div class="ctx-txt-ur ur-blk">سب سے مشکل سیاق۔ جنہوں نے عہد توڑا، لعنت ملی — دو فعل: عفو (جرم معاف) اور صفح (مکمل اعراض، یاد میں بھی نہ رکھنا)۔ پھر محبت۔ خیانت کے بعد، غصے کے جواز کے بعد — یہاں احسان محبت کماتا ہے۔</div>
+    </div>
+    <div class="uniq-box">
+      <div class="uniq-lbl en-blk">What the Three Statements Together Establish</div>
+      <div class="uniq-txt en-blk">The three build a progressive picture: 2:195 — Ihsan in material giving. 3:134 — Ihsan in anger and pardon with ordinary people. 5:13 — Ihsan in pardon after definitive betrayal. Each harder than the last. The love is not for Ihsan in comfortable conditions — it is for Ihsan when it is hardest to produce. The Muhsin who earns all three is the one whose beautiful-doing survives the hardest tests.</div>
+      <div class="uniq-txt-ur ur-blk">تین بیانات ترقی پذیر تصویر: ۲:۱۹۵ — مادی احسان۔ ۳:۱۳۴ — عام لوگوں کے ساتھ۔ ۵:۱۳ — خیانت کے بعد۔ ہر ایک پہلے سے مشکل۔ محبت آسان حالات میں نہیں — سب سے مشکل جگہ احسان کے لیے۔</div>
+    </div>
+    <div class="notes-sec">
+      <div class="notes-hdr"><span class="en-blk">Personal Notes</span><span class="ur-blk">ذاتی نوٹس</span></div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--amber)"></div><span class="en-blk">Is there someone who definitively betrayed you — toward whom Ihsan means fa'fu wa'sfah?</span><span class="ur-blk">کوئی جس نے خیانت کی — جس کے ساتھ احسان فاعف واصفح ہوگا؟</span><span class="nsv" id="sv-mh3"></span></div>
+        <textarea class="note-ta" id="note-mh3" placeholder="Name the situation (not the person). What is stopping the pardon — and what would fa'fu wa'sfah require from you?" oninput="autoSave('mh3',this.value)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="era-divider">
+  <div class="era-dot era-purple"></div>
+  <div class="era-label en-blk">Sunnah — The Definition of Ihsan · Hadith of Jibreel</div>
+  <div class="era-label-ur ur-blk">سنت — احسان کی تعریف · حدیثِ جبریل</div>
+  <div class="era-line"></div>
+</div>
+
+<div class="sh-card">
+  <div class="sh-lbl en-blk">Ihsan Defined — From the Angel of Revelation</div>
+  <div class="sh-lbl ur-blk">احسان کی تعریف — وحی کے فرشتے سے</div>
+  <div class="sh-ar">قَالَ: فَأَخْبِرْنِي عَنِ الإِحْسَانِ. قَالَ: أَنْ تَعْبُدَ اللَّهَ كَأَنَّكَ تَرَاهُ، فَإِنْ لَمْ تَكُنْ تَرَاهُ فَإِنَّهُ يَرَاكَ</div>
+  <div class="sh-en en-blk">"Tell me about Ihsan. He said: That you worship Allah as though you see Him — and if you do not see Him, then He sees you."</div>
+  <div class="sh-ur ur-blk">«احسان کے بارے میں بتاؤ۔ فرمایا: اللہ کی عبادت اس طرح کرو جیسے اسے دیکھ رہے ہو — اور اگر نہیں دیکھتے تو وہ تمہیں دیکھ رہا ہے۔»</div>
+  <div class="sh-src">Sahih Bukhari 50 · Sahih Muslim 9 — Hadith of Jibreel AS <span class="grade g-sahih">✦ Sahih</span></div>
+</div>
+
+<div class="insight">
+  <div class="insight-lbl en-blk">◈ Two Levels of Ihsan — Mushahada and Muraqabah</div>
+  <div class="insight-lbl ur-blk">◈ احسان کی دو سطحیں — مشاہدہ اور مراقبہ</div>
+  <div class="insight-txt en-blk">The prophetic definition gives two levels. First: "as though you see Him" — Mushahada (direct witnessing). The awareness of Allah is so vivid it is as if sight is present. Second: "He sees you" — Muraqabah (awareness of being watched). Even without the vivid awareness, you act knowing He sees. Ibn al-Qayyim's critical distinction: Muraqabah is the maintenance of the knowledge that Allah sees; Mushahada is the direct experiential presence of that reality. Both produce Ihsan. The Mushahada-level Muhsin no longer needs to remind himself — the awareness is constant. The Muraqabah-level Muhsin actively maintains it. The entire spiritual path exists to move a person from Muraqabah toward Mushahada — from knowing He sees to living in that knowledge continuously.</div>
+  <div class="insight-txt-ur ur-blk">دو سطحیں: مشاہدہ (براہ راست گواہی — آگاہی اتنی واضح جیسے نظر ہو) اور مراقبہ (دیکھے جانے کی آگاہی)۔ ابن القیم: دونوں احسان پیدا کرتے ہیں۔ پوری روحانی راہ: مراقبہ سے مشاہدے کی طرف۔</div>
+</div>
+
+<div class="sec-lbl en-blk">Scholarly Analysis — Al-Muhsinoon</div>
+<div class="sec-lbl ur-blk" style="font-family:var(--font-arab);font-size:14px;color:var(--gold);padding:18px 0 14px">المحسنون — علماء کا تجزیہ</div>
+<div class="scholars-lbl en-blk">✦ Four Scholars · Four Positions on the Path to Ihsan</div>
+<div class="scholars-lbl ur-blk">✦ چار علماء · احسان کے راستے پر چار مقامات</div>
+
+<div class="scholar-card" id="sc-mh-ghazali">
+  <div class="sc-hdr" onclick="toggleScholar('sc-mh-ghazali')">
+    <div class="sc-badge">غ</div>
+    <div>
+      <div class="sc-name">Al-Ghazali — Ihya Ulum al-Din</div>
+      <div class="sc-text en-blk">Ihsan as the Destination of the Entire Ihya — Uncovered, Not Achieved</div>
+      <div class="sc-text ur-blk">احسان — پوری احیاء کی منزل — حاصل نہیں، ظاہر ہوتا ہے</div>
+    </div>
+    <div class="sc-chev">›</div>
+  </div>
+  <div class="sc-body">
+    <div class="sc-quote en-blk">"The entire structure of the Ihya has one destination: the state described as Ihsan in the Hadith of Jibreel. All of the purification of blameworthy traits, all cultivation of praiseworthy ones, all dhikr and tafakkur — these are not ends. They are the clearing of obstructions. The obstruction between the believer and the state of Ihsan is the nafs with its diseases. When the diseases are treated, when attachments are loosened, when preoccupations are silenced — what remains is the heart in its natural state, which is the state of Mushahada. Ihsan is not achieved. It is uncovered."</div>
+    <div class="sc-quote-ur ur-blk">«احیاء کی پوری ساخت کی ایک منزل ہے: احسان کی کیفیت۔ تمام ذموم کی صفائی، تمام محمود کی پرورش — یہ منزلیں نہیں — رکاوٹیں ہٹانا ہے۔ احسان حاصل نہیں کیا جاتا — ظاہر ہوتا ہے۔»</div>
+    <div class="sc-analysis en-blk">Al-Ghazali's most important claim: Ihsan is the natural state of the heart that has been uncovered, not a foreign achievement built from scratch. The fitrah already carries the capacity for Mushahada. What blocks it are the accumulated diseases of the nafs. The Ihya's four quarters trace this excavation: establishing outer practice (Islam) → clearing social diseases → removing interior diseases of pride, envy, self-deception → cultivating saving qualities of tawbah, sabr, mahabbah, tawakkul. When this programme completes, Ihsan emerges — not as a new addition but as the original state restored.</div>
+    <div class="sc-analysis-ur ur-blk">الغزالی: احسان خودبخود ظاہر ہونے والی قدرتی کیفیت — تعمیر نہیں، کھدائی۔ فطرت پہلے سے صلاحیت رکھتی ہے — نفس کی بیماریاں ڈھانپتی ہیں۔ احیاء کا پروگرام: بیماریاں ہٹاؤ — احسان ظاہر ہوتا ہے۔</div>
+    <div class="sc-source">Ihya Ulum al-Din — All four quarters as preparation for Ihsan · Book 36 (Mahabbah) as closest station</div>
+  </div>
+</div>
+
+<div class="scholar-card" id="sc-mh-ibnqayyim">
+  <div class="sc-hdr" onclick="toggleScholar('sc-mh-ibnqayyim')">
+    <div class="sc-badge">ق</div>
+    <div>
+      <div class="sc-name">Ibn al-Qayyim — Madarij al-Salikin · Tariq al-Hijratayn</div>
+      <div class="sc-text en-blk">Two Levels of Ihsan — Effort-Muraqabah vs Nature-Mushahada</div>
+      <div class="sc-text ur-blk">احسان کی دو سطحیں — محنت-مراقبہ بنام فطرت-مشاہدہ</div>
+    </div>
+    <div class="sc-chev">›</div>
+  </div>
+  <div class="sc-body">
+    <div class="sc-quote en-blk">"The Muhsin at Mushahada no longer needs to remind himself that Allah is watching — the awareness is present as continuously as his own breathing. The Muhsin at Muraqabah must maintain the awareness actively, and this maintenance itself is worship of the highest order. The difference between them is not in their acts — an observer sees the same prayer, giving, patience. The difference is whether the awareness is effort or nature. Both are Muhsineen. Both are loved by Allah. The goal of all stations: move from effort-awareness to ease-awareness."</div>
+    <div class="sc-quote-ur ur-blk">«مشاہدے والا اپنے آپ کو یاد نہیں دلاتا — آگاہی سانس جتنی مسلسل۔ مراقبے والا فعال طور پر برقرار رکھتا ہے — یہ خود اعلیٰ عبادت ہے۔ دونوں محسن، دونوں اللہ کو محبوب۔ تمام مراحل کا مقصد: محنت کی آگاہی سے آسانی کی آگاہی تک۔»</div>
+    <div class="sc-analysis en-blk">Ibn al-Qayyim's most practically useful point: he validates Muraqabah as genuine Ihsan — not a lesser substitute — while clearly showing where it leads. He prevents the trap of thinking "I haven't reached Mushahada yet, therefore I am not a Muhsin." The effort to maintain awareness is itself the Ihsan that earns the love. His Madarij traces the journey through specific stations toward Mushahada.</div>
+    <div class="sc-analysis-ur ur-blk">ابن القیم: مراقبے کو حقیقی احسان کے طور پر تصدیق کرتے ہیں۔ اہم: «ابھی مشاہدہ نہیں، لہذا محسن نہیں» کے جال سے بچاتے ہیں۔ آگاہی برقرار رکھنے کی محنت خود وہ احسان ہے جو محبت کماتا ہے۔</div>
+    <div class="sc-source">Madarij al-Salikin — Station of Muraqabah and Mushahada · Tariq al-Hijratayn — Ihsan's two levels</div>
+  </div>
+</div>
+
+<div class="scholar-card" id="sc-mh-muhasibi">
+  <div class="sc-hdr" onclick="toggleScholar('sc-mh-muhasibi')">
+    <div class="sc-badge">م</div>
+    <div>
+      <div class="sc-name">Al-Muhasibi — Al-Ri'ayah</div>
+      <div class="sc-text en-blk">The Sincerity Test — Is Your Ihsan Real or Performed?</div>
+      <div class="sc-text ur-blk">خلوص کا امتحان — آپ کا احسان حقیقی ہے یا اداکاری؟</div>
+    </div>
+    <div class="sc-chev">›</div>
+  </div>
+  <div class="sc-body">
+    <div class="sc-quote en-blk">"The most dangerous counterfeit of Ihsan is the person who performs Ihsan beautifully when people are watching and allows it to collapse when alone. He has not reached awareness of being seen — he has reached awareness of being seen by people. These are not the same. True Ihsan: does your quality of worship, giving, and treatment of others remain constant whether observed or not? If it drops when alone, you have not reached Muraqabah — you have reached a form of riya disguised as Ihsan."</div>
+    <div class="sc-quote-ur ur-blk">«سب سے خطرناک نقل: لوگوں کے سامنے خوبصورت احسان، تنہائی میں گرنا۔ الٰہی نظر کی آگاہی نہیں — انسانی نظر کی۔ یہ ایک جیسا نہیں۔ اگر تنہا ہو کر گرتا ہے — مراقبہ نہیں، ریا ہے۔»</div>
+    <div class="sc-analysis en-blk">Al-Muhasibi's test is the simplest and most devastating: the gap between public and private quality. Most people who think they practise Ihsan are actually practising sophisticated riya — awareness of human observation, not divine observation. The proof is quality-collapse in private. True Muraqabah produces the same quality whether observed or not. This test is available every day: was my private prayer as present and careful as my prayer when others could see?</div>
+    <div class="sc-analysis-ur ur-blk">المحاسبی: عوامی اور نجی معیار کا فرق — سب سے سادہ اور تباہ کن امتحان۔ روزانہ: کیا میری نجی نماز اتنی ہی حاضر تھی جتنی سامنے والی؟</div>
+    <div class="sc-source">Al-Ri'ayah li-Huquqillah — Chapter on the conditions of Ihsan and detection of riya</div>
+  </div>
+</div>
+
+<div class="scholar-card" id="sc-mh-ataullah">
+  <div class="sc-hdr" onclick="toggleScholar('sc-mh-ataullah')">
+    <div class="sc-badge">ع</div>
+    <div>
+      <div class="sc-name">Ibn Ata'illah — Al-Hikam al-Ata'iyyah</div>
+      <div class="sc-text en-blk">Ihsan as the Disappearance of the Worshipper — The Inside View</div>
+      <div class="sc-text ur-blk">احسان — عبادت کرنے والے کا غائب ہونا</div>
+    </div>
+    <div class="sc-chev">›</div>
+  </div>
+  <div class="sc-body">
+    <div class="sc-quote en-blk">"When Ihsan is complete, the worshipper worships as though he sees — which means he is so absorbed in the One he sees that he forgets he is the one seeing. The self that was performing the worship has, for that moment, stepped aside. What remains is the worship, the One being worshipped, and the awareness between them. The Prophet ﷺ was not describing a technique to try — but a quality of presence such that worship occurs without interference of the calculating self."</div>
+    <div class="sc-quote-ur ur-blk">«جب احسان مکمل، عبادت کرنے والا اتنا جذب کہ بھول جائے وہ دیکھنے والا ہے۔ عبادت کرنے والی ذات ایک طرف ہٹ گئی۔ جو بچا: عبادت، معبود، اور آگاہی۔ نبی ﷺ نے کوئی تکنیک نہیں بتائی — حاضری کا معیار بتایا۔»</div>
+    <div class="sc-analysis en-blk">Ibn Ata'illah describes Ihsan from the inside — for people already approaching the state. His point: complete Ihsan involves a paradox — the self trying to achieve Ihsan must eventually step aside for Ihsan to be complete. The Prophet ﷺ said "as though you see Him" — not "as though you are doing something impressive." The Muhsin is not performing anything. The worship is occurring through him. This distinguishes the highest Muhsinoon from those at entry level.</div>
+    <div class="sc-analysis-ur ur-blk">ابن عطاء اللہ: احسان کو اندر سے بیان کرتے ہیں۔ مکمل احسان میں تضاد — احسان حاصل کرنے کی کوشش کرنے والی ذات کو بالآخر ایک طرف ہٹنا ہوگا۔ نبی ﷺ نے کارکردگی نہیں — دیکھنے جیسی حاضری کہی۔</div>
+    <div class="sc-source">Al-Hikam al-Ata'iyyah — Aphorisms 1-20 on states of the heart in worship</div>
+  </div>
+</div>
+
+<div class="insight">
+  <div class="insight-lbl en-blk">◈ Where the Four Scholars Diverge</div>
+  <div class="insight-lbl ur-blk">◈ چاروں علماء کا اختلاف</div>
+  <div class="insight-txt en-blk">Al-Ghazali and Ibn al-Qayyim treat Ihsan as trainable through structured programme — optimistic systematisers. Al-Muhasibi interrogates the sincerity of the effort — the diagnostician preventing counterfeit. Ibn Ata'illah describes the destination from the inside — for those already approaching it. The divergence: Al-Ghazali says the path is clearing the nafs's diseases. Al-Muhasibi says the path requires ruthless detection of self-deception along the way. Ibn al-Qayyim maps specific named stations. Ibn Ata'illah says the self trying to reach Ihsan must eventually be transcended. All four describe the same destination from four different positions on the journey.</div>
+  <div class="insight-txt-ur ur-blk">چاروں ایک منزل کو راستے کے چار مختلف مقامات سے بیان کر رہے ہیں۔ الغزالی: نفس کی بیماریاں صاف کرو۔ المحاسبی: راستے میں خود فریبی پکڑتے رہو۔ ابن القیم: نامزد مراحل کا نقشہ۔ ابن عطاء اللہ: احسان پانے کی کوشش کرنے والی ذات کو بالآخر پیچھے ہٹنا ہوگا۔</div>
+</div>
+
+<div class="synth-box">
+  <div class="notes-hdr"><span class="en-blk">Personal Synthesis — Al-Muhsinoon</span><span class="ur-blk">ذاتی خلاصہ — المحسنون</span></div>
+  <div class="note-f">
+    <div class="note-lbl"><div class="nd" style="background:var(--gold)"></div><span class="en-blk">After the three ayat, the Hadith of Jibreel, and four scholars — where am I on the Muraqabah-to-Mushahada spectrum? What specific practice would move me one step?</span><span class="ur-blk">تین آیات، حدیث جبریل، چار علماء — مراقبہ سے مشاہدے کے درجے پر کہاں ہوں؟</span><span class="nsv" id="sv-mh-synth"></span></div>
+    <textarea class="note-ta" id="note-mh-synth" style="min-height:100px" placeholder="Al-Muhasibi's test: does quality collapse in private? Ibn al-Qayyim's map: effort-Muraqabah or nature-Muraqabah? What specific daily practice would move you one step toward Mushahada?" oninput="autoSave('mh-synth',this.value)"></textarea>
+  </div>
+</div>
+</div><!-- end muhsinoon -->
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- RANK II: AL-MUTTAQOON -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div class="rank-section" id="sec-muttaqoon">
+<div class="rank-hdr">
+  <div class="rank-hdr-num en-blk">Rank II · Three Love Statements · The Quran's Own Primary Audience</div>
+  <div class="rank-hdr-num ur-blk">درجہ دوم · تین محبت کے بیانات · قرآن کا اپنا اصل مخاطب</div>
+  <div class="rank-hdr-ar">الْمُتَّقُون</div>
+  <div class="rank-hdr-en en-blk">Al-Muttaqoon — The Shield-Bearers</div>
+  <div class="rank-hdr-ur ur-blk">المتقون — ڈھال والے</div>
+  <div class="rank-hdr-rule"></div>
+  <div class="rank-hdr-root en-blk">Root: و — ق — ي · To shield · To protect · Al-Muttaqi: one who has placed a shield between himself and Allah's displeasure through conscious awareness · Taqwa is NOT primarily fear — it is active shielding</div>
+  <div class="rank-hdr-root ur-blk">جڑ: و — ق — ی · ڈھال · حفاظت · تقویٰ بنیادی طور پر خوف نہیں — فعال ڈھال ہے</div>
+  <div class="rank-hdr-intro en-blk">Taqwa is the most frequently commanded quality in the Quran. The Quran is described as guidance specifically for the Muttaqeen (2:2) — not all believers. Three love statements appear in three completely different contexts: personal promise-keeping (3:76), treaty-keeping with former adversaries (9:4, 9:7). Together they establish that the Muttaqi's shield operates universally — not only in worship but in every contract and commitment.</div>
+  <div class="rank-hdr-intro-ur ur-blk">تقویٰ قرآن میں سب سے زیادہ حکم دی گئی خاصیت۔ قرآن متقین کے لیے ہدایت (۲:۲)۔ تین محبت کے بیانات تین مختلف سیاقوں میں: ذاتی عہد، معاہدے کی پابندی۔ مل کر: متقی کی ڈھال ہر جگہ کام کرتی ہے۔</div>
+</div>
+
+<div class="love-banner">
+  <div class="love-banner-label en-blk">Divine Love — Three Times</div>
+  <div class="love-banner-label ur-blk">الٰہی محبت — تین بار</div>
+  <div class="love-banner-ar">إِنَّ اللَّهَ يُحِبُّ الْمُتَّقِينَ</div>
+  <div class="love-banner-tr en-blk">"Indeed Allah loves the Muttaqeen."</div>
+  <div class="love-banner-tr-ur ur-blk">«بے شک اللہ متقوں سے محبت کرتا ہے۔»</div>
+  <div class="love-banner-ref">Al-Imran 3:76 · Al-Tawbah 9:4 · Al-Tawbah 9:7</div>
+</div>
+
+<div class="root-analysis">
+  <div class="ra-label"><span class="en-blk">Root — و ق ي</span><span class="ur-blk">جڑ — و ق ی</span></div>
+  <div class="ra-root">وَقَى · تَقْوَى · الْمُتَّقِي · وِقَايَة · اتِّقَاء</div>
+  <div class="ra-letters">
+    <div class="ra-letter"><span class="ra-letter-ar">و</span><span class="ra-letter-en">W</span></div>
+    <div class="ra-letter"><span class="ra-letter-ar">ق</span><span class="ra-letter-en">Q</span></div>
+    <div class="ra-letter"><span class="ra-letter-ar">ي</span><span class="ra-letter-en">Y</span></div>
+  </div>
+  <div class="ra-meaning en-blk">W-Q-Y is the root of shielding and protection. Waqa (he shielded) — Wiqaya (protection) — Taqwa (the active maintenance of a protective shield between oneself and what would harm spiritually) — Al-Muttaqi (one who actively maintains this protection). The word Taqwa does not primarily mean fear — it means the active maintenance of a shield. The metaphor is military: the soldier who carries a shield does not carry it because he is afraid — he carries it because he is prepared. The Muttaqi is equipped, not cowering. Ibn al-Qayyim's most important linguistic observation: Taqwa is not an emotion (khawf) — it is an action (ittaqa — he shielded himself). You cannot possess Taqwa without doing something. It requires conscious deliberate maintenance.</div>
+  <div class="ra-meaning-ur ur-blk">و-ق-ی ڈھال اور حفاظت کی جڑ۔ تقویٰ بنیادی طور پر خوف نہیں — فعال ڈھال۔ ابن القیم: تقویٰ جذبہ نہیں (خوف) — عمل ہے (اتقی — اس نے ڈھال لی)۔ تقویٰ بغیر کیے نہیں ہوتی۔ شعوری، جان بوجھ کر برقراری مانگتی ہے۔</div>
+  <div class="ra-forms">
+    <div class="ra-form"><div class="ra-form-ar">تَقْوَى</div><div class="ra-form-en en-blk">The protective shielding</div><div class="ra-form-en ur-blk">تقویٰ</div></div>
+    <div class="ra-form"><div class="ra-form-ar">الْمُتَّقِي</div><div class="ra-form-en en-blk">The shield-bearer</div><div class="ra-form-en ur-blk">متقی</div></div>
+    <div class="ra-form"><div class="ra-form-ar">اتَّقَى</div><div class="ra-form-en en-blk">He shielded himself</div><div class="ra-form-en ur-blk">اس نے ڈھال لی</div></div>
+    <div class="ra-form"><div class="ra-form-ar">وِقَايَة</div><div class="ra-form-en en-blk">Shield / Protection</div><div class="ra-form-en ur-blk">وقایہ</div></div>
+  </div>
+  <div class="ra-count en-blk">✦ W-Q-Y appears 250+ times · Most commanded quality in the Quran · The Quran describes itself as guidance specifically for the Muttaqeen (2:2)</div>
+  <div class="ra-count ur-blk">✦ و-ق-ی ۲۵۰ سے زیادہ بار · قرآن میں سب سے زیادہ حکم · قرآن = متقین کے لیے ہدایت (۲:۲)</div>
+</div>
+
+<div class="era-divider">
+  <div class="era-dot era-madani"></div>
+  <div class="era-label en-blk">Madani · Al-Baqarah 2:2 — The Quran Identifies Its Own Audience</div>
+  <div class="era-label-ur ur-blk">مدنی · البقرہ ۲:۲ — قرآن اپنا مخاطب بیان کرتا ہے</div>
+  <div class="era-line"></div>
+</div>
+
+<div class="ayah-card" id="mt-22">
+  <div class="ayah-card-hdr" onclick="toggleCard('mt-22')">
+    <span class="rev-badge rev-madani en-blk">Rev. #87</span><span class="rev-badge rev-madani ur-blk">ترتیب #87</span>
+    <span class="card-ref">Al-Baqarah 2:2</span>
+    <span class="card-preview">ذَٰلِكَ الْكِتَابُ لَا رَيْبَ ۛ فِيهِ ۛ هُدًى لِّلْمُتَّقِينَ</span>
+    <span class="card-chevron">›</span>
+  </div>
+  <div class="card-body">
+    <div class="ayah-arabic">ذَٰلِكَ الْكِتَابُ لَا رَيْبَ ۛ فِيهِ ۛ هُدًى لِّلْمُتَّقِينَ</div>
+    <div class="ayah-tr-en en-blk">"This is the Book about which there is no doubt — guidance for the Muttaqeen."</div>
+    <div class="ayah-tr-ur ur-blk">«یہ وہ کتاب جس میں کوئی شک نہیں — متقین کے لیے ہدایت۔»</div>
+    <div class="ayah-ref-line">Surah Al-Baqarah 2:2</div>
+    <div class="ctx-box">
+      <div class="ctx-lbl en-blk">The Second Ayah of the Quran — Guidance Specifically for the Muttaqeen</div>
+      <div class="ctx-txt en-blk">Not hudan lil-nas (guidance for people). Not hudan lil-mu'mineen (for believers). Guidance for the Muttaqeen specifically. Al-Qurtubi resolves the apparent paradox: Taqwa is a spectrum, not binary. The Quran's guidance works in proportion to the Taqwa the reader brings. More Taqwa = more guidance extracted from the same text. The Muttaqeen receive the full depth because their shield allows guidance to penetrate where a hardened or heedless heart cannot receive it. This makes Taqwa the most important single quality for anyone who wants to understand the Quran.</div>
+      <div class="ctx-txt-ur ur-blk">لوگوں کے لیے نہیں — متقین کے لیے۔ قرطبی: تقویٰ طیف ہے۔ ہدایت تقویٰ کے تناسب میں کام کرتی ہے۔ زیادہ تقویٰ = ایک ہی متن سے زیادہ ہدایت۔ قرآن سمجھنا چاہتے ہیں — تقویٰ سب سے اہم خاصیت ہے۔</div>
+    </div>
+    <div class="root-box">
+      <div class="root-lbl en-blk">The Penetration Metaphor — Guidance vs Information</div>
+      <span class="root-wd">هُدًى</span><span class="root-fm"> · H-D-Y · Active guidance — leads to the right path</span>
+      <div class="root-mn en-blk">Hudan describes the Quran as an active force — not static text but living guidance that does something to the person who approaches with Taqwa. The shield is not only protective — it is receptive. It creates the inner condition in which guidance can land, penetrate, and produce change. Without Taqwa the same text is read but bounces off. A person who reads with active Taqwa receives guidance. The same person reading without Taqwa receives information. This is the most practical implication of this ayah.</div>
+      <div class="root-mn-ur ur-blk">ہدی — فعال قوت، زندہ ہدایت۔ تقویٰ صرف حفاظتی نہیں — وصولی بھی ہے۔ تقویٰ کے ساتھ: ہدایت اترتی ہے۔ بغیر تقویٰ: معلومات ملتی ہے۔</div>
+    </div>
+    <div class="notes-sec">
+      <div class="notes-hdr"><span class="en-blk">Personal Notes</span><span class="ur-blk">ذاتی نوٹس</span></div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--gold)"></div><span class="en-blk">Does your reading of the Quran feel like guidance landing — or information passing through?</span><span class="ur-blk">آپ کا قرآن پڑھنا ہدایت کے اترنے جیسا لگتا ہے — یا معلومات گزرنے جیسا؟</span><span class="nsv" id="sv-mt1"></span></div>
+        <textarea class="note-ta" id="note-mt1" placeholder="Last Quran reading session: guidance (something changed, landed) or information (you absorbed content)?" oninput="autoSave('mt1',this.value)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="era-divider">
+  <div class="era-dot era-madani"></div>
+  <div class="era-label en-blk">Madani · Al-Imran 3:76 — Love After Promise-Keeping · Wafa + Taqwa</div>
+  <div class="era-label-ur ur-blk">مدنی · آل عمران ۳:۷۶ — وعدہ پورا کرنے کے بعد محبت · وفا + تقویٰ</div>
+  <div class="era-line"></div>
+</div>
+
+<div class="ayah-card" id="mt-376">
+  <div class="ayah-card-hdr" onclick="toggleCard('mt-376')">
+    <span class="rev-badge rev-madani en-blk">Rev. #89</span><span class="rev-badge rev-madani ur-blk">ترتیب #89</span>
+    <span class="card-ref">Al-Imran 3:76</span>
+    <span class="card-preview">بَلَىٰ مَنْ أَوْفَىٰ بِعَهْدِهِ وَاتَّقَىٰ فَإِنَّ اللَّهَ يُحِبُّ الْمُتَّقِينَ</span>
+    <span class="card-chevron">›</span>
+  </div>
+  <div class="card-body">
+    <div class="ayah-arabic">بَلَىٰ مَنْ أَوْفَىٰ بِعَهْدِهِ وَاتَّقَىٰ فَإِنَّ اللَّهَ يُحِبُّ الْمُتَّقِينَ</div>
+    <div class="ayah-tr-en en-blk">"Yes — whoever fulfils his covenant and has Taqwa — indeed Allah loves the Muttaqeen."</div>
+    <div class="ayah-tr-ur ur-blk">«ہاں — جس نے عہد پورا کیا اور تقویٰ اختیار کی — بے شک اللہ متقوں سے محبت کرتا ہے۔»</div>
+    <div class="ayah-ref-line">Surah Al-Imran 3:76</div>
+    <div class="ctx-box">
+      <div class="ctx-lbl en-blk">Wafa + Taqwa — The Two-Part Formula</div>
+      <div class="ctx-txt en-blk">Context: refutation of the claim that promises made to outsiders need not be kept. The Quran's emphatic response: "Bala" (yes indeed) — whoever fulfils covenant AND has Taqwa. Two conditions joined deliberately. Taqwa without Wafa is incomplete — the shield protects from sin but does not produce justice in commitments means something is missing. Wafa without Taqwa is merely honour-based ethics — it can collapse when convenient. When both are present together, the love statement follows. The Muttaqi's shield protects him from the temptation to break commitments when it becomes advantageous.</div>
+      <div class="ctx-txt-ur ur-blk">وفا + تقویٰ — جان بوجھ کر جوڑے گئے۔ تقویٰ بغیر وفا ناقص۔ وفا بغیر تقویٰ — سہولت پر گر سکتا ہے۔ دونوں ایک ساتھ: محبت۔ متقی کی ڈھال عہد توڑنے کے لالچ سے بچاتی ہے۔</div>
+    </div>
+    <div class="notes-sec">
+      <div class="notes-hdr"><span class="en-blk">Personal Notes</span><span class="ur-blk">ذاتی نوٹس</span></div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--teal)"></div><span class="en-blk">Is there a promise, covenant, or commitment your Taqwa should be protecting but has not?</span><span class="ur-blk">کوئی وعدہ یا عہد جسے آپ کی تقویٰ محفوظ رکھنی چاہیے تھی لیکن نہیں رکھا؟</span><span class="nsv" id="sv-mt2"></span></div>
+        <textarea class="note-ta" id="note-mt2" placeholder="Name the unfulfilled covenant honestly. What would Taqwa require you to do about it?" oninput="autoSave('mt2',this.value)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="era-divider">
+  <div class="era-dot era-madani"></div>
+  <div class="era-label en-blk">Madani · Al-Tawbah 9:4 — Taqwa in Political and Military Context</div>
+  <div class="era-label-ur ur-blk">مدنی · التوبہ ۹:۴ — سیاسی اور فوجی سیاق میں تقویٰ</div>
+  <div class="era-line"></div>
+</div>
+
+<div class="ayah-card" id="mt-94">
+  <div class="ayah-card-hdr" onclick="toggleCard('mt-94')">
+    <span class="rev-badge rev-madani en-blk">Rev. #113</span><span class="rev-badge rev-madani ur-blk">ترتیب #113</span>
+    <span class="card-ref">Al-Tawbah 9:4</span>
+    <span class="card-preview">فَأَتِمُّوا إِلَيْهِمْ عَهْدَهُمْ إِلَىٰ مُدَّتِهِمْ ۚ إِنَّ اللَّهَ يُحِبُّ الْمُتَّقِينَ</span>
+    <span class="card-chevron">›</span>
+  </div>
+  <div class="card-body">
+    <div class="ayah-arabic">إِلَّا الَّذِينَ عَاهَدتُّم مِّنَ الْمُشْرِكِينَ ثُمَّ لَمْ يَنقُصُوكُمْ شَيْئًا وَلَمْ يُظَاهِرُوا عَلَيْكُمْ أَحَدًا فَأَتِمُّوا إِلَيْهِمْ عَهْدَهُمْ إِلَىٰ مُدَّتِهِمْ ۚ إِنَّ اللَّهَ يُحِبُّ الْمُتَّقِينَ</div>
+    <div class="ayah-tr-en en-blk">"Except those polytheists with whom you made a covenant and they did not fail you and did not support anyone against you — so complete their covenant to its term. Indeed Allah loves the Muttaqeen."</div>
+    <div class="ayah-tr-ur ur-blk">«سوائے ان مشرکین کے جن سے معاہدہ کیا — انہوں نے کمی نہیں کی نہ کسی کو مدد دی — ان کا معاہدہ مدت تک پورا کرو۔ اللہ متقوں سے محبت کرتا ہے۔»</div>
+    <div class="ayah-ref-line">Surah Al-Tawbah 9:4</div>
+    <div class="ctx-box">
+      <div class="ctx-lbl en-blk">Taqwa Beyond the Mosque — In Politics and Conflict</div>
+      <div class="ctx-txt en-blk">Most politically demanding context for the Taqwa love statement. Al-Tawbah deals with treaty violations by polytheist tribes. In the midst of listing exemptions, the command: complete the covenant with those who kept it — to its full term. Then: Allah loves the Muttaqeen. The Taqwa here is not private piety. It is the Taqwa that produces justice toward former adversaries even when inconvenient, even when others have broken their covenants. This locates Taqwa in the hardest public dimension — not just prayer and fasting. The Muttaqi's shield is not spiritually complete if it only operates in the mosque.</div>
+      <div class="ctx-txt-ur ur-blk">سب سے سیاسی طور پر مطالبہ انگیز سیاق۔ تقویٰ مسجد میں نجی عبادت نہیں — مخالفین کے ساتھ بھی عدل اور عہد۔ متقی کی ڈھال صرف مسجد میں کام کرے تو مکمل نہیں۔</div>
+    </div>
+    <div class="notes-sec">
+      <div class="notes-hdr"><span class="en-blk">Personal Notes</span><span class="ur-blk">ذاتی نوٹس</span></div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--amber)"></div><span class="en-blk">Does your Taqwa operate only in mosque contexts, or does it hold in business, politics, and conflict with opponents?</span><span class="ur-blk">آپ کی تقویٰ صرف مسجد میں کام کرتی ہے یا کاروبار، مخالفین کے ساتھ بھی؟</span><span class="nsv" id="sv-mt3"></span></div>
+        <textarea class="note-ta" id="note-mt3" placeholder="Most recent conflict or disagreement — did Taqwa govern your conduct? What would it have required that you did not do?" oninput="autoSave('mt3',this.value)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="sec-lbl en-blk">Scholarly Analysis — Al-Muttaqoon</div>
+<div class="sec-lbl ur-blk" style="font-family:var(--font-arab);font-size:14px;color:var(--gold);padding:18px 0 14px">المتقون — علماء کا تجزیہ</div>
+<div class="scholars-lbl en-blk">✦ Three Scholars · Three Dimensions of Taqwa</div>
+<div class="scholars-lbl ur-blk">✦ تین علماء · تقویٰ کے تین پہلو</div>
+
+<div class="scholar-card" id="sc-mt-ibnqayyim">
+  <div class="sc-hdr" onclick="toggleScholar('sc-mt-ibnqayyim')">
+    <div class="sc-badge">ق</div>
+    <div>
+      <div class="sc-name">Ibn al-Qayyim — Madarij al-Salikin · Al-Fawa'id</div>
+      <div class="sc-text en-blk">Taqwa as Permanent Foundation — Cannot Be Left Behind at Higher Stations</div>
+      <div class="sc-text ur-blk">تقویٰ مستقل بنیاد — اعلیٰ مراحل پر پیچھے نہیں چھوٹتی</div>
+    </div>
+    <div class="sc-chev">›</div>
+  </div>
+  <div class="sc-body">
+    <div class="sc-quote en-blk">"Taqwa is the foundation of all spiritual stations and ranks. There is no station above Taqwa that is not built upon it. The person seeking Siddiqiyyah without Taqwa builds in the air. You do not leave Taqwa when you reach Ihsan — you carry Taqwa into Ihsan. What changes is the depth from which the shield operates: from effortful maintenance to automatic nature. The stations deepen and refine Taqwa — they do not replace it."</div>
+    <div class="sc-quote-ur ur-blk">«تقویٰ تمام روحانی مراحل اور درجات کی بنیاد۔ تقویٰ کے اوپر کوئی مرحلہ نہیں جو اس کے بغیر بنا ہو۔ احسان میں پہنچ کر تقویٰ نہیں چھوڑتے — اسے لے کر جاتے ہیں۔ مراحل تقویٰ کو گہرا کرتے ہیں — بدلتے نہیں۔»</div>
+    <div class="sc-analysis en-blk">Ibn al-Qayyim's most important contribution: Taqwa as permanent foundation, not a lower rung left behind. This prevents the dangerous misunderstanding that Taqwa is for beginners. The person at Siddiqiyyah has deeper, more automatic Taqwa than the Muqtasid. The Muhsin's Taqwa operates without effortful maintenance. The stations are not different routes — they are depths of the same root quality. Every station deepens the Taqwa rather than superseding it.</div>
+    <div class="sc-analysis-ur ur-blk">ابن القیم: تقویٰ مستقل بنیاد ہے — نہ نچلی سیڑھی جو چھوڑی جائے۔ خطرناک غلط فہمی سے بچاتے ہیں کہ تقویٰ ابتدائیوں کے لیے۔ ہر مرحلہ تقویٰ کو گہرا کرتا ہے — اسے حذف نہیں کرتا۔</div>
+    <div class="sc-source">Madarij al-Salikin — Taqwa and its relationship to all stations · Al-Fawa'id — Taqwa as foundation</div>
+  </div>
+</div>
+
+<div class="scholar-card" id="sc-mt-ghazali">
+  <div class="sc-hdr" onclick="toggleScholar('sc-mt-ghazali')">
+    <div class="sc-badge">غ</div>
+    <div>
+      <div class="sc-name">Al-Ghazali — Ihya · Book of Fear and Hope</div>
+      <div class="sc-text en-blk">Taqwa as Product of Khawf — Fear That Produces Action, Not Paralysis</div>
+      <div class="sc-text ur-blk">تقویٰ خوف کی پیداوار — وہ خوف جو عمل دیتا ہے</div>
+    </div>
+    <div class="sc-chev">›</div>
+  </div>
+  <div class="sc-body">
+    <div class="sc-quote en-blk">"Khawf without action is not Taqwa — it is a feeling. Taqwa is what genuine khawf produces. The person who fears Allah but does not change behaviour has experienced a sensation, not transformation. Taqwa is the transformation that genuine fear produces: the arising of the shield, the deliberate avoidance of what harms the soul, the active pursuit of what strengthens it. At the highest levels — Taqwa is no longer driven by fear at all. It is driven by love (mahabbah) and awareness (muraqabah). The fear was the engine that built the shield. Love and awareness maintain it."</div>
+    <div class="sc-quote-ur ur-blk">«خوف بغیر عمل تقویٰ نہیں — احساس ہے۔ اعلیٰ سطح پر تقویٰ خوف سے نہیں بلکہ محبت اور مراقبہ سے قائم۔ خوف ڈھال بنانے کا انجن — محبت اسے برقرار رکھتی ہے۔»</div>
+    <div class="sc-analysis en-blk">Al-Ghazali (Book of Khawf wal-Raja') distinguishes between khawf as spiritual station (productive) and khawf as paralysing emotion (counterproductive). Genuine khawf produces tawbah → avoidance of sin → active Taqwa. When complete, Taqwa is no longer produced by fear as emotion — it becomes automatic and constitutional. Al-Ghazali connects this directly to the Ihsan level: the Muhsin's Taqwa is driven by love and awareness, not fear. The fear was the engine; at the highest levels, love and awareness maintain it.</div>
+    <div class="sc-analysis-ur ur-blk">الغزالی: حقیقی خوف → توبہ → گناہ سے بچاؤ → فعال تقویٰ۔ جب مکمل: تقویٰ خوف سے نہیں بلکہ محبت اور مراقبے سے۔</div>
+    <div class="sc-source">Ihya — Book 33 (Khawf wal-Raja') · Book 36 (Mahabbah) — fear, love, and Taqwa</div>
+  </div>
+</div>
+
+<div class="scholar-card" id="sc-mt-muhasibi">
+  <div class="sc-hdr" onclick="toggleScholar('sc-mt-muhasibi')">
+    <div class="sc-badge">م</div>
+    <div>
+      <div class="sc-name">Al-Muhasibi — Risalat al-Mustarshidin</div>
+      <div class="sc-text en-blk">Five Diseases That Block Taqwa — The Shield's Vulnerabilities</div>
+      <div class="sc-text ur-blk">پانچ بیماریاں جو تقویٰ روکتی ہیں — ڈھال کے سوراخ</div>
+    </div>
+    <div class="sc-chev">›</div>
+  </div>
+  <div class="sc-body">
+    <div class="sc-quote en-blk">"Taqwa cannot be maintained by a nafs harbouring any of its five great diseases: Kibr (pride), Hasad (envy), Riya (ostentation), Hubb al-dunya (excessive love of this world), and Ghaflah (heedlessness). Each disease is a hole in the shield. The person with Taqwa while nursing pride has a shield with a hole — and the blow will enter through exactly that hole. Treating these diseases is not preliminary to Taqwa — it is the maintenance of Taqwa. Taqwa is the shield; the diseases are its vulnerabilities."</div>
+    <div class="sc-quote-ur ur-blk">«تقویٰ اس نفس سے برقرار نہیں جو پانچ بڑی بیماریاں پالے: کبر، حسد، ریا، حبِ دنیا، غفلت۔ ہر بیماری ڈھال میں سوراخ۔ علاج تقویٰ سے پہلے نہیں — خود تقویٰ کا کام ہے۔»</div>
+    <div class="sc-analysis en-blk">Al-Muhasibi's framework is the most practically diagnostic: five specific interior conditions that make Taqwa functionally impossible even when the person believes they have it. Kibr is the fundamental rejection of servitude — Taqwa is the ultimate expression of servitude: incompatible. Riya means performing worship for human observation rather than divine observation — the exact opposite of Taqwa. His contribution: make Taqwa maintenance a diagnostic project. Before claiming Taqwa, examine the nafs for its diseases — each disease is a different way the Taqwa breaks down under pressure.</div>
+    <div class="sc-analysis-ur ur-blk">المحاسبی: پانچ باطنی حالات جو تقویٰ ناممکن بناتے ہیں۔ کبر: بندگی کا انکار — تقویٰ بندگی کا اعلیٰ ترین اظہار: ناموافق۔ تقویٰ ایک تشخیصی منصوبہ — پہلے بیماریاں جانچو۔</div>
+    <div class="sc-source">Risalat al-Mustarshidin — Five diseases blocking Taqwa · Al-Ri'ayah — kibr, hasad, riya as enemies of the shield</div>
+  </div>
+</div>
+
+<div class="synth-box">
+  <div class="notes-hdr"><span class="en-blk">Personal Synthesis — Al-Muttaqoon</span><span class="ur-blk">ذاتی خلاصہ — المتقون</span></div>
+  <div class="note-f">
+    <div class="note-lbl"><div class="nd" style="background:var(--gold)"></div><span class="en-blk">Al-Muhasibi's five diseases — which one is currently creating the biggest hole in your shield? And which area of your life is the shield weakest in — mosque only, or universally?</span><span class="ur-blk">پانچ بیماریوں میں سے کون سی ابھی سب سے بڑا سوراخ بنا رہی ہے؟</span><span class="nsv" id="sv-mt-synth"></span></div>
+    <textarea class="note-ta" id="note-mt-synth" style="min-height:100px" placeholder="Kibr · Hasad · Riya · Hubb al-dunya · Ghaflah — honest placement, which is most active. Then: does your Taqwa operate universally or only in religious contexts?" oninput="autoSave('mt-synth',this.value)"></textarea>
+  </div>
+</div>
+</div><!-- end muttaqoon -->
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- RANK 3: AL-MUTAWAKKILOON -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div class="rank-section" id="sec-mutawakkiloon">
+
+<div class="rank-hdr">
+  <div class="rank-hdr-num en-blk">Rank III · The Complete Reliers · 1 Love Statement · Al-Imran 3:159</div>
+  <div class="rank-hdr-num ur-blk">درجہ سوم · مکمل بھروسہ کرنے والے · ۱ محبت کا بیان</div>
+  <div class="rank-hdr-ar">الْمُتَوَكِّلُون</div>
+  <div class="rank-hdr-en en-blk">Al-Mutawakkiloon — The Complete Reliers</div>
+  <div class="rank-hdr-ur ur-blk">المتوکلون — مکمل بھروسہ کرنے والے</div>
+  <div class="rank-hdr-rule"></div>
+  <div class="rank-hdr-root en-blk">Root: و — ك — ل · To appoint as agent · To entrust · Tawakkul = complete human effort THEN total reliance on Allah for the outcome · NOT passivity</div>
+  <div class="rank-hdr-root ur-blk">جڑ: و — ک — ل · وکیل مقرر کرنا · سونپنا · توکل = مکمل انسانی کوشش پھر نتیجہ اللہ پر — غیر فعالیت نہیں</div>
+  <div class="rank-hdr-intro en-blk">Tawakkul is the most misunderstood quality in popular Islamic culture — routinely confused with passivity. The Quran's only love statement for the Mutawakkiloon appears in 3:159 immediately after commands to consult and decide — the active Tawakkul. The Mutawakkil does everything humanly possible then places the outcome entirely in Allah's hands. The love is for the second half, which is only meaningful because the first half was genuinely done.</div>
+  <div class="rank-hdr-intro-ur ur-blk">توکل مقبول اسلامی ثقافت میں سب سے غلط سمجھی جانے والی خاصیت — غیر فعالیت سے الجھائی جاتی ہے۔ متوکلین کے لیے محبت کا بیان ۳:۱۵۹ میں مشاورت اور فیصلے کے حکم کے فوری بعد آتا ہے۔ متوکل انسانی ممکن سب کرتا ہے پھر نتیجہ اللہ پر۔</div>
+</div>
+
+<div class="love-banner">
+  <div class="love-banner-label en-blk">The Divine Love Statement</div>
+  <div class="love-banner-label ur-blk">الٰہی محبت کا بیان</div>
+  <div class="love-banner-ar">إِنَّ اللَّهَ يُحِبُّ الْمُتَوَكِّلِينَ</div>
+  <div class="love-banner-tr en-blk">"Indeed Allah loves the Mutawakkileen."</div>
+  <div class="love-banner-tr-ur ur-blk">«بے شک اللہ توکل کرنے والوں سے محبت کرتا ہے۔»</div>
+  <div class="love-banner-ref">Al-Imran 3:159</div>
+</div>
+
+<div class="root-analysis">
+  <div class="ra-label"><span class="en-blk">Root Word Analysis — و ك ل</span><span class="ur-blk">جڑ — و ک ل</span></div>
+  <div class="ra-root">وَكَلَ · تَوَكَّلَ · وَكِيل · تَوَكُّل · مُتَوَكِّل</div>
+  <div class="ra-letters">
+    <div class="ra-letter"><span class="ra-letter-ar">و</span><span class="ra-letter-en">W</span></div>
+    <div class="ra-letter"><span class="ra-letter-ar">ك</span><span class="ra-letter-en">K</span></div>
+    <div class="ra-letter"><span class="ra-letter-ar">ل</span><span class="ra-letter-en">L</span></div>
+  </div>
+  <div class="ra-meaning en-blk">W-K-L carries the sense of appointing a representative — Wakeel (agent, lawyer, trustee — one appointed to handle your affairs). Tawakkala 'ala (he placed his trust in, appointed as his Wakeel). Al-Wakeel is one of Allah's 99 names. The Mutawakkil has appointed Allah as his Wakeel — his trustee for outcomes. Critical linguistic point: a person who appoints a Wakeel does not then do nothing. He does what is within his power, then hands what is beyond his control to the Wakeel. This is Quranic Tawakkul: complete human effort where humans can act, complete reliance on Allah for what is beyond that. The Hadith of Tirmidhi confirms this: "Tie your camel, then put your trust in Allah."</div>
+  <div class="ra-meaning-ur ur-blk">و-ک-ل: وکیل مقرر کرنا — وکیل (نمائندہ جسے معاملات سونپے)۔ الوکیل اللہ کے ناموں میں۔ متوکل: اللہ کو اپنا وکیل مقرر کیا۔ اہم نکتہ: وکیل مقرر کرنے والا کچھ نہیں کرتا نہیں — اپنی طاقت میں کرتا ہے، باقی وکیل پر۔ «اونٹ باندھو پھر توکل کرو۔»</div>
+  <div class="ra-forms">
+    <div class="ra-form"><div class="ra-form-ar">تَوَكُّل</div><div class="ra-form-en en-blk">Complete reliance on Allah</div><div class="ra-form-en ur-blk">توکل</div></div>
+    <div class="ra-form"><div class="ra-form-ar">الْوَكِيل</div><div class="ra-form-en en-blk">The Trustee (name of Allah)</div><div class="ra-form-en ur-blk">الوکیل</div></div>
+    <div class="ra-form"><div class="ra-form-ar">تَوَكَّلْتُ</div><div class="ra-form-en en-blk">I have placed my trust</div><div class="ra-form-en ur-blk">میں نے بھروسہ کیا</div></div>
+  </div>
+  <div class="ra-count en-blk">✦ Al-Wakeel is one of Allah's 99 names · Tawakkul is among the highest stations in every classical spiritual ranking</div>
+  <div class="ra-count ur-blk">✦ الوکیل اللہ کے ۹۹ ناموں میں · توکل ہر کلاسیکل درجہ بندی میں اعلیٰ ترین مراحل میں</div>
+</div>
+
+<div class="era-divider">
+  <div class="era-dot era-madani"></div>
+  <div class="era-label en-blk">Madani · Al-Imran 3:159 — The Love Statement in Its Complete Context</div>
+  <div class="era-label-ur ur-blk">مدنی · آل عمران ۳:۱۵۹ — مکمل سیاق میں محبت کا بیان</div>
+  <div class="era-line"></div>
+</div>
+
+<div class="ayah-card" id="tw-imran-159">
+  <div class="ayah-card-hdr" onclick="toggleCard('tw-imran-159')">
+    <span class="rev-badge rev-madani en-blk">After Uhud</span>
+    <span class="rev-badge rev-madani ur-blk">احد کے بعد</span>
+    <span class="card-ref">Al-Imran 3:159</span>
+    <span class="card-preview">فَإِذَا عَزَمْتَ فَتَوَكَّلْ عَلَى اللَّهِ ۚ إِنَّ اللَّهَ يُحِبُّ الْمُتَوَكِّلِينَ</span>
+    <span class="card-chevron">›</span>
+  </div>
+  <div class="card-body">
+    <div class="ayah-arabic">فَبِمَا رَحْمَةٍ مِّنَ اللَّهِ لِنتَ لَهُمْ ۖ وَلَوْ كُنتَ فَظًّا غَلِيظَ الْقَلْبِ لَانفَضُّوا مِنْ حَوْلِكَ ۖ فَاعْفُ عَنْهُمْ وَاسْتَغْفِرْ لَهُمْ وَشَاوِرْهُمْ فِي الْأَمْرِ ۖ فَإِذَا عَزَمْتَ فَتَوَكَّلْ عَلَى اللَّهِ ۚ إِنَّ اللَّهَ يُحِبُّ الْمُتَوَكِّلِينَ</div>
+    <div class="ayah-tr-en en-blk">"It is by the mercy of Allah that you were gentle with them — had you been harsh and hard-hearted they would have dispersed from around you. So pardon them, seek forgiveness for them, and consult them in the matter. Then when you have decided — put your trust in Allah. Indeed Allah loves the Mutawakkileen."</div>
+    <div class="ayah-tr-ur ur-blk">«اللہ کی رحمت سے تم ان کے ساتھ نرم رہے — سخت اور سنگدل ہوتے تو بکھر جاتے۔ پس معاف کرو، مغفرت مانگو، مشاورت کرو۔ پھر جب فیصلہ کر لو تو اللہ پر توکل کرو۔ بے شک اللہ متوکلوں سے محبت کرتا ہے۔»</div>
+    <div class="ayah-ref-line">Surah Al-Imran 3:159 — Revealed after the Battle of Uhud</div>
+    <div class="ctx-box">
+      <div class="ctx-lbl en-blk">The Command Sequence — The Anatomy of True Tawakkul</div>
+      <div class="ctx-txt en-blk">Context: after Uhud, a defeat partly caused by fighters abandoning their positions. The command sequence before the Tawakkul is everything: (1) Be gentle — not harsh leadership. (2) Pardon them — forgive the failure. (3) Seek forgiveness for them. (4) Wa-shawirhum fi al-amr — consult them. THEN: Fa-idha 'azamta fa-tawakkal — when you have decided, put your trust in Allah. The Tawakkul comes at the END of the process, not instead of it. The love is for the person who completes all four human steps then hands the outcome to Allah — not for the person who calls their inaction Tawakkul.</div>
+      <div class="ctx-txt-ur ur-blk">احد کے بعد۔ توکل سے پہلے حکم کا سلسلہ: نرمی → معافی → مغفرت طلبی → مشاورت۔ پھر: فاذا عزمت فتوکل۔ توکل عمل کے آخر میں — اس کی جگہ نہیں۔ چاروں انسانی مراحل مکمل پھر نتیجہ اللہ کو۔</div>
+    </div>
+    <div class="root-box">
+      <div class="root-lbl en-blk">The Critical Word</div>
+      <span class="root-wd">عَزَمْتَ</span>
+      <span class="root-fm">· 'A-Z-M · You have firmly decided · Same root as 'Azm (resolve) Adam AS lacked in 20:115</span>
+      <div class="root-mn en-blk">Fa-idha 'azamta: when you have FIRMLY DECIDED. Not when you are still thinking. When the planning is complete, the decision is made — at that precise point, the Tawakkul begins. This is the Tawakkul of the person who has done everything within their power. The Hadith of the camel: "Tie it then put your trust in Allah." The tying is not optional — it is part of the Tawakkul, not an alternative to it.</div>
+      <div class="root-mn-ur ur-blk">فاذا عزمت: جب مضبوطی سے فیصلہ کر لو۔ وہی جڑ جو عزم — جو آدم علیہ السلام کی کمزوری تھی (۲۰:۱۱۵)۔ اونٹ باندھنا اختیاری نہیں — یہ توکل کا حصہ ہے، متبادل نہیں۔</div>
+    </div>
+    <div class="sunnah-box">
+      <div class="sun-lbl en-blk">Connected Sunnah — Tie Your Camel</div>
+      <div class="sun-ar">اعْقِلْهَا وَتَوَكَّلْ</div>
+      <div class="sun-en en-blk">"Tie it and put your trust in Allah." — Said to a man asking whether to tie his camel or leave it and trust in Allah.</div>
+      <div class="sun-ur ur-blk">«باندھو اور توکل کرو۔» — اونٹ باندھنے یا چھوڑنے کے سوال پر۔</div>
+      <div class="sun-src">Tirmidhi 2517 <span class="grade g-hasan">◈ Hasan</span></div>
+    </div>
+    <div class="notes-sec">
+      <div class="notes-hdr"><span class="en-blk">Personal Notes</span><span class="ur-blk">ذاتی نوٹس</span></div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--gold)"></div><span class="en-blk">In a current situation — have you genuinely tied your camel before claiming Tawakkul? What is still untied?</span><span class="ur-blk">کسی موجودہ صورتحال میں — توکل سے پہلے اونٹ باندھا؟ کیا ابھی بندھا نہیں؟</span><span class="nsv" id="sv-tw1"></span></div>
+        <textarea class="note-ta" id="note-tw1" placeholder="Name a situation where you are relying on Tawakkul. What is the specific human effort still untied that Tawakkul cannot substitute for?" oninput="autoSave('tw1',this.value)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="sec-lbl en-blk">Scholarly Analysis — Al-Mutawakkiloon</div>
+
+<div class="scholars-lbl en-blk">✦ Three Scholars · Depth, Misuse, and Highest Expression of Tawakkul</div>
+<div class="scholars-lbl ur-blk">✦ تین علماء · توکل کی گہرائی، غلط استعمال، اعلیٰ اظہار</div>
+
+<div class="scholar-card" id="sc-tw-ibn-qayyim">
+  <div class="sc-hdr" onclick="toggleScholar('sc-tw-ibn-qayyim')">
+    <div class="sc-badge">ق</div>
+    <div>
+      <div class="sc-name">Ibn al-Qayyim — Madarij al-Salikin</div>
+      <div class="sc-text en-blk">Three Levels of Tawakkul — The Complete Station Anatomy</div>
+      <div class="sc-text ur-blk">توکل کی تین سطحیں</div>
+    </div>
+    <div class="sc-chev">›</div>
+  </div>
+  <div class="sc-body">
+    <div class="sc-quote en-blk">"Tawakkul has three levels. First: trust in Allah while still treating means as real causes — you take the means but trust Allah rather than them. Most people. Second: trust while seeing means as Allah's servants rather than real causes — you take them without attachment to their producing the outcome. This is the Mutawakkil of 3:159. Third: complete absorption in the Wakeel — the awareness of His sufficiency is so present that the question of means barely arises. The Tawakkul of the Siddiqoon. All three are Tawakkul. The divine love in 3:159 is primarily for the second level."</div>
+    <div class="sc-quote-ur ur-blk">«توکل کی تین سطحیں۔ پہلی: ذرائع کو حقیقی اسباب سمجھتے ہوئے اللہ پر بھروسہ — اکثر لوگ۔ دوسری: ذرائع اللہ کے خادم، نتیجے سے کوئی لگاؤ نہیں — یہ ۳:۱۵۹ کا متوکل۔ تیسری: وکیل میں مکمل جذب — صدیقوں کا توکل۔ تینوں توکل ہیں۔»</div>
+    <div class="sc-analysis en-blk">Ibn al-Qayyim's three-level framework is the most analytically precise treatment of Tawakkul. The key distinction: the second-level Mutawakkil takes the means but is not attached to them producing the outcome. This is the love-earning station — not the highest, but the one the command in 3:159 is asking for. The third level emerges from deeper stations and cannot be manufactured directly. His most practically important point: the divine love is not reserved for the third level — the second-level Mutawakkil who takes all human means then releases the outcome to Allah already earns it.</div>
+    <div class="sc-analysis-ur ur-blk">ابن القیم کا اہم ترین نکتہ: الٰہی محبت تیسری سطح کے لیے مخصوص نہیں — دوسری سطح کا متوکل جو تمام ذرائع لے پھر نتیجہ چھوڑے وہ پہلے سے کماتا ہے۔</div>
+    <div class="sc-source">Madarij al-Salikin — Full chapter on the station of Tawakkul and its three levels</div>
+  </div>
+</div>
+
+<div class="scholar-card" id="sc-tw-ghazali">
+  <div class="sc-hdr" onclick="toggleScholar('sc-tw-ghazali')">
+    <div class="sc-badge">غ</div>
+    <div>
+      <div class="sc-name">Al-Ghazali — Ihya, Book of Tawakkul</div>
+      <div class="sc-text en-blk">Tawakkul Built on Yaqeen — Four Conditions for Genuine Trust</div>
+      <div class="sc-text ur-blk">توکل یقین پر مبنی — حقیقی اعتماد کی چار شرائط</div>
+    </div>
+    <div class="sc-chev">›</div>
+  </div>
+  <div class="sc-body">
+    <div class="sc-quote en-blk">"Tawakkul is impossible without Yaqeen about four things: that Allah is the Wakeel, that He is capable of what you entrust, that He is aware of your specific situation, and that His will is better than your preference. Without all four, Tawakkul is a word not a state. The most common incomplete form: trusting in Allah's general capability while secretly doubting His specific attention to your personal situation. But the Quran did not say He manages the universe — it said He is Al-Wakeel, meaning He is your personal trustee."</div>
+    <div class="sc-quote-ur ur-blk">«توکل چار چیزوں میں یقین کے بغیر ناممکن: اللہ وکیل ہے، وہ قادر ہے، وہ آپ کی خاص صورتحال سے باخبر ہے، اس کی مرضی آپ کی ترجیح سے بہتر۔ سب سے عام نامکمل شکل: عام قدرت پر یقین + ذاتی توجہ میں شک۔ قرآن نے الوکیل کہا — آپ کا ذاتی امین۔»</div>
+    <div class="sc-analysis en-blk">Al-Ghazali builds Tawakkul on Yaqeen rather than feeling — meaning it can be developed through deepening correct knowledge of Allah, not only through spiritual experience. His four conditions are diagnostically precise: most people have partial Yaqeen. The doubt of divine particularity — "Allah handles the universe but does He specifically care about my situation?" — is the most common gap. Al-Ghazali's response: Al-Wakeel is a name of specific personal trusteeship, not general cosmic management.</div>
+    <div class="sc-analysis-ur ur-blk">الغزالی توکل کو احساس نہیں یقین پر بناتا ہے — اللہ کے بارے میں درست علم کی گہرائی سے پیدا ہو سکتا ہے۔ الوکیل: ذاتی امین، عام کائناتی نظم نہیں۔</div>
+    <div class="sc-source">Ihya Ulum al-Din — Book 35 (Tawakkul) — The complete systematic treatment</div>
+  </div>
+</div>
+
+<div class="scholar-card" id="sc-tw-muhasibi">
+  <div class="sc-hdr" onclick="toggleScholar('sc-tw-muhasibi')">
+    <div class="sc-badge">م</div>
+    <div>
+      <div class="sc-name">Al-Muhasibi — Al-Ri'ayah</div>
+      <div class="sc-text en-blk">The Test of Tawakkul — What the Unwanted Outcome Reveals</div>
+      <div class="sc-text ur-blk">توکل کا امتحان — ناپسندیدہ نتیجہ کیا ظاہر کرتا ہے</div>
+    </div>
+    <div class="sc-chev">›</div>
+  </div>
+  <div class="sc-body">
+    <div class="sc-quote en-blk">"True Tawakkul is tested by the unwanted outcome. The genuine Mutawakkil receives what he did not prefer with the same inner state as what he hoped for — because his trust was in the Wakeel, not in a particular outcome. If your inner peace collapses when the outcome does not match your hope, your 'Tawakkul' was conditional calculation — not genuine reliance. The Mutawakkil's peace comes from the quality of the Wakeel, not from what the Wakeel decides."</div>
+    <div class="sc-quote-ur ur-blk">«حقیقی توکل ناپسندیدہ نتیجے سے جانچا جاتا ہے۔ اگر نتیجہ امید کے مطابق نہ ہو آپ کا باطنی سکون ٹوٹ جائے — آپ کا «توکل» مشروط حساب تھا۔ متوکل کا سکون وکیل کے معیار سے ملتا ہے، اس کے فیصلے سے نہیں۔»</div>
+    <div class="sc-analysis en-blk">Al-Muhasibi's test is the simplest and most devastating: what happens to your inner state when the outcome is not what you hoped for? Most people who think they have Tawakkul are practising conditional hope — they use Tawakkul language while secretly having a preferred outcome their peace depends on. When Allah decides against their preference, the peace collapses, revealing the conditionality. The genuine Mutawakkil never attached his peace to the outcome — so the unwanted outcome does not collapse him.</div>
+    <div class="sc-analysis-ur ur-blk">المحاسبی کا امتحان: ناپسندیدہ نتیجہ آپ کی کیفیت کا کیا کرتا ہے؟ اکثر مشروط امید ہے، توکل نہیں۔ حقیقی متوکل نے سکون کو نتیجے سے جوڑا ہی نہیں تھا۔</div>
+    <div class="sc-source">Al-Ri'ayah li-Huquqillah — Chapter on the conditions of genuine Tawakkul</div>
+  </div>
+</div>
+
+<div class="synth-box">
+  <div class="notes-hdr"><span class="en-blk">Personal Synthesis — Al-Mutawakkiloon</span><span class="ur-blk">ذاتی خلاصہ — المتوکلون</span></div>
+  <div class="note-f">
+    <div class="note-lbl"><div class="nd" style="background:var(--gold)"></div><span class="en-blk">Al-Muhasibi's test: what outcome would collapse your inner peace — and what does that reveal about the conditionality of your Tawakkul?</span><span class="ur-blk">کون سا نتیجہ باطنی سکون توڑے گا — آپ کے توکل کی مشروطیت کے بارے میں کیا ظاہر کرتا ہے؟</span><span class="nsv" id="sv-tw-synth"></span></div>
+    <textarea class="note-ta" id="note-tw-synth" style="min-height:100px" placeholder="Name the outcome you are secretly attached to. Then: which of Ibn al-Qayyim's three levels are you actually at — and what would moving to the next level require?" oninput="autoSave('tw-synth',this.value)"></textarea>
+  </div>
+</div>
+
+</div><!-- end mutawakkiloon -->
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- RANK 4: AL-MUQSITOON -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div class="rank-section" id="sec-muqsitoon">
+
+<div class="rank-hdr">
+  <div class="rank-hdr-num en-blk">Rank IV · The Just Ones · 3 Love Statements · The Most Universal Love Rank</div>
+  <div class="rank-hdr-num ur-blk">درجہ چہارم · انصاف والے · ۳ محبت کے بیانات · سب سے آفاقی درجہ</div>
+  <div class="rank-hdr-ar">الْمُقْسِطُون</div>
+  <div class="rank-hdr-en en-blk">Al-Muqsitoon — The Just and Equitable Ones</div>
+  <div class="rank-hdr-ur ur-blk">المقسطون — انصاف اور مساوات والے</div>
+  <div class="rank-hdr-rule"></div>
+  <div class="rank-hdr-root en-blk">Root: ق — س — ط · Critical morphological distinction: Qasata (Form I) = to be unjust · Aqsata (Form IV) = to be just · Muqsit = one who actively gives equity · Same root — opposite meanings depending on verb form</div>
+  <div class="rank-hdr-root ur-blk">جڑ: ق — س — ط · اہم صرفی فرق: قسط (باب اول) = ناانصاف — اقسط (باب چہارم) = انصاف کرنا · مقسط: فعال مساوات دینے والا</div>
+  <div class="rank-hdr-intro en-blk">The Muqsitoon receive the love statement three times — in three completely different contexts: judicial (5:42), conflict resolution between groups (49:9), dealings with non-hostile non-Muslims (60:8). Together they establish that the Muqsit's justice is universal — not restricted to dealings with fellow believers. Al-Muqsit is also one of Allah's 99 names — making this rank a reflection of a divine attribute.</div>
+  <div class="rank-hdr-intro-ur ur-blk">مقسطون کو تین مختلف سیاقوں میں محبت کا بیان: عدالتی (۵:۴۲)، گروہوں کے درمیان (۴۹:۹)، غیر جارح غیر مسلموں کے ساتھ (۶۰:۸)۔ مقسط کا انصاف آفاقی ہے۔ المقسط اللہ کے ناموں میں — یہ درجہ الٰہی صفت کا عکس ہے۔</div>
+</div>
+
+<div class="love-banner">
+  <div class="love-banner-label en-blk">The Divine Love Statement — Three Times in Three Different Contexts</div>
+  <div class="love-banner-label ur-blk">الٰہی محبت کا بیان — تین مختلف سیاقوں میں تین بار</div>
+  <div class="love-banner-ar">إِنَّ اللَّهَ يُحِبُّ الْمُقْسِطِينَ</div>
+  <div class="love-banner-tr en-blk">"Indeed Allah loves the Muqsitoon."</div>
+  <div class="love-banner-tr-ur ur-blk">«بے شک اللہ مقسطوں سے محبت کرتا ہے۔»</div>
+  <div class="love-banner-ref">Al-Maidah 5:42 · Al-Hujurat 49:9 · Al-Mumtahanah 60:8</div>
+</div>
+
+<div class="root-analysis">
+  <div class="ra-label"><span class="en-blk">Root — ق س ط · The Critical Morphological Distinction Every Scholar Notes</span><span class="ur-blk">جڑ — ق س ط · اہم صرفی فرق</span></div>
+  <div class="ra-root">قَسَطَ · أَقْسَطَ · قِسْط · مُقْسِط · قَاسِط</div>
+  <div class="ra-letters">
+    <div class="ra-letter"><span class="ra-letter-ar">ق</span><span class="ra-letter-en">Q</span></div>
+    <div class="ra-letter"><span class="ra-letter-ar">س</span><span class="ra-letter-en">S</span></div>
+    <div class="ra-letter"><span class="ra-letter-ar">ط</span><span class="ra-letter-en">T</span></div>
+  </div>
+  <div class="ra-meaning en-blk">Q-S-T has opposite meanings depending on verb form — a fact every classical grammarian notes. Qasata (Form I): to deviate, to be unjust. Aqsata (Form IV): to be just, to deal equitably. The Quran is precise: Allah loves the Muqsitoon (from Form IV — the just ones). But the Quran uses Qasitoon (Form I — the deviating ones) for the unjust: "And as for the Qasitoon — they will be fuel for Hell" (72:15). Same root, two verb forms, opposite meanings. The Muqsit actively gives equity from himself. The Qasit deviates from equity and takes unequally. The love is specifically for the active Form IV — the deliberate, positive act of giving equity, not merely the absence of injustice.</div>
+  <div class="ra-meaning-ur ur-blk">ق-س-ط فعل کی شکل کے مطابق مخالف معانی۔ قسط (باب اول): منحرف ہونا، ناانصاف۔ اقسط (باب چہارم): انصاف کرنا۔ قرآن دقیق: اللہ مقسطون (باب چہارم) سے محبت کرتا ہے — لیکن قاسطون (باب اول) «جہنم کا ایندھن» (۷۲:۱۵)۔ ایک جڑ، دو شکلیں، متضاد معانی۔</div>
+  <div class="ra-forms">
+    <div class="ra-form"><div class="ra-form-ar">الْمُقْسِط</div><div class="ra-form-en en-blk">The just (active — loves)</div><div class="ra-form-en ur-blk">مقسط — محبوب</div></div>
+    <div class="ra-form"><div class="ra-form-ar">الْقَاسِط</div><div class="ra-form-en en-blk">The unjust (passive — Hell)</div><div class="ra-form-en ur-blk">قاسط — جہنمی</div></div>
+    <div class="ra-form"><div class="ra-form-ar">قِسْط</div><div class="ra-form-en en-blk">Justice / Due portion</div><div class="ra-form-en ur-blk">انصاف / حصہ</div></div>
+  </div>
+  <div class="ra-count en-blk">✦ Al-Muqsit is one of Allah's 99 names · Q-S-T appears 25 times · Three love statements in three completely different social contexts</div>
+  <div class="ra-count ur-blk">✦ المقسط اللہ کے ۹۹ ناموں میں · ق-س-ط ۲۵ بار · تین بالکل مختلف سماجی سیاقوں میں تین محبت کے بیانات</div>
+</div>
+
+<div class="era-divider">
+  <div class="era-dot era-madani"></div>
+  <div class="era-label en-blk">Three Contexts — The Scope of the Muqsit's Justice</div>
+  <div class="era-label-ur ur-blk">تین سیاق — مقسط کے انصاف کا دائرہ</div>
+  <div class="era-line"></div>
+</div>
+
+<div class="ayah-card" id="mq-maidah-42">
+  <div class="ayah-card-hdr" onclick="toggleCard('mq-maidah-42')">
+    <span class="rev-badge rev-madani en-blk">Rev. #112</span>
+    <span class="card-ref">Al-Maidah 5:42</span>
+    <span class="card-preview">وَإِنْ حَكَمْتَ فَاحْكُم بَيْنَهُم بِالْقِسْطِ ۚ إِنَّ اللَّهَ يُحِبُّ الْمُقْسِطِينَ</span>
+    <span class="card-chevron">›</span>
+  </div>
+  <div class="card-body">
+    <div class="ayah-arabic">وَإِنْ حَكَمْتَ فَاحْكُم بَيْنَهُم بِالْقِسْطِ ۚ إِنَّ اللَّهَ يُحِبُّ الْمُقْسِطِينَ</div>
+    <div class="ayah-tr-en en-blk">"And if you judge — judge between them with equity. Indeed Allah loves the Muqsitoon."</div>
+    <div class="ayah-tr-ur ur-blk">«اور اگر فیصلہ کرو تو قسط کے ساتھ کرو۔ بے شک اللہ مقسطوں سے محبت کرتا ہے۔»</div>
+    <div class="ayah-ref-line">Al-Maidah 5:42 — Context: Jews coming to the Prophet ﷺ for judgment</div>
+    <div class="ctx-box">
+      <div class="ctx-lbl en-blk">Context 1 — Justice Toward Non-Muslims Seeking Judgment</div>
+      <div class="ctx-txt en-blk">The Jewish community came to the Prophet ﷺ seeking a legal ruling — not obligated to do so. The instruction: if you judge them, judge with equity. The love statement follows justice toward a non-Muslim community. This is significant: the first love statement for the Muqsitoon appears specifically in the context of equity toward those of a different religion. The Muqsit's justice does not change based on who is being judged.</div>
+      <div class="ctx-txt-ur ur-blk">یہودی کمیونٹی نبی ﷺ کے پاس فیصلے کے لیے۔ حکم: قسط کے ساتھ فیصلہ کرو۔ محبت کا پہلا بیان مختلف مذہب کے لوگوں کے ساتھ انصاف کے سیاق میں۔</div>
+    </div>
+    <div class="notes-sec">
+      <div class="notes-hdr"><span class="en-blk">Personal Notes</span><span class="ur-blk">ذاتی نوٹس</span></div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--gold)"></div><span class="en-blk">Does your standard of fairness change based on who is involved — in-group vs out-group, Muslim vs non-Muslim?</span><span class="ur-blk">کیا انصاف کا معیار شامل شخص کے مطابق بدلتا ہے؟</span><span class="nsv" id="sv-mq1"></span></div>
+        <textarea class="note-ta" id="note-mq1" placeholder="Name a specific situation where you applied a different standard of fairness to an out-group member vs an in-group member." oninput="autoSave('mq1',this.value)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="ayah-card" id="mq-mumtahanah-8">
+  <div class="ayah-card-hdr" onclick="toggleCard('mq-mumtahanah-8')">
+    <span class="rev-badge rev-madani en-blk">Rev. #91</span>
+    <span class="card-ref">Al-Mumtahanah 60:8</span>
+    <span class="card-preview">أَن تَبَرُّوهُمْ وَتُقْسِطُوا إِلَيْهِمْ ۚ إِنَّ اللَّهَ يُحِبُّ الْمُقْسِطِينَ</span>
+    <span class="card-chevron">›</span>
+  </div>
+  <div class="card-body">
+    <div class="ayah-arabic">لَّا يَنْهَاكُمُ اللَّهُ عَنِ الَّذِينَ لَمْ يُقَاتِلُوكُمْ فِي الدِّينِ وَلَمْ يُخْرِجُوكُم مِّن دِيَارِكُمْ أَن تَبَرُّوهُمْ وَتُقْسِطُوا إِلَيْهِمْ ۚ إِنَّ اللَّهَ يُحِبُّ الْمُقْسِطِينَ</div>
+    <div class="ayah-tr-en en-blk">"Allah does not forbid you from those who did not fight you in religion and did not expel you from your homes — from being righteous toward them and dealing equitably with them. Indeed Allah loves the Muqsitoon."</div>
+    <div class="ayah-tr-ur ur-blk">«اللہ تمہیں ان لوگوں کے ساتھ جنہوں نے دین میں جنگ نہیں کی اور گھروں سے نہیں نکالا — نیکی کرنے اور قسط کرنے سے نہیں روکتا۔ بے شک اللہ مقسطوں سے محبت کرتا ہے۔»</div>
+    <div class="ayah-ref-line">Al-Mumtahanah 60:8</div>
+    <div class="ctx-box">
+      <div class="ctx-lbl en-blk">Context 2 — Birr AND Qist Toward Non-Hostile Non-Muslims · The Most Extraordinary Scope</div>
+      <div class="ctx-txt en-blk">Allah commands both Birr (righteousness — the same word used for treating parents excellently) AND Qist toward non-hostile non-Muslims — then gives the love statement. The Muqsit is not merely required to be just (give no less than due) but to be righteous (give beyond what is due). Ibn al-Qayyim's Ahkam Ahl al-Dhimmah establishes this as a religious obligation carrying a divine love reward — not a political concession. The Muqsit who restricts his equity to his own community has not reached the love-earning station.</div>
+      <div class="ctx-txt-ur ur-blk">اللہ بِر اور قسط دونوں کا حکم دیتا ہے — پھر محبت کا بیان۔ ابن القیم (احکام اہل الذمۃ): الٰہی محبت کا اجر رکھنے والی دینی ذمہ داری۔ جو مقسط اپنی کمیونٹی تک محدود وہ محبت کمانے والے درجے تک نہیں پہنچا۔</div>
+    </div>
+    <div class="insight">
+      <div class="insight-lbl en-blk">◈ Why Al-Muqsit Is One of Allah's Names — Ibn al-Qayyim's Key Insight</div>
+      <div class="insight-lbl ur-blk">◈ المقسط اللہ کے ناموں میں کیوں — ابن القیم کی اہم بصیرت</div>
+      <div class="insight-txt en-blk">Ibn al-Qayyim: "One of Allah's names is Al-Muqsit. The person who earns the love statement has aligned himself with one of Allah's own names. The love is not for an act — it is for the person who has taken on a divine quality. When a person acts with genuine equity toward all — ally and opponent, Muslim and non-Muslim — he is manifesting the divine attribute of Al-Muqsit. Allah's love is the recognition of His own attribute in the one He has created." This is the deepest theological reason for this love: the Muqsit reflects back a divine name.</div>
+      <div class="insight-txt-ur ur-blk">ابن القیم: «المقسط اللہ کے ناموں میں۔ محبت عمل کے لیے نہیں — اس شخص کے لیے جس نے الٰہی خاصیت لی۔ جب انسان حقیقی مساوات سے سب کے ساتھ کام لے الٰہی صفت کی عکاسی کر رہا ہے۔ اللہ کی محبت اپنی مخلوق میں اپنی صفت کی پہچان۔»</div>
+    </div>
+    <div class="notes-sec">
+      <div class="notes-hdr"><span class="en-blk">Personal Notes</span><span class="ur-blk">ذاتی نوٹس</span></div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--teal)"></div><span class="en-blk">Birr toward non-hostile non-Muslims — are you at Qist (fair) or Birr (actively righteous) with the non-Muslims in your actual daily life?</span><span class="ur-blk">غیر جارح غیر مسلموں کے ساتھ بِر — آپ قسط پر ہیں یا بِر پر؟</span><span class="nsv" id="sv-mq2"></span></div>
+        <textarea class="note-ta" id="note-mq2" placeholder="Think of actual non-Muslim neighbours, colleagues, acquaintances. Are you at the minimum (Qist) or going beyond (Birr)?" oninput="autoSave('mq2',this.value)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="sec-lbl en-blk">Scholarly Analysis — Al-Muqsitoon</div>
+
+<div class="scholars-lbl en-blk">✦ Two Scholars · Justice as Inner Quality and Universal Obligation</div>
+<div class="scholars-lbl ur-blk">✦ دو علماء · انصاف باطنی خاصیت اور آفاقی ذمہ داری</div>
+
+<div class="scholar-card" id="sc-mq-ibn-qayyim">
+  <div class="sc-hdr" onclick="toggleScholar('sc-mq-ibn-qayyim')">
+    <div class="sc-badge">ق</div>
+    <div>
+      <div class="sc-name">Ibn al-Qayyim — Ahkam Ahl al-Dhimmah</div>
+      <div class="sc-text en-blk">Justice as a Divine Name Reflected — Al-Muqsit in the Human</div>
+      <div class="sc-text ur-blk">الٰہی نام کی عکاسی — انسان میں المقسط</div>
+    </div>
+    <div class="sc-chev">›</div>
+  </div>
+  <div class="sc-body">
+    <div class="sc-quote en-blk">"Justice toward non-Muslims in Islamic law is not a political concession — it is a religious obligation that carries the reward of divine love. The Quran gave the Muqsit love statement specifically in the context of dealings with non-Muslims for a reason: to establish that the quality of equity cannot be selective. A person who is just to fellow Muslims but unjust toward others has not achieved Qist — he has achieved tribal solidarity, which is a different and lesser thing. The Muqsit reflects Al-Muqsit — and Al-Muqsit's justice is universal."</div>
+    <div class="sc-quote-ur ur-blk">«اسلامی قانون میں غیر مسلموں کے ساتھ انصاف سیاسی رعایت نہیں — الٰہی محبت کا اجر رکھنے والی دینی ذمہ داری۔ قسط منتخب نہیں ہو سکتی۔ مسلمانوں کے ساتھ انصاف لیکن دوسروں کے ساتھ ناانصاف: قسط نہیں، قبائلی یکجہتی — مختلف اور کمتر چیز۔»</div>
+    <div class="sc-analysis en-blk">Ibn al-Qayyim's Ahkam Ahl al-Dhimmah is the most systematic classical treatment of justice toward non-Muslims as a religious — not merely political — obligation. His argument: because Al-Muqsit is a divine name, the person who reflects this attribute must reflect it universally. A selective Qist does not reflect the divine attribute — it reflects human preference. The love reward is specifically for the universal reflection of Al-Muqsit, not for the selective application of equity.</div>
+    <div class="sc-analysis-ur ur-blk">ابن القیم: المقسط الٰہی نام ہے لہذا انسان کو آفاقی طور پر عکاسی کرنی ہے۔ منتخب قسط الٰہی صفت نہیں — انسانی ترجیح۔ محبت کا اجر آفاقی عکاسی کے لیے ہے۔</div>
+    <div class="sc-source">Ahkam Ahl al-Dhimmah — Justice toward non-Muslims as a divine love obligation</div>
+  </div>
+</div>
+
+<div class="scholar-card" id="sc-mq-ghazali">
+  <div class="sc-hdr" onclick="toggleScholar('sc-mq-ghazali')">
+    <div class="sc-badge">غ</div>
+    <div>
+      <div class="sc-name">Al-Ghazali — Ihya, Book on Inner Qualities</div>
+      <div class="sc-text en-blk">Justice Begins With Oneself — Inner Equity Before Outer</div>
+      <div class="sc-text ur-blk">انصاف خود سے شروع — باطنی مساوات پہلے</div>
+    </div>
+    <div class="sc-chev">›</div>
+  </div>
+  <div class="sc-body">
+    <div class="sc-quote en-blk">"Justice toward others is impossible for a person who has not first been just toward himself — giving the soul its right (worship, purification), the body its right (lawful sustenance, rest), and the mind its right (reflection, learning), without transgressing any of them in favour of the others. The Muqsit's equity begins as an interior quality — each faculty given its due — and only from that foundation can it extend genuinely to others. A person unjust to his own soul cannot be a genuine Muqsit toward others."</div>
+    <div class="sc-quote-ur ur-blk">«دوسروں کے ساتھ انصاف اس شخص کے لیے ناممکن جس نے پہلے اپنے ساتھ انصاف نہ کیا — روح، جسم، عقل ہر ایک کا حق۔ مقسط کی مساوات باطنی خاصیت کے طور پر شروع ہوتی ہے۔ اپنی روح کے ساتھ ناانصاف شخص دوسروں کے ساتھ حقیقی مقسط نہیں بن سکتا۔»</div>
+    <div class="sc-analysis en-blk">Al-Ghazali connects the Muqsit rank directly to the inner architecture: giving each faculty of the self its due — soul, body, mind — is the prerequisite for genuine outer equity. The person who starves their soul (neglects worship) or abuses their body (neglects the body's rights) has not achieved interior Qist, from which exterior Qist flows. His framework: inner equity → outer equity, not the reverse. The inner architecture (Sadr, Qalb, Fu'ad, Lubb each given its due) is the foundation of the Muqsit's universal justice.</div>
+    <div class="sc-analysis-ur ur-blk">الغزالی مقسط درجے کو باطنی معمار سے جوڑتا ہے: روح، جسم، عقل ہر ایک کا حق — بیرونی قسط کی شرط۔ باطنی مساوات → بیرونی مساوات۔</div>
+    <div class="sc-source">Ihya Ulum al-Din — Inner equity as prerequisite for outer justice</div>
+  </div>
+</div>
+
+<div class="synth-box">
+  <div class="notes-hdr"><span class="en-blk">Personal Synthesis — Al-Muqsitoon</span><span class="ur-blk">ذاتی خلاصہ — المقسطون</span></div>
+  <div class="note-f">
+    <div class="note-lbl"><div class="nd" style="background:var(--gold)"></div><span class="en-blk">Al-Ghazali's inner test: which faculty of your own self are you being unjust toward right now? Ibn al-Qayyim's universal test: name one group toward whom your equity standard is lower than your stated values.</span><span class="ur-blk">الغزالی: اپنی کون سی قوت کے ساتھ ناانصاف؟ ابن القیم: کون سا گروہ جس کے ساتھ معیار کم ہے؟</span><span class="nsv" id="sv-mq-synth"></span></div>
+    <textarea class="note-ta" id="note-mq-synth" style="min-height:100px" placeholder="Inner Qist: soul / body / mind — which is neglected? Universal Qist: name the specific group or person toward whom your equity collapses." oninput="autoSave('mq-synth',this.value)"></textarea>
+  </div>
+</div>
+
+</div><!-- end muqsitoon -->
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- RANK 5: AL-AWLIYA -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div class="rank-section" id="sec-awliya">
+
+<div class="rank-hdr">
+  <div class="rank-hdr-num en-blk">Rank V · The Close Friends of Allah · Yunus 10:62-64 · Most Misunderstood Rank in Islamic Culture</div>
+  <div class="rank-hdr-num ur-blk">درجہ پنجم · اللہ کے قریبی دوست · یونس ۱۰:۶۲-۶۴ · اسلامی ثقافت میں سب سے غلط سمجھا جانے والا</div>
+  <div class="rank-hdr-ar">أَوْلِيَاءُ اللَّهِ</div>
+  <div class="rank-hdr-en en-blk">Awliya Allah — The Close Friends of Allah</div>
+  <div class="rank-hdr-ur ur-blk">اولیاء اللہ — اللہ کے قریبی دوست</div>
+  <div class="rank-hdr-rule"></div>
+  <div class="rank-hdr-root en-blk">Root: و — ل — ي · Closeness · Proximity · Guardianship · Wali = one in close continuous proximity — the relationship goes both ways: Allah is the Wali of the believers (2:257), and the believers are His Awliya</div>
+  <div class="rank-hdr-root ur-blk">جڑ: و — ل — ی · قربت · نزدیکی · ولی = مسلسل قریبی قربت میں · دو طرفہ: اللہ مومنوں کا ولی (۲:۲۵۷) اور مومن اس کے اولیاء</div>
+  <div class="rank-hdr-intro en-blk">The Awliya Allah rank is surrounded by popular superstition that the Quran definitively corrects. Shrine-worship, claims of intercession after death, spiritual hierarchies requiring authorisation — none of this has Quranic basis. The Quran's definition is precise and accessible: those who believed and maintained Taqwa. No miracles. No lineage. No certification. Iman + ongoing Taqwa = Wali of Allah. Then the most remarkable promise in the Quran: no fear upon them and they shall not grieve.</div>
+  <div class="rank-hdr-intro-ur ur-blk">اولیاء اللہ کا درجہ مقبول توہم پرستی میں گھرا جسے قرآن حتمی طور پر درست کرتا ہے۔ مزار پرستی، مرنے کے بعد شفاعت، روحانی درجہ بندی — کوئی قرآنی بنیاد نہیں۔ قرآن کی تعریف: جو ایمان لائے اور تقویٰ برقرار رکھی۔ بس۔ پھر سب سے غیر معمولی وعدہ: کوئی خوف نہیں، کوئی غم نہیں۔</div>
+</div>
+
+<div class="root-analysis">
+  <div class="ra-label"><span class="en-blk">Root Word Analysis — و ل ي</span><span class="ur-blk">جڑ — و ل ی</span></div>
+  <div class="ra-root">وَلِيَ · وَلِيّ · أَوْلِيَاء · وَلَايَة · مَوْلَى</div>
+  <div class="ra-letters">
+    <div class="ra-letter"><span class="ra-letter-ar">و</span><span class="ra-letter-en">W</span></div>
+    <div class="ra-letter"><span class="ra-letter-ar">ل</span><span class="ra-letter-en">L</span></div>
+    <div class="ra-letter"><span class="ra-letter-ar">ي</span><span class="ra-letter-en">Y</span></div>
+  </div>
+  <div class="ra-meaning en-blk">W-L-Y: to be close, adjacent, in proximity. Wali: one who is close — friend, guardian, protector, patron, ally. Awliya (plural). Al-Wali is one of Allah's 99 names. When the Quran says Awliya Allah, it describes a reciprocal relationship: Allah is their Wali (guardian-patron), and they are His Awliya (those who have drawn into His proximity). The relationship goes both ways: Allah is close to the Wali and the Wali maintains closeness to Allah. This reciprocity is the theological heart of the rank — it is not one-directional devotion but a genuine relational proximity sustained from both sides.</div>
+  <div class="ra-meaning-ur ur-blk">و-ل-ی: قریب ہونا۔ ولی: قریبی، دوست، سرپرست۔ الولی اللہ کے ناموں میں۔ اولیاء اللہ: باہمی رشتہ — اللہ ان کا ولی اور وہ اس کے اولیاء۔ دو طرفہ: اللہ ولی کے قریب اور ولی اللہ کی قربت برقرار رکھتا ہے۔</div>
+  <div class="ra-forms">
+    <div class="ra-form"><div class="ra-form-ar">الْوَلِيّ</div><div class="ra-form-en en-blk">The Guardian (name of Allah)</div><div class="ra-form-en ur-blk">الولی — اللہ کا نام</div></div>
+    <div class="ra-form"><div class="ra-form-ar">أَوْلِيَاء</div><div class="ra-form-en en-blk">Those in close proximity</div><div class="ra-form-en ur-blk">اولیاء</div></div>
+    <div class="ra-form"><div class="ra-form-ar">وَلَايَة</div><div class="ra-form-en en-blk">The bond of closeness</div><div class="ra-form-en ur-blk">ولایت</div></div>
+  </div>
+  <div class="ra-count en-blk">✦ Al-Wali is one of Allah's 99 names · Awliya Allah definitively defined once in 10:62-63 · Widely misunderstood in popular religious culture</div>
+  <div class="ra-count ur-blk">✦ الولی اللہ کے ۹۹ ناموں میں · اولیاء اللہ ایک بار حتمی طور پر تعریف شدہ (۱۰:۶۲-۶۳)</div>
+</div>
+
+<div class="era-divider">
+  <div class="era-dot era-middle"></div>
+  <div class="era-label en-blk">Middle Makki · Yunus 10:62-64 — The Only Quranic Definition of the Awliya</div>
+  <div class="era-label-ur ur-blk">اوسط مکی · یونس ۱۰:۶۲-۶۴ — اولیاء کی واحد قرآنی تعریف</div>
+  <div class="era-line"></div>
+</div>
+
+<div class="ayah-card" id="aw-yunus-62">
+  <div class="ayah-card-hdr" onclick="toggleCard('aw-yunus-62')">
+    <span class="rev-badge rev-middle en-blk">Rev. #51</span>
+    <span class="card-ref">Yunus 10:62-64</span>
+    <span class="card-preview">أَلَا إِنَّ أَوْلِيَاءَ اللَّهِ لَا خَوْفٌ عَلَيْهِمْ وَلَا هُمْ يَحْزَنُونَ</span>
+    <span class="card-chevron">›</span>
+  </div>
+  <div class="card-body">
+    <div class="ayah-arabic">أَلَا إِنَّ أَوْلِيَاءَ اللَّهِ لَا خَوْفٌ عَلَيْهِمْ وَلَا هُمْ يَحْزَنُونَ ۞ الَّذِينَ آمَنُوا وَكَانُوا يَتَّقُونَ ۞ لَهُمُ الْبُشْرَىٰ فِي الْحَيَاةِ الدُّنْيَا وَفِي الْآخِرَةِ</div>
+    <div class="ayah-tr-en en-blk">"Indeed the Awliya of Allah — no fear shall come upon them, nor shall they grieve. Those who believed and used to have Taqwa — for them is good news in the life of this world and in the Hereafter."</div>
+    <div class="ayah-tr-ur ur-blk">«یاد رہو — اللہ کے اولیاء پر نہ کوئی خوف ہے اور نہ وہ غمگین ہوں گے۔ وہ جو ایمان لائے اور تقویٰ اختیار کرتے رہے — ان کے لیے دنیا اور آخرت میں خوشخبری ہے۔»</div>
+    <div class="ayah-ref-line">Surah Yunus 10:62-64</div>
+    <div class="ctx-box">
+      <div class="ctx-lbl en-blk">The Quranic Definition — Iman and Taqwa. That Is All.</div>
+      <div class="ctx-txt en-blk">The only place in the Quran where the Awliya Allah are explicitly defined. The definition: Al-ladhina aamanu wa-kaanu yattaqoon — those who believed AND used to have Taqwa (ongoing continuous form — maintained as a practice, not a one-time act). No miracles. No special lineage. No certification by a shaykh. No asceticism. No isolation. Iman + ongoing Taqwa. Ibn al-Qayyim's most important corrective: any person who has genuine Iman and maintains genuine Taqwa is among the Awliya Allah — regardless of social station, knowledge level, or any outward sign of spiritual achievement. The rank is accessible to any believer who fulfils its two conditions.</div>
+      <div class="ctx-txt-ur ur-blk">واحد جگہ جہاں اولیاء اللہ صراحتاً تعریف شدہ۔ تعریف: ایمان + مستقل تقویٰ (مسلسل شکل)۔ معجزات، خاص نسب، شیخ کی اجازت، زہد، تنہائی — کچھ بھی نہیں۔ ابن القیم: حقیقی ایمان اور حقیقی تقویٰ والا کوئی بھی اولیاء اللہ میں — چاہے جو سماجی مقام ہو۔</div>
+    </div>
+    <div class="root-box">
+      <div class="root-lbl en-blk">The Promise — No Fear · No Grief · The Complete Spectrum of Human Suffering Removed</div>
+      <span class="root-wd">لَا خَوْفٌ · لَا يَحْزَنُون</span>
+      <span class="root-fm">· Future anxiety removed · Past grief removed · Both dimensions</span>
+      <div class="root-mn en-blk">La khawfun 'alayhim: no fear — khawf is anxiety about the future, about what is coming. La hum yahzanoon: they shall not grieve — huzn is grief about what has passed, sadness about the present. Together: the entire spectrum of human psychological suffering. Future-fear AND past-grief: both removed. This is not a promise of external ease — the Wali may face hardship. It is a promise of internal freedom: closeness to Allah produces a condition where neither future anxiety nor past grief has hold. Ibn al-Qayyim calls this the most complete description of inner peace in the entire Quran.</div>
+      <div class="root-mn-ur ur-blk">لا خوف: مستقبل کی فکر ختم۔ لا یحزنون: ماضی کا غم ختم۔ مل کر انسانی نفسیاتی تکلیف کا پورا طیف۔ یہ بیرونی آسانی کا وعدہ نہیں — اندرونی آزادی۔ ابن القیم: پورے قرآن میں اندرونی سکون کا سب سے مکمل بیان۔</div>
+    </div>
+    <div class="uniq-box">
+      <div class="uniq-lbl en-blk">What the Bushra in This Life Actually Is</div>
+      <div class="uniq-txt en-blk">Lahum al-bushra fi al-hayat al-dunya — for them is good news in this world. Ibn Kathir: the true dream (al-ru'ya al-sadiqah). Ibn al-Qayyim gives a broader reading: the bushra of this life is the sustained experience of closeness to Allah — the opening of the heart, tuma'ninah (13:28), and the love others naturally feel toward them not because they seek it but because Allah places it in hearts. The bushra is not an external event — it is the quality of inner life that Walaya produces from the inside.</div>
+      <div class="uniq-txt-ur ur-blk">ابن کثیر: سچا خواب۔ ابن القیم: اللہ سے قربت کا مستقل احساس، دل کا کھلنا، طمانینہ، اور وہ محبت جو اللہ لوگوں کے دلوں میں رکھتا ہے۔ بشری بیرونی واقعہ نہیں — ولایت باطن سے جو زندگی کا معیار بناتی ہے۔</div>
+    </div>
+    <div class="notes-sec">
+      <div class="notes-hdr"><span class="en-blk">Personal Notes</span><span class="ur-blk">ذاتی نوٹس</span></div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--gold)"></div><span class="en-blk">The Awliya definition: Iman + ongoing Taqwa. Does this change who you consider a Wali? Are YOU meeting the two conditions?</span><span class="ur-blk">اولیاء: ایمان + مستقل تقویٰ۔ کیا یہ آپ کے ولی کے تصور کو بدلتا ہے؟ کیا آپ دو شرائط پوری کر رہے ہیں؟</span><span class="nsv" id="sv-aw1"></span></div>
+        <textarea class="note-ta" id="note-aw1" placeholder="Previous understanding of Awliya vs Quranic definition — what needs correcting? Then: are you meeting both conditions (genuine Iman + ongoing Taqwa) right now?" oninput="autoSave('aw1',this.value)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="ayah-card" id="aw-baqarah-257">
+  <div class="ayah-card-hdr" onclick="toggleCard('aw-baqarah-257')">
+    <span class="rev-badge rev-madani en-blk">Rev. #87</span>
+    <span class="card-ref">Al-Baqarah 2:257</span>
+    <span class="card-preview">اللَّهُ وَلِيُّ الَّذِينَ آمَنُوا يُخْرِجُهُم مِّنَ الظُّلُمَاتِ إِلَى النُّورِ</span>
+    <span class="card-chevron">›</span>
+  </div>
+  <div class="card-body">
+    <div class="ayah-arabic">اللَّهُ وَلِيُّ الَّذِينَ آمَنُوا يُخْرِجُهُم مِّنَ الظُّلُمَاتِ إِلَى النُّورِ</div>
+    <div class="ayah-tr-en en-blk">"Allah is the Wali of those who believe — He brings them out from the darknesses into the light."</div>
+    <div class="ayah-tr-ur ur-blk">«اللہ مومنوں کا ولی ہے — وہ انہیں اندھیروں سے نور کی طرف نکالتا ہے۔»</div>
+    <div class="ayah-ref-line">Al-Baqarah 2:257</div>
+    <div class="ctx-box">
+      <div class="ctx-lbl en-blk">Allah as Wali — The Reciprocal Movement</div>
+      <div class="ctx-txt en-blk">This completes the picture of 10:62-64. There: who the Awliya are and what they receive. Here: what Allah does as Wali — brings them from the darknesses (Zhulumat, plural — many kinds of darkness) into the light (al-Noor, singular — one light). The Walaya is a two-directional movement: the person moves toward Allah through Iman and Taqwa; Allah moves toward the person by bringing them from darkness into His light. The result of this convergence is the condition described in 10:62: no fear, no grief, good news in both worlds. This is the inner architecture reaching its ultimate functional state — the Sadr expanded, the Qalb settled, the Fu'ad witnessing clearly, the Lubb fully operational.</div>
+      <div class="ctx-txt-ur ur-blk">۱۰:۶۲-۶۴ کی تصویر مکمل: اللہ ظلمات سے نور کی طرف نکالتا ہے۔ ولایت دو طرفہ حرکت: انسان ایمان اور تقویٰ سے → اللہ اندھیرے سے نور تک۔ نتیجہ: لاخوف، لاحزن — باطنی معمار کی حتمی فعال حالت۔</div>
+    </div>
+    <div class="notes-sec">
+      <div class="notes-hdr"><span class="en-blk">Personal Notes</span><span class="ur-blk">ذاتی نوٹس</span></div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--teal)"></div><span class="en-blk">No fear and no grief — which is further from your current reality? What does that gap reveal about the layer that needs work?</span><span class="ur-blk">لاخوف یا لاحزن — کون سا ابھی سے زیادہ دور ہے؟ یہ فرق کس پرت کی ضرورت ظاہر کرتا ہے؟</span><span class="nsv" id="sv-aw2"></span></div>
+        <textarea class="note-ta" id="note-aw2" placeholder="Future anxiety (khawf) or past grief (huzn) — which is dominant in your inner life right now? What is the source?" oninput="autoSave('aw2',this.value)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="sec-lbl en-blk">Scholarly Analysis — Al-Awliya</div>
+
+<div class="scholars-lbl en-blk">✦ Three Scholars · The Correction, The Station, The Inner Architecture Connection</div>
+<div class="scholars-lbl ur-blk">✦ تین علماء · تصحیح، مرحلہ، باطنی معمار سے تعلق</div>
+
+<div class="scholar-card" id="sc-aw-ibn-qayyim">
+  <div class="sc-hdr" onclick="toggleScholar('sc-aw-ibn-qayyim')">
+    <div class="sc-badge">ق</div>
+    <div>
+      <div class="sc-name">Ibn al-Qayyim — Al-Furqan bayn Awliya al-Rahman wa Awliya al-Shaytan</div>
+      <div class="sc-text en-blk">The Most Important Corrective — Who the Awliya Are NOT</div>
+      <div class="sc-text ur-blk">سب سے اہم تصحیح — اولیاء کون نہیں ہیں</div>
+    </div>
+    <div class="sc-chev">›</div>
+  </div>
+  <div class="sc-body">
+    <div class="sc-quote en-blk">"The Wali of Allah is not known by miracles, by a tomb, by a lineage, by the wearing of a particular garment, or by the claim of any person about themselves or another. The Wali is known by the two conditions the Quran gave: Iman and Taqwa — both genuine, both sustained. A person with great miracles attributed to him but without genuine Iman and Taqwa is not a Wali of Allah — he may be a Wali of Shaytan. And a person with no miracles, no fame, no social recognition — who has genuine Iman and maintains genuine Taqwa — is among the Awliya Allah, whether anyone knows it or not."</div>
+    <div class="sc-quote-ur ur-blk">«اللہ کا ولی معجزات، مزار، نسب، خاص لباس، یا کسی کے دعوے سے نہیں پہچانا جاتا۔ ولی دو شرائط سے پہچانا جاتا ہے جو قرآن نے دیں: ایمان اور تقویٰ — دونوں حقیقی، دونوں مستقل۔ بڑے معجزات والا لیکن ایمان اور تقویٰ کے بغیر اولیاء اللہ نہیں — شیطان کا ولی ہو سکتا ہے۔ بے نام، بے شہرت، کوئی معجزہ نہیں — حقیقی ایمان اور تقویٰ والا اولیاء اللہ میں ہے۔»</div>
+    <div class="sc-analysis en-blk">Ibn al-Qayyim dedicated an entire book (Al-Furqan bayn Awliya al-Rahman wa Awliya al-Shaytan — The Distinction Between the Friends of the Merciful and the Friends of Shaytan) to this exact corrective. His argument is methodologically precise: the only valid criterion for Walaya is the Quranic criterion. Any other criterion — miracles, tombs, lineage, dress, popular acclaim — is not Quranic and cannot be used to determine the rank. The most practically important implication: the Awliya rank is not a clerical status or a spiritual hierarchy requiring human authorisation. It is a personal condition between a person and Allah, determined by their Iman and Taqwa, invisible to most people, and available to anyone who fulfils the conditions.</div>
+    <div class="sc-analysis-ur ur-blk">ابن القیم نے پوری کتاب اس تصحیح کو دی۔ ولایت کا واحد درست معیار: قرآنی معیار۔ کوئی اور معیار — معجزات، مزار، نسب — قرآنی نہیں۔ اہم نکتہ: ولایت پادری مقام یا روحانی درجہ نہیں — شخص اور اللہ کے درمیان ذاتی حالت، ایمان اور تقویٰ سے طے، اکثر لوگوں کو نظر نہیں۔</div>
+    <div class="sc-source">Al-Furqan bayn Awliya al-Rahman wa Awliya al-Shaytan — The complete corrective on who the Awliya are and are not</div>
+  </div>
+</div>
+
+<div class="scholar-card" id="sc-aw-ghazali">
+  <div class="sc-hdr" onclick="toggleScholar('sc-aw-ghazali')">
+    <div class="sc-badge">غ</div>
+    <div>
+      <div class="sc-name">Al-Ghazali — Ihya, Book of Mahabbah</div>
+      <div class="sc-text en-blk">The Inner Experience of Walaya — What No-Fear and No-Grief Actually Feel Like</div>
+      <div class="sc-text ur-blk">ولایت کا باطنی تجربہ — لاخوف اور لاحزن کیسا لگتا ہے</div>
+    </div>
+    <div class="sc-chev">›</div>
+  </div>
+  <div class="sc-body">
+    <div class="sc-quote en-blk">"The no-fear and no-grief promised to the Awliya is not the absence of difficulty — it is the presence of something greater than difficulty. The Wali may lose what others lose, suffer what others suffer, face what others face. What differs is the inner relationship to those experiences. Fear requires: (1) something you want to avoid and (2) the possibility that you cannot avoid it. The Wali has so thoroughly placed his preferences in alignment with Allah's will that the first condition no longer applies — what Allah wills is what he wants. Grief requires: (1) something valuable that is lost and (2) the belief that its loss diminishes you. The Wali has so thoroughly recognised that nothing outside Allah is ultimately valuable that the second condition no longer applies."</div>
+    <div class="sc-quote-ur ur-blk">«اولیاء کو وعدہ شدہ لاخوف اور لاحزن مشکلات کی غیر موجودگی نہیں — مشکل سے بڑی کسی چیز کی موجودگی۔ خوف کی دو شرائط: (۱) جو بچنا چاہتے ہو (۲) بچ نہ سکنے کا امکان۔ ولی نے ترجیحات اللہ کی مرضی سے ہم آہنگ کیں — پہلی شرط ختم۔ غم کی دو شرائط: (۱) گمشدہ قیمتی چیز (۲) یقین کہ نقصان آپ کو کم کرتا ہے۔ ولی نے پہچانا اللہ کے علاوہ کچھ بھی حتمی طور پر قیمتی نہیں — دوسری شرط ختم۔»</div>
+    <div class="sc-analysis en-blk">Al-Ghazali's analysis of the no-fear and no-grief promise is the most precise treatment in the classical literature. He does not describe it as the absence of hardship but as a specific inner reorientation that removes the conditions under which fear and grief are possible. His framework: fear requires wanting to avoid something + the possibility of not avoiding it. Tawakkul removes the second (outcome placed with Allah). Mahabbah and Rida (love and contentment with Allah's will) remove the first (alignment of preferences with Allah's will). The Wali who has genuine Tawakkul and genuine Mahabbah no longer has the conditions for fear or grief — not because his life is easy, but because his orientation has fundamentally changed.</div>
+    <div class="sc-analysis-ur ur-blk">الغزالی: لاخوف اور لاحزن مشکلات کی غیر موجودگی نہیں — باطنی تشکیل نو جو خوف اور غم کی شرائط ختم کرتی ہے۔ توکل دوسری شرط ختم کرتا ہے۔ محبت اور رضا پہلی شرط ختم کرتے ہیں۔ ولی کی زندگی آسان نہیں — رخ بدل گیا۔</div>
+    <div class="sc-source">Ihya Ulum al-Din — Book 36 (Mahabbah and Rida) — The inner reorientation that produces no-fear and no-grief</div>
+  </div>
+</div>
+
+<div class="scholar-card" id="sc-aw-ataullah">
+  <div class="sc-hdr" onclick="toggleScholar('sc-aw-ataullah')">
+    <div class="sc-badge">ع</div>
+    <div>
+      <div class="sc-name">Ibn Ata'illah — Al-Hikam al-Ata'iyyah</div>
+      <div class="sc-text en-blk">Walaya as a State Discovered Not Achieved — The Paradox</div>
+      <div class="sc-text ur-blk">ولایت حاصل نہیں — دریافت کی جاتی ہے</div>
+    </div>
+    <div class="sc-chev">›</div>
+  </div>
+  <div class="sc-body">
+    <div class="sc-quote en-blk">"Do not seek to be a Wali of Allah — seek Iman and Taqwa, which are what the Quran commanded, and let the Walaya be what Allah grants. The person who seeks Walaya directly has misunderstood the rank: Walaya is not an achievement, it is a recognition. It is what happens when Iman and Taqwa have been so thoroughly embodied that Allah's guardianship is the natural consequence. The person who is trying to become a Wali is still working from the self. The Wali arrived at his station by working from Allah — doing what He commanded and leaving the designation to Him."</div>
+    <div class="sc-quote-ur ur-blk">«اولیاء اللہ بننے کی کوشش نہ کرو — ایمان اور تقویٰ کی کوشش کرو جو قرآن نے حکم دیا، اور ولایت وہ ہونے دو جو اللہ دے۔ ولایت کارنامہ نہیں — پہچان ہے۔ جو ولی بننے کی کوشش کر رہا ہے ابھی خود سے کام کر رہا ہے۔ ولی اللہ سے کام کر کے پہنچا — حکم مانا اور نام اللہ پر چھوڑ دیا۔»</div>
+    <div class="sc-analysis en-blk">Ibn Ata'illah's contribution to the understanding of Walaya is the same as his contribution to the understanding of every highest station: the paradox of achievement. The self that tries to become a Wali introduces the ego into the process — which is precisely what Walaya requires to be absent. His Hikam describe Walaya as what is uncovered when the conditions are met, not what is constructed through effort. This does not eliminate the human role — the conditions (Iman + Taqwa) must be actively maintained. But the Walaya itself is given, not taken. The distinction: the person's work is the conditions; Allah's work is the Walaya. Confusing the two — claiming Walaya as your achievement — is the surest sign of its absence.</div>
+    <div class="sc-analysis-ur ur-blk">ابن عطاء اللہ: کارنامے کا تضاد۔ ولی بننے کی کوشش کرنے والی ذات نفس لاتی ہے — جو ولایت میں غائب ہونی چاہیے۔ انسان کا کام: شرائط (ایمان + تقویٰ)؛ اللہ کا کام: ولایت۔ ولایت کو اپنا کارنامہ سمجھنا اس کی غیر موجودگی کی سب سے یقینی علامت۔</div>
+    <div class="sc-source">Al-Hikam al-Ata'iyyah — Aphorisms on the states of the heart and the paradox of spiritual achievement</div>
+  </div>
+</div>
+
+<div class="insight">
+  <div class="insight-lbl en-blk">◈ The Awliya and the Inner Architecture — The Final Connection</div>
+  <div class="insight-lbl ur-blk">◈ اولیاء اور باطنی معمار — آخری تعلق</div>
+  <div class="insight-txt en-blk">The Awliya rank is the point at which the inner architecture reaches its ultimate functional state. The Wali's Sadr is expanded for Islam (6:125). The Wali's Qalb is settled in tuma'ninah through dhikr (13:28). The Wali's Fu'ad witnesses directly without distortion (53:11). The Wali's Lubb is fully operational — receiving the Quran at its intended depth (38:29). The no-fear and no-grief are the result of all four layers functioning at full capacity simultaneously. Al-Ghazali's entire Ihya programme points to this condition as its destination: the purification and cultivation of every layer until the divine Walaya becomes the person's living reality — not as a belief but as an experienced state that produces the bushra of this world and the next.</div>
+  <div class="insight-txt-ur ur-blk">اولیاء کا درجہ: باطنی معمار اپنی حتمی فعال حالت۔ ولی کا صدر کھلا، قلب مطمئن، فواد صاف گواہ، لب مکمل فعال۔ لاخوف اور لاحزن: چاروں پرتیں بیک وقت مکمل صلاحیت پر۔ الغزالی کی پوری احیاء اس کی طرف اشارہ کرتی ہے۔</div>
+</div>
+
+<div class="synth-box">
+  <div class="notes-hdr"><span class="en-blk">Personal Synthesis — Al-Awliya</span><span class="ur-blk">ذاتی خلاصہ — الاولیاء</span></div>
+  <div class="note-f">
+    <div class="note-lbl"><div class="nd" style="background:var(--gold)"></div><span class="en-blk">Ibn Ata'illah's paradox: stop trying to become a Wali — focus on Iman and Taqwa and leave the designation to Allah. What does this reorientation change in how you approach spiritual practice?</span><span class="ur-blk">ابن عطاء اللہ کا تضاد: ولی بننے کی کوشش بند کرو — ایمان اور تقویٰ پر توجہ اور نام اللہ پر۔ یہ تبدیلی روحانی عمل کے طریقے کو کیسے بدلتی ہے؟</span><span class="nsv" id="sv-aw-synth"></span></div>
+    <textarea class="note-ta" id="note-aw-synth" style="min-height:100px" placeholder="Are you working toward a spiritual status (which introduces ego) or working on the conditions (Iman + Taqwa)? What is the practical difference in how you spend your time and energy?" oninput="autoSave('aw-synth',this.value)"></textarea>
+  </div>
+</div>
+
+</div><!-- end awliya -->
+
+<!-- FILE NAVIGATION -->
+<div class="sec-lbl" style="margin-top:36px">
+  <span class="en-inl">Continue — The Five Files</span>
+  <span class="ur-inl">آگے — پانچ فائلیں</span>
+</div>
+
+<div class="file-links">
+  <a href="ranks_map.html" class="file-link">
+    <div class="fl-num">File 1</div>
+    <div class="fl-title">The Map</div>
+    <div class="fl-desc">Overview · Three classification systems</div>
+    <span class="fl-badge fl-ready">Complete</span>
+  </a>
+  <a href="ranks_eschatological.html" class="file-link">
+    <div class="fl-num">File 2</div>
+    <div class="fl-title">Eschatological Ranks</div>
+    <div class="fl-desc">Sabiqoon · Siddiqoon · Shuhada · Salihoon · Muqtasid · Zalim</div>
+    <span class="fl-badge fl-ready">Complete</span>
+  </a>
+  <a href="#" class="file-link current">
+    <div class="fl-num">File 3A</div>
+    <div class="fl-title">Divine Love Ranks</div>
+    <div class="fl-desc">Muhsinoon · Muttaqoon · Mutawakkiloon · Muqsitoon · Awliya</div>
+    <span class="fl-badge fl-ready">Current</span>
+  </a>
+  <a href="ranks_inner_qualities.html" class="file-link">
+    <div class="fl-num">File 3B</div>
+    <div class="fl-title">Inner Quality Ranks</div>
+    <div class="fl-desc">Mukhlasoon · Awwaaboon · Sabiroon · Shakiroon · Ulu al-Albab</div>
+    <span class="fl-badge fl-coming">Next Session</span>
+  </a>
+  <a href="ranks_path.html" class="file-link">
+    <div class="fl-num">File 4</div>
+    <div class="fl-title">The Path</div>
+    <div class="fl-desc">Quranic codes for ascending · Practices mapped to ranks</div>
+    <span class="fl-badge fl-coming">Session 5</span>
+  </a>
+</div>
+
+</div><!-- end page -->
+<div id="toast"></div>
+
+<script>
+var LANG='en';
+var timers={};
+
+function setLang(l){
+  LANG=l;
+  document.getElementById('lt-en').classList.toggle('on',l==='en');
+  document.getElementById('lt-ur').classList.toggle('on',l==='ur');
+  document.body.classList.toggle('ur-mode',l==='ur');
+  document.documentElement.setAttribute('lang',l==='ur'?'ur':'en');
+}
+
+function showRank(id,btn){
+  document.querySelectorAll('.rank-section').forEach(function(s){s.classList.remove('active');});
+  document.querySelectorAll('.rn-btn').forEach(function(b){b.classList.remove('on');});
+  document.getElementById('sec-'+id).classList.add('active');
+  if(btn)btn.classList.add('on');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function toggleCard(id){document.getElementById(id).classList.toggle('open');}
+function toggleScholar(id){document.getElementById(id).classList.toggle('open');}
+
+function autoSave(key,val){
+  clearTimeout(timers[key]);
+  timers[key]=setTimeout(function(){
+    var sk='rdl_'+key;
+    if(val.trim()){localStorage.setItem(sk,val);}else{localStorage.removeItem(sk);}
+    var sv=document.getElementById('sv-'+key);
+    if(sv){sv.textContent=val.trim()?'Saved ✓':'';sv.classList.add('flash');setTimeout(function(){sv.classList.remove('flash');},1800);}
+  },900);
+}
+
+function loadAll(){
+  for(var i=0;i<localStorage.length;i++){
+    var k=localStorage.key(i);
+    if(k&&k.startsWith('rdl_')){
+      var fk=k.substring(4);
+      var el=document.getElementById('note-'+fk);
+      var sv=document.getElementById('sv-'+fk);
+      if(el){el.value=localStorage.getItem(k)||'';if(sv&&el.value.trim())sv.textContent='Saved';}
+    }
+  }
+}
+
+window.addEventListener('DOMContentLoaded',function(){loadAll();});
+</script>
+</body>
+</html>

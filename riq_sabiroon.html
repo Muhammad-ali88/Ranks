@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inner Quality Ranks — Al-Sabiroon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg0:#04070D;--bg1:#080E1C;--bg2:#0C1528;--bg3:#111E35;--bg4:#162440;
+  --gold:#C9A84C;--gold2:#E2C97A;--gold3:#F5E9C0;
+  --golddim:rgba(201,168,76,.08);--goldbdr:rgba(201,168,76,.18);
+  --teal:#2FB89A;--tealdim:rgba(47,184,154,.08);--tealbdr:rgba(47,184,154,.22);
+  --blue:#7AABF0;--bluedim:rgba(122,171,240,.08);--bluebdr:rgba(122,171,240,.22);
+  --amber:#E0A030;--amberdim:rgba(224,160,48,.08);--amberbdr:rgba(224,160,48,.22);
+  --purple:#A87FD0;--purpledim:rgba(168,127,208,.08);--purplebdr:rgba(168,127,208,.22);
+  --text:#D4CBB8;--text2:#8A9BB0;--text3:#4A5B70;
+  --border:rgba(201,168,76,.10);--border2:rgba(201,168,76,.05);
+  --font-head:'Cinzel',serif;--font-body:'Lora',serif;--font-arab:'Noto Naskh Arabic',serif;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg0);color:var(--text);font-family:var(--font-body);min-height:100vh;overflow-x:hidden;padding-bottom:80px}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:var(--bg1)}::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(ellipse 800px 500px at 20% 10%,rgba(201,168,76,.025),transparent 60%),
+             radial-gradient(ellipse 600px 400px at 80% 80%,rgba(47,184,154,.02),transparent 60%);}
+.hdr{position:sticky;top:0;z-index:90;background:rgba(4,7,13,.97);border-bottom:1px solid var(--border2);backdrop-filter:blur(20px);padding:0 22px;height:56px;display:flex;align-items:center;gap:14px}
+.hdr-ar{font-family:var(--font-arab);font-size:22px;color:var(--gold);text-shadow:0 0 20px rgba(201,168,76,.3)}
+.hdr-titles{flex:1}
+.hdr-title{font-family:var(--font-head);font-size:10px;letter-spacing:2px;color:var(--gold2);text-transform:uppercase}
+.hdr-sub{font-family:var(--font-head);font-size:8px;letter-spacing:1px;color:var(--text3);text-transform:uppercase;margin-top:2px}
+.lang-toggle{display:flex;gap:2px;background:rgba(255,255,255,.04);border:1px solid var(--goldbdr);border-radius:20px;padding:3px}
+.lt{font-family:var(--font-head);font-size:9px;letter-spacing:.8px;padding:3px 10px;border-radius:16px;cursor:pointer;transition:all .2s;color:var(--text3);user-select:none}
+.lt.on{background:var(--gold);color:#000;font-weight:700}
+.back-link{font-family:var(--font-head);font-size:8.5px;letter-spacing:.8px;color:var(--text3);text-decoration:none;padding:5px 10px;border:1px solid var(--border2);border-radius:6px;transition:all .15s;text-transform:uppercase;flex-shrink:0}
+.back-link:hover{color:var(--gold2);border-color:var(--goldbdr)}
+.file-nav{background:rgba(8,14,28,.8);border-bottom:1px solid var(--border2);padding:10px 22px;display:flex;gap:8px;flex-wrap:wrap;position:sticky;top:56px;z-index:80;backdrop-filter:blur(16px)}
+.fn-btn{font-family:var(--font-head);font-size:8px;letter-spacing:1px;text-transform:uppercase;padding:6px 14px;border-radius:7px;border:1px solid var(--border2);color:var(--text3);cursor:pointer;transition:all .2s;text-decoration:none;display:inline-block}
+.fn-btn:hover{color:var(--gold2);border-color:var(--goldbdr)}
+.fn-btn.current{background:var(--golddim);border-color:var(--goldbdr);color:var(--gold2)}
+.fn-sep{color:var(--text3);font-size:10px;align-self:center;opacity:.4}
+.tab-nav{background:rgba(8,14,28,.6);border-bottom:1px solid var(--border2);padding:8px 22px;display:flex;gap:6px;flex-wrap:wrap;position:sticky;top:103px;z-index:70;backdrop-filter:blur(16px)}
+.tn-btn{font-family:var(--font-head);font-size:7.5px;letter-spacing:.8px;text-transform:uppercase;padding:5px 12px;border-radius:6px;border:1px solid var(--border2);color:var(--text3);cursor:pointer;transition:all .2s;text-decoration:none;display:inline-block}
+.tn-btn:hover{color:var(--gold2);border-color:var(--goldbdr)}
+.tn-btn.current{background:var(--golddim);border-color:var(--goldbdr);color:var(--gold2)}
+.page{position:relative;z-index:1;max-width:860px;margin:0 auto;padding:32px 20px 60px}
+.rank-hdr{text-align:center;padding:24px 20px 32px;border-bottom:1px solid var(--border2);margin-bottom:28px}
+.rank-hdr-num{font-family:var(--font-head);font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--text3);margin-bottom:10px}
+.rank-hdr-ar{font-family:var(--font-arab);font-size:clamp(40px,7vw,62px);color:var(--gold);text-shadow:0 0 40px rgba(201,168,76,.2);line-height:1.2;margin-bottom:8px}
+.rank-hdr-en{font-family:var(--font-head);font-size:clamp(13px,2.5vw,18px);font-weight:700;color:#fff;letter-spacing:2px;text-transform:uppercase;margin-bottom:5px}
+.rank-hdr-ur{font-family:var(--font-arab);font-size:clamp(15px,2.5vw,20px);color:var(--gold2);margin-bottom:14px}
+.rank-hdr-rule{width:100px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 16px}
+.rank-hdr-root{font-family:var(--font-head);font-size:9px;letter-spacing:1.5px;color:var(--text3);text-transform:uppercase;margin-bottom:14px}
+.rank-hdr-intro{font-size:13px;color:var(--text2);line-height:1.9;max-width:640px;margin:0 auto;font-style:italic}
+.rank-hdr-intro-ur{font-family:var(--font-arab);font-size:14px;color:var(--text2);direction:rtl;text-align:center;line-height:2;max-width:640px;margin:4px auto 0}
+.key-banner{background:linear-gradient(135deg,rgba(201,168,76,.10),rgba(201,168,76,.04));border:1px solid var(--goldbdr);border-radius:12px;padding:18px 22px;margin-bottom:24px;text-align:center;position:relative;overflow:hidden}
+.key-banner::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.key-banner-label{font-family:var(--font-head);font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.key-banner-ar{font-family:var(--font-arab);font-size:clamp(18px,3.5vw,26px);color:var(--gold2);direction:rtl;line-height:1.9;margin-bottom:6px}
+.key-banner-tr{font-size:12px;color:var(--text2);font-style:italic;margin-bottom:4px}
+.key-banner-tr-ur{font-family:var(--font-arab);font-size:13px;color:var(--text2);direction:rtl;line-height:1.9;margin-bottom:6px}
+.key-banner-insight{font-size:11.5px;color:var(--text3);line-height:1.75;border-top:1px solid var(--goldbdr);padding-top:10px;margin-top:6px}
+.key-banner-insight-ur{font-family:var(--font-arab);font-size:12px;color:var(--text3);direction:rtl;text-align:center;line-height:2;margin-top:4px}
+.key-banner-ref{font-family:var(--font-head);font-size:8.5px;color:var(--gold);letter-spacing:.6px;margin-top:6px}
+.root-analysis{background:var(--bg2);border:1px solid var(--goldbdr);border-radius:12px;padding:20px 22px;margin-bottom:24px;position:relative;overflow:hidden}
+.root-analysis::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.ra-label{font-family:var(--font-head);font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.ra-label::after{content:'';flex:1;height:1px;background:var(--border2)}
+.ra-root{font-family:var(--font-arab);font-size:28px;color:var(--gold2);direction:rtl;margin-bottom:12px}
+.ra-letters{display:flex;gap:10px;flex-direction:row-reverse;margin-bottom:14px}
+.ra-letter{background:rgba(201,168,76,.06);border:1px solid var(--goldbdr);border-radius:8px;padding:8px 14px;text-align:center}
+.ra-letter-ar{font-family:var(--font-arab);font-size:22px;color:var(--gold2);display:block}
+.ra-letter-en{font-family:var(--font-head);font-size:8px;color:var(--text3);letter-spacing:.5px;margin-top:4px;display:block}
+.ra-meaning{font-size:13px;color:var(--text2);line-height:1.8;margin-bottom:10px}
+.ra-meaning-ur{font-family:var(--font-arab);font-size:14px;color:var(--text2);direction:rtl;text-align:right;line-height:2;margin-bottom:10px}
+.ra-forms{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.ra-form{background:var(--bg3);border:1px solid var(--border2);border-radius:6px;padding:6px 12px;text-align:center}
+.ra-form-ar{font-family:var(--font-arab);font-size:16px;color:var(--gold2);direction:rtl}
+.ra-form-en{font-family:var(--font-head);font-size:8px;color:var(--text3);letter-spacing:.5px;margin-top:2px}
+.ra-count{font-family:var(--font-head);font-size:9px;color:var(--teal);letter-spacing:.5px}
+.three-types{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:24px}
+.type-card{background:var(--bg2);border:1px solid var(--border2);border-radius:10px;padding:14px 16px;position:relative;overflow:hidden}
+.type-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
+.type-card-1::before{background:linear-gradient(90deg,transparent,var(--teal),transparent)}
+.type-card-2::before{background:linear-gradient(90deg,transparent,var(--amber),transparent)}
+.type-card-3::before{background:linear-gradient(90deg,transparent,var(--purple),transparent)}
+.type-card-1{border-top-color:var(--tealbdr)}
+.type-card-2{border-top-color:var(--amberbdr)}
+.type-card-3{border-top-color:var(--purplebdr)}
+.tc-num{font-family:var(--font-head);font-size:8px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px}
+.tc-num-1{color:var(--teal)}.tc-num-2{color:var(--amber)}.tc-num-3{color:var(--purple)}
+.tc-ar{font-family:var(--font-arab);font-size:18px;color:var(--gold2);direction:rtl;margin-bottom:5px}
+.tc-en{font-family:var(--font-head);font-size:8.5px;letter-spacing:.5px;color:var(--text);margin-bottom:6px}
+.tc-def{font-size:11.5px;color:var(--text2);line-height:1.7}
+.tc-def-ur{font-family:var(--font-arab);font-size:12px;color:var(--text2);direction:rtl;text-align:right;line-height:2;margin-top:4px}
+.era-divider{display:flex;align-items:center;gap:12px;margin:28px 0 16px}
+.era-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.era-early{background:var(--amber)}.era-middle{background:var(--gold)}.era-late{background:var(--teal)}.era-madani{background:var(--blue)}
+.era-label{font-family:var(--font-head);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text2)}
+.era-label-ur{font-family:var(--font-arab);font-size:13px;color:var(--text2)}
+.era-line{flex:1;height:1px;background:var(--border2)}
+.ayah-card{background:var(--bg2);border:1px solid var(--border2);border-radius:12px;margin-bottom:10px;overflow:hidden;transition:border-color .2s}
+.ayah-card.open{border-color:var(--goldbdr)}
+.ayah-card-hdr{display:flex;align-items:center;gap:10px;padding:13px 18px;cursor:pointer;user-select:none}
+.rev-badge{font-family:var(--font-head);font-size:7.5px;letter-spacing:.8px;padding:3px 8px;border-radius:5px;flex-shrink:0;text-transform:uppercase}
+.rev-early{background:var(--amberdim);border:1px solid var(--amberbdr);color:var(--amber)}
+.rev-middle{background:var(--golddim);border:1px solid var(--goldbdr);color:var(--gold2)}
+.rev-late{background:var(--tealdim);border:1px solid var(--tealbdr);color:var(--teal)}
+.rev-madani{background:var(--bluedim);border:1px solid var(--bluebdr);color:var(--blue)}
+.card-ref{font-family:var(--font-head);font-size:10px;color:var(--gold);font-weight:600;flex-shrink:0}
+.card-preview{font-family:var(--font-arab);font-size:16px;color:var(--gold2);direction:rtl;flex:1;text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:.75}
+.card-chevron{color:var(--text3);font-size:16px;transition:transform .25s;flex-shrink:0}
+.ayah-card.open .card-chevron{transform:rotate(90deg);color:var(--gold)}
+.card-body{display:none;padding:0 18px 20px;border-top:1px solid var(--border2)}
+.ayah-card.open .card-body{display:block}
+.ayah-arabic{font-family:var(--font-arab);font-size:clamp(18px,3.5vw,26px);color:var(--gold2);direction:rtl;text-align:right;line-height:2.2;padding:18px 0 12px;text-shadow:0 0 20px rgba(201,168,76,.1);border-bottom:1px solid var(--border2);margin-bottom:12px}
+.ayah-tr-en{font-size:13px;color:var(--text);font-style:italic;line-height:1.85;margin-bottom:6px;border-left:3px solid var(--goldbdr);padding:8px 14px;border-radius:0 6px 6px 0;background:rgba(201,168,76,.03)}
+.ayah-tr-ur{font-family:var(--font-arab);font-size:14px;color:var(--text);direction:rtl;text-align:right;line-height:2;border-right:3px solid var(--goldbdr);padding:8px 14px 8px 8px;border-radius:6px 0 0 6px;background:rgba(201,168,76,.03);margin-bottom:6px}
+.ayah-ref-line{font-family:var(--font-head);font-size:9px;color:var(--gold);letter-spacing:.8px;margin-bottom:14px}
+.ctx-box{background:rgba(0,0,0,.2);border-left:3px solid var(--amber);border-radius:0 8px 8px 0;padding:11px 14px;margin-bottom:12px}
+.ctx-lbl{font-family:var(--font-head);font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:var(--amber);margin-bottom:5px}
+.ctx-txt{font-size:12px;color:var(--text2);line-height:1.75}
+.ctx-txt-ur{font-family:var(--font-arab);font-size:13px;color:var(--text2);direction:rtl;text-align:right;line-height:2}
+.root-box{background:rgba(201,168,76,.04);border:1px solid var(--goldbdr);border-radius:8px;padding:11px 14px;margin-bottom:12px}
+.root-lbl{font-family:var(--font-head);font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:var(--gold);margin-bottom:7px}
+.root-wd{font-family:var(--font-arab);font-size:19px;color:var(--gold2);direction:rtl;display:inline-block;margin-left:8px}
+.root-fm{font-size:11px;color:var(--text3);letter-spacing:.3px}
+.root-mn{font-size:12px;color:var(--text2);line-height:1.7;margin-top:6px}
+.root-mn-ur{font-family:var(--font-arab);font-size:13px;color:var(--text2);direction:rtl;text-align:right;line-height:2;margin-top:5px}
+.uniq-box{background:var(--tealdim);border:1px solid var(--tealbdr);border-radius:8px;padding:11px 14px;margin-bottom:12px}
+.uniq-lbl{font-family:var(--font-head);font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:var(--teal);margin-bottom:5px}
+.uniq-txt{font-size:12.5px;color:var(--text);line-height:1.75}
+.uniq-txt-ur{font-family:var(--font-arab);font-size:13px;color:var(--text);direction:rtl;text-align:right;line-height:2}
+.scholar-card{background:var(--bg3);border:1px solid var(--border2);border-radius:10px;padding:15px 17px;margin-bottom:9px;overflow:hidden;transition:border-color .2s}
+.scholar-card.open{border-color:var(--purplebdr)}
+.sc-hdr{display:flex;align-items:center;gap:12px;cursor:pointer;user-select:none}
+.sc-badge{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--font-arab);font-size:13px;color:var(--gold2);background:var(--purpledim);border:1px solid var(--purplebdr);flex-shrink:0}
+.sc-name{font-family:var(--font-head);font-size:9.5px;letter-spacing:.5px;color:var(--text);font-weight:600}
+.sc-text{font-family:var(--font-head);font-size:8px;letter-spacing:.3px;color:var(--purple);margin-top:2px}
+.sc-chev{color:var(--text3);font-size:14px;transition:transform .25s;margin-left:auto;flex-shrink:0}
+.scholar-card.open .sc-chev{transform:rotate(90deg);color:var(--purple)}
+.sc-body{display:none;margin-top:12px;padding-top:10px;border-top:1px solid var(--border2)}
+.scholar-card.open .sc-body{display:block}
+.sc-quote{font-size:12px;color:var(--text);font-style:italic;line-height:1.8;border-left:2px solid var(--purple);padding:8px 12px;background:rgba(168,127,208,.04);border-radius:0 6px 6px 0;margin-bottom:10px}
+.sc-quote-ur{font-family:var(--font-arab);font-size:13px;color:var(--text);direction:rtl;text-align:right;line-height:2;border-right:2px solid var(--purple);padding:8px 12px;background:rgba(168,127,208,.04);border-radius:6px 0 0 6px;margin-bottom:10px}
+.sc-analysis{font-size:12px;color:var(--text2);line-height:1.75}
+.sc-analysis-ur{font-family:var(--font-arab);font-size:13px;color:var(--text2);direction:rtl;text-align:right;line-height:2;margin-top:5px}
+.sc-source{font-family:var(--font-head);font-size:8px;color:var(--purple);letter-spacing:.4px;margin-top:8px}
+.scholars-lbl{font-family:var(--font-head);font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--purple);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.scholars-lbl::after{content:'';flex:1;height:1px;background:rgba(168,127,208,.15)}
+.notes-sec{margin-top:14px;border-top:1px solid var(--border2);padding-top:12px}
+.notes-hdr{font-family:var(--font-head);font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:var(--text2);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.notes-hdr::after{content:'';flex:1;height:1px;background:var(--border2)}
+.note-f{margin-bottom:7px}
+.note-lbl{font-family:var(--font-head);font-size:7.5px;letter-spacing:.8px;text-transform:uppercase;color:var(--text3);margin-bottom:4px;display:flex;align-items:center;gap:6px}
+.nd{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.nsv{font-family:var(--font-head);font-size:7px;letter-spacing:.3px;color:var(--text3);margin-left:auto;transition:color .3s}
+.nsv.flash{color:var(--teal)}
+.note-ta{width:100%;min-height:72px;background:rgba(255,255,255,.03);border:1px solid var(--border2);border-radius:7px;outline:none;padding:10px 12px;font-family:var(--font-body);font-size:12.5px;color:var(--text);line-height:1.75;resize:vertical;transition:border-color .2s}
+.note-ta:focus{border-color:var(--goldbdr)}
+.note-ta::placeholder{color:var(--text3);font-style:italic;font-size:11.5px}
+.sh-card{background:var(--bg2);border:1px solid var(--border2);border-radius:12px;padding:18px 20px;margin-bottom:10px}
+.sh-lbl{font-family:var(--font-head);font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:var(--purple);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.sh-lbl::after{content:'';flex:1;height:1px;background:var(--border2)}
+.sh-ar{font-family:var(--font-arab);font-size:clamp(14px,3vw,18px);color:var(--gold2);direction:rtl;text-align:right;line-height:2;margin-bottom:9px;padding:10px 14px;background:rgba(201,168,76,.04);border-radius:7px}
+.sh-en{font-size:12.5px;color:var(--text);font-style:italic;line-height:1.8;margin-bottom:6px}
+.sh-ur{font-family:var(--font-arab);font-size:14px;color:var(--text);direction:rtl;text-align:right;line-height:2;margin-bottom:6px}
+.sh-src{font-family:var(--font-head);font-size:8.5px;color:var(--purple);letter-spacing:.5px}
+.sec-lbl{font-family:var(--font-head);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:12px;padding:28px 0 16px}
+.sec-lbl::after{content:'';flex:1;height:1px;background:var(--border2)}
+.grade{display:inline-block;font-family:var(--font-head);font-size:7.5px;padding:2px 7px;border-radius:4px;margin-left:6px}
+.g-sahih{background:var(--tealdim);border:1px solid var(--tealbdr);color:var(--teal)}
+.g-hasan{background:var(--golddim);border:1px solid var(--goldbdr);color:var(--gold2)}
+.synth-box{border:1px solid var(--border2);border-radius:10px;padding:16px 18px;margin-top:8px}
+.file-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:12px}
+.file-link{background:var(--bg2);border:1px solid var(--border2);border-radius:10px;padding:14px 16px;text-decoration:none;transition:all .2s;display:block}
+.file-link:hover{border-color:var(--goldbdr);background:rgba(201,168,76,.04)}
+.file-link.current{border-color:var(--goldbdr);background:var(--golddim);cursor:default}
+.fl-num{font-family:var(--font-head);font-size:8px;letter-spacing:1px;color:var(--text3);text-transform:uppercase;margin-bottom:5px}
+.fl-title{font-family:var(--font-head);font-size:10px;letter-spacing:.5px;color:var(--gold2);margin-bottom:4px}
+.fl-desc{font-size:11px;color:var(--text3);line-height:1.6}
+.fl-badge{display:inline-block;font-family:var(--font-head);font-size:7px;padding:1px 6px;border-radius:4px;margin-top:6px}
+.fl-ready{background:var(--tealdim);border:1px solid var(--tealbdr);color:var(--teal)}
+.fl-coming{background:var(--amberdim);border:1px solid var(--amberbdr);color:var(--amber)}
+.en-blk{display:block}.ur-blk{display:none}
+body.ur-mode .en-blk{display:none}
+body.ur-mode .ur-blk{display:block}
+.en-inl{display:inline}.ur-inl{display:none}
+body.ur-mode .en-inl{display:none}
+body.ur-mode .ur-inl{display:inline}
+#toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(40px);background:rgba(12,21,40,.98);border:1px solid var(--goldbdr);border-radius:8px;padding:9px 20px;font-family:var(--font-head);font-size:9px;letter-spacing:1px;color:var(--gold2);z-index:300;opacity:0;transition:all .25s;pointer-events:none;white-space:nowrap}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+@media(max-width:600px){.page{padding:20px 14px 60px}.three-types{grid-template-columns:1fr}.ra-letters{gap:6px}.ra-letter{padding:6px 10px}}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <div class="hdr-ar">صَبْر</div>
+  <div class="hdr-titles">
+    <div class="hdr-title en-blk">Inner Quality Ranks — File 3B · Tab III</div>
+    <div class="hdr-title ur-blk">باطنی اوصاف کے درجات — فائل ۳B · ٹیب ۳</div>
+    <div class="hdr-sub en-blk">Al-Sabiroon — The Patient Ones · Three Types the Quran Distinguishes</div>
+    <div class="hdr-sub ur-blk">الصابرون — صبر کرنے والے · تین اقسام جو قرآن بیان کرتا ہے</div>
+  </div>
+  <div class="lang-toggle">
+    <div class="lt on" id="lt-en" onclick="setLang('en')">EN</div>
+    <div class="lt" id="lt-ur" onclick="setLang('ur')">اردو</div>
+  </div>
+  <a href="ranks_map.html" class="back-link">← Map</a>
+</div>
+
+<div class="file-nav">
+  <a href="ranks_map.html" class="fn-btn">1 · Map</a>
+  <span class="fn-sep">›</span>
+  <a href="ranks_eschatological.html" class="fn-btn">2 · Eschatological</a>
+  <span class="fn-sep">›</span>
+  <a href="ranks_divine_love.html" class="fn-btn">3A · Divine Love</a>
+  <span class="fn-sep">›</span>
+  <span class="fn-btn current">3B · Inner Qualities</span>
+  <span class="fn-sep">›</span>
+  <a href="ranks_path.html" class="fn-btn">4 · The Path</a>
+</div>
+
+<div class="tab-nav">
+  <a href="ranks_inner_qualities_mukhlisoon.html" class="tn-btn">I · Mukhlisoon</a>
+  <a href="riq_awwaaboon.html" class="tn-btn">II · Awwaaboon</a>
+  <span class="tn-btn current">III · Sabiroon</span>
+  <a href="riq_shakiroon.html" class="tn-btn">IV · Shakiroon</a>
+  <a href="riq_qaanitoon.html" class="tn-btn">V · Qaanitoon</a>
+  <a href="riq_ululalbab.html" class="tn-btn">VI · Ulu al-Albab</a>
+  <a href="riq_rasikhoon.html" class="tn-btn">VII · Rasikhoon</a>
+</div>
+
+<div class="page">
+
+<div class="rank-hdr">
+  <div class="rank-hdr-num en-blk">File 3B · Tab III · Three Types — All Required · Divine Companionship</div>
+  <div class="rank-hdr-num ur-blk">فائل ۳B · ٹیب ۳ · تین اقسام — سب لازم · الٰہی رفاقت</div>
+  <div class="rank-hdr-ar">الصَّابِرُون</div>
+  <div class="rank-hdr-en en-blk">Al-Sabiroon — The Patient Ones</div>
+  <div class="rank-hdr-ur ur-blk">الصابرون — صبر کرنے والے</div>
+  <div class="rank-hdr-rule"></div>
+  <div class="rank-hdr-root en-blk">Root: ص — ب — ر · To hold back · To restrain · To bind · Sabr = restraining the soul from panic, the tongue from complaint, the limbs from prohibited responses</div>
+  <div class="rank-hdr-root ur-blk">جڑ: ص — ب — ر · روکنا · باندھنا · صبر = نفس کو گھبراہٹ سے، زبان کو شکایت سے، اعضاء کو حرام ردعمل سے روکنا</div>
+  <div class="rank-hdr-intro en-blk">The Quran does not describe Sabr as one thing. Three grammatically distinct types emerge across its verses: Sabr in obedience (sustaining acts of worship), Sabr from sin (restraining the nafs from transgression), and Sabr under trial (holding through hardship). Ibn al-Qayyim in Uddat al-Sabirin establishes that all three are required — partial Sabr is incomplete. The Sabiroon receive what no other rank receives: divine Ma'iyya — "Allah is WITH the Sabiroon" (2:153) — the highest form of divine accompaniment named in the Quran.</div>
+  <div class="rank-hdr-intro-ur ur-blk">قرآن صبر کو ایک چیز نہیں بتاتا۔ تین الگ اقسام: عبادت میں صبر، گناہ سے صبر، آزمائش میں صبر۔ ابن القیم: تینوں لازم — جزوی صبر ادھورا ہے۔ صابرون کو وہ ملتا ہے جو کسی کو نہیں: الٰہی معیت — «اللہ صابرین کے ساتھ ہے» (۲:۱۵۳) — قرآن میں اعلیٰ ترین الٰہی رفاقت۔</div>
+</div>
+
+<!-- KEY BANNER -->
+<div class="key-banner">
+  <div class="key-banner-label en-blk">The Highest Divine Accompaniment — Al-Baqarah 2:153</div>
+  <div class="key-banner-label ur-blk">اعلیٰ ترین الٰہی معیت — البقرہ ۲:۱۵۳</div>
+  <div class="key-banner-ar">يَا أَيُّهَا الَّذِينَ آمَنُوا اسْتَعِينُوا بِالصَّبْرِ وَالصَّلَاةِ ۚ إِنَّ اللَّهَ مَعَ الصَّابِرِينَ</div>
+  <div class="key-banner-tr en-blk">"O you who believe — seek help through Sabr and Salah. Indeed Allah is WITH the Sabiroon."</div>
+  <div class="key-banner-tr-ur ur-blk">«اے ایمان والو — صبر اور نماز سے مدد مانگو۔ بے شک اللہ صابرین کے ساتھ ہے۔»</div>
+  <div class="key-banner-insight en-blk">Inna Allaha ma'a al-Sabireen — the divine Ma'iyya (with-ness) is the highest form of divine closeness named in the Quran. Allah is Ma'a (with) all of creation in His knowledge and awareness. But this special Ma'iyya — with the Sabiroon — is a particular closeness of support, aid, and presence. Ibn al-Qayyim calls this the Ma'iyya al-Khassa (special accompaniment) — different from general divine awareness. The Sabr + Salah pairing is also significant: these are the two instruments of help. Not wealth, not status, not eloquence — Sabr and Salah.</div>
+  <div class="key-banner-insight-ur ur-blk">«إن الله مع الصابرين» — الٰہی معیت اعلیٰ ترین قرب ہے۔ عام معیت علم میں، یہ خاص معیت نصرت اور حاضری کی۔ ابن القیم: معیت خاصہ — عام الٰہی آگہی سے مختلف۔ صبر اور نماز — مدد کے دو آلات — دولت، مقام، فصاحت نہیں۔</div>
+  <div class="key-banner-ref">Surah Al-Baqarah 2:153</div>
+</div>
+
+<!-- ROOT ANALYSIS -->
+<div class="root-analysis">
+  <div class="ra-label"><span class="en-blk">Root — ص ب ر</span><span class="ur-blk">جڑ — ص ب ر</span></div>
+  <div class="ra-root">صَبَرَ · صَبْر · صَابِر · صَبَّار · مَصْبُور · اصْطَبَرَ</div>
+  <div class="ra-letters">
+    <div class="ra-letter"><span class="ra-letter-ar">ص</span><span class="ra-letter-en">S</span></div>
+    <div class="ra-letter"><span class="ra-letter-ar">ب</span><span class="ra-letter-en">B</span></div>
+    <div class="ra-letter"><span class="ra-letter-ar">ر</span><span class="ra-letter-en">R</span></div>
+  </div>
+  <div class="ra-meaning en-blk">S-B-R carries the meaning of restraining, binding, and holding back. The classical Arabic lexicons (Lisan al-Arab) define Sabr as Habs al-nafs — the restraining of the soul. This is critical: Sabr is not passivity or the absence of pain. It is an active restraint — the nafs feels the pain, experiences the difficulty, is pulled toward complaint or panic or forbidden response — and Sabr is the force that holds it back. The form Sabbar (intensive) indicates one for whom Sabr has become constitutive. Istabara (form X) means to force oneself to exercise Sabr — even against the nafs's resistance. The Quran uses all these forms, revealing the full spectrum from natural Sabir to the one who must compel themselves.</div>
+  <div class="ra-meaning-ur ur-blk">ص-ب-ر کا مطلب روکنا، باندھنا، تھامنا۔ لسان العرب: صبر = حبس النفس — نفس کو روکنا۔ اہم: صبر غیرفعال نہیں۔ یہ فعال بند ہے — نفس تکلیف محسوس کرتا ہے، مشکل کا سامنا کرتا ہے — صبر وہ قوت ہے جو روکتی ہے۔ اصطبر (باب افتعال) — خود کو صبر پر مجبور کرنا، نفس کی مزاحمت کے باوجود۔</div>
+  <div class="ra-forms">
+    <div class="ra-form"><div class="ra-form-ar">صَبْر</div><div class="ra-form-en en-blk">Patience / restraint</div><div class="ra-form-en ur-blk">صبر</div></div>
+    <div class="ra-form"><div class="ra-form-ar">صَابِر</div><div class="ra-form-en en-blk">One who is patient</div><div class="ra-form-en ur-blk">صبر کرنے والا</div></div>
+    <div class="ra-form"><div class="ra-form-ar">صَبَّار</div><div class="ra-form-en en-blk">Intensely patient (constitutive)</div><div class="ra-form-en ur-blk">بہت زیادہ صبر والا</div></div>
+    <div class="ra-form"><div class="ra-form-ar">اصْطَبَرَ</div><div class="ra-form-en en-blk">Compelled himself to be patient</div><div class="ra-form-en ur-blk">صبر پر مجبور کیا</div></div>
+    <div class="ra-form"><div class="ra-form-ar">صَبُور</div><div class="ra-form-en en-blk">Very patient (Allah's name)</div><div class="ra-form-en ur-blk">بہت صبر والا (اللہ کا نام)</div></div>
+  </div>
+  <div class="ra-count en-blk">✦ S-B-R appears 90+ times in the Quran · The Sabiroon are promised without-account reward in 39:10 · Ma'iyya (with-ness) of Allah given specifically to Sabiroon in 2:153 and 8:46</div>
+  <div class="ra-count ur-blk">✦ ص-ب-ر قرآن میں ۹۰ سے زیادہ بار · صابرون کو بے حساب اجر ۳۹:۱۰ میں · اللہ کی معیت خاص طور پر صابرین کے لیے ۲:۱۵۳ اور ۸:۴۶ میں</div>
+</div>
+
+<!-- THREE TYPES -->
+<div class="sec-lbl"><span class="en-inl">The Three Types of Sabr — All Required</span><span class="ur-inl">صبر کی تین اقسام — سب لازم</span></div>
+<div class="three-types">
+  <div class="type-card type-card-1">
+    <div class="tc-num tc-num-1 en-blk">Type I</div>
+    <div class="tc-num tc-num-1 ur-blk">قسم اول</div>
+    <div class="tc-ar">صَبْرٌ عَلَى الطَّاعَة</div>
+    <div class="tc-en en-blk">Sabr IN Obedience</div>
+    <div class="tc-en ur-blk">عبادت میں صبر</div>
+    <div class="tc-def en-blk">Sustaining acts of worship over time — Salah five times daily, fasting, Quran study, dhikr — when the nafs grows tired, distracted, or bored. The difficulty is not a single hardship but the sustained effort against the gravitational pull of ease and distraction.</div>
+    <div class="tc-def-ur ur-blk">وقت کے ساتھ عبادت کو برقرار رکھنا — نماز، روزہ، قرآن مطالعہ — جب نفس تھک جائے یا بور ہو۔ مشکل کوئی ایک مصیبت نہیں — آسانی اور غفلت کے کشش ثقل کے خلاف مستقل کوشش ہے۔</div>
+  </div>
+  <div class="type-card type-card-2">
+    <div class="tc-num tc-num-2 en-blk">Type II</div>
+    <div class="tc-num tc-num-2 ur-blk">قسم دوم</div>
+    <div class="tc-ar">صَبْرٌ عَنِ الْمَعْصِيَة</div>
+    <div class="tc-en en-blk">Sabr FROM Sin</div>
+    <div class="tc-en ur-blk">گناہ سے صبر</div>
+    <div class="tc-def en-blk">Restraining the nafs from transgression when the desire is present and the opportunity is available. This is the hardest type in many ways — the pull is real, the prohibition is the only barrier. Yusuf (AS) is the Quran's model: the situation called for sin, every external factor permitted it, only Sabr and Taqwa held.</div>
+    <div class="tc-def-ur ur-blk">نفس کو گناہ سے روکنا جب خواہش موجود ہو اور موقع میسر ہو۔ یوسف (علیہ السلام) قرآن کا نمونہ: صورتحال گناہ کی طرف بلا رہی تھی، صرف صبر اور تقویٰ نے روکا۔</div>
+  </div>
+  <div class="type-card type-card-3">
+    <div class="tc-num tc-num-3 en-blk">Type III</div>
+    <div class="tc-num tc-num-3 ur-blk">قسم سوم</div>
+    <div class="tc-ar">صَبْرٌ عَلَى الْمُصِيبَة</div>
+    <div class="tc-en en-blk">Sabr UNDER Trial</div>
+    <div class="tc-en ur-blk">مصیبت میں صبر</div>
+    <div class="tc-def en-blk">Holding through hardship, loss, pain, bereavement, failure — without panic, without transgressing against Allah in complaint, without losing the orientation toward Allah. The nafs is pulled toward despair or rage. Sabr holds it to the correct response: Inna lillahi wa inna ilayhi raji'oon.</div>
+    <div class="tc-def-ur ur-blk">تکلیف، نقصان، درد، سوگ، ناکامی کے باوجود ثابت رہنا — گھبراہٹ، اللہ کے خلاف شکایت، اور اللہ کی طرف رخ کے بغیر۔ صحیح ردعمل: إنا لله وإنا إليه راجعون۔</div>
+  </div>
+</div>
+
+<div class="sec-lbl"><span class="en-inl">The Ayat — In Revelation Order</span><span class="ur-inl">آیات — ترتیب نزولی میں</span></div>
+
+<!-- AYAH 1: 2:153 -->
+<div class="era-divider">
+  <div class="era-dot era-madani"></div>
+  <div class="era-label en-blk">Madani · Al-Baqarah 2:153 — The Divine Ma'iyya</div>
+  <div class="era-label-ur ur-blk">مدنی · البقرہ ۲:۱۵۳ — الٰہی معیت</div>
+  <div class="era-line"></div>
+</div>
+<div class="ayah-card" id="sb-2153">
+  <div class="ayah-card-hdr" onclick="toggleCard('sb-2153')">
+    <span class="rev-badge rev-madani en-blk">Rev. #87</span><span class="rev-badge rev-madani ur-blk">ترتیب #87</span>
+    <span class="card-ref">Al-Baqarah 2:153</span>
+    <span class="card-preview">يَا أَيُّهَا الَّذِينَ آمَنُوا اسْتَعِينُوا بِالصَّبْرِ وَالصَّلَاةِ ۚ إِنَّ اللَّهَ مَعَ الصَّابِرِينَ</span>
+    <span class="card-chevron">›</span>
+  </div>
+  <div class="card-body">
+    <div class="ayah-arabic">يَا أَيُّهَا الَّذِينَ آمَنُوا اسْتَعِينُوا بِالصَّبْرِ وَالصَّلَاةِ ۚ إِنَّ اللَّهَ مَعَ الصَّابِرِينَ</div>
+    <div class="ayah-tr-en en-blk">"O you who believe — seek help through Sabr and Salah. Indeed Allah is WITH the Sabiroon."</div>
+    <div class="ayah-tr-ur ur-blk">«اے ایمان والو — صبر اور نماز سے مدد مانگو۔ بے شک اللہ صابرین کے ساتھ ہے۔»</div>
+    <div class="ayah-ref-line">Surah Al-Baqarah 2:153</div>
+    <div class="ctx-box">
+      <div class="ctx-lbl en-blk">Context — The Instruments of Help and Divine Companionship</div>
+      <div class="ctx-txt en-blk">This ayah comes in the context of the early Medinan period — the believers were facing the Qibla change, community tensions, and the weight of new obligations. The command is Ista'eenu (seek help — using form X, intensive, from the root A-W-N). The two instruments named: Sabr and Salah. Not money, not political alliances, not eloquence. Then the reason for why these two specifically work: Inna Allaha ma'a al-Sabireen. The Ma'iyya is the guarantee — when you have Sabr, you have Allah with you, and no help exceeds that. Al-Tabari and Ibn Kathir both note that the Sabr here encompasses all three types — not just Sabr under trial but the full Sabiroon quality.</div>
+      <div class="ctx-txt-ur ur-blk">مدینہ کا ابتدائی دور — قبلہ کی تبدیلی، کمیونٹی کے تناؤ، نئے فرائض کا بوجھ۔ استعینوا (مدد مانگو)۔ دو آلات: صبر اور نماز — دولت، سیاسی اتحاد نہیں۔ کیوں یہ دو کام کرتے ہیں: «إن الله مع الصابرين»۔ معیت ضمانت ہے — صبر ہو تو اللہ ساتھ ہے، اس سے بڑی مدد نہیں۔</div>
+    </div>
+    <div class="uniq-box">
+      <div class="uniq-lbl en-blk">What This Ayah Uniquely Establishes</div>
+      <div class="uniq-txt en-blk">This is the definitive statement of divine Ma'iyya for the Sabiroon. The word Ma'a (with) in Quranic theology refers to a special proximity — different from Allah's general knowledge of all things. Ibn al-Qayyim in Madarij al-Salikin distinguishes two Ma'iyyas: the general (Allah is with all creation in knowledge) and the special (Allah is with specific categories — the Muttaqeen in 9:36, the Muhsineen in 29:69, and the Sabiroon here). The special Ma'iyya carries implications of nusrah (support and victory), tawfiq (enabling), and divine presence in the person's difficulty. This is the Quran's answer to every question of how to face hardship: Sabr + Salah = Allah's special presence.</div>
+      <div class="uniq-txt-ur ur-blk">صابرین کی الٰہی معیت کا حتمی بیان۔ ابن القیم مدارج میں دو معیتیں: عام (اللہ سب کے ساتھ علم میں) اور خاص (متقین ۹:۳۶، محسنین ۲۹:۶۹، صابرین یہاں)۔ خاص معیت: نصرت، توفیق، الٰہی حضور۔ ہر مشکل میں مدد کا قرآنی جواب: صبر + نماز = اللہ کی خاص حضوری۔</div>
+    </div>
+    <div class="notes-sec">
+      <div class="notes-hdr"><span class="en-blk">Personal Notes</span><span class="ur-blk">ذاتی نوٹس</span></div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--teal)"></div><span class="en-blk">When you face difficulty, what is your first instinct for help — and does Sabr + Salah feature in it? What would change if you genuinely believed Allah's special presence came specifically through this combination?</span><span class="ur-blk">مشکل میں مدد کے لیے آپ کا پہلا غریزہ کیا ہے؟ اگر یقین ہو کہ خاص معیت صبر اور نماز سے آتی ہے تو کیا بدلے گا؟</span><span class="nsv" id="sv-sb2153a"></span></div>
+        <textarea class="note-ta" id="note-sb2153a" placeholder="Think of your last major difficulty. Did you reach for Sabr + Salah first, or other things? What does your pattern reveal?" oninput="autoSave('sb2153a',this.value)"></textarea>
+      </div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--gold)"></div><span class="en-blk">The Ma'iyya is the reward — not ease, not removal of the difficulty, but Allah's WITH-ness. Is this a satisfying answer when you are in genuine pain? What does it take to genuinely receive it?</span><span class="ur-blk">معیت اجر ہے — آسانی نہیں، مشکل کا خاتمہ نہیں — اللہ کا ساتھ۔ کیا یہ حقیقی تکلیف میں تسلی بخش جواب ہے؟</span><span class="nsv" id="sv-sb2153b"></span></div>
+        <textarea class="note-ta" id="note-sb2153b" placeholder="There is a difference between knowing Allah is with the Sabiroon and actually experiencing that presence during difficulty. What is the gap for you?" oninput="autoSave('sb2153b',this.value)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- AYAH 2: 2:155-157 -->
+<div class="era-divider">
+  <div class="era-dot era-madani"></div>
+  <div class="era-label en-blk">Madani · Al-Baqarah 2:155-157 — The Trial and the Sabiroon's Response</div>
+  <div class="era-label-ur ur-blk">مدنی · البقرہ ۲:۱۵۵-۱۵۷ — آزمائش اور صابرین کا ردعمل</div>
+  <div class="era-line"></div>
+</div>
+<div class="ayah-card" id="sb-2155">
+  <div class="ayah-card-hdr" onclick="toggleCard('sb-2155')">
+    <span class="rev-badge rev-madani en-blk">Rev. #87</span><span class="rev-badge rev-madani ur-blk">ترتیب #87</span>
+    <span class="card-ref">Al-Baqarah 2:155-157</span>
+    <span class="card-preview">وَلَنَبْلُوَنَّكُم بِشَيْءٍ مِّنَ الْخَوْفِ وَالْجُوعِ وَنَقْصٍ مِّنَ الْأَمْوَالِ وَالْأَنفُسِ وَالثَّمَرَاتِ</span>
+    <span class="card-chevron">›</span>
+  </div>
+  <div class="card-body">
+    <div class="ayah-arabic">وَلَنَبْلُوَنَّكُم بِشَيْءٍ مِّنَ الْخَوْفِ وَالْجُوعِ وَنَقْصٍ مِّنَ الْأَمْوَالِ وَالْأَنفُسِ وَالثَّمَرَاتِ ۗ وَبَشِّرِ الصَّابِرِينَ ۝ الَّذِينَ إِذَا أَصَابَتْهُم مُّصِيبَةٌ قَالُوا إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ ۝ أُولَٰئِكَ عَلَيْهِمْ صَلَوَاتٌ مِّن رَّبِّهِمْ وَرَحْمَةٌ ۖ وَأُولَٰئِكَ هُمُ الْمُهْتَدُونَ</div>
+    <div class="ayah-tr-en en-blk">"And We will surely test you with something of fear, hunger, loss of wealth, lives, and fruits — and give glad tidings to the Sabiroon. Those who, when calamity strikes them, say: Indeed to Allah we belong and to Him we are returning. Upon those are salawat from their Lord and mercy — and those are the rightly guided."</div>
+    <div class="ayah-tr-ur ur-blk">«اور ہم ضرور آزمائیں گے تمہیں کچھ خوف، بھوک، مالوں، جانوں اور پھلوں کی کمی سے — اور صابرین کو خوشخبری دو۔ وہ جب انہیں مصیبت پہنچے تو کہتے ہیں: بے شک ہم اللہ کے ہیں اور اسی کی طرف لوٹنے والے ہیں۔ انہیں ان کے رب کی طرف سے درود اور رحمت ملتی ہے — اور وہی ہدایت یافتہ ہیں۔»</div>
+    <div class="ayah-ref-line">Surah Al-Baqarah 2:155-157</div>
+    <div class="ctx-box">
+      <div class="ctx-lbl en-blk">Context — The Five Categories of Trial and the Correct Response</div>
+      <div class="ctx-txt en-blk">The Quran enumerates five categories of test: Khawf (fear), Ju' (hunger), Naqs min al-amwal (loss of wealth), Naqs min al-anfus (loss of lives — death of loved ones, illness), Naqs min al-thamarat (loss of fruits — livelihood, produce). These five cover the full spectrum of human loss. Then: Wa-bashshir al-Sabireen (give glad tidings to the Sabiroon) — the good news is for a specific category, not for everyone who suffers. Who are they? The next ayah defines them by their response: Inna lillahi wa inna ilayhi raji'oon. The response is not silence, not suppression of grief — it is a statement of ownership (Inna lillahi — we belong to Allah) and a statement of direction (wa inna ilayhi raji'oon — to Him we return). The Quran gives them three things: Salawat (divine blessings), Rahmah (mercy), and Hidayah (guidance).</div>
+      <div class="ctx-txt-ur ur-blk">پانچ آزمائشیں: خوف، بھوک، مال کا نقصان، جانوں کا نقصان، پھلوں کا نقصان — پوری انسانی تکلیف کا احاطہ۔ پھر: «وبشر الصابرین» — خوشخبری مخصوص قسم کے لیے، ہر متاثر کے لیے نہیں۔ کون؟ وہ جن کا ردعمل: «إنا لله وإنا إليه راجعون»۔ ردعمل خاموشی یا غم کا دبانا نہیں — ملکیت کا اعلان اور سمت کا اعلان۔ تین انعام: صلوات، رحمت، ہدایت۔</div>
+    </div>
+    <div class="uniq-box">
+      <div class="uniq-lbl en-blk">What This Ayah Uniquely Establishes</div>
+      <div class="uniq-txt en-blk">The Sabiroon are defined here not by their absence of grief but by their verbal response to calamity. Inna lillahi wa inna ilayhi raji'oon is not a formula of suppression — it is a theological statement. "We belong to Allah" — the loss belongs to Allah, the person lost belongs to Allah, what was taken was His to begin with. "We return to Him" — the direction is maintained even in the loss. The Sabiroon are those for whom even calamity does not break their orientation toward Allah. Note: the Quran says Salawat (plural of Salah — divine blessings, the same word as prayer) from their Lord — as if Allah is praying for them the way they pray for the deceased. This is among the most extraordinary statements in the Quran about what the Sabiroon receive.</div>
+      <div class="uniq-txt-ur ur-blk">صابرین غم کی غیرموجودگی سے نہیں — مصیبت کے ردعمل سے پہچانے جاتے ہیں۔ «إنا لله وإنا إليه راجعون» دبانے کا فارمولا نہیں — الٰہیاتی بیان ہے۔ «ہم اللہ کے ہیں» — نقصان اللہ کا، کھویا ہوا اللہ کا۔ «اسی کی طرف لوٹیں گے» — سمت قائم۔ صلوات (جمع) — جیسے اللہ ان کے لیے دعا کر رہا ہو جیسے وہ مردوں کے لیے کرتے ہیں۔</div>
+    </div>
+    <div class="notes-sec">
+      <div class="notes-hdr"><span class="en-blk">Personal Notes</span><span class="ur-blk">ذاتی نوٹس</span></div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--teal)"></div><span class="en-blk">The Sabiroon are defined by their response — Inna lillahi. Not by absence of grief, but by what they say and mean. Do you use this phrase as a formula or as a genuine theological statement?</span><span class="ur-blk">صابرین ردعمل سے پہچانے جاتے ہیں — «إنا لله»۔ غم کی غیرموجودگی نہیں — جو کہتے اور مانتے ہیں۔ کیا آپ یہ جملہ فارمولے کے طور پر کہتے ہیں یا الٰہیاتی بیان کے طور پر؟</span><span class="nsv" id="sv-sb2155a"></span></div>
+        <textarea class="note-ta" id="note-sb2155a" placeholder="When you say Inna lillahi — do you mean 'this belonged to Allah before it came to me'? What would it change to actually mean it?" oninput="autoSave('sb2155a',this.value)"></textarea>
+      </div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--gold)"></div><span class="en-blk">Allah sends Salawat on the Sabiroon — divine blessings on those who hold through loss. What does it mean that your Sabr in calamity draws something from Allah toward you?</span><span class="ur-blk">اللہ صابرین پر صلوات بھیجتا ہے۔ آپ کا صبر مصیبت میں اللہ کی طرف سے کچھ کھینچتا ہے — کیا مطلب؟</span><span class="nsv" id="sv-sb2155b"></span></div>
+        <textarea class="note-ta" id="note-sb2155b" placeholder="Reflect on the idea that your patience in hardship is not only your act — it produces a divine response of Salawat and Rahmah..." oninput="autoSave('sb2155b',this.value)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- AYAH 3: 3:200 -->
+<div class="era-divider">
+  <div class="era-dot era-madani"></div>
+  <div class="era-label en-blk">Madani · Al-Imran 3:200 — The Command to Outdo in Sabr</div>
+  <div class="era-label-ur ur-blk">مدنی · آل عمران ۳:۲۰۰ — صبر میں سبقت کا حکم</div>
+  <div class="era-line"></div>
+</div>
+<div class="ayah-card" id="sb-3200">
+  <div class="ayah-card-hdr" onclick="toggleCard('sb-3200')">
+    <span class="rev-badge rev-madani en-blk">Rev. #89</span><span class="rev-badge rev-madani ur-blk">ترتیب #89</span>
+    <span class="card-ref">Al-Imran 3:200</span>
+    <span class="card-preview">يَا أَيُّهَا الَّذِينَ آمَنُوا اصْبِرُوا وَصَابِرُوا وَرَابِطُوا وَاتَّقُوا اللَّهَ لَعَلَّكُمْ تُفْلِحُونَ</span>
+    <span class="card-chevron">›</span>
+  </div>
+  <div class="card-body">
+    <div class="ayah-arabic">يَا أَيُّهَا الَّذِينَ آمَنُوا اصْبِرُوا وَصَابِرُوا وَرَابِطُوا وَاتَّقُوا اللَّهَ لَعَلَّكُمْ تُفْلِحُونَ</div>
+    <div class="ayah-tr-en en-blk">"O you who believe — be patient (Isbiru), outdo others in patience (Sabiru), remain stationed (Rabitu), and have Taqwa of Allah — so that you may succeed."</div>
+    <div class="ayah-tr-ur ur-blk">«اے ایمان والو — صبر کرو، صبر میں سبقت لے جاؤ، ڈٹے رہو، اور اللہ سے ڈرو — تاکہ تم فلاح پاؤ۔»</div>
+    <div class="ayah-ref-line">Surah Al-Imran 3:200 · Final ayah of Surah Al-Imran</div>
+    <div class="ctx-box">
+      <div class="ctx-lbl en-blk">Context — Three Escalating Commands on Sabr</div>
+      <div class="ctx-txt en-blk">This is the final ayah of Surah Al-Imran — a surah revealed largely after the Battle of Uhud, where the believers suffered significant losses. The command contains three escalating levels of Sabr in one sentence. (1) Isbiru — basic Sabr, personal patience. (2) Sabiru — the form III (mufaa'alah) means to outdo others or to engage mutually; here it means to exceed your own Sabr — to push beyond your personal limit. (3) Rabitu — to remain stationed, bound, alert — not abandoning the post even when Sabr is exhausted. The escalation is deliberate: basic patience is not enough, it must exceed itself, and then the position must be held even beyond that. Then Taqwa — the inner foundation that makes all three possible.</div>
+      <div class="ctx-txt-ur ur-blk">سورۃ آل عمران کی آخری آیت — غزوہ احد کے بعد۔ تین بڑھتے ہوئے احکام: (۱) اصبروا — ذاتی صبر۔ (۲) صابروا — باب مفاعلہ: خود کو پار کرو، اپنی حد سے آگے بڑھو۔ (۳) رابطوا — مستقل رہو، چوکس رہو۔ ترتیب جان بوجھ کر: بنیادی صبر کافی نہیں، اسے خود سے تجاوز کرنا ہے۔ پھر تقویٰ — وہ باطنی بنیاد جو تینوں ممکن کرتی ہے۔</div>
+    </div>
+    <div class="root-box">
+      <div class="root-lbl en-blk">The Morphological Escalation — Isbiru to Sabiru</div>
+      <span class="root-wd">اصْبِرُوا</span><span class="root-fm"> → Form I (basic) · then → </span><span class="root-wd">صَابِرُوا</span><span class="root-fm"> → Form III (exceed / outdo)</span>
+      <div class="root-mn en-blk">The shift from Form I (Isbiru — basic patience) to Form III (Sabiru — mufaa'alah form) is grammatically significant. Form III in Arabic implies mutual engagement or exceeding — you are not just being patient, you are outdoing your own patience, going beyond your natural limit. This is Sabr at its most demanding: not waiting for it to be over, but actively pushing through the limit of what you thought you could bear. Al-Razi in his tafseer notes this is the Sabr of the battle — the enemy's Sabr contests yours, and you must outlast theirs.</div>
+      <div class="root-mn-ur ur-blk">باب اول (اصبروا) سے باب ثالث (صابروا — مفاعلہ) کی تبدیلی۔ مفاعلہ: خود کو پار کرنا، اپنی حد سے آگے۔ صرف انتظار نہیں — اپنی برداشت کی حد کو فعال طور پر پار کرنا۔ الرازی: یہ میدانِ جنگ کا صبر ہے — دشمن کا صبر آپ سے مقابلہ کرتا ہے، آپ کو اسے پار کرنا ہے۔</div>
+    </div>
+    <div class="notes-sec">
+      <div class="notes-hdr"><span class="en-blk">Personal Notes</span><span class="ur-blk">ذاتی نوٹس</span></div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--teal)"></div><span class="en-blk">The command is to outdo your own patience — Sabiru goes beyond Isbiru. Where in your life do you stop at basic Sabr when the command is to exceed it?</span><span class="ur-blk">حکم اپنے صبر کو پار کرنا ہے۔ آپ کی زندگی میں کہاں آپ بنیادی صبر پر رکتے ہیں جب حکم آگے بڑھنے کا ہے؟</span><span class="nsv" id="sv-sb3200a"></span></div>
+        <textarea class="note-ta" id="note-sb3200a" placeholder="Think of an ongoing difficulty where you have 'survived' but not exceeded your limit. What would Sabiru look like there?" oninput="autoSave('sb3200a',this.value)"></textarea>
+      </div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--gold)"></div><span class="en-blk">The surah of Uhud ends with these three commands — after loss and defeat. What does it mean to receive the command to exceed your Sabr immediately after experiencing your limits?</span><span class="ur-blk">احد کی سورت ان تین احکام پر ختم ہوتی ہے — نقصان کے بعد۔ اپنی حدود کا تجربہ کرنے کے فوراً بعد صبر سے تجاوز کرنے کا حکم — کیا مطلب؟</span><span class="nsv" id="sv-sb3200b"></span></div>
+        <textarea class="note-ta" id="note-sb3200b" placeholder="The command comes precisely after the defeat. The Quran does not wait for easier times. What does this say about when Sabr is most needed and most demanded?" oninput="autoSave('sb3200b',this.value)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- AYAH 4: 39:10 -->
+<div class="era-divider">
+  <div class="era-dot era-late"></div>
+  <div class="era-label en-blk">Late Makki · Al-Zumar 39:10 — Without-Account Reward</div>
+  <div class="era-label-ur ur-blk">اواخر مکی · الزمر ۳۹:۱۰ — بے حساب اجر</div>
+  <div class="era-line"></div>
+</div>
+<div class="ayah-card" id="sb-3910">
+  <div class="ayah-card-hdr" onclick="toggleCard('sb-3910')">
+    <span class="rev-badge rev-late en-blk">Rev. #59</span><span class="rev-badge rev-late ur-blk">ترتیب #59</span>
+    <span class="card-ref">Al-Zumar 39:10</span>
+    <span class="card-preview">إِنَّمَا يُوَفَّى الصَّابِرُونَ أَجْرَهُم بِغَيْرِ حِسَابٍ</span>
+    <span class="card-chevron">›</span>
+  </div>
+  <div class="card-body">
+    <div class="ayah-arabic">قُلْ يَا عِبَادِ الَّذِينَ آمَنُوا اتَّقُوا رَبَّكُمْ ۚ لِلَّذِينَ أَحْسَنُوا فِي هَٰذِهِ الدُّنْيَا حَسَنَةٌ ۗ وَأَرْضُ اللَّهِ وَاسِعَةٌ ۗ إِنَّمَا يُوَفَّى الصَّابِرُونَ أَجْرَهُم بِغَيْرِ حِسَابٍ</div>
+    <div class="ayah-tr-en en-blk">"Say: O My servants who believe — have Taqwa of your Lord. For those who do Ihsan in this world, there is good — and Allah's earth is wide. Indeed the Sabiroon will be given their reward fully without account."</div>
+    <div class="ayah-tr-ur ur-blk">«کہو: اے میرے ایمان والے بندو — اپنے رب سے ڈرو۔ جنہوں نے اس دنیا میں احسان کیا ان کے لیے بھلائی ہے — اور اللہ کی زمین وسیع ہے۔ بے شک صابرین کو ان کا پورا اجر بے حساب دیا جائے گا۔»</div>
+    <div class="ayah-ref-line">Surah Al-Zumar 39:10</div>
+    <div class="ctx-box">
+      <div class="ctx-lbl en-blk">Context — The Sabiroon Are Singled Out for a Unique Reward Structure</div>
+      <div class="ctx-txt en-blk">This ayah stands apart from all other reward statements in the Quran. Every other category of righteous deed has a defined reward — ten times, seven hundred times, the Garden, the specific levels. The Sabiroon alone receive Bi-ghayri hisab — without account, without measure. Ibn Kathir explains: all other rewards are measured because the deeds can be counted. Sabr cannot be measured — it is not an act but a sustained state, and a state of restraint at that. How do you count the moments someone held their tongue, held their panic, sustained their prayer when exhausted? The reward is unmeasured because the Sabr itself is unmeasurable. Ibn al-Qayyim considers this the strongest Quranic evidence that Sabr is the highest station — no other quality receives a limitless reward explicitly stated.</div>
+      <div class="ctx-txt-ur ur-blk">یہ آیت قرآن کے تمام اجر کے بیانات سے الگ کھڑی ہے۔ ہر دوسری نیکی کا اجر مقرر ہے — دس گنا، سات سو گنا، جنت۔ صابرین کو تنہا «بغیر حساب» ملتا ہے۔ ابن کثیر: باقی اجر ماپے جاتے ہیں کیونکہ اعمال گنے جا سکتے ہیں۔ صبر نہیں گنا جا سکتا — عمل نہیں، مستقل حالت ہے۔ اجر لامحدود ہے کیونکہ صبر خود ناقابلِ پیمائش ہے۔</div>
+    </div>
+    <div class="uniq-box">
+      <div class="uniq-lbl en-blk">What This Ayah Uniquely Establishes</div>
+      <div class="uniq-txt en-blk">Innama (indeed only / exclusively) is a particle of restriction in Arabic — it limits and specifies. "Innama yuwaffa al-Sabiroon" — the exclusive full payment without account is for the Sabiroon. Every other category gets counted reward. The Sabiroon get an uncounted, unlimited payment in full. The word Yuwaffa means fully paid, completely given, nothing withheld. And Bi-ghayri hisab means beyond counting, beyond measure. This is the Quran's statement that Sabr — specifically — has a reward that cannot be contained within the normal framework of divine accounting. No ceiling. No multiplier stated because no multiplier is sufficient.</div>
+      <div class="uniq-txt-ur ur-blk">«إنما» — قید اور تخصیص کا حرف۔ «إنما يوفى الصابرون» — صرف صابرین کو بے حساب مکمل ادائیگی۔ باقی سب گنا جاتا ہے۔ «يوفى» — مکمل ادا، کچھ نہیں روکا۔ «بغير حساب» — گنتی سے پرے، پیمانے سے پرے۔ صبر — خاص طور پر — ایسا اجر رکھتا ہے جو الٰہی حساب کے معمول میں سما نہیں سکتا۔</div>
+    </div>
+    <div class="notes-sec">
+      <div class="notes-hdr"><span class="en-blk">Personal Notes</span><span class="ur-blk">ذاتی نوٹس</span></div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--teal)"></div><span class="en-blk">The reward of Sabr is without account — no ceiling stated. Does this change how you approach the moments of Sabr that feel small or invisible?</span><span class="ur-blk">صبر کا اجر بے حساب — کوئی حد نہیں۔ کیا یہ ان لمحاتِ صبر کے بارے میں آپ کا رویہ بدلتا ہے جو چھوٹے یا پوشیدہ لگتے ہیں؟</span><span class="nsv" id="sv-sb3910a"></span></div>
+        <textarea class="note-ta" id="note-sb3910a" placeholder="The moment you hold your tongue, the sustained fast, the prayer when exhausted — all unmeasured in reward. How does bi-ghayri hisab change the value of ordinary Sabr?" oninput="autoSave('sb3910a',this.value)"></textarea>
+      </div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--gold)"></div><span class="en-blk">Ibn al-Qayyim says this is the strongest evidence Sabr is the highest station — no other quality gets a limitless reward. Do you experience Sabr as a high station or as a burden to endure?</span><span class="ur-blk">ابن القیم: یہ سب سے مضبوط دلیل کہ صبر اعلیٰ ترین مقام ہے۔ کیا آپ صبر کو اعلیٰ مقام کے طور پر محسوس کرتے ہیں یا بوجھ کے طور پر؟</span><span class="nsv" id="sv-sb3910b"></span></div>
+        <textarea class="note-ta" id="note-sb3910b" placeholder="There is a gap between knowing Sabr is the highest station and feeling it as one. What is that gap made of for you?" oninput="autoSave('sb3910b',this.value)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HADITH -->
+<div class="sec-lbl"><span class="en-inl">Authenticated Sunnah on Sabr</span><span class="ur-inl">صبر پر مستند سنت</span></div>
+
+<div class="sh-card">
+  <div class="sh-lbl en-blk">✦ Sabr as Half of Iman</div>
+  <div class="sh-lbl ur-blk">✦ صبر — ایمان کا نصف</div>
+  <div class="sh-ar">الصَّبْرُ نِصْفُ الْإِيمَانِ</div>
+  <div class="sh-en en-blk">"Sabr is half of Iman."</div>
+  <div class="sh-ur ur-blk">«صبر ایمان کا نصف ہے۔»</div>
+  <div class="sh-src">Narrator: Abu Musa al-Ash'ari (RA) · Al-Bayhaqi, Shu'ab al-Iman · Graded Hasan by Ibn Hajar al-Asqalani <span class="grade g-hasan">◈ Hasan</span></div>
+</div>
+
+<div class="sh-card">
+  <div class="sh-lbl en-blk">✦ No Gift Better Than Sabr</div>
+  <div class="sh-lbl ur-blk">✦ صبر سے بہتر کوئی عطا نہیں</div>
+  <div class="sh-ar">وَمَا أُعْطِيَ أَحَدٌ عَطَاءً خَيْرًا وَأَوْسَعَ مِنَ الصَّبْرِ</div>
+  <div class="sh-en en-blk">"No one has been given a gift better and more expansive than Sabr."</div>
+  <div class="sh-ur ur-blk">«کسی کو صبر سے بہتر اور وسیع تر کوئی عطا نہیں دی گئی۔»</div>
+  <div class="sh-src">Narrator: Abu Sa'id al-Khudri (RA) · Sahih al-Bukhari, Hadith 1469 · Sahih Muslim, Hadith 1053 <span class="grade g-sahih">✦ Sahih</span></div>
+</div>
+
+<div class="sh-card">
+  <div class="sh-lbl en-blk">✦ The Affair of the Believer Is All Good — Sabr in Loss</div>
+  <div class="sh-lbl ur-blk">✦ مومن کا معاملہ سراسر خیر — نقصان میں صبر</div>
+  <div class="sh-ar">عَجَبًا لِأَمْرِ الْمُؤْمِنِ إِنَّ أَمْرَهُ كُلَّهُ خَيْرٌ، وَلَيْسَ ذَاكَ لِأَحَدٍ إِلَّا لِلْمُؤْمِنِ، إِنْ أَصَابَتْهُ سَرَّاءُ شَكَرَ فَكَانَ خَيْرًا لَهُ، وَإِنْ أَصَابَتْهُ ضَرَّاءُ صَبَرَ فَكَانَ خَيْرًا لَهُ</div>
+  <div class="sh-en en-blk">"Wondrous is the affair of the believer — his entire affair is good. And this is not for anyone except the believer. If ease comes to him, he is grateful and that is good for him. And if hardship comes to him, he is patient and that is good for him."</div>
+  <div class="sh-ur ur-blk">«مومن کا معاملہ عجیب ہے — اس کا پورا معاملہ خیر ہے۔ اور یہ مومن کے سوا کسی کے لیے نہیں۔ آسانی آئے تو شکر کرتا ہے اور وہ اس کے لیے خیر۔ تکلیف آئے تو صبر کرتا ہے اور وہ اس کے لیے خیر۔»</div>
+  <div class="sh-src">Narrator: Suhayb ibn Sinan (RA) · Sahih Muslim, Hadith 2999 <span class="grade g-sahih">✦ Sahih</span></div>
+</div>
+
+<!-- SCHOLARS -->
+<div class="sec-lbl"><span class="en-inl">Scholar Perspectives</span><span class="ur-inl">علماء کے نظریات</span></div>
+<div class="scholars-lbl en-blk">Two Classical Authorities on Sabr and Its Three Types</div>
+<div class="scholars-lbl ur-blk">صبر اور اس کی تین اقسام پر دو کلاسیکی علماء</div>
+
+<div class="scholar-card" id="sc-ibnqayyim-sb">
+  <div class="sc-hdr" onclick="toggleScholar('sc-ibnqayyim-sb')">
+    <div class="sc-badge">ق</div>
+    <div>
+      <div class="sc-name">Ibn al-Qayyim al-Jawziyyah (d. 751H)</div>
+      <div class="sc-text en-blk">Uddat al-Sabirin wa Dhakhirat al-Shakirin · Sabr as the Foundation of All Stations</div>
+      <div class="sc-text ur-blk">عدۃ الصابرین · صبر تمام مقامات کی بنیاد</div>
+    </div>
+    <div class="sc-chev">›</div>
+  </div>
+  <div class="sc-body">
+    <div class="sc-quote en-blk">Ibn al-Qayyim in Uddat al-Sabirin establishes that Sabr is the foundation of all other spiritual stations — not one station among many but the ground from which all others grow. Without Sabr in obedience, worship cannot be sustained. Without Sabr from sin, Taqwa cannot be built. Without Sabr in trial, gratitude and trust cannot develop. He argues that the Quran's bi-ghayri hisab (without account) for the Sabiroon is the strongest evidence that Sabr is the highest station — because no other quality receives this designation.</div>
+    <div class="sc-quote-ur ur-blk">ابن القیم عدۃ الصابرین میں: صبر تمام روحانی مقامات کی بنیاد ہے — ان میں سے ایک نہیں بلکہ وہ زمین جس سے سب اگتے ہیں۔ عبادت میں صبر کے بغیر عبادت قائم نہیں۔ گناہ سے صبر کے بغیر تقویٰ نہیں بنتی۔ آزمائش میں صبر کے بغیر شکر اور توکل نہیں۔ «بغیر حساب» — سب سے مضبوط دلیل کہ صبر اعلیٰ ترین مقام ہے۔</div>
+    <div class="sc-analysis en-blk">Ibn al-Qayyim's three types of Sabr — in obedience, from sin, under trial — are not separate categories but a unified description of a complete inner state. The Sabir in the fullest sense exercises all three simultaneously: they sustain worship (Type I), they hold from sin even when its pull is present (Type II), and they hold through whatever trial Allah brings (Type III). Partial Sabr — only in trial but not in obedience, or only from sin but not in trial — is incomplete. The Sabiroon of the Quran are those for whom all three have become integrated into their character.</div>
+    <div class="sc-analysis-ur ur-blk">ابن القیم کی تین اقسام الگ نہیں — ایک مکمل باطنی حالت کی متحد تفصیل۔ مکمل صابر تینوں بیک وقت کرتا ہے: عبادت قائم رکھتا ہے، گناہ سے رکتا ہے، آزمائش میں ٹھہرتا ہے۔ جزوی صبر — صرف آزمائش میں لیکن عبادت میں نہیں — ادھورا ہے۔ قرآن کے صابرون وہ ہیں جن میں تینوں کردار میں ضم ہو گئی ہیں۔</div>
+    <div class="sc-source">Ibn al-Qayyim · Uddat al-Sabirin wa Dhakhirat al-Shakirin · Chapters on the Types of Sabr</div>
+  </div>
+</div>
+
+<div class="scholar-card" id="sc-ghazali-sb">
+  <div class="sc-hdr" onclick="toggleScholar('sc-ghazali-sb')">
+    <div class="sc-badge">غ</div>
+    <div>
+      <div class="sc-name">Imam Al-Ghazali (d. 505H)</div>
+      <div class="sc-text en-blk">Ihya Ulum al-Deen · Kitab al-Sabr wal-Shukr · Sabr as Active Restraint</div>
+      <div class="sc-text ur-blk">احیاء علوم الدین · کتاب الصبر والشکر · صبر بطور فعال بند</div>
+    </div>
+    <div class="sc-chev">›</div>
+  </div>
+  <div class="sc-body">
+    <div class="sc-quote en-blk">Al-Ghazali in Kitab al-Sabr wal-Shukr from the Ihya defines Sabr as the force of Iman against the force of the nafs and Shaytan. He describes the human being as a battleground: the army of Iman on one side, the army of appetite and hawa on the other. Sabr is not the absence of the battle — it is Iman winning the battle. When Iman is stronger, Sabr results. When hawa wins, the person fails. Al-Ghazali's practical framework: Sabr must be cultivated by deliberate practice — specifically by reducing the fuel of the nafs (unnecessary food, sleep, speech) so that its army is weakened.</div>
+    <div class="sc-quote-ur ur-blk">الغزالی احیاء میں: صبر نفس اور شیطان کی قوت کے خلاف ایمان کی قوت ہے۔ انسان میدانِ جنگ: ایک طرف ایمان، دوسری طرف خواہشات۔ صبر جنگ کی غیرموجودگی نہیں — ایمان کی جیت ہے۔ عملی خاکہ: نفس کا ایندھن کم کرو (غیرضروری کھانا، نیند، گفتگو) تاکہ اس کا لشکر کمزور ہو۔</div>
+    <div class="sc-analysis en-blk">Al-Ghazali places Sabr and Shukr as the two poles between which the believer's life oscillates — Sabr in difficulty, Shukr in ease. He argues that the believer who has mastered both has mastered the full spectrum of human experience. Sabr and Shukr are not opposites — they are two expressions of the same inner orientation: the recognition that all comes from Allah and the correct response to whatever He sends. His key point: Sabr is not stoicism — stoicism suppresses and denies. Sabr acknowledges the pain and the difficulty while choosing the correct response to it. The Sabir feels; they simply do not transgress in their feeling.</div>
+    <div class="sc-analysis-ur ur-blk">الغزالی: صبر اور شکر دو قطب جن کے درمیان مومن کی زندگی — مشکل میں صبر، آسانی میں شکر۔ جس نے دونوں میں مہارت پائی اس نے انسانی تجربے کا پورا طیف حاصل کیا۔ اہم نکتہ: صبر رواقیت نہیں — رواقیت دباتی اور انکار کرتی ہے۔ صبر تکلیف کو تسلیم کرتا ہے جبکہ درست ردعمل چنتا ہے۔ صابر محسوس کرتا ہے — صرف گناہ نہیں کرتا محسوس کرتے ہوئے۔</div>
+    <div class="sc-source">Al-Ghazali · Ihya Ulum al-Deen · Kitab al-Sabr wal-Shukr · Quarter of Salvations</div>
+  </div>
+</div>
+
+<!-- SYNTHESIS -->
+<div class="sec-lbl"><span class="en-inl">Personal Synthesis</span><span class="ur-inl">ذاتی خلاصہ</span></div>
+<div class="synth-box">
+  <div class="notes-hdr"><span class="en-blk">Personal Synthesis — Al-Sabiroon</span><span class="ur-blk">ذاتی خلاصہ — الصابرون</span></div>
+  <div class="note-f">
+    <div class="note-lbl"><div class="nd" style="background:var(--gold)"></div><span class="en-blk">Three types — all required. Al-Ghazali: Sabr is not stoicism; the Sabir feels but does not transgress. Ibn al-Qayyim: bi-ghayri hisab is the strongest evidence Sabr is the highest station. Which of the three types is hardest for you — and what does that reveal about where your nafs is strongest?</span><span class="ur-blk">تین اقسام — سب لازم۔ الغزالی: صبر رواقیت نہیں — صابر محسوس کرتا ہے لیکن گناہ نہیں۔ ابن القیم: بغیر حساب اعلیٰ ترین مقام کی دلیل۔ کونسی قسم آپ کے لیے سب سے مشکل ہے — اور یہ نفس کی طاقت کے بارے میں کیا ظاہر کرتا ہے؟</span><span class="nsv" id="sv-synth-sb"></span></div>
+    <textarea class="note-ta" id="note-synth-sb" style="min-height:100px" placeholder="Assess honestly: which of the three is weakest for you? Sabr in obedience (sustaining worship), Sabr from sin (when desire is present), or Sabr under trial (when loss comes)? The weakest point is where the work is." oninput="autoSave('synth-sb',this.value)"></textarea>
+  </div>
+</div>
+
+<!-- FILE NAVIGATION -->
+<div class="sec-lbl" style="margin-top:36px"><span class="en-inl">Continue — File 3B Tabs</span><span class="ur-inl">آگے — فائل ۳B ٹیبز</span></div>
+<div class="file-links">
+  <a href="ranks_inner_qualities_mukhlisoon.html" class="file-link">
+    <div class="fl-num">Tab I</div><div class="fl-title">Mukhlisoon</div>
+    <div class="fl-desc">Active vs Passive · Iblis</div>
+    <span class="fl-badge fl-ready">Complete</span>
+  </a>
+  <a href="riq_awwaaboon.html" class="file-link">
+    <div class="fl-num">Tab II</div><div class="fl-title">Awwaaboon</div>
+    <div class="fl-desc">Habitual returners</div>
+    <span class="fl-badge fl-ready">Complete</span>
+  </a>
+  <a href="#" class="file-link current">
+    <div class="fl-num">Tab III</div><div class="fl-title">Sabiroon</div>
+    <div class="fl-desc">Three types of Sabr</div>
+    <span class="fl-badge fl-ready">Current</span>
+  </a>
+  <a href="riq_shakiroon.html" class="file-link">
+    <div class="fl-num">Tab IV</div><div class="fl-title">Shakiroon</div>
+    <div class="fl-desc">Few are truly grateful</div>
+    <span class="fl-badge fl-coming">Next</span>
+  </a>
+  <a href="riq_qaanitoon.html" class="file-link">
+    <div class="fl-num">Tab V</div><div class="fl-title">Qaanitoon</div>
+    <div class="fl-desc">Sustained devotion</div>
+    <span class="fl-badge fl-coming">Pending</span>
+  </a>
+  <a href="riq_ululalbab.html" class="file-link">
+    <div class="fl-num">Tab VI</div><div class="fl-title">Ulu al-Albab</div>
+    <div class="fl-desc">People of the Lubb</div>
+    <span class="fl-badge fl-coming">Pending</span>
+  </a>
+  <a href="riq_rasikhoon.html" class="file-link">
+    <div class="fl-num">Tab VII</div><div class="fl-title">Rasikhoon</div>
+    <div class="fl-desc">Firmly grounded</div>
+    <span class="fl-badge fl-coming">Pending</span>
+  </a>
+</div>
+
+</div>
+<div id="toast"></div>
+<script>
+var LANG='en';
+var timers={};
+function setLang(l){
+  LANG=l;
+  document.getElementById('lt-en').classList.toggle('on',l==='en');
+  document.getElementById('lt-ur').classList.toggle('on',l==='ur');
+  document.body.classList.toggle('ur-mode',l==='ur');
+  document.documentElement.setAttribute('lang',l==='ur'?'ur':'en');
+}
+function toggleCard(id){document.getElementById(id).classList.toggle('open');}
+function toggleScholar(id){document.getElementById(id).classList.toggle('open');}
+function autoSave(key,val){
+  clearTimeout(timers[key]);
+  timers[key]=setTimeout(function(){
+    var sk='riq_'+key;
+    if(val.trim()){localStorage.setItem(sk,val);}else{localStorage.removeItem(sk);}
+    var sv=document.getElementById('sv-'+key);
+    if(sv){sv.textContent=val.trim()?'Saved \u2713':'';sv.classList.add('flash');setTimeout(function(){sv.classList.remove('flash');},1800);}
+  },900);
+}
+function loadAll(){
+  for(var i=0;i<localStorage.length;i++){
+    var k=localStorage.key(i);
+    if(k&&k.startsWith('riq_')){
+      var fk=k.substring(4);
+      var el=document.getElementById('note-'+fk);
+      var sv=document.getElementById('sv-'+fk);
+      if(el){el.value=localStorage.getItem(k)||'';if(sv&&el.value.trim())sv.textContent='Saved';}
+    }
+  }
+}
+window.addEventListener('DOMContentLoaded',function(){loadAll();});
+</script>
+</body>
+</html>

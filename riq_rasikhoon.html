@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inner Quality Ranks — Al-Rasikhoon fil-Ilm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg0:#04070D;--bg1:#080E1C;--bg2:#0C1528;--bg3:#111E35;
+  --gold:#C9A84C;--gold2:#E2C97A;
+  --golddim:rgba(201,168,76,.08);--goldbdr:rgba(201,168,76,.18);
+  --teal:#2FB89A;--tealdim:rgba(47,184,154,.08);--tealbdr:rgba(47,184,154,.22);
+  --blue:#7AABF0;--bluedim:rgba(122,171,240,.08);--bluebdr:rgba(122,171,240,.22);
+  --amber:#E0A030;--amberdim:rgba(224,160,48,.08);--amberbdr:rgba(224,160,48,.22);
+  --purple:#A87FD0;--purpledim:rgba(168,127,208,.08);--purplebdr:rgba(168,127,208,.22);
+  --text:#D4CBB8;--text2:#8A9BB0;--text3:#4A5B70;
+  --border2:rgba(201,168,76,.05);
+  --font-head:'Cinzel',serif;--font-body:'Lora',serif;--font-arab:'Noto Naskh Arabic',serif;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg0);color:var(--text);font-family:var(--font-body);min-height:100vh;overflow-x:hidden;padding-bottom:80px}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:var(--bg1)}::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 800px 500px at 20% 10%,rgba(201,168,76,.025),transparent 60%),radial-gradient(ellipse 600px 400px at 80% 80%,rgba(47,184,154,.02),transparent 60%);}
+.hdr{position:sticky;top:0;z-index:90;background:rgba(4,7,13,.97);border-bottom:1px solid var(--border2);backdrop-filter:blur(20px);padding:0 22px;height:56px;display:flex;align-items:center;gap:14px}
+.hdr-ar{font-family:var(--font-arab);font-size:18px;color:var(--gold);text-shadow:0 0 20px rgba(201,168,76,.3)}
+.hdr-titles{flex:1}
+.hdr-title{font-family:var(--font-head);font-size:10px;letter-spacing:2px;color:var(--gold2);text-transform:uppercase}
+.hdr-sub{font-family:var(--font-head);font-size:8px;letter-spacing:1px;color:var(--text3);text-transform:uppercase;margin-top:2px}
+.lang-toggle{display:flex;gap:2px;background:rgba(255,255,255,.04);border:1px solid var(--goldbdr);border-radius:20px;padding:3px}
+.lt{font-family:var(--font-head);font-size:9px;letter-spacing:.8px;padding:3px 10px;border-radius:16px;cursor:pointer;transition:all .2s;color:var(--text3);user-select:none}
+.lt.on{background:var(--gold);color:#000;font-weight:700}
+.back-link{font-family:var(--font-head);font-size:8.5px;letter-spacing:.8px;color:var(--text3);text-decoration:none;padding:5px 10px;border:1px solid var(--border2);border-radius:6px;transition:all .15s;text-transform:uppercase;flex-shrink:0}
+.back-link:hover{color:var(--gold2);border-color:var(--goldbdr)}
+.file-nav{background:rgba(8,14,28,.8);border-bottom:1px solid var(--border2);padding:10px 22px;display:flex;gap:8px;flex-wrap:wrap;position:sticky;top:56px;z-index:80;backdrop-filter:blur(16px)}
+.fn-btn{font-family:var(--font-head);font-size:8px;letter-spacing:1px;text-transform:uppercase;padding:6px 14px;border-radius:7px;border:1px solid var(--border2);color:var(--text3);cursor:pointer;transition:all .2s;text-decoration:none;display:inline-block}
+.fn-btn:hover{color:var(--gold2);border-color:var(--goldbdr)}
+.fn-btn.current{background:var(--golddim);border-color:var(--goldbdr);color:var(--gold2)}
+.fn-sep{color:var(--text3);font-size:10px;align-self:center;opacity:.4}
+.tab-nav{background:rgba(8,14,28,.6);border-bottom:1px solid var(--border2);padding:8px 22px;display:flex;gap:6px;flex-wrap:wrap;position:sticky;top:103px;z-index:70;backdrop-filter:blur(16px)}
+.tn-btn{font-family:var(--font-head);font-size:7.5px;letter-spacing:.8px;text-transform:uppercase;padding:5px 12px;border-radius:6px;border:1px solid var(--border2);color:var(--text3);cursor:pointer;transition:all .2s;text-decoration:none;display:inline-block}
+.tn-btn:hover{color:var(--gold2);border-color:var(--goldbdr)}
+.tn-btn.current{background:var(--golddim);border-color:var(--goldbdr);color:var(--gold2)}
+.page{position:relative;z-index:1;max-width:860px;margin:0 auto;padding:32px 20px 60px}
+.rank-hdr{text-align:center;padding:24px 20px 32px;border-bottom:1px solid var(--border2);margin-bottom:28px}
+.rank-hdr-num{font-family:var(--font-head);font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--text3);margin-bottom:10px}
+.rank-hdr-ar{font-family:var(--font-arab);font-size:clamp(30px,6vw,50px);color:var(--gold);text-shadow:0 0 40px rgba(201,168,76,.2);line-height:1.4;margin-bottom:8px}
+.rank-hdr-en{font-family:var(--font-head);font-size:clamp(12px,2.5vw,16px);font-weight:700;color:#fff;letter-spacing:2px;text-transform:uppercase;margin-bottom:5px}
+.rank-hdr-ur{font-family:var(--font-arab);font-size:clamp(14px,2.5vw,19px);color:var(--gold2);margin-bottom:14px}
+.rank-hdr-rule{width:100px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 16px}
+.rank-hdr-root{font-family:var(--font-head);font-size:9px;letter-spacing:1.5px;color:var(--text3);text-transform:uppercase;margin-bottom:14px}
+.rank-hdr-intro{font-size:13px;color:var(--text2);line-height:1.9;max-width:640px;margin:0 auto;font-style:italic}
+.rank-hdr-intro-ur{font-family:var(--font-arab);font-size:14px;color:var(--text2);direction:rtl;text-align:center;line-height:2;max-width:640px;margin:4px auto 0}
+.key-banner{background:linear-gradient(135deg,rgba(201,168,76,.10),rgba(201,168,76,.04));border:1px solid var(--goldbdr);border-radius:12px;padding:18px 22px;margin-bottom:24px;text-align:center;position:relative;overflow:hidden}
+.key-banner::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.key-banner-label{font-family:var(--font-head);font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.key-banner-ar{font-family:var(--font-arab);font-size:clamp(16px,3.5vw,23px);color:var(--gold2);direction:rtl;line-height:2;margin-bottom:6px}
+.key-banner-tr{font-size:12px;color:var(--text2);font-style:italic;margin-bottom:4px}
+.key-banner-tr-ur{font-family:var(--font-arab);font-size:13px;color:var(--text2);direction:rtl;line-height:2;margin-bottom:6px}
+.key-banner-insight{font-size:11.5px;color:var(--text3);line-height:1.75;border-top:1px solid var(--goldbdr);padding-top:10px;margin-top:6px}
+.key-banner-insight-ur{font-family:var(--font-arab);font-size:12px;color:var(--text3);direction:rtl;text-align:center;line-height:2;margin-top:4px}
+.key-banner-ref{font-family:var(--font-head);font-size:8.5px;color:var(--gold);letter-spacing:.6px;margin-top:6px}
+.contrast-box{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:24px}
+.contrast-item{background:var(--bg2);border-radius:10px;padding:14px 16px;position:relative;overflow:hidden}
+.contrast-item::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
+.ci-moving::before{background:var(--amber)}.ci-rooted::before{background:var(--teal)}
+.ci-moving{border:1px solid var(--amberbdr)}.ci-rooted{border:1px solid var(--tealbdr)}
+.ci-lbl{font-family:var(--font-head);font-size:8px;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:8px}
+.ci-moving .ci-lbl{color:var(--amber)}.ci-rooted .ci-lbl{color:var(--teal)}
+.ci-ar{font-family:var(--font-arab);font-size:18px;color:var(--gold2);direction:rtl;margin-bottom:6px}
+.ci-def{font-size:12px;color:var(--text2);line-height:1.7}
+.ci-def-ur{font-family:var(--font-arab);font-size:12.5px;color:var(--text2);direction:rtl;text-align:right;line-height:2;margin-top:3px}
+.root-analysis{background:var(--bg2);border:1px solid var(--goldbdr);border-radius:12px;padding:20px 22px;margin-bottom:24px;position:relative;overflow:hidden}
+.root-analysis::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.ra-label{font-family:var(--font-head);font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.ra-label::after{content:'';flex:1;height:1px;background:rgba(201,168,76,.08)}
+.ra-root{font-family:var(--font-arab);font-size:26px;color:var(--gold2);direction:rtl;margin-bottom:10px}
+.ra-meaning{font-size:13px;color:var(--text2);line-height:1.8;margin-bottom:10px}
+.ra-meaning-ur{font-family:var(--font-arab);font-size:14px;color:var(--text2);direction:rtl;text-align:right;line-height:2;margin-bottom:10px}
+.ra-count{font-family:var(--font-head);font-size:9px;color:var(--teal);letter-spacing:.5px}
+.era-divider{display:flex;align-items:center;gap:12px;margin:28px 0 16px}
+.era-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.era-madani{background:var(--blue)}.era-late{background:var(--teal)}
+.era-label{font-family:var(--font-head);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text2)}
+.era-label-ur{font-family:var(--font-arab);font-size:13px;color:var(--text2)}
+.era-line{flex:1;height:1px;background:rgba(201,168,76,.05)}
+.ayah-card{background:var(--bg2);border:1px solid rgba(201,168,76,.05);border-radius:12px;margin-bottom:10px;overflow:hidden;transition:border-color .2s}
+.ayah-card.open{border-color:var(--goldbdr)}
+.ayah-card-hdr{display:flex;align-items:center;gap:10px;padding:13px 18px;cursor:pointer;user-select:none}
+.rev-badge{font-family:var(--font-head);font-size:7.5px;letter-spacing:.8px;padding:3px 8px;border-radius:5px;flex-shrink:0;text-transform:uppercase}
+.rev-late{background:var(--tealdim);border:1px solid var(--tealbdr);color:var(--teal)}
+.rev-madani{background:var(--bluedim);border:1px solid var(--bluebdr);color:var(--blue)}
+.card-ref{font-family:var(--font-head);font-size:10px;color:var(--gold);font-weight:600;flex-shrink:0}
+.card-preview{font-family:var(--font-arab);font-size:16px;color:var(--gold2);direction:rtl;flex:1;text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:.75}
+.card-chevron{color:var(--text3);font-size:16px;transition:transform .25s;flex-shrink:0}
+.ayah-card.open .card-chevron{transform:rotate(90deg);color:var(--gold)}
+.card-body{display:none;padding:0 18px 20px;border-top:1px solid rgba(201,168,76,.05)}
+.ayah-card.open .card-body{display:block}
+.ayah-arabic{font-family:var(--font-arab);font-size:clamp(17px,3.5vw,24px);color:var(--gold2);direction:rtl;text-align:right;line-height:2.2;padding:16px 0 12px;border-bottom:1px solid rgba(201,168,76,.05);margin-bottom:12px}
+.ayah-tr-en{font-size:13px;color:var(--text);font-style:italic;line-height:1.85;margin-bottom:6px;border-left:3px solid var(--goldbdr);padding:8px 14px;border-radius:0 6px 6px 0;background:rgba(201,168,76,.03)}
+.ayah-tr-ur{font-family:var(--font-arab);font-size:14px;color:var(--text);direction:rtl;text-align:right;line-height:2;border-right:3px solid var(--goldbdr);padding:8px 14px 8px 8px;border-radius:6px 0 0 6px;background:rgba(201,168,76,.03);margin-bottom:6px}
+.ayah-ref-line{font-family:var(--font-head);font-size:9px;color:var(--gold);letter-spacing:.8px;margin-bottom:14px}
+.ctx-box{background:rgba(0,0,0,.2);border-left:3px solid var(--amber);border-radius:0 8px 8px 0;padding:11px 14px;margin-bottom:12px}
+.ctx-lbl{font-family:var(--font-head);font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:var(--amber);margin-bottom:5px}
+.ctx-txt{font-size:12px;color:var(--text2);line-height:1.75}
+.ctx-txt-ur{font-family:var(--font-arab);font-size:13px;color:var(--text2);direction:rtl;text-align:right;line-height:2}
+.uniq-box{background:var(--tealdim);border:1px solid var(--tealbdr);border-radius:8px;padding:11px 14px;margin-bottom:12px}
+.uniq-lbl{font-family:var(--font-head);font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:var(--teal);margin-bottom:5px}
+.uniq-txt{font-size:12.5px;color:var(--text);line-height:1.75}
+.uniq-txt-ur{font-family:var(--font-arab);font-size:13px;color:var(--text);direction:rtl;text-align:right;line-height:2}
+.scholar-card{background:var(--bg3);border:1px solid rgba(201,168,76,.05);border-radius:10px;padding:15px 17px;margin-bottom:9px;overflow:hidden;transition:border-color .2s}
+.scholar-card.open{border-color:var(--purplebdr)}
+.sc-hdr{display:flex;align-items:center;gap:12px;cursor:pointer;user-select:none}
+.sc-badge{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--font-arab);font-size:13px;color:var(--gold2);background:var(--purpledim);border:1px solid var(--purplebdr);flex-shrink:0}
+.sc-name{font-family:var(--font-head);font-size:9.5px;letter-spacing:.5px;color:var(--text);font-weight:600}
+.sc-text{font-family:var(--font-head);font-size:8px;letter-spacing:.3px;color:var(--purple);margin-top:2px}
+.sc-chev{color:var(--text3);font-size:14px;transition:transform .25s;margin-left:auto;flex-shrink:0}
+.scholar-card.open .sc-chev{transform:rotate(90deg);color:var(--purple)}
+.sc-body{display:none;margin-top:12px;padding-top:10px;border-top:1px solid rgba(201,168,76,.05)}
+.scholar-card.open .sc-body{display:block}
+.sc-quote{font-size:12px;color:var(--text);font-style:italic;line-height:1.8;border-left:2px solid var(--purple);padding:8px 12px;background:rgba(168,127,208,.04);border-radius:0 6px 6px 0;margin-bottom:10px}
+.sc-quote-ur{font-family:var(--font-arab);font-size:13px;color:var(--text);direction:rtl;text-align:right;line-height:2;border-right:2px solid var(--purple);padding:8px 12px;background:rgba(168,127,208,.04);border-radius:6px 0 0 6px;margin-bottom:10px}
+.sc-analysis{font-size:12px;color:var(--text2);line-height:1.75}
+.sc-analysis-ur{font-family:var(--font-arab);font-size:13px;color:var(--text2);direction:rtl;text-align:right;line-height:2;margin-top:5px}
+.sc-source{font-family:var(--font-head);font-size:8px;color:var(--purple);letter-spacing:.4px;margin-top:8px}
+.scholars-lbl{font-family:var(--font-head);font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--purple);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.scholars-lbl::after{content:'';flex:1;height:1px;background:rgba(168,127,208,.15)}
+.notes-sec{margin-top:14px;border-top:1px solid rgba(201,168,76,.05);padding-top:12px}
+.notes-hdr{font-family:var(--font-head);font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:var(--text2);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.notes-hdr::after{content:'';flex:1;height:1px;background:rgba(201,168,76,.05)}
+.note-f{margin-bottom:7px}
+.note-lbl{font-family:var(--font-head);font-size:7.5px;letter-spacing:.8px;text-transform:uppercase;color:var(--text3);margin-bottom:4px;display:flex;align-items:center;gap:6px}
+.nd{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.nsv{font-family:var(--font-head);font-size:7px;letter-spacing:.3px;color:var(--text3);margin-left:auto;transition:color .3s}
+.nsv.flash{color:var(--teal)}
+.note-ta{width:100%;min-height:72px;background:rgba(255,255,255,.03);border:1px solid rgba(201,168,76,.05);border-radius:7px;outline:none;padding:10px 12px;font-family:var(--font-body);font-size:12.5px;color:var(--text);line-height:1.75;resize:vertical;transition:border-color .2s}
+.note-ta:focus{border-color:var(--goldbdr)}
+.note-ta::placeholder{color:var(--text3);font-style:italic;font-size:11.5px}
+.sec-lbl{font-family:var(--font-head);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:12px;padding:28px 0 16px}
+.sec-lbl::after{content:'';flex:1;height:1px;background:rgba(201,168,76,.05)}
+.sh-card{background:var(--bg2);border:1px solid rgba(201,168,76,.05);border-radius:12px;padding:18px 20px;margin-bottom:10px}
+.sh-lbl{font-family:var(--font-head);font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:var(--purple);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.sh-lbl::after{content:'';flex:1;height:1px;background:rgba(201,168,76,.05)}
+.sh-ar{font-family:var(--font-arab);font-size:clamp(14px,3vw,18px);color:var(--gold2);direction:rtl;text-align:right;line-height:2;margin-bottom:9px;padding:10px 14px;background:rgba(201,168,76,.04);border-radius:7px}
+.sh-en{font-size:12.5px;color:var(--text);font-style:italic;line-height:1.8;margin-bottom:6px}
+.sh-ur{font-family:var(--font-arab);font-size:14px;color:var(--text);direction:rtl;text-align:right;line-height:2;margin-bottom:6px}
+.sh-src{font-family:var(--font-head);font-size:8.5px;color:var(--purple);letter-spacing:.5px}
+.grade{display:inline-block;font-family:var(--font-head);font-size:7.5px;padding:2px 7px;border-radius:4px;margin-left:6px}
+.g-sahih{background:var(--tealdim);border:1px solid var(--tealbdr);color:var(--teal)}
+.g-hasan{background:var(--golddim);border:1px solid var(--goldbdr);color:var(--gold2)}
+.synth-box{border:1px solid rgba(201,168,76,.05);border-radius:10px;padding:16px 18px;margin-top:8px}
+.completion-banner{background:linear-gradient(135deg,rgba(47,184,154,.10),rgba(47,184,154,.04));border:1px solid var(--tealbdr);border-radius:12px;padding:20px 24px;margin-top:28px;text-align:center;position:relative;overflow:hidden}
+.completion-banner::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--teal),transparent)}
+.cb-label{font-family:var(--font-head);font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--teal);margin-bottom:10px}
+.cb-title{font-family:var(--font-head);font-size:15px;color:#fff;letter-spacing:1px;margin-bottom:8px}
+.cb-desc{font-size:12.5px;color:var(--text2);line-height:1.8;max-width:540px;margin:0 auto}
+.cb-desc-ur{font-family:var(--font-arab);font-size:14px;color:var(--text2);direction:rtl;line-height:2;max-width:540px;margin:6px auto 0}
+.file-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:12px}
+.file-link{background:var(--bg2);border:1px solid rgba(201,168,76,.05);border-radius:10px;padding:14px 16px;text-decoration:none;transition:all .2s;display:block}
+.file-link:hover{border-color:var(--goldbdr);background:rgba(201,168,76,.04)}
+.file-link.current{border-color:var(--goldbdr);background:var(--golddim);cursor:default}
+.fl-num{font-family:var(--font-head);font-size:8px;letter-spacing:1px;color:var(--text3);text-transform:uppercase;margin-bottom:5px}
+.fl-title{font-family:var(--font-head);font-size:10px;letter-spacing:.5px;color:var(--gold2);margin-bottom:4px}
+.fl-desc{font-size:11px;color:var(--text3);line-height:1.6}
+.fl-badge{display:inline-block;font-family:var(--font-head);font-size:7px;padding:1px 6px;border-radius:4px;margin-top:6px}
+.fl-ready{background:var(--tealdim);border:1px solid var(--tealbdr);color:var(--teal)}
+.fl-coming{background:rgba(122,171,240,.08);border:1px solid var(--bluebdr);color:var(--blue)}
+.en-blk{display:block}.ur-blk{display:none}
+body.ur-mode .en-blk{display:none}
+body.ur-mode .ur-blk{display:block}
+.en-inl{display:inline}.ur-inl{display:none}
+body.ur-mode .en-inl{display:none}
+body.ur-mode .ur-inl{display:inline}
+@media(max-width:600px){.page{padding:20px 14px 60px}.contrast-box{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="hdr">
+  <div class="hdr-ar">الرَّاسِخُون</div>
+  <div class="hdr-titles">
+    <div class="hdr-title en-blk">Inner Quality Ranks — File 3B · Tab VII</div>
+    <div class="hdr-title ur-blk">باطنی اوصاف کے درجات — فائل ۳B · ٹیب ۷</div>
+    <div class="hdr-sub en-blk">Al-Rasikhoon fil-Ilm — Firmly Rooted in Knowledge</div>
+    <div class="hdr-sub ur-blk">الراسخون في العلم — علم میں گہری جڑیں رکھنے والے</div>
+  </div>
+  <div class="lang-toggle">
+    <div class="lt on" id="lt-en" onclick="setLang('en')">EN</div>
+    <div class="lt" id="lt-ur" onclick="setLang('ur')">اردو</div>
+  </div>
+  <a href="ranks_map.html" class="back-link">← Map</a>
+</div>
+<div class="file-nav">
+  <a href="ranks_map.html" class="fn-btn">1 · Map</a>
+  <span class="fn-sep">›</span>
+  <a href="ranks_eschatological.html" class="fn-btn">2 · Eschatological</a>
+  <span class="fn-sep">›</span>
+  <a href="ranks_divine_love.html" class="fn-btn">3A · Divine Love</a>
+  <span class="fn-sep">›</span>
+  <span class="fn-btn current">3B · Inner Qualities</span>
+  <span class="fn-sep">›</span>
+  <a href="ranks_path.html" class="fn-btn">4 · The Path</a>
+</div>
+<div class="tab-nav">
+  <a href="ranks_inner_qualities_mukhlisoon.html" class="tn-btn">I · Mukhlisoon</a>
+  <a href="riq_awwaaboon.html" class="tn-btn">II · Awwaaboon</a>
+  <a href="riq_sabiroon.html" class="tn-btn">III · Sabiroon</a>
+  <a href="riq_shakiroon.html" class="tn-btn">IV · Shakiroon</a>
+  <a href="riq_qaanitoon.html" class="tn-btn">V · Qaanitoon</a>
+  <a href="riq_ululalbab.html" class="tn-btn">VI · Ulu al-Albab</a>
+  <span class="tn-btn current">VII · Rasikhoon</span>
+</div>
+<div class="page">
+
+<div class="rank-hdr">
+  <div class="rank-hdr-num en-blk">File 3B · Tab VII · Final Tab · Knowledge That Roots vs Knowledge That Moves</div>
+  <div class="rank-hdr-num ur-blk">فائل ۳B · ٹیب ۷ · آخری ٹیب · جڑانے والا علم بمقابلہ بہانے والا علم</div>
+  <div class="rank-hdr-ar">الرَّاسِخُونَ فِي الْعِلْم</div>
+  <div class="rank-hdr-en en-blk">Al-Rasikhoon fil-Ilm — Firmly Rooted in Knowledge</div>
+  <div class="rank-hdr-ur ur-blk">الراسخون في العلم — علم میں گہری جڑیں رکھنے والے</div>
+  <div class="rank-hdr-rule"></div>
+  <div class="rank-hdr-root en-blk">Root: ر — س — خ · Rusukh = to sink deep · To become firmly embedded · Like roots going deep into soil · Cannot be uprooted by force</div>
+  <div class="rank-hdr-root ur-blk">جڑ: ر — س — خ · رسوخ = گہرا دھنسنا · مضبوطی سے جما جانا · زمین میں گہری جڑوں کی طرح · طاقت سے اکھاڑا نہ جا سکے</div>
+  <div class="rank-hdr-intro en-blk">The Rasikhoon fil-Ilm appear in the Quran in one decisive context: the ayah of the Mutashabihat (3:7). When the ambiguous verses come — verses whose full meaning is not given to any human — two responses emerge. The person without Rusukh pursues their own interpretation, seeking meaning they have not been given. The Rasikhoon say: "We believe in it — all is from our Lord." Their knowledge does not generate doubt in ambiguity; it generates submission. This is what distinguishes them: not the quantity of knowledge they possess, but the depth to which it has penetrated — so deeply that even what they cannot understand does not shake them. Ibn al-Qayyim identifies this as one of the rarest qualities in the Quran.</div>
+  <div class="rank-hdr-intro-ur ur-blk">راسخون قرآن میں ایک فیصلہ کن سیاق میں ملتے ہیں: متشابہات کی آیت (۳:۷)۔ مبہم آیات آنے پر دو ردعمل: رسوخ کے بغیر اپنی تاویل ڈھونڈے۔ راسخون کہتے ہیں: «ہم ایمان لائے — سب ہمارے رب کی طرف سے»۔ ان کا علم ابہام میں شک نہیں پیدا کرتا — تسلیم پیدا کرتا ہے۔ یہی فرق: علم کی مقدار نہیں — گہرائی۔ ابن القیم: قرآن کی نادر ترین صفات میں سے۔</div>
+</div>
+
+<!-- KEY BANNER -->
+<div class="key-banner">
+  <div class="key-banner-label en-blk">The Defining Moment of the Rasikhoon — Al-Imran 3:7</div>
+  <div class="key-banner-label ur-blk">راسخون کا فیصلہ کن لمحہ — آل عمران ۳:۷</div>
+  <div class="key-banner-ar">وَالرَّاسِخُونَ فِي الْعِلْمِ يَقُولُونَ آمَنَّا بِهِ كُلٌّ مِّنْ عِندِ رَبِّنَا</div>
+  <div class="key-banner-tr en-blk">"And those firmly rooted in knowledge say: We believe in it — all is from our Lord."</div>
+  <div class="key-banner-tr-ur ur-blk">«اور جو علم میں راسخ ہیں وہ کہتے ہیں: ہم ایمان لائے — سب ہمارے رب کی طرف سے ہے۔»</div>
+  <div class="key-banner-insight en-blk">This is the statement made when the Mutashabihat (ambiguous verses) arrive. The one without Rusukh follows the Mutashabihat seeking Fitnah (discord) and Ta'wil (forced interpretation). The Rasikhoon do not pursue what has not been given to them. Their response — Amanna bihi, kullun min indi Rabbina — is not intellectual defeat. It is the expression of Iman that has gone so deep it has become Rusukh: the knowledge that Allah did not reveal anything in vain, that what you cannot grasp has its meaning with Allah, and that submission to that is itself a form of knowledge. This is deeper knowing, not absence of knowing.</div>
+  <div class="key-banner-insight-ur ur-blk">متشابہات آنے پر: رسوخ کے بغیر فتنہ اور تاویل کی تلاش۔ راسخون جو نہیں دیا گیا اسے نہیں ڈھونڈتے۔ «آمنا به، كل من عند ربنا» — عقلی شکست نہیں۔ یہ وہ ایمان ہے جو اتنا گہرا ہو گیا کہ رسوخ بن گیا: اللہ نے کچھ بے فائدہ نہیں اتارا، جو سمجھ نہیں آتا اس کا معنی اللہ کے پاس ہے، اور اس پر تسلیم خود علم کی ایک شکل ہے۔</div>
+  <div class="key-banner-ref">Surah Al-Imran 3:7</div>
+</div>
+
+<!-- ROOT ANALYSIS -->
+<div class="root-analysis">
+  <div class="ra-label"><span class="en-blk">Root — ر س خ</span><span class="ur-blk">جڑ — ر س خ</span></div>
+  <div class="ra-root">رَسَخَ · رُسُوخ · رَاسِخ · رَاسِخُون</div>
+  <div class="ra-meaning en-blk">R-S-KH carries the image of something sinking deeply and becoming firmly embedded — specifically the image of a tree's roots going so deep into the earth that the tree cannot be uprooted even by violent force. Rasikha al-shay' means "the thing became deeply embedded, firmly fixed." Applied to knowledge: Rusukh fil-Ilm is not the accumulation of more knowledge — it is knowledge that has gone so deep into the person that it cannot be shaken loose by doubt, ambiguity, or attack. The opposite is surface knowledge (Ilm al-zahir only) that sits on top of the person without penetrating — which is why it fails when the Mutashabihat arrive. Rusukh distinguishes between knowledge that decorates and knowledge that roots.</div>
+  <div class="ra-meaning-ur ur-blk">ر-س-خ کا تصویر: کسی چیز کا گہرا دھنسنا اور مضبوطی سے جما جانا — خاص طور پر درخت کی جڑوں کا اتنا گہرا جانا کہ تیز طوفان بھی نہ اکھاڑ سکے۔ علم پر: رسوخ فی العلم علم کا جمع ہونا نہیں — وہ علم جو اتنا گہرا ہو کہ شک، ابہام اور حملے سے نہ ہلے۔ اس کے برعکس ظاہری علم جو اوپر بیٹھا ہو — متشابہات آنے پر ناکام۔ رسوخ سجاوٹی علم اور جڑانے والے علم میں فرق۔</div>
+  <div class="ra-count en-blk">✦ R-S-KH appears only twice in the Quran — both in the single form al-Rasikhoon fil-Ilm · Both in 3:7 and 4:162 · One of the rarest characteristics named in the Quran</div>
+  <div class="ra-count ur-blk">✦ ر-س-خ قرآن میں صرف دو بار — دونوں الراسخون فی العلم کی شکل میں · ۳:۷ اور ۴:۱۶۲ میں · قرآن میں نادر ترین خصوصیات میں سے</div>
+</div>
+
+<!-- CONTRAST BOX -->
+<div class="sec-lbl"><span class="en-inl">The Critical Distinction — Two Types of Knowledge</span><span class="ur-inl">اہم فرق — علم کی دو اقسام</span></div>
+<div class="contrast-box">
+  <div class="contrast-item ci-moving">
+    <div class="ci-lbl en-blk">Knowledge That Moves — Surface</div>
+    <div class="ci-lbl ur-blk">بہانے والا علم — سطحی</div>
+    <div class="ci-ar">عِلْمٌ ظَاهِر</div>
+    <div class="ci-def en-blk">Knowledge accumulated and stored — facts, rulings, arguments. Sits on top of the person. Fails under pressure because it was never rooted. When the Mutashabihat arrive, this knowledge is not sufficient — it produces the need to resolve the ambiguity rather than submit to it. This is not bad knowledge; it is knowledge that has not yet been given time and depth to root.</div>
+    <div class="ci-def-ur ur-blk">جمع کیا ہوا علم — حقائق، احکام، دلائل۔ انسان کے اوپر بیٹھا ہے۔ دباؤ میں ناکام کیونکہ کبھی جڑا نہیں۔ متشابہات میں تسلیم کے بجائے ابہام حل کرنے کی ضرورت پیدا ہوتی ہے۔ برا علم نہیں — جڑنے کا وقت اور گہرائی نہیں ملی۔</div>
+  </div>
+  <div class="contrast-item ci-rooted">
+    <div class="ci-lbl en-blk">Knowledge That Roots — Rusukh</div>
+    <div class="ci-lbl ur-blk">جڑانے والا علم — رسوخ</div>
+    <div class="ci-ar">رُسُوخٌ فِي الْعِلْم</div>
+    <div class="ci-def en-blk">Knowledge that has penetrated all the way through — through the Sadr, Qalb, Fu'ad, and into the Lubb. It has become part of the person's orientation, not just their information. Under pressure — ambiguity, doubt, Mutashabihat — it does not produce anxiety. It produces Amanna bihi — a calm, certain submission. This is the knowledge of the Rasikhoon: not more facts but deeper penetration of what they already know.</div>
+    <div class="ci-def-ur ur-blk">وہ علم جو پوری طرح پار ہو گیا — صدر، قلب، فؤاد سے لب تک۔ معلومات نہیں — رخ کا حصہ بن گیا۔ دباؤ میں — ابہام، شک، متشابہات — اضطراب نہیں۔ «آمنا به» پیدا کرتا ہے — پرسکون، یقینی تسلیم۔ راسخون کا علم: زیادہ حقائق نہیں — جو جانتے ہیں اس کی گہری سرایت۔</div>
+  </div>
+</div>
+
+<div class="sec-lbl"><span class="en-inl">The Ayat — In Revelation Order</span><span class="ur-inl">آیات — ترتیب نزولی میں</span></div>
+
+<!-- AYAH 1: 3:7 -->
+<div class="era-divider">
+  <div class="era-dot era-madani"></div>
+  <div class="era-label en-blk">Madani · Al-Imran 3:7 — The Decisive Ayah of the Mutashabihat</div>
+  <div class="era-label-ur ur-blk">مدنی · آل عمران ۳:۷ — متشابہات کی فیصلہ کن آیت</div>
+  <div class="era-line"></div>
+</div>
+<div class="ayah-card" id="rs-37">
+  <div class="ayah-card-hdr" onclick="toggleCard('rs-37')">
+    <span class="rev-badge rev-madani en-blk">Rev. #89</span><span class="rev-badge rev-madani ur-blk">ترتیب #89</span>
+    <span class="card-ref">Al-Imran 3:7</span>
+    <span class="card-preview">هُوَ الَّذِي أَنزَلَ عَلَيْكَ الْكِتَابَ مِنْهُ آيَاتٌ مُّحْكَمَاتٌ هُنَّ أُمُّ الْكِتَابِ وَأُخَرُ مُتَشَابِهَاتٌ</span>
+    <span class="card-chevron">›</span>
+  </div>
+  <div class="card-body">
+    <div class="ayah-arabic">هُوَ الَّذِي أَنزَلَ عَلَيْكَ الْكِتَابَ مِنْهُ آيَاتٌ مُّحْكَمَاتٌ هُنَّ أُمُّ الْكِتَابِ وَأُخَرُ مُتَشَابِهَاتٌ ۖ فَأَمَّا الَّذِينَ فِي قُلُوبِهِمْ زَيْغٌ فَيَتَّبِعُونَ مَا تَشَابَهَ مِنْهُ ابْتِغَاءَ الْفِتْنَةِ وَابْتِغَاءَ تَأْوِيلِهِ ۗ وَمَا يَعْلَمُ تَأْوِيلَهُ إِلَّا اللَّهُ ۗ وَالرَّاسِخُونَ فِي الْعِلْمِ يَقُولُونَ آمَنَّا بِهِ كُلٌّ مِّنْ عِندِ رَبِّنَا ۗ وَمَا يَذَّكَّرُ إِلَّا أُولُو الْأَلْبَابِ</div>
+    <div class="ayah-tr-en en-blk">"It is He who sent down upon you the Book — in it are Muhkam (clear) verses, which are the foundation of the Book, and others which are Mutashabihat (ambiguous). As for those in whose hearts is deviation — they follow the Mutashabihat seeking Fitnah and seeking its Ta'wil. And none knows its Ta'wil except Allah. And those firmly rooted in knowledge say: We believe in it — all is from our Lord. And none take heed except Ulu al-Albab."</div>
+    <div class="ayah-tr-ur ur-blk">«وہی ہے جس نے تم پر کتاب نازل کی — اس میں محکم آیات ہیں جو کتاب کی بنیاد ہیں، اور دوسری متشابہات۔ جن کے دلوں میں کجی ہے وہ فتنہ اور تاویل کی تلاش میں متشابہات کی پیروی کرتے ہیں۔ اور اس کی تاویل اللہ کے سوا کوئی نہیں جانتا۔ اور جو علم میں راسخ ہیں وہ کہتے ہیں: ہم ایمان لائے — سب ہمارے رب کی طرف سے ہے۔ اور صرف اولو الالباب ہی نصیحت لیتے ہیں۔»</div>
+    <div class="ayah-ref-line">Surah Al-Imran 3:7</div>
+    <div class="ctx-box">
+      <div class="ctx-lbl en-blk">Context — Muhkam vs Mutashabihat and the Test of Knowledge</div>
+      <div class="ctx-txt en-blk">The Quran is divided into two categories: Muhkam (clear, firm, unambiguous — Umm al-Kitab, the mother/foundation of the Book) and Mutashabihat (ambiguous, similar, resembling — verses whose full meaning and interpretation belong to Allah alone). The ayah then presents two responses to the Mutashabihat. Response one: the person with Zaygh (deviation, crookedness) in their heart follows the Mutashabihat seeking Fitnah and Ta'wil (forced interpretation). The inner crookedness drives them to pursue what has not been given. Response two: the Rasikhoon fil-Ilm say — without drama, without intellectual defeat, without declaring the Mutashabihat meaningless — Amanna bihi, kullun min indi Rabbina: we believe in it, all is from our Lord. The end of the ayah connects to Ulu al-Albab — only they take heed from this whole presentation.</div>
+      <div class="ctx-txt-ur ur-blk">قرآن دو قسم: محکم (واضح — ام الکتاب) اور متشابہات (مبہم — جن کی مکمل تاویل صرف اللہ کو)۔ دو ردعمل: زیغ والا فتنہ اور تاویل کی تلاش میں متشابہات کی پیروی۔ راسخون — بغیر ڈرامے، بغیر عقلی شکست — «آمنا به، كل من عند ربنا»۔ آخر اولو الالباب سے جوڑ — صرف وہی نصیحت لیتے ہیں۔</div>
+    </div>
+    <div class="uniq-box">
+      <div class="uniq-lbl en-blk">What This Ayah Uniquely Establishes</div>
+      <div class="uniq-txt en-blk">The Rasikhoon fil-Ilm are defined by what they do NOT do — they do not follow the Mutashabihat seeking Ta'wil — and by what they DO say — Amanna bihi, kullun min indi Rabbina. The inner test here is precise: can your knowledge hold you steady when you encounter what you cannot understand? The person with surface knowledge experiences the ambiguity as a problem to be solved — their knowledge has not gone deep enough to provide the foundation that makes the unresolved manageable. The Rasikhoon's knowledge has gone so deep that even the unresolvable does not shake them. This is Rusukh: the knowledge has become the ground they stand on, not just information they hold. The ayah ends by naming Ulu al-Albab — the Rasikhoon are among those whose Lubb is operating.</div>
+      <div class="uniq-txt-ur ur-blk">راسخون کی تعریف: جو نہیں کرتے — تاویل نہیں ڈھونڈتے — اور جو کہتے ہیں — «آمنا به»۔ باطنی آزمائش: جب سمجھ نہ آئے تو آپ کا علم ثابت رکھتا ہے؟ سطحی علم ابہام کو حل طلب مسئلہ سمجھتا ہے — کافی گہرا نہیں۔ راسخون کا علم اتنا گہرا کہ ناقابل حل بھی نہیں ہلاتا۔ یہ رسوخ: علم وہ زمین بن گئی جس پر کھڑے ہیں — صرف معلومات نہیں۔</div>
+    </div>
+    <div class="notes-sec">
+      <div class="notes-hdr"><span class="en-blk">Personal Notes</span><span class="ur-blk">ذاتی نوٹس</span></div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--teal)"></div><span class="en-blk">When you encounter something in the Quran or Deen you cannot understand — what is your first response? Anxiety to resolve it, or a calm Amanna bihi? What does this reveal about the depth of your Rusukh?</span><span class="ur-blk">قرآن یا دین میں جو سمجھ نہ آئے — پہلا ردعمل؟ حل کرنے کی بے چینی، یا پرسکون «آمنا به»؟ یہ آپ کے رسوخ کی گہرائی کے بارے میں کیا ظاہر کرتا ہے؟</span><span class="nsv" id="sv-rs37a"></span></div>
+        <textarea class="note-ta" id="note-rs37a" placeholder="Name a specific ambiguity in the Deen that you have wrestled with. Was the wrestle productive — or was it the Zaygh of the heart seeking Ta'wil beyond what was given?" oninput="autoSave('rs37a',this.value)"></textarea>
+      </div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--gold)"></div><span class="en-blk">The Rasikhoon are defined not by what they know but by what their knowledge does to them — it makes them say Amanna bihi. What would need to be different about your relationship with your knowledge for it to produce this kind of calm submission?</span><span class="ur-blk">راسخون وہ نہیں جو جانتے ہیں — بلکہ وہ جن کا علم «آمنا به» پیدا کرتا ہے۔ آپ کے علم اور اپنے تعلق میں کیا بدلنا ہوگا؟</span><span class="nsv" id="sv-rs37b"></span></div>
+        <textarea class="note-ta" id="note-rs37b" placeholder="Knowledge that roots vs knowledge that decorates — which describes most of what you have learned about Islam? What is the difference in how it was acquired?" oninput="autoSave('rs37b',this.value)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- AYAH 2: 4:162 -->
+<div class="era-divider">
+  <div class="era-dot era-madani"></div>
+  <div class="era-label en-blk">Madani · Al-Nisa 4:162 — The Rasikhoon Paired with Iman and Salah</div>
+  <div class="era-label-ur ur-blk">مدنی · النساء ۴:۱۶۲ — راسخون ایمان اور نماز کے ساتھ</div>
+  <div class="era-line"></div>
+</div>
+<div class="ayah-card" id="rs-4162">
+  <div class="ayah-card-hdr" onclick="toggleCard('rs-4162')">
+    <span class="rev-badge rev-madani en-blk">Rev. #92</span><span class="rev-badge rev-madani ur-blk">ترتیب #92</span>
+    <span class="card-ref">Al-Nisa 4:162</span>
+    <span class="card-preview">لَّٰكِنِ الرَّاسِخُونَ فِي الْعِلْمِ مِنْهُمْ وَالْمُؤْمِنُونَ يُؤْمِنُونَ بِمَا أُنزِلَ إِلَيْكَ    <span class="card-chevron">›</span>
+  </div>
+  <div class="card-body">
+    <div class="ayah-arabic">لَّٰكِنِ الرَّاسِخُونَ فِي الْعِلْمِ مِنْهُمْ وَالْمُؤْمِنُونَ يُؤْمِنُونَ بِمَا أُنزِلَ إِلَيْكَ وَمَا أُنزِلَ مِن قَبْلِكَ ۚ وَالْمُقِيمِينَ الصَّلَاةَ ۚ وَالْمُؤْتُونَ الزَّكَاةَ وَالْمُؤْمِنُونَ بِاللَّهِ وَالْيَوْمِ الْآخِرِ أُولَٰئِكَ سَنُؤْتِيهِمْ أَجْرًا عَظِيمًا</div>
+    <div class="ayah-tr-en en-blk">"But those firmly rooted in knowledge among them, and the believers — they believe in what was sent down to you and what was sent down before you, and those who establish Salah, and those who give Zakah, and those who believe in Allah and the Last Day — those We will give a great reward."</div>
+    <div class="ayah-tr-ur ur-blk">«لیکن ان میں سے جو علم میں راسخ ہیں اور مومنین — وہ ایمان لاتے ہیں جو تم پر نازل ہوا اور جو تم سے پہلے نازل ہوا، اور نماز قائم کرنے والے، اور زکوۃ دینے والے، اور اللہ اور آخرت پر ایمان لانے والے — انہیں ہم عظیم اجر دیں گے۔»</div>
+    <div class="ayah-ref-line">Surah Al-Nisa 4:162 · Context: in contrast to those among the People of the Book who rejected</div>
+    <div class="ctx-box">
+      <div class="ctx-lbl en-blk">Context — Rusukh Manifests in Action, Not Just Belief</div>
+      <div class="ctx-txt en-blk">This ayah distinguishes the Rasikhoon among the People of the Book who accepted Islam — those whose Rusukh in their knowledge led them to recognise the truth of the new revelation and submit to it. The qualities listed alongside Rusukh are significant: believing in what was sent down before and after, establishing Salah, giving Zakah, believing in Allah and the Last Day. Rusukh is not only an intellectual or internal quality — it manifests in sustained worship (Salah), sustained giving (Zakah), and comprehensive Iman. The Rasikhoon are those whose deep knowledge roots them in action, not just belief. Knowledge that has truly rooted produces fruit — the fruit is sustained practice.</div>
+      <div class="ctx-txt-ur ur-blk">اہل کتاب میں سے راسخون جنہوں نے اسلام قبول کیا — ان کا رسوخ انہیں نئی وحی کی سچائی پہچاننے اور تسلیم کرنے پر لے گیا۔ رسوخ کے ساتھ: نماز قائم کرنا، زکوۃ دینا، اللہ اور آخرت پر ایمان۔ رسوخ صرف عقلی یا باطنی نہیں — مستقل عبادت اور دینے میں ظاہر ہوتا ہے۔ جو علم واقعی جڑ گیا وہ پھل دیتا ہے — مستقل عمل۔</div>
+    </div>
+    <div class="uniq-box">
+      <div class="uniq-lbl en-blk">What This Ayah Uniquely Establishes</div>
+      <div class="uniq-txt en-blk">This second Quranic usage of Rasikhoon establishes that their quality produces fruit in sustained practice. The Rasikhoon are described alongside Muqimeen al-Salah (those who establish prayer) — not just perform it occasionally but establish it as a permanent fixture. The Rusukh in knowledge and the sustained Salah are not separate qualities but expressions of the same deep rootedness. Knowledge that has truly gone deep does not leave worship optional or occasional — it establishes it. This is the external sign of the Rasikhoon's internal quality: just as the depth of the tree's roots is evidenced by its ability to withstand storms and produce fruit, the depth of the Rasikhoon's knowledge is evidenced by the consistency of their practice.</div>
+      <div class="uniq-txt-ur ur-blk">دوسرا استعمال: رسوخ مستقل عمل پیدا کرتا ہے۔ راسخون مقیمی الصلاۃ کے ساتھ — نہ صرف کبھی کبھی ادا کرنا بلکہ مستقل قائم کرنا۔ رسوخ فی العلم اور مستقل نماز الگ نہیں — ایک ہی گہری جڑ کے اظہار۔ واقعی جڑا علم عبادت کو اختیاری نہیں چھوڑتا — قائم کرتا ہے۔ درخت کی گہری جڑوں کی دلیل: طوفان میں ثابت رہنا اور پھل دینا۔</div>
+    </div>
+    <div class="notes-sec">
+      <div class="notes-hdr"><span class="en-blk">Personal Notes</span><span class="ur-blk">ذاتی نوٹس</span></div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--teal)"></div><span class="en-blk">Rusukh produces sustained practice — the Rasikhoon establish Salah, not just perform it. Is your Salah established or performed? What is the difference in your experience of each?</span><span class="ur-blk">رسوخ مستقل عمل پیدا کرتا ہے — راسخون نماز قائم کرتے ہیں، محض ادا نہیں۔ آپ کی نماز قائم ہے یا ادا؟ دونوں میں تجربے کا فرق؟</span><span class="nsv" id="sv-rs4162a"></span></div>
+        <textarea class="note-ta" id="note-rs4162a" placeholder="Established (Muqeem) vs performed — one is a fixed station in your day, the other is a variable obligation. Which describes your Salah currently?" oninput="autoSave('rs4162a',this.value)"></textarea>
+      </div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--gold)"></div><span class="en-blk">The Rasikhoon among the People of the Book recognised the truth of the new revelation because their knowledge had rooted them in truth-seeking, not tradition-defending. Can your knowledge do the same — lead you to truth even when it challenges your assumptions?</span><span class="ur-blk">اہل کتاب کے راسخون نے نئی وحی کو پہچانا کیونکہ ان کا علم انہیں حق کی تلاش میں جڑا تھا۔ کیا آپ کا علم آپ کو حق کی طرف لے جا سکتا ہے جب یہ آپ کے مفروضات کو چیلنج کرے؟</span><span class="nsv" id="sv-rs4162b"></span></div>
+        <textarea class="note-ta" id="note-rs4162b" placeholder="Knowledge that has truly rooted seeks truth, not confirmation. Where does your knowledge seek truth vs confirmation? What is the difference in how you approach a challenging idea?" oninput="autoSave('rs4162b',this.value)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SCHOLARS -->
+<div class="sec-lbl"><span class="en-inl">Scholar Perspectives</span><span class="ur-inl">علماء کے نظریات</span></div>
+<div class="scholars-lbl en-blk">Two Classical Authorities on Rusukh and Its Distinction from Surface Knowledge</div>
+<div class="scholars-lbl ur-blk">رسوخ اور سطحی علم کے فرق پر دو کلاسیکی علماء</div>
+
+<div class="scholar-card" id="sc-ibnqayyim-rs">
+  <div class="sc-hdr" onclick="toggleScholar('sc-ibnqayyim-rs')">
+    <div class="sc-badge">ق</div>
+    <div>
+      <div class="sc-name">Ibn al-Qayyim al-Jawziyyah (d. 751H)</div>
+      <div class="sc-text en-blk">Miftah Dar al-Sa'adah · Knowledge That Moves vs Knowledge That Roots</div>
+      <div class="sc-text ur-blk">مفتاح دار السعادۃ · بہانے والا علم بمقابلہ جڑانے والا علم</div>
+    </div>
+    <div class="sc-chev">›</div>
+  </div>
+  <div class="sc-body">
+    <div class="sc-quote en-blk">Ibn al-Qayyim in Miftah Dar al-Sa'adah draws the distinction between two types of knowledge that produce two entirely different effects on the person who holds them. The first is knowledge that moves — it informs, it adds to information, it can be argued and demonstrated. The second is knowledge that roots — it has penetrated to the level of character and become part of the person's orientation. The first type can be accumulated without producing Rusukh. The second is what the Quran calls Rusukh fil-Ilm. He notes that a person can have great quantities of the first and none of the second — and this is why the Quran distinguishes the Rasikhoon as a specific category, not simply the most knowledgeable.</div>
+    <div class="sc-quote-ur ur-blk">ابن القیم مفتاح دار السعادۃ میں دو اقسام: بہانے والا علم — معلومات، دلائل، اضافہ۔ جڑانے والا علم — کردار کی سطح تک پہنچا اور رخ کا حصہ بنا۔ پہلی قسم بغیر رسوخ کے جمع ہو سکتی ہے۔ دوسری قرآن کا رسوخ فی العلم ہے۔ پہلی کی بھاری مقدار اور دوسری کا ذرہ بھر نہ ہو سکتا ہے — اسی لیے قرآن راسخون کو الگ قسم بتاتا ہے۔</div>
+    <div class="sc-analysis en-blk">Ibn al-Qayyim identifies the mechanism by which knowledge roots: it must pass through Amal (action) repeatedly until it changes character. Knowledge that is learned and stored but not acted upon remains surface knowledge. When acted upon, it begins to deepen — the person discovers through action what they could not discover through study alone. Over time, the repeated action and the knowledge behind it merge into a single orientation — and this is Rusukh. This is why the Quran pairs the Rasikhoon with Muqimeen al-Salah in 4:162 — the sustained action of Salah is both the evidence and the mechanism of Rusukh. Ibn al-Qayyim: the Rasikhoon fil-Ilm are the rarest category because most stop at knowledge and never give it the action-depth it needs to root.</div>
+    <div class="sc-analysis-ur ur-blk">ابن القیم علم کے جڑنے کا طریقہ: عمل سے بار بار گزرنا ضروری ہے جب تک کردار نہ بدلے۔ سیکھا اور محفوظ علم جس پر عمل نہیں — سطحی رہتا ہے۔ عمل سے گہرا ہوتا ہے۔ وقت کے ساتھ عمل اور اس کا علم ایک رخ میں ضم — یہ رسوخ ہے۔ اسی لیے قرآن ۴:۱۶۲ میں راسخون کو مقیمی الصلاۃ کے ساتھ جوڑتا ہے — نماز رسوخ کی دلیل اور طریقہ دونوں۔ راسخون نادر کیونکہ اکثر علم پر رکتے ہیں اور عمل کی گہرائی نہیں دیتے۔</div>
+    <div class="sc-source">Ibn al-Qayyim · Miftah Dar al-Sa'adah · Chapter on Types of Knowledge and Their Effects</div>
+  </div>
+</div>
+
+<div class="scholar-card" id="sc-ghazali-rs">
+  <div class="sc-hdr" onclick="toggleScholar('sc-ghazali-rs')">
+    <div class="sc-badge">غ</div>
+    <div>
+      <div class="sc-name">Imam Al-Ghazali (d. 505H)</div>
+      <div class="sc-text en-blk">Ihya Ulum al-Deen · Kitab al-Ilm · The Knowledge of Certainty vs Knowledge of Information</div>
+      <div class="sc-text ur-blk">احیاء علوم الدین · کتاب العلم · یقین کا علم بمقابلہ معلومات کا علم</div>
+    </div>
+    <div class="sc-chev">›</div>
+  </div>
+  <div class="sc-body">
+    <div class="sc-quote en-blk">Al-Ghazali in Kitab al-Ilm from the Ihya distinguishes between knowledge as information (Ilm al-khabar) and knowledge as certainty (Ilm al-yaqin). The former is transmitted knowledge — you know it because you were told, you read it, you memorised it. The latter is knowledge that has been confirmed through experience, action, and direct inner recognition. Al-Ghazali argues that most of what people call knowledge is the first type — and that the first type, without the second, is precisely what fails under pressure. The Rasikhoon fil-Ilm are those whose knowledge has been converted from the first type to the second through sustained practice, Muhasabah, and the trials that deepen what was previously only believed intellectually.</div>
+    <div class="sc-quote-ur ur-blk">الغزالی احیاء کتاب العلم میں: علم الخبر (معلومات) اور علم الیقین میں فرق۔ پہلا منتقل شدہ — بتایا گیا، پڑھا، یاد کیا۔ دوسرا تجربے، عمل اور براہ راست باطنی تسلیم سے یقینی۔ اکثر لوگوں کا علم پہلی قسم — اور پہلی قسم بغیر دوسری کے دباؤ میں ناکام۔ راسخون وہ جن کا علم مستقل عمل، محاسبہ اور آزمائشوں سے پہلی سے دوسری قسم میں بدلا۔</div>
+    <div class="sc-analysis en-blk">Al-Ghazali's practical programme in Kitab al-Ilm for building Rusukh: first, prioritise knowledge that transforms over knowledge that accumulates. The knowledge of Allah (Marifatullah), the knowledge of the self (Marifat al-nafs), and the knowledge of what corrupts and what benefits the heart — these are the categories that produce Rusukh when acted upon. Second, subject knowledge to Muhasabah (self-accounting) — regularly ask whether what you know has changed how you live, and if not, why not. Third, allow trials to deepen knowledge — the trial is the test of whether knowledge has rooted. The Rasikhoon say Amanna bihi under the test of the Mutashabihat. The ordinary knowledgeable person is shaken. The difference is not what they know — it is the depth to which it has gone.</div>
+    <div class="sc-analysis-ur ur-blk">الغزالی کا رسوخ بنانے کا عملی پروگرام: پہلا، بدلنے والے علم کو ترجیح دو جمع کرنے والے پر۔ معرفت اللہ، معرفت النفس، دل کو نقصان اور فائدہ دینے والے کا علم — رسوخ پیدا کرتے ہیں۔ دوسرا، علم کو محاسبہ میں ڈالو — باقاعدہ پوچھو: جو جانتے ہو وہ زندگی بدلا؟ تیسرا، آزمائشوں کو علم گہرا کرنے دو۔ آزمائش امتحان ہے کہ علم جڑا یا نہیں۔</div>
+    <div class="sc-source">Al-Ghazali · Ihya Ulum al-Deen · Kitab al-Ilm · Chapter on the Praiseworthy and Blameworthy Knowledge</div>
+  </div>
+</div>
+
+<!-- SUNNAH -->
+<div class="sec-lbl"><span class="en-inl">Authenticated Sunnah on Knowledge and Its Depth</span><span class="ur-inl">علم اور اس کی گہرائی پر مستند سنت</span></div>
+
+<div class="sh-card">
+  <div class="sh-lbl en-blk">✦ The Most Knowledgeable Is the Most Fearful of Allah</div>
+  <div class="sh-lbl ur-blk">✦ سب سے زیادہ جاننے والا اللہ سے سب سے زیادہ ڈرنے والا</div>
+  <div class="sh-ar">أَنَا أَعْلَمُكُمْ بِاللَّهِ وَأَشَدُّكُمْ لَهُ خَشْيَةً</div>
+  <div class="sh-en en-blk">"I am the most knowledgeable of you about Allah and the most fearful of Him."</div>
+  <div class="sh-ur ur-blk">«میں تم میں اللہ کو سب سے زیادہ جانتا ہوں اور سب سے زیادہ اس سے ڈرتا ہوں۔»</div>
+  <div class="sh-src">Narrator: Aishah (RA) · Sahih al-Bukhari, Hadith 20 <span class="grade g-sahih">✦ Sahih</span> · The Prophet SAW connecting greater knowledge with greater Khashyah — the internal sign of Rusukh</div>
+</div>
+
+<div class="sh-card">
+  <div class="sh-lbl en-blk">✦ Whoever Allah Wishes Good For, He Gives Fiqh in the Religion</div>
+  <div class="sh-lbl ur-blk">✦ جسے اللہ خیر چاہے اسے دین کی سمجھ دیتا ہے</div>
+  <div class="sh-ar">مَنْ يُرِدِ اللَّهُ بِهِ خَيْرًا يُفَقِّهْهُ فِي الدِّينِ</div>
+  <div class="sh-en en-blk">"Whoever Allah wishes good for, He grants him understanding (Fiqh) in the religion."</div>
+  <div class="sh-ur ur-blk">«جسے اللہ خیر چاہتا ہے اسے دین میں فقہ (گہری سمجھ) عطا کرتا ہے۔»</div>
+  <div class="sh-src">Narrator: Muawiyah ibn Abi Sufyan (RA) · Sahih al-Bukhari, Hadith 71 · Sahih Muslim, Hadith 1037 <span class="grade g-sahih">✦ Sahih</span> · Fiqh here = deep understanding, not just legal rulings — the knowledge that penetrates</div>
+</div>
+
+<!-- SYNTHESIS -->
+<div class="sec-lbl"><span class="en-inl">Personal Synthesis — Final Tab of File 3B</span><span class="ur-inl">ذاتی خلاصہ — فائل ۳B کا آخری ٹیب</span></div>
+<div class="synth-box">
+  <div class="notes-hdr"><span class="en-blk">Personal Synthesis — Al-Rasikhoon fil-Ilm</span><span class="ur-blk">ذاتی خلاصہ — الراسخون في العلم</span></div>
+  <div class="note-f">
+    <div class="note-lbl"><div class="nd" style="background:var(--gold)"></div><span class="en-blk">Ibn al-Qayyim: knowledge roots through repeated action until it changes character. Al-Ghazali: convert Ilm al-khabar to Ilm al-yaqin through sustained practice and trial. The test of Rusukh is the Mutashabihat: does your knowledge hold you steady in what you cannot understand, or does it push you to pursue what has not been given? Assess honestly: in which areas of your Deen do you have Rusukh — and in which areas do you have surface knowledge that still needs action to root it?</span><span class="ur-blk">ابن القیم: علم عمل سے جڑتا ہے۔ الغزالی: علم الخبر کو علم الیقین میں بدلو۔ رسوخ کا امتحان: متشابہات میں ثابت رہو یا پریشان ہو؟ صادقانہ جائزہ: کن شعبوں میں رسوخ ہے — کہاں سطحی علم ہے جسے عمل کی گہرائی چاہیے؟</span><span class="nsv" id="sv-synth-rs"></span></div>
+    <textarea class="note-ta" id="note-synth-rs" style="min-height:110px" placeholder="Complete this honestly: Areas where I have Rusukh (knowledge that has rooted into character): ... Areas where I have surface knowledge that needs action to deepen: ... One specific action I will take to convert surface knowledge to Rusukh:" oninput="autoSave('synth-rs',this.value)"></textarea>
+  </div>
+</div>
+
+<!-- COMPLETION BANNER -->
+<div class="completion-banner">
+  <div class="cb-label en-blk">File 3B Complete — All Seven Tabs</div>
+  <div class="cb-label ur-blk">فائل ۳B مکمل — سات ٹیبز</div>
+  <div class="cb-title en-blk">The Inner Quality Ranks — Complete</div>
+  <div class="cb-title ur-blk">باطنی اوصاف کے درجات — مکمل</div>
+  <div class="cb-desc en-blk">Mukhlisoon · Awwaaboon · Sabiroon · Shakiroon · Qaanitoon · Ulu al-Albab · Rasikhoon — seven inner qualities the Quran distinguishes as the architecture of the person who has built something genuine. Each names not what someone does but what someone has become. The path to File 4: ranks_path.html.</div>
+  <div class="cb-desc-ur ur-blk">مخلصون · اوابون · صابرون · شاکرون · قانتون · اولو الالباب · راسخون — سات باطنی اوصاف جو قرآن نے الگ کیے — اس شخص کا ڈھانچہ جس نے کچھ حقیقی بنایا۔ ہر ایک بتاتا ہے کوئی کیا کرتا ہے نہیں — کیا بن گیا ہے۔</div>
+</div>
+
+<div class="sec-lbl" style="margin-top:36px"><span class="en-inl">All Tabs — File 3B</span><span class="ur-inl">تمام ٹیبز — فائل ۳B</span></div>
+<div class="file-links">
+  <a href="ranks_inner_qualities_mukhlisoon.html" class="file-link"><div class="fl-num">Tab I</div><div class="fl-title">Mukhlisoon</div><div class="fl-desc">Active vs Passive</div><span class="fl-badge fl-ready">Complete</span></a>
+  <a href="riq_awwaaboon.html" class="file-link"><div class="fl-num">Tab II</div><div class="fl-title">Awwaaboon</div><div class="fl-desc">Habitual returners</div><span class="fl-badge fl-ready">Complete</span></a>
+  <a href="riq_sabiroon.html" class="file-link"><div class="fl-num">Tab III</div><div class="fl-title">Sabiroon</div><div class="fl-desc">Three types of Sabr</div><span class="fl-badge fl-ready">Complete</span></a>
+  <a href="riq_shakiroon.html" class="file-link"><div class="fl-num">Tab IV</div><div class="fl-title">Shakiroon</div><div class="fl-desc">Few are truly grateful</div><span class="fl-badge fl-ready">Complete</span></a>
+  <a href="riq_qaanitoon.html" class="file-link"><div class="fl-num">Tab V</div><div class="fl-title">Qaanitoon</div><div class="fl-desc">Sustained devotion</div><span class="fl-badge fl-ready">Complete</span></a>
+  <a href="riq_ululalbab.html" class="file-link"><div class="fl-num">Tab VI</div><div class="fl-title">Ulu al-Albab</div><div class="fl-desc">Innermost faculty</div><span class="fl-badge fl-ready">Complete</span></a>
+  <a href="#" class="file-link current"><div class="fl-num">Tab VII</div><div class="fl-title">Rasikhoon</div><div class="fl-desc">Firmly rooted</div><span class="fl-badge fl-ready">Current</span></a>
+</div>
+
+</div>
+<script>
+var LANG='en';
+var timers={};
+function setLang(l){
+  LANG=l;
+  document.getElementById('lt-en').classList.toggle('on',l==='en');
+  document.getElementById('lt-ur').classList.toggle('on',l==='ur');
+  document.body.classList.toggle('ur-mode',l==='ur');
+}
+function toggleCard(id){document.getElementById(id).classList.toggle('open');}
+function toggleScholar(id){document.getElementById(id).classList.toggle('open');}
+function autoSave(key,val){
+  clearTimeout(timers[key]);
+  timers[key]=setTimeout(function(){
+    var sk='riq_'+key;
+    if(val.trim()){localStorage.setItem(sk,val);}else{localStorage.removeItem(sk);}
+    var sv=document.getElementById('sv-'+key);
+    if(sv){sv.textContent=val.trim()?'Saved \u2713':'';sv.classList.add('flash');setTimeout(function(){sv.classList.remove('flash');},1800);}
+  },900);
+}
+function loadAll(){
+  for(var i=0;i<localStorage.length;i++){
+    var k=localStorage.key(i);
+    if(k&&k.startsWith('riq_')){
+      var fk=k.substring(4);
+      var el=document.getElementById('note-'+fk);
+      var sv=document.getElementById('sv-'+fk);
+      if(el){el.value=localStorage.getItem(k)||'';if(sv&&el.value.trim())sv.textContent='Saved';}
+    }
+  }
+}
+window.addEventListener('DOMContentLoaded',function(){loadAll();});
+</script>
+</body>
+</html>

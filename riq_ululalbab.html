@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inner Quality Ranks — Ulu al-Albab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg0:#04070D;--bg1:#080E1C;--bg2:#0C1528;--bg3:#111E35;
+  --gold:#C9A84C;--gold2:#E2C97A;
+  --golddim:rgba(201,168,76,.08);--goldbdr:rgba(201,168,76,.18);
+  --teal:#2FB89A;--tealdim:rgba(47,184,154,.08);--tealbdr:rgba(47,184,154,.22);
+  --blue:#7AABF0;--bluedim:rgba(122,171,240,.08);--bluebdr:rgba(122,171,240,.22);
+  --amber:#E0A030;--amberdim:rgba(224,160,48,.08);--amberbdr:rgba(224,160,48,.22);
+  --purple:#A87FD0;--purpledim:rgba(168,127,208,.08);--purplebdr:rgba(168,127,208,.22);
+  --text:#D4CBB8;--text2:#8A9BB0;--text3:#4A5B70;
+  --border2:rgba(201,168,76,.05);
+  --font-head:'Cinzel',serif;--font-body:'Lora',serif;--font-arab:'Noto Naskh Arabic',serif;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg0);color:var(--text);font-family:var(--font-body);min-height:100vh;overflow-x:hidden;padding-bottom:80px}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:var(--bg1)}::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 800px 500px at 20% 10%,rgba(201,168,76,.025),transparent 60%),radial-gradient(ellipse 600px 400px at 80% 80%,rgba(47,184,154,.02),transparent 60%);}
+.hdr{position:sticky;top:0;z-index:90;background:rgba(4,7,13,.97);border-bottom:1px solid var(--border2);backdrop-filter:blur(20px);padding:0 22px;height:56px;display:flex;align-items:center;gap:14px}
+.hdr-ar{font-family:var(--font-arab);font-size:22px;color:var(--gold);text-shadow:0 0 20px rgba(201,168,76,.3)}
+.hdr-titles{flex:1}
+.hdr-title{font-family:var(--font-head);font-size:10px;letter-spacing:2px;color:var(--gold2);text-transform:uppercase}
+.hdr-sub{font-family:var(--font-head);font-size:8px;letter-spacing:1px;color:var(--text3);text-transform:uppercase;margin-top:2px}
+.lang-toggle{display:flex;gap:2px;background:rgba(255,255,255,.04);border:1px solid var(--goldbdr);border-radius:20px;padding:3px}
+.lt{font-family:var(--font-head);font-size:9px;letter-spacing:.8px;padding:3px 10px;border-radius:16px;cursor:pointer;transition:all .2s;color:var(--text3);user-select:none}
+.lt.on{background:var(--gold);color:#000;font-weight:700}
+.back-link{font-family:var(--font-head);font-size:8.5px;letter-spacing:.8px;color:var(--text3);text-decoration:none;padding:5px 10px;border:1px solid var(--border2);border-radius:6px;transition:all .15s;text-transform:uppercase;flex-shrink:0}
+.back-link:hover{color:var(--gold2);border-color:var(--goldbdr)}
+.file-nav{background:rgba(8,14,28,.8);border-bottom:1px solid var(--border2);padding:10px 22px;display:flex;gap:8px;flex-wrap:wrap;position:sticky;top:56px;z-index:80;backdrop-filter:blur(16px)}
+.fn-btn{font-family:var(--font-head);font-size:8px;letter-spacing:1px;text-transform:uppercase;padding:6px 14px;border-radius:7px;border:1px solid var(--border2);color:var(--text3);cursor:pointer;transition:all .2s;text-decoration:none;display:inline-block}
+.fn-btn:hover{color:var(--gold2);border-color:var(--goldbdr)}
+.fn-btn.current{background:var(--golddim);border-color:var(--goldbdr);color:var(--gold2)}
+.fn-sep{color:var(--text3);font-size:10px;align-self:center;opacity:.4}
+.tab-nav{background:rgba(8,14,28,.6);border-bottom:1px solid var(--border2);padding:8px 22px;display:flex;gap:6px;flex-wrap:wrap;position:sticky;top:103px;z-index:70;backdrop-filter:blur(16px)}
+.tn-btn{font-family:var(--font-head);font-size:7.5px;letter-spacing:.8px;text-transform:uppercase;padding:5px 12px;border-radius:6px;border:1px solid var(--border2);color:var(--text3);cursor:pointer;transition:all .2s;text-decoration:none;display:inline-block}
+.tn-btn:hover{color:var(--gold2);border-color:var(--goldbdr)}
+.tn-btn.current{background:var(--golddim);border-color:var(--goldbdr);color:var(--gold2)}
+.page{position:relative;z-index:1;max-width:860px;margin:0 auto;padding:32px 20px 60px}
+.rank-hdr{text-align:center;padding:24px 20px 32px;border-bottom:1px solid var(--border2);margin-bottom:28px}
+.rank-hdr-num{font-family:var(--font-head);font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--text3);margin-bottom:10px}
+.rank-hdr-ar{font-family:var(--font-arab);font-size:clamp(36px,7vw,58px);color:var(--gold);text-shadow:0 0 40px rgba(201,168,76,.2);line-height:1.3;margin-bottom:8px}
+.rank-hdr-en{font-family:var(--font-head);font-size:clamp(13px,2.5vw,17px);font-weight:700;color:#fff;letter-spacing:2px;text-transform:uppercase;margin-bottom:5px}
+.rank-hdr-ur{font-family:var(--font-arab);font-size:clamp(15px,2.5vw,20px);color:var(--gold2);margin-bottom:14px}
+.rank-hdr-rule{width:100px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 16px}
+.rank-hdr-root{font-family:var(--font-head);font-size:9px;letter-spacing:1.5px;color:var(--text3);text-transform:uppercase;margin-bottom:14px}
+.rank-hdr-intro{font-size:13px;color:var(--text2);line-height:1.9;max-width:640px;margin:0 auto;font-style:italic}
+.rank-hdr-intro-ur{font-family:var(--font-arab);font-size:14px;color:var(--text2);direction:rtl;text-align:center;line-height:2;max-width:640px;margin:4px auto 0}
+.key-banner{background:linear-gradient(135deg,rgba(201,168,76,.10),rgba(201,168,76,.04));border:1px solid var(--goldbdr);border-radius:12px;padding:18px 22px;margin-bottom:24px;text-align:center;position:relative;overflow:hidden}
+.key-banner::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.key-banner-label{font-family:var(--font-head);font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.key-banner-ar{font-family:var(--font-arab);font-size:clamp(17px,3.5vw,24px);color:var(--gold2);direction:rtl;line-height:2;margin-bottom:6px}
+.key-banner-tr{font-size:12px;color:var(--text2);font-style:italic;margin-bottom:4px}
+.key-banner-tr-ur{font-family:var(--font-arab);font-size:13px;color:var(--text2);direction:rtl;line-height:2;margin-bottom:6px}
+.key-banner-insight{font-size:11.5px;color:var(--text3);line-height:1.75;border-top:1px solid var(--goldbdr);padding-top:10px;margin-top:6px}
+.key-banner-insight-ur{font-family:var(--font-arab);font-size:12px;color:var(--text3);direction:rtl;text-align:center;line-height:2;margin-top:4px}
+.key-banner-ref{font-family:var(--font-head);font-size:8.5px;color:var(--gold);letter-spacing:.6px;margin-top:6px}
+.layers-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:24px}
+.layer-card{border-radius:10px;padding:13px 14px;text-align:center;position:relative;overflow:hidden}
+.layer-card::before{content:'';position:absolute;bottom:0;left:0;right:0;height:2px}
+.lc-sadr{background:rgba(47,184,154,.07);border:1px solid var(--tealbdr)}
+.lc-sadr::before{background:var(--teal)}
+.lc-qalb{background:rgba(201,168,76,.07);border:1px solid var(--goldbdr)}
+.lc-qalb::before{background:var(--gold)}
+.lc-fuad{background:rgba(224,160,48,.07);border:1px solid var(--amberbdr)}
+.lc-fuad::before{background:var(--amber)}
+.lc-lubb{background:rgba(168,127,208,.10);border:1px solid var(--purplebdr)}
+.lc-lubb::before{background:var(--purple)}
+.lc-ar{font-family:var(--font-arab);font-size:22px;color:var(--gold2);direction:rtl;margin-bottom:4px}
+.lc-en{font-family:var(--font-head);font-size:8px;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px}
+.lc-sadr .lc-en{color:var(--teal)}.lc-qalb .lc-en{color:var(--gold2)}.lc-fuad .lc-en{color:var(--amber)}.lc-lubb .lc-en{color:var(--purple)}
+.lc-def{font-size:11px;color:var(--text2);line-height:1.65}
+.lc-def-ur{font-family:var(--font-arab);font-size:11.5px;color:var(--text2);direction:rtl;line-height:2;margin-top:3px}
+.root-analysis{background:var(--bg2);border:1px solid var(--goldbdr);border-radius:12px;padding:20px 22px;margin-bottom:24px;position:relative;overflow:hidden}
+.root-analysis::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.ra-label{font-family:var(--font-head);font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.ra-label::after{content:'';flex:1;height:1px;background:rgba(201,168,76,.08)}
+.ra-root{font-family:var(--font-arab);font-size:26px;color:var(--gold2);direction:rtl;margin-bottom:10px}
+.ra-meaning{font-size:13px;color:var(--text2);line-height:1.8;margin-bottom:10px}
+.ra-meaning-ur{font-family:var(--font-arab);font-size:14px;color:var(--text2);direction:rtl;text-align:right;line-height:2;margin-bottom:10px}
+.ra-count{font-family:var(--font-head);font-size:9px;color:var(--teal);letter-spacing:.5px}
+.era-divider{display:flex;align-items:center;gap:12px;margin:28px 0 16px}
+.era-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.era-early{background:var(--amber)}.era-middle{background:var(--gold)}.era-late{background:var(--teal)}.era-madani{background:var(--blue)}
+.era-label{font-family:var(--font-head);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text2)}
+.era-label-ur{font-family:var(--font-arab);font-size:13px;color:var(--text2)}
+.era-line{flex:1;height:1px;background:rgba(201,168,76,.05)}
+.ayah-card{background:var(--bg2);border:1px solid rgba(201,168,76,.05);border-radius:12px;margin-bottom:10px;overflow:hidden;transition:border-color .2s}
+.ayah-card.open{border-color:var(--goldbdr)}
+.ayah-card-hdr{display:flex;align-items:center;gap:10px;padding:13px 18px;cursor:pointer;user-select:none}
+.rev-badge{font-family:var(--font-head);font-size:7.5px;letter-spacing:.8px;padding:3px 8px;border-radius:5px;flex-shrink:0;text-transform:uppercase}
+.rev-early{background:var(--amberdim);border:1px solid var(--amberbdr);color:var(--amber)}
+.rev-middle{background:var(--golddim);border:1px solid var(--goldbdr);color:var(--gold2)}
+.rev-late{background:var(--tealdim);border:1px solid var(--tealbdr);color:var(--teal)}
+.rev-madani{background:var(--bluedim);border:1px solid var(--bluebdr);color:var(--blue)}
+.card-ref{font-family:var(--font-head);font-size:10px;color:var(--gold);font-weight:600;flex-shrink:0}
+.card-preview{font-family:var(--font-arab);font-size:16px;color:var(--gold2);direction:rtl;flex:1;text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:.75}
+.card-chevron{color:var(--text3);font-size:16px;transition:transform .25s;flex-shrink:0}
+.ayah-card.open .card-chevron{transform:rotate(90deg);color:var(--gold)}
+.card-body{display:none;padding:0 18px 20px;border-top:1px solid rgba(201,168,76,.05)}
+.ayah-card.open .card-body{display:block}
+.ayah-arabic{font-family:var(--font-arab);font-size:clamp(17px,3.5vw,24px);color:var(--gold2);direction:rtl;text-align:right;line-height:2.2;padding:16px 0 12px;border-bottom:1px solid rgba(201,168,76,.05);margin-bottom:12px}
+.ayah-tr-en{font-size:13px;color:var(--text);font-style:italic;line-height:1.85;margin-bottom:6px;border-left:3px solid var(--goldbdr);padding:8px 14px;border-radius:0 6px 6px 0;background:rgba(201,168,76,.03)}
+.ayah-tr-ur{font-family:var(--font-arab);font-size:14px;color:var(--text);direction:rtl;text-align:right;line-height:2;border-right:3px solid var(--goldbdr);padding:8px 14px 8px 8px;border-radius:6px 0 0 6px;background:rgba(201,168,76,.03);margin-bottom:6px}
+.ayah-ref-line{font-family:var(--font-head);font-size:9px;color:var(--gold);letter-spacing:.8px;margin-bottom:14px}
+.ctx-box{background:rgba(0,0,0,.2);border-left:3px solid var(--amber);border-radius:0 8px 8px 0;padding:11px 14px;margin-bottom:12px}
+.ctx-lbl{font-family:var(--font-head);font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:var(--amber);margin-bottom:5px}
+.ctx-txt{font-size:12px;color:var(--text2);line-height:1.75}
+.ctx-txt-ur{font-family:var(--font-arab);font-size:13px;color:var(--text2);direction:rtl;text-align:right;line-height:2}
+.uniq-box{background:var(--tealdim);border:1px solid var(--tealbdr);border-radius:8px;padding:11px 14px;margin-bottom:12px}
+.uniq-lbl{font-family:var(--font-head);font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:var(--teal);margin-bottom:5px}
+.uniq-txt{font-size:12.5px;color:var(--text);line-height:1.75}
+.uniq-txt-ur{font-family:var(--font-arab);font-size:13px;color:var(--text);direction:rtl;text-align:right;line-height:2}
+.scholar-card{background:var(--bg3);border:1px solid rgba(201,168,76,.05);border-radius:10px;padding:15px 17px;margin-bottom:9px;overflow:hidden;transition:border-color .2s}
+.scholar-card.open{border-color:var(--purplebdr)}
+.sc-hdr{display:flex;align-items:center;gap:12px;cursor:pointer;user-select:none}
+.sc-badge{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--font-arab);font-size:13px;color:var(--gold2);background:var(--purpledim);border:1px solid var(--purplebdr);flex-shrink:0}
+.sc-name{font-family:var(--font-head);font-size:9.5px;letter-spacing:.5px;color:var(--text);font-weight:600}
+.sc-text{font-family:var(--font-head);font-size:8px;letter-spacing:.3px;color:var(--purple);margin-top:2px}
+.sc-chev{color:var(--text3);font-size:14px;transition:transform .25s;margin-left:auto;flex-shrink:0}
+.scholar-card.open .sc-chev{transform:rotate(90deg);color:var(--purple)}
+.sc-body{display:none;margin-top:12px;padding-top:10px;border-top:1px solid rgba(201,168,76,.05)}
+.scholar-card.open .sc-body{display:block}
+.sc-quote{font-size:12px;color:var(--text);font-style:italic;line-height:1.8;border-left:2px solid var(--purple);padding:8px 12px;background:rgba(168,127,208,.04);border-radius:0 6px 6px 0;margin-bottom:10px}
+.sc-quote-ur{font-family:var(--font-arab);font-size:13px;color:var(--text);direction:rtl;text-align:right;line-height:2;border-right:2px solid var(--purple);padding:8px 12px;background:rgba(168,127,208,.04);border-radius:6px 0 0 6px;margin-bottom:10px}
+.sc-analysis{font-size:12px;color:var(--text2);line-height:1.75}
+.sc-analysis-ur{font-family:var(--font-arab);font-size:13px;color:var(--text2);direction:rtl;text-align:right;line-height:2;margin-top:5px}
+.sc-source{font-family:var(--font-head);font-size:8px;color:var(--purple);letter-spacing:.4px;margin-top:8px}
+.scholars-lbl{font-family:var(--font-head);font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--purple);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.scholars-lbl::after{content:'';flex:1;height:1px;background:rgba(168,127,208,.15)}
+.notes-sec{margin-top:14px;border-top:1px solid rgba(201,168,76,.05);padding-top:12px}
+.notes-hdr{font-family:var(--font-head);font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:var(--text2);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.notes-hdr::after{content:'';flex:1;height:1px;background:rgba(201,168,76,.05)}
+.note-f{margin-bottom:7px}
+.note-lbl{font-family:var(--font-head);font-size:7.5px;letter-spacing:.8px;text-transform:uppercase;color:var(--text3);margin-bottom:4px;display:flex;align-items:center;gap:6px}
+.nd{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.nsv{font-family:var(--font-head);font-size:7px;letter-spacing:.3px;color:var(--text3);margin-left:auto;transition:color .3s}
+.nsv.flash{color:var(--teal)}
+.note-ta{width:100%;min-height:72px;background:rgba(255,255,255,.03);border:1px solid rgba(201,168,76,.05);border-radius:7px;outline:none;padding:10px 12px;font-family:var(--font-body);font-size:12.5px;color:var(--text);line-height:1.75;resize:vertical;transition:border-color .2s}
+.note-ta:focus{border-color:var(--goldbdr)}
+.note-ta::placeholder{color:var(--text3);font-style:italic;font-size:11.5px}
+.sec-lbl{font-family:var(--font-head);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:12px;padding:28px 0 16px}
+.sec-lbl::after{content:'';flex:1;height:1px;background:rgba(201,168,76,.05)}
+.grade{display:inline-block;font-family:var(--font-head);font-size:7.5px;padding:2px 7px;border-radius:4px;margin-left:6px}
+.g-sahih{background:var(--tealdim);border:1px solid var(--tealbdr);color:var(--teal)}
+.g-hasan{background:var(--golddim);border:1px solid var(--goldbdr);color:var(--gold2)}
+.sh-card{background:var(--bg2);border:1px solid rgba(201,168,76,.05);border-radius:12px;padding:18px 20px;margin-bottom:10px}
+.sh-lbl{font-family:var(--font-head);font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:var(--purple);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.sh-lbl::after{content:'';flex:1;height:1px;background:rgba(201,168,76,.05)}
+.sh-ar{font-family:var(--font-arab);font-size:clamp(14px,3vw,18px);color:var(--gold2);direction:rtl;text-align:right;line-height:2;margin-bottom:9px;padding:10px 14px;background:rgba(201,168,76,.04);border-radius:7px}
+.sh-en{font-size:12.5px;color:var(--text);font-style:italic;line-height:1.8;margin-bottom:6px}
+.sh-ur{font-family:var(--font-arab);font-size:14px;color:var(--text);direction:rtl;text-align:right;line-height:2;margin-bottom:6px}
+.sh-src{font-family:var(--font-head);font-size:8.5px;color:var(--purple);letter-spacing:.5px}
+.synth-box{border:1px solid rgba(201,168,76,.05);border-radius:10px;padding:16px 18px;margin-top:8px}
+.file-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:12px}
+.file-link{background:var(--bg2);border:1px solid rgba(201,168,76,.05);border-radius:10px;padding:14px 16px;text-decoration:none;transition:all .2s;display:block}
+.file-link:hover{border-color:var(--goldbdr);background:rgba(201,168,76,.04)}
+.file-link.current{border-color:var(--goldbdr);background:var(--golddim);cursor:default}
+.fl-num{font-family:var(--font-head);font-size:8px;letter-spacing:1px;color:var(--text3);text-transform:uppercase;margin-bottom:5px}
+.fl-title{font-family:var(--font-head);font-size:10px;letter-spacing:.5px;color:var(--gold2);margin-bottom:4px}
+.fl-desc{font-size:11px;color:var(--text3);line-height:1.6}
+.fl-badge{display:inline-block;font-family:var(--font-head);font-size:7px;padding:1px 6px;border-radius:4px;margin-top:6px}
+.fl-ready{background:var(--tealdim);border:1px solid var(--tealbdr);color:var(--teal)}
+.fl-coming{background:var(--amberdim);border:1px solid var(--amberbdr);color:var(--amber)}
+.en-blk{display:block}.ur-blk{display:none}
+body.ur-mode .en-blk{display:none}
+body.ur-mode .ur-blk{display:block}
+.en-inl{display:inline}.ur-inl{display:none}
+body.ur-mode .en-inl{display:none}
+body.ur-mode .ur-inl{display:inline}
+@media(max-width:600px){.page{padding:20px 14px 60px}.layers-grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<div class="hdr">
+  <div class="hdr-ar">لُبّ</div>
+  <div class="hdr-titles">
+    <div class="hdr-title en-blk">Inner Quality Ranks — File 3B · Tab VI</div>
+    <div class="hdr-title ur-blk">باطنی اوصاف کے درجات — فائل ۳B · ٹیب ۶</div>
+    <div class="hdr-sub en-blk">Ulu al-Albab — People of the Innermost Core</div>
+    <div class="hdr-sub ur-blk">اولو الالباب — باطنی مرکز والے</div>
+  </div>
+  <div class="lang-toggle">
+    <div class="lt on" id="lt-en" onclick="setLang('en')">EN</div>
+    <div class="lt" id="lt-ur" onclick="setLang('ur')">اردو</div>
+  </div>
+  <a href="ranks_map.html" class="back-link">← Map</a>
+</div>
+<div class="file-nav">
+  <a href="ranks_map.html" class="fn-btn">1 · Map</a>
+  <span class="fn-sep">›</span>
+  <a href="ranks_eschatological.html" class="fn-btn">2 · Eschatological</a>
+  <span class="fn-sep">›</span>
+  <a href="ranks_divine_love.html" class="fn-btn">3A · Divine Love</a>
+  <span class="fn-sep">›</span>
+  <span class="fn-btn current">3B · Inner Qualities</span>
+  <span class="fn-sep">›</span>
+  <a href="ranks_path.html" class="fn-btn">4 · The Path</a>
+</div>
+<div class="tab-nav">
+  <a href="ranks_inner_qualities_mukhlisoon.html" class="tn-btn">I · Mukhlisoon</a>
+  <a href="riq_awwaaboon.html" class="tn-btn">II · Awwaaboon</a>
+  <a href="riq_sabiroon.html" class="tn-btn">III · Sabiroon</a>
+  <a href="riq_shakiroon.html" class="tn-btn">IV · Shakiroon</a>
+  <a href="riq_qaanitoon.html" class="tn-btn">V · Qaanitoon</a>
+  <span class="tn-btn current">VI · Ulu al-Albab</span>
+  <a href="riq_rasikhoon.html" class="tn-btn">VII · Rasikhoon</a>
+</div>
+<div class="page">
+
+<div class="rank-hdr">
+  <div class="rank-hdr-num en-blk">File 3B · Tab VI · The Innermost Faculty · Integrated Inner Architecture</div>
+  <div class="rank-hdr-num ur-blk">فائل ۳B · ٹیب ۶ · انتہائی باطنی قوت · مربوط باطنی ڈھانچہ</div>
+  <div class="rank-hdr-ar">أُولُو الْأَلْبَاب</div>
+  <div class="rank-hdr-en en-blk">Ulu al-Albab — People of the Innermost Core</div>
+  <div class="rank-hdr-ur ur-blk">اولو الالباب — باطنی مرکز والے</div>
+  <div class="rank-hdr-rule"></div>
+  <div class="rank-hdr-root en-blk">Root: ل — ب — ب · Lubb = the innermost kernel · Pure essence · What remains after all husk is removed · Albab = plural of Lubb</div>
+  <div class="rank-hdr-root ur-blk">جڑ: ل — ب — ب · لب = انتہائی اندرونی مغز · خالص جوہر · سب چھلکا اترنے کے بعد جو بچے · الباب = لب کی جمع</div>
+  <div class="rank-hdr-intro en-blk">Lubb is the innermost layer of the human inner architecture — what Islamic thought describes as a four-layer system: Sadr (chest / outer capacity), Qalb (heart / the organ of belief and emotion), Fu'ad (the deep heart / the faculty of experiential certainty), and Lubb (the innermost core / the faculty of pure rational and spiritual insight). Ulu al-Albab are those in whom this innermost faculty is alive and functioning — the result when all four layers work together correctly. The Quran says the Quran itself was revealed specifically for Ulu al-Albab to do Tadabbur (38:29). They are defined by the simultaneous activity of Dhikr and Tafakkur (3:191). Lubb is never described in the Quran as capable of being sealed or diseased — it is the state that emerges when the other layers are clear.</div>
+  <div class="rank-hdr-intro-ur ur-blk">لب انسانی باطنی ڈھانچے کی انتہائی اندرونی تہ — چار تہوں کا نظام: صدر، قلب، فؤاد، لب۔ اولو الالباب وہ جن میں یہ انتہائی قوت زندہ اور فعال ہے — جب چاروں تہیں درست کام کریں تو نتیجہ۔ قرآن کہتا ہے قرآن خاص اولو الالباب کے لیے تدبر کو نازل ہوا (۳۸:۲۹)۔ لب کو قرآن میں کبھی مہربند یا بیمار نہیں بتایا — یہ وہ حالت ہے جو دوسری تہوں کے صاف ہونے پر ابھرتی ہے۔</div>
+</div>
+
+<!-- FOUR LAYERS -->
+<div class="sec-lbl"><span class="en-inl">The Four Layers of the Inner Architecture</span><span class="ur-inl">باطنی ڈھانچے کی چار تہیں</span></div>
+<div class="layers-grid">
+  <div class="layer-card lc-sadr">
+    <div class="lc-ar">صَدْر</div>
+    <div class="lc-en en-blk">Sadr · Outer</div>
+    <div class="lc-en ur-blk">صدر · بیرونی</div>
+    <div class="lc-def en-blk">The chest — the outer receptive capacity. Can be expanded (Sharh al-sadr) or constricted. Receives Islam and Iman. Can be affected by whispers, doubt, and Shaytan's access.</div>
+    <div class="lc-def-ur ur-blk">سینہ — بیرونی گنجائش۔ وسیع (شرح صدر) یا تنگ ہو سکتا ہے۔ اسلام اور ایمان وصول کرتا ہے۔ وسوسے اور شک سے متاثر ہو سکتا ہے۔</div>
+  </div>
+  <div class="layer-card lc-qalb">
+    <div class="lc-ar">قَلْب</div>
+    <div class="lc-en en-blk">Qalb · Middle</div>
+    <div class="lc-en ur-blk">قلب · درمیانی</div>
+    <div class="lc-def en-blk">The heart — the organ of belief, emotion, and turning. Can be healthy, diseased, or sealed. The site of Iman and Nifaq. Described as turning (Qalb = that which turns).</div>
+    <div class="lc-def-ur ur-blk">دل — ایمان، جذبات اور رخ کرنے کا عضو۔ صحت مند، بیمار یا مہربند ہو سکتا ہے۔ ایمان اور نفاق کی جگہ۔ پلٹتا رہتا ہے (قلب = پلٹنے والا)۔</div>
+  </div>
+  <div class="layer-card lc-fuad">
+    <div class="lc-ar">فُؤَاد</div>
+    <div class="lc-en en-blk">Fuad · Deeper</div>
+    <div class="lc-en ur-blk">فؤاد · گہرا</div>
+    <div class="lc-def en-blk">The deep heart — the faculty of experiential certainty and direct perception. Accountable for what it perceives (17:36). The faculty through which prophetic visions and direct experience of reality occur.</div>
+    <div class="lc-def-ur ur-blk">گہرا دل — تجرباتی یقین اور براہ راست ادراک۔ جو دیکھے اس کا جوابدہ (۱۷:۳۶)۔ نبوی رویا اور حقیقت کا براہ راست تجربہ یہاں۔</div>
+  </div>
+  <div class="layer-card lc-lubb">
+    <div class="lc-ar">لُبّ</div>
+    <div class="lc-en en-blk">Lubb · Innermost</div>
+    <div class="lc-en ur-blk">لب · انتہائی اندر</div>
+    <div class="lc-def en-blk">The innermost core — pure rational and spiritual insight. The faculty that extracts Ibra (lessons) from reality and revelation. Never described as sealed. The Quran was revealed for Ulu al-Albab.</div>
+    <div class="lc-def-ur ur-blk">انتہائی اندرونی مرکز — خالص عقلی اور روحانی بصیرت۔ حقیقت اور وحی سے عبرت نکالتا ہے۔ کبھی مہربند نہیں۔ قرآن اولو الالباب کے لیے نازل۔</div>
+  </div>
+</div>
+
+<!-- KEY BANNER -->
+<div class="key-banner">
+  <div class="key-banner-label en-blk">The Defining Activity of Ulu al-Albab — Al-Imran 3:190-191</div>
+  <div class="key-banner-label ur-blk">اولو الالباب کی تعریفی سرگرمی — آل عمران ۳:۱۹۰-۱۹۱</div>
+  <div class="key-banner-ar">الَّذِينَ يَذْكُرُونَ اللَّهَ قِيَامًا وَقُعُودًا وَعَلَىٰ جُنُوبِهِمْ وَيَتَفَكَّرُونَ فِي خَلْقِ السَّمَاوَاتِ وَالْأَرْضِ</div>
+  <div class="key-banner-tr en-blk">"Those who remember Allah standing, sitting, and on their sides — and they reflect upon the creation of the heavens and the earth."</div>
+  <div class="key-banner-tr-ur ur-blk">«وہ جو اللہ کو یاد کرتے ہیں کھڑے، بیٹھے اور اپنے پہلوؤں پر — اور آسمانوں اور زمین کی تخلیق میں تفکر کرتے ہیں۔»</div>
+  <div class="key-banner-insight en-blk">The defining characteristic of Ulu al-Albab is not the quantity of worship or knowledge — it is the simultaneous and continuous operation of two faculties: Dhikr (remembrance of Allah in all positions, all times) and Tafakkur (reflection on the signs of creation). These are not alternating activities — the verse joins them with Waw (and) without suggesting sequence. The Lubb is the faculty that can hold both simultaneously: the orientation toward Allah (Dhikr) and the extraction of meaning from creation (Tafakkur). When both operate together, the conclusion is inevitable: "Our Lord, You have not created this in vain" (3:191).</div>
+  <div class="key-banner-insight-ur ur-blk">اولو الالباب کی خصوصیت عبادت یا علم کی مقدار نہیں — دو قوتوں کا بیک وقت مستقل عمل: ذکر (ہر حال میں اللہ کی یاد) اور تفکر (تخلیق پر غور)۔ یہ باری باری نہیں — واو نے جوڑا۔ لب وہ قوت جو دونوں بیک وقت تھام سکے۔ نتیجہ ناگزیر: «ربنا ما خلقت هذا باطلا»۔</div>
+  <div class="key-banner-ref">Surah Al-Imran 3:191</div>
+</div>
+
+<!-- ROOT ANALYSIS -->
+<div class="root-analysis">
+  <div class="ra-label"><span class="en-blk">Root — ل ب ب</span><span class="ur-blk">جڑ — ل ب ب</span></div>
+  <div class="ra-root">لُبّ · أَلْبَاب · لَبِيب · لُبَاب</div>
+  <div class="ra-meaning en-blk">L-B-B carries the image of the innermost kernel of something — the pure essence that remains after all outer layers, husks, and coverings are removed. In Arabic, Lubb al-qadb is the pure essence of milk after churning. Lubb al-shajar is the heartwood of a tree. The Lubb is what is left when all the inessential is stripped away. Applied to the human being: Lubb is the innermost core of rational and spiritual perception — the faculty that sees through to what things really are, unobstructed by desire, habit, or ego. The plural Albab appears 16 times in the Quran, always in Ulu al-Albab (people of the Lubb). It never appears in a negative context — unlike Qalb, which can be diseased or sealed, Lubb is not described as capable of corruption. It is the state that emerges when all other layers are functioning correctly.</div>
+  <div class="ra-meaning-ur ur-blk">ل-ب-ب کا تصویر: کسی چیز کا انتہائی اندرونی مغز — وہ خالص جوہر جو تمام بیرونی تہوں، چھلکوں کے اترنے کے بعد بچتا ہے۔ عربی میں: لب القضب — مکھن کانکالنے کے بعد دودھ کا خالص جوہر۔ لب الشجر — درخت کی اندرونی لکڑی۔ انسان پر: لب باطنی ادراک کا انتہائی مرکز — خواہش، عادت اور انا کی رکاوٹ کے بغیر۔ الباب ۱۶ بار — ہمیشہ اولو الالباب میں۔ کبھی منفی سیاق میں نہیں — قلب کے برعکس جو بیمار یا مہربند ہو سکتا ہے۔</div>
+  <div class="ra-count en-blk">✦ Lubb and Albab appear 16 times · Always in Ulu al-Albab (people of the Lubb) · Never in a negative context · Never described as sealed, diseased, or corrupted</div>
+  <div class="ra-count ur-blk">✦ لب اور الباب ۱۶ بار · ہمیشہ اولو الالباب میں · کبھی منفی سیاق میں نہیں · کبھی مہربند، بیمار یا خراب نہیں بتایا</div>
+</div>
+
+<div class="sec-lbl"><span class="en-inl">The Ayat — In Revelation Order</span><span class="ur-inl">آیات — ترتیب نزولی میں</span></div>
+
+<!-- AYAH 1: 38:29 -->
+<div class="era-divider">
+  <div class="era-dot era-middle"></div>
+  <div class="era-label en-blk">Middle Makki · Sad 38:29 — The Quran Revealed For Ulu al-Albab to Ponder</div>
+  <div class="era-label-ur ur-blk">درمیانی مکی · ص ۳۸:۲۹ — قرآن اولو الالباب کے تدبر کے لیے</div>
+  <div class="era-line"></div>
+</div>
+<div class="ayah-card" id="ul-3829">
+  <div class="ayah-card-hdr" onclick="toggleCard('ul-3829')">
+    <span class="rev-badge rev-middle en-blk">Rev. #38</span><span class="rev-badge rev-middle ur-blk">ترتیب #38</span>
+    <span class="card-ref">Sad 38:29</span>
+    <span class="card-preview">كِتَابٌ أَنزَلْنَاهُ إِلَيْكَ مُبَارَكٌ لِّيَدَّبَّرُوا آيَاتِهِ وَلِيَتَذَكَّرَ أُولُو الْأَلْبَابِ</span>
+    <span class="card-chevron">›</span>
+  </div>
+  <div class="card-body">
+    <div class="ayah-arabic">كِتَابٌ أَنزَلْنَاهُ إِلَيْكَ مُبَارَكٌ لِّيَدَّبَّرُوا آيَاتِهِ وَلِيَتَذَكَّرَ أُولُو الْأَلْبَابِ</div>
+    <div class="ayah-tr-en en-blk">"A Book We have sent down to you, blessed — so that they may ponder its ayat, and so that those of understanding (Ulu al-Albab) may take heed."</div>
+    <div class="ayah-tr-ur ur-blk">«ایک کتاب جو ہم نے تمہاری طرف نازل کی، بابرکت — تاکہ وہ اس کی آیات میں تدبر کریں، اور تاکہ اولو الالباب نصیحت حاصل کریں۔»</div>
+    <div class="ayah-ref-line">Surah Sad 38:29</div>
+    <div class="ctx-box">
+      <div class="ctx-lbl en-blk">Context — The Quran Was Revealed FOR Ulu al-Albab</div>
+      <div class="ctx-txt en-blk">This ayah states the purpose of Quranic revelation: Tadabbur (deep, sustained pondering of the ayat) and Tadhakkur (taking heed and remembering). Both are described as the purpose for which the Book was sent. And the recipients of the Tadhakkur — the ones who take heed — are specifically named as Ulu al-Albab. The Quran is not merely a book for recitation or legal reference: it was sent so that the Lubb — the innermost faculty of pure perception — could engage with it. This means that engagement with the Quran at the level of Tadabbur is itself the activity of the Lubb. When you do Tadabbur, your Lubb is operating.</div>
+      <div class="ctx-txt-ur ur-blk">قرآنی نزول کا مقصد: تدبر (آیات میں گہرا، مستقل غور) اور تذکر (نصیحت لینا)۔ اور تذکر کے وصول کنندہ خاص طور پر اولو الالباب ہیں۔ قرآن صرف تلاوت یا قانونی حوالے کے لیے نہیں — لب کے لیے نازل ہوا۔ جب آپ تدبر کرتے ہیں تو آپ کا لب کام کر رہا ہے۔</div>
+    </div>
+    <div class="uniq-box">
+      <div class="uniq-lbl en-blk">What This Ayah Uniquely Establishes</div>
+      <div class="uniq-txt en-blk">The Quran identifies its own primary audience as Ulu al-Albab. Not scholars only, not the pious only — those who bring their Lubb (innermost faculty) to it. Tadabbur is not a scholarly technique — it is the natural activity of the Lubb when brought to the Quran. This ayah means: the Quran was revealed specifically so that this innermost human faculty could encounter it. A person who reads without Tadabbur is reading the Quran without bringing their Lubb. The Quran is calling for the deepest layer of the self to engage.</div>
+      <div class="uniq-txt-ur ur-blk">قرآن نے اپنا بنیادی سامعین اولو الالباب بتایا۔ صرف علماء نہیں — وہ جو اپنا لب لائیں۔ تدبر علمی تکنیک نہیں — قرآن کے سامنے لب کی فطری سرگرمی۔ تدبر کے بغیر پڑھنا لب کے بغیر پڑھنا ہے۔</div>
+    </div>
+    <div class="notes-sec">
+      <div class="notes-hdr"><span class="en-blk">Personal Notes</span><span class="ur-blk">ذاتی نوٹس</span></div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--teal)"></div><span class="en-blk">The Quran was sent for Ulu al-Albab to do Tadabbur. When you read the Quran, are you bringing your Lubb — your deepest faculty of perception — or is it surface recitation?</span><span class="ur-blk">قرآن اولو الالباب کے تدبر کے لیے آیا۔ پڑھتے وقت کیا آپ اپنا لب لاتے ہیں؟</span><span class="nsv" id="sv-ul3829a"></span></div>
+        <textarea class="note-ta" id="note-ul3829a" placeholder="What would one session of genuine Tadabbur look like for you — and how is it different from your current Quran reading practice?" oninput="autoSave('ul3829a',this.value)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- AYAH 2: 39:9 -->
+<div class="era-divider">
+  <div class="era-dot era-late"></div>
+  <div class="era-label en-blk">Late Makki · Al-Zumar 39:9 — Those Who Know vs Those Who Do Not</div>
+  <div class="era-label-ur ur-blk">اواخر مکی · الزمر ۳۹:۹ — علم والے بمقابلہ بے علم</div>
+  <div class="era-line"></div>
+</div>
+<div class="ayah-card" id="ul-399">
+  <div class="ayah-card-hdr" onclick="toggleCard('ul-399')">
+    <span class="rev-badge rev-late en-blk">Rev. #59</span><span class="rev-badge rev-late ur-blk">ترتیب #59</span>
+    <span class="card-ref">Al-Zumar 39:9</span>
+    <span class="card-preview">هَلْ يَسْتَوِي الَّذِينَ يَعْلَمُونَ وَالَّذِينَ لَا يَعْلَمُونَ ۗ إِنَّمَا يَتَذَكَّرُ أُولُو الْأَلْبَابِ</span>
+    <span class="card-chevron">›</span>
+  </div>
+  <div class="card-body">
+    <div class="ayah-arabic">أَمَّنْ هُوَ قَانِتٌ آنَاءَ اللَّيْلِ سَاجِدًا وَقَائِمًا يَحْذَرُ الْآخِرَةَ وَيَرْجُو رَحْمَةَ رَبِّهِ ۗ قُلْ هَلْ يَسْتَوِي الَّذِينَ يَعْلَمُونَ وَالَّذِينَ لَا يَعْلَمُونَ ۗ إِنَّمَا يَتَذَكَّرُ أُولُو الْأَلْبَابِ</div>
+    <div class="ayah-tr-en en-blk">"Or one who is devoutly obedient through the hours of the night, prostrating and standing, fearing the Hereafter and hoping for the mercy of his Lord? Say: Are those who know equal to those who do not know? Indeed only Ulu al-Albab take heed."</div>
+    <div class="ayah-tr-ur ur-blk">«یا وہ جو رات کی گھڑیوں میں سجدے اور قیام میں عبادت کرتا ہے، آخرت سے ڈرتا اور اپنے رب کی رحمت کی امید رکھتا ہے؟ کہو: کیا جاننے والے اور نہ جاننے والے برابر ہیں؟ بے شک صرف اولو الالباب ہی نصیحت لیتے ہیں۔»</div>
+    <div class="ayah-ref-line">Surah Al-Zumar 39:9</div>
+    <div class="ctx-box">
+      <div class="ctx-lbl en-blk">Context — The Qunut of the Night and True Knowledge</div>
+      <div class="ctx-txt en-blk">The ayah opens with a portrait of the Qaanit — the devotee in night prayer (Qunut al-layl), prostrating and standing, holding both fear and hope simultaneously. Then the rhetorical question: are those who know equal to those who do not? The knowledge here is not factual information — it is the knowledge of reality that the night-worshipper has demonstrated through their actions. They know the Hereafter is real; they know Allah's mercy is real; they know the night spent in devotion has value. This knowledge — translated into action — is what distinguishes the Ulu al-Albab. And the conclusion: Innama yatadhakkaru Ulu al-Albab — only the Ulu al-Albab take heed from the distinction between these two.</div>
+      <div class="ctx-txt-ur ur-blk">آیت قانت کی تصویر سے شروع — رات کی عبادت میں سجدہ اور قیام، خوف اور امید بیک وقت۔ پھر سوال: جاننے اور نہ جاننے والے برابر؟ علم یہاں معلومات نہیں — وہ علم جو عمل سے ظاہر ہو۔ نتیجہ: «إنما يتذكر أولو الألباب» — صرف اولو الالباب نصیحت لیتے ہیں۔</div>
+    </div>
+    <div class="uniq-box">
+      <div class="uniq-lbl en-blk">What This Ayah Uniquely Establishes</div>
+      <div class="uniq-txt en-blk">Innama (exclusively / only) is a particle of restriction. The ayah says: only the Ulu al-Albab take the Tadhakkur from the distinction between those who know and those who do not. Everyone can hear the distinction — but only those with the Lubb operative can actually receive its implication and let it move them. This is the definition of the Lubb's function: not to know more but to receive what is known into the innermost layer of the self, such that it actually changes orientation. The Qaanit of the night is the living example — they have received the knowledge of the Hereafter into their Lubb, and it came out as night prayer.</div>
+      <div class="uniq-txt-ur ur-blk">«إنما» — تخصیص۔ صرف اولو الالباب تذکر لیتے ہیں۔ سب سن سکتے ہیں — صرف جن کا لب فعال ہو وہ اثر قبول کریں۔ لب کا کام: زیادہ جاننا نہیں — جو جانا اسے ذات کی انتہائی تہ تک پہنچانا تاکہ رخ بدلے۔ رات کا قانت مثال: آخرت کا علم لب تک پہنچا اور رات کی نماز بن گیا۔</div>
+    </div>
+    <div class="notes-sec">
+      <div class="notes-hdr"><span class="en-blk">Personal Notes</span><span class="ur-blk">ذاتی نوٹس</span></div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--teal)"></div><span class="en-blk">You know many things that have not changed your actions. The Lubb is what receives knowledge and lets it move you. Where is the gap between what you know and how you live — and what does it say about whether your Lubb is engaged?</span><span class="ur-blk">آپ بہت کچھ جانتے ہیں جس نے آپ کا عمل نہیں بدلا۔ لب وہ ہے جو علم کو قبول کر کے حرکت دے۔ جاننے اور جینے کے درمیان خلا کہاں ہے؟</span><span class="nsv" id="sv-ul399a"></span></div>
+        <textarea class="note-ta" id="note-ul399a" placeholder="Identify one thing you know to be true — about the Hereafter, about Allah, about yourself — that has not yet reached your Lubb. What is blocking its descent?" oninput="autoSave('ul399a',this.value)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- AYAH 3: 3:190-191 -->
+<div class="era-divider">
+  <div class="era-dot era-madani"></div>
+  <div class="era-label en-blk">Madani · Al-Imran 3:190-191 — Dhikr and Tafakkur Simultaneously</div>
+  <div class="era-label-ur ur-blk">مدنی · آل عمران ۳:۱۹۰-۱۹۱ — ذکر اور تفکر بیک وقت</div>
+  <div class="era-line"></div>
+</div>
+<div class="ayah-card" id="ul-3190">
+  <div class="ayah-card-hdr" onclick="toggleCard('ul-3190')">
+    <span class="rev-badge rev-madani en-blk">Rev. #89</span><span class="rev-badge rev-madani ur-blk">ترتیب #89</span>
+    <span class="card-ref">Al-Imran 3:190-191</span>
+    <span class="card-preview">إِنَّ فِي خَلْقِ السَّمَاوَاتِ وَالْأَرْضِ وَاخْتِلَافِ اللَّيْلِ وَالنَّهَارِ لَآيَاتٍ لِّأُولِي الْأَلْبَابِ</span>
+    <span class="card-chevron">›</span>
+  </div>
+  <div class="card-body">
+    <div class="ayah-arabic">إِنَّ فِي خَلْقِ السَّمَاوَاتِ وَالْأَرْضِ وَاخْتِلَافِ اللَّيْلِ وَالنَّهَارِ لَآيَاتٍ لِّأُولِي الْأَلْبَابِ ۝ الَّذِينَ يَذْكُرُونَ اللَّهَ قِيَامًا وَقُعُودًا وَعَلَىٰ جُنُوبِهِمْ وَيَتَفَكَّرُونَ فِي خَلْقِ السَّمَاوَاتِ وَالْأَرْضِ رَبَّنَا مَا خَلَقْتَ هَٰذَا بَاطِلًا</div>
+    <div class="ayah-tr-en en-blk">"Indeed in the creation of the heavens and the earth and the alternation of night and day are signs for Ulu al-Albab — those who remember Allah standing, sitting, and on their sides, and reflect upon the creation of the heavens and the earth: 'Our Lord, You have not created this in vain.'"</div>
+    <div class="ayah-tr-ur ur-blk">«بے شک آسمانوں اور زمین کی تخلیق اور رات و دن کے بدلنے میں اولو الالباب کے لیے نشانیاں ہیں — وہ جو اللہ کو یاد کرتے ہیں کھڑے، بیٹھے اور پہلوؤں پر، اور آسمانوں اور زمین کی تخلیق میں تفکر کرتے ہیں: ربنا ما خلقت هذا باطلا۔»</div>
+    <div class="ayah-ref-line">Surah Al-Imran 3:190-191</div>
+    <div class="ctx-box">
+      <div class="ctx-lbl en-blk">Context — The Signs Are FOR Ulu al-Albab · Others Cannot Receive Them</div>
+      <div class="ctx-txt en-blk">The creation of the heavens and earth and the alternation of night and day contain Ayat (signs) — but these signs are described as specifically for Ulu al-Albab. Everyone sees the night and the day. But only those with the Lubb operating can receive these as Ayat — as signs pointing beyond themselves to the Creator. The definition that follows: they combine Dhikr (in all positions, all times) with Tafakkur (reflection on creation). These are not two separate activities that Ulu al-Albab do — they are the single integrated mode of the Lubb's operation. The output: the conclusion "You have not created this in vain" — the Lubb arrives at meaning and purpose from its simultaneous engagement with Allah and with creation.</div>
+      <div class="ctx-txt-ur ur-blk">آسمانوں اور زمین کی تخلیق میں آیات ہیں — لیکن خاص اولو الالباب کے لیے۔ سب رات اور دن دیکھتے ہیں۔ صرف فعال لب والے آیات کے طور پر قبول کر سکتے ہیں — نشانیاں جو خالق کی طرف اشارہ کریں۔ تعریف: ذکر (ہر حال میں) اور تفکر (تخلیق پر)۔ دو الگ نہیں — لب کے ایک مربوط طریقے۔ نتیجہ: «ما خلقت هذا باطلا»۔</div>
+    </div>
+    <div class="uniq-box">
+      <div class="uniq-lbl en-blk">What This Ayah Uniquely Establishes</div>
+      <div class="uniq-txt en-blk">The ayah defines the Lubb's characteristic activity as the simultaneous operation of Dhikr and Tafakkur. Note: Dhikr is described with three positions (standing, sitting, on their sides) — meaning it is continuous and uninterrupted by physical state. And Tafakkur — reflection on creation — is the intellectual engagement that the Lubb performs while Dhikr runs underneath. The result is not just an intellectual conclusion but a prayer: "You have not created this in vain" — the Tafakkur has been absorbed into the Dhikr. This is the Lubb at full function: thinking about creation while oriented toward Allah, and the thinking becomes a conversation with Allah. The Prophet (SAW) said: Woe to one who reads these ayat and does not reflect (Ibn Hibban, graded Sahih).</div>
+      <div class="uniq-txt-ur ur-blk">لب کی خصوصی سرگرمی: ذکر اور تفکر کا بیک وقت عمل۔ ذکر تین حالتوں میں — مستقل اور غیر منقطع۔ تفکر — تخلیق پر عقلی مشغولیت جب ذکر نیچے جاری ہو۔ نتیجہ دعا بن گیا: «ما خلقت هذا باطلا» — تفکر ذکر میں جذب ہو گیا۔ لب مکمل فعال: اللہ کی طرف رخ کرتے ہوئے تخلیق پر غور، اور غور اللہ سے گفتگو بن گئی۔</div>
+    </div>
+    <div class="notes-sec">
+      <div class="notes-hdr"><span class="en-blk">Personal Notes</span><span class="ur-blk">ذاتی نوٹس</span></div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--teal)"></div><span class="en-blk">Dhikr and Tafakkur simultaneously — not alternating but combined. When do you experience thinking about creation and remembering Allah at the same time? What does that state feel like?</span><span class="ur-blk">ذکر اور تفکر بیک وقت — باری باری نہیں، ملا کر۔ کب آپ تخلیق پر سوچتے اور اللہ کو یاد کرتے ایک ساتھ؟</span><span class="nsv" id="sv-ul3190a"></span></div>
+        <textarea class="note-ta" id="note-ul3190a" placeholder="Think of a moment when observing something in creation moved you toward Allah — rather than just being intellectually interesting. That was your Lubb operating." oninput="autoSave('ul3190a',this.value)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- AYAH 4: 12:111 -->
+<div class="era-divider">
+  <div class="era-dot era-late"></div>
+  <div class="era-label en-blk">Late Makki · Yusuf 12:111 — Extracting Ibra from Prophetic Narratives</div>
+  <div class="era-label-ur ur-blk">اواخر مکی · یوسف ۱۲:۱۱۱ — قصص سے عبرت نکالنا</div>
+  <div class="era-line"></div>
+</div>
+<div class="ayah-card" id="ul-12111">
+  <div class="ayah-card-hdr" onclick="toggleCard('ul-12111')">
+    <span class="rev-badge rev-late en-blk">Rev. #53</span><span class="rev-badge rev-late ur-blk">ترتیب #53</span>
+    <span class="card-ref">Yusuf 12:111</span>
+    <span class="card-preview">لَقَدْ كَانَ فِي قَصَصِهِمْ عِبْرَةٌ لِّأُولِي الْأَلْبَابِ</span>
+    <span class="card-chevron">›</span>
+  </div>
+  <div class="card-body">
+    <div class="ayah-arabic">لَقَدْ كَانَ فِي قَصَصِهِمْ عِبْرَةٌ لِّأُولِي الْأَلْبَابِ ۗ مَا كَانَ حَدِيثًا يُفْتَرَىٰ وَلَٰكِن تَصْدِيقَ الَّذِي بَيْنَ يَدَيْهِ وَتَفْصِيلَ كُلِّ شَيْءٍ وَهُدًى وَرَحْمَةً لِّقَوْمٍ يُؤْمِنُونَ</div>
+    <div class="ayah-tr-en en-blk">"Indeed in their stories is Ibra (a lesson to cross over) for Ulu al-Albab. It was not a fabricated narration, but a confirmation of what came before it, a detailed explanation of all things, and a guidance and mercy for a people who believe."</div>
+    <div class="ayah-tr-ur ur-blk">«بے شک ان کے قصص میں اولو الالباب کے لیے عبرت ہے۔ یہ بنائی ہوئی بات نہیں، بلکہ اس کی تصدیق جو اس سے پہلے ہے، اور ہر چیز کی تفصیل، اور ایمان لانے والوں کے لیے ہدایت اور رحمت۔»</div>
+    <div class="ayah-ref-line">Surah Yusuf 12:111 · Final ayah of Surah Yusuf</div>
+    <div class="ctx-box">
+      <div class="ctx-lbl en-blk">Context — Ibra: To Cross Over from Story to Principle</div>
+      <div class="ctx-txt en-blk">The word Ibra is from the root Ain-Ba-Ra — to cross over, to ford a river. Ibra is not simply a lesson — it is the act of crossing over from a particular story to a universal principle that applies to your own life. The prophetic narratives contain Ibra, but only Ulu al-Albab can actually extract it — can cross the river from "what happened to Yusuf (AS)" to "what this means for me, now, in my circumstances." The closing of Surah Yusuf with this statement is itself significant: the most detailed prophetic narrative in the Quran ends by saying its Ibra is specifically for those with Lubb. The story is universal; the crossing over from story to wisdom is Lubb-dependent.</div>
+      <div class="ctx-txt-ur ur-blk">عبرت — جڑ: ع-ب-ر = پار کرنا، ندی عبور کرنا۔ محض سبق نہیں — کسی خاص قصے سے آفاقی اصول کی طرف عبور جو آپ کی زندگی پر لاگو ہو۔ قصص میں عبرت ہے لیکن صرف اولو الالباب نکال سکتے ہیں — یوسف کے ساتھ جو ہوا سے میرے لیے کیا مطلب تک عبور۔ سورۃ یوسف کا اختتام — سب سے تفصیلی قصہ — اولو الالباب کے لیے عبرت پر۔</div>
+    </div>
+    <div class="uniq-box">
+      <div class="uniq-lbl en-blk">What This Ayah Uniquely Establishes</div>
+      <div class="uniq-txt en-blk">The Quran's prophetic narratives are explicitly addressed to Ulu al-Albab as their primary recipients — not as entertainment, not as historical record, but as sources of Ibra for those whose Lubb can make the crossing. This means that when you read the story of Yusuf (AS) — the abandonment by brothers, the imprisonment, the ultimate station — and you receive from it not just information but a principle that reorganizes your understanding of your own trials and your own path, you are functioning as Ulu al-Albab. The Lubb extracts the universal from the particular. Every prophetic narrative is an invitation to this crossing.</div>
+      <div class="uniq-txt-ur ur-blk">قرآن کے قصص خاص طور پر اولو الالباب کے لیے — نہ تفریح، نہ تاریخی ریکارڈ — بلکہ عبرت کا ذریعہ۔ یوسف کا قصہ — بھائیوں کا ترک، قید، بلند مقام — پڑھ کر معلومات نہیں بلکہ اصول ملے جو آپ کی آزمائشوں کو نئے انداز سے سمجھائے — یہ اولو الالباب کا عمل ہے۔ لب خاص سے آفاقی نکالتا ہے۔</div>
+    </div>
+    <div class="notes-sec">
+      <div class="notes-hdr"><span class="en-blk">Personal Notes</span><span class="ur-blk">ذاتی نوٹس</span></div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--gold)"></div><span class="en-blk">Ibra is the crossing over from story to principle that applies to your life. Which prophetic narrative has crossed over most powerfully into your own understanding of your situation — and what was the principle you extracted?</span><span class="ur-blk">عبرت — قصے سے آپ کی زندگی پر لاگو اصول تک عبور۔ کونسے نبوی قصے نے آپ کے حالات کو سمجھنے میں سب سے زیادہ مدد کی؟</span><span class="nsv" id="sv-ul12111a"></span></div>
+        <textarea class="note-ta" id="note-ul12111a" placeholder="Write the crossing: [What happened in the narrative] → [The principle it contains] → [How it applies to my current situation]" oninput="autoSave('ul12111a',this.value)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SCHOLARS -->
+<div class="sec-lbl"><span class="en-inl">Scholar Perspectives</span><span class="ur-inl">علماء کے نظریات</span></div>
+<div class="scholars-lbl en-blk">Two Classical Authorities on the Lubb and Its Function</div>
+<div class="scholars-lbl ur-blk">لب اور اس کے کام پر دو کلاسیکی علماء</div>
+
+<div class="scholar-card" id="sc-ibnqayyim-ul">
+  <div class="sc-hdr" onclick="toggleScholar('sc-ibnqayyim-ul')">
+    <div class="sc-badge">ق</div>
+    <div>
+      <div class="sc-name">Ibn al-Qayyim al-Jawziyyah (d. 751H)</div>
+      <div class="sc-text en-blk">Miftah Dar al-Sa'adah · The Lubb as the Integrating Faculty</div>
+      <div class="sc-text ur-blk">مفتاح دار السعادۃ · لب بطور مربوط کرنے والی قوت</div>
+    </div>
+    <div class="sc-chev">›</div>
+  </div>
+  <div class="sc-body">
+    <div class="sc-quote en-blk">Ibn al-Qayyim in Miftah Dar al-Sa'adah treats the Lubb as the integrating faculty of the human inner architecture — the point at which knowledge, Iman, and action are unified into a single coherent orientation. He argues that most people possess the outer layers — Sadr (receptivity), Qalb (belief), Fu'ad (experiential certainty to varying degrees) — but the Lubb operates only in those in whom the other layers are sufficiently clear and aligned. The Lubb is not something acquired — it is something that emerges when the other layers are doing their work correctly.</div>
+    <div class="sc-quote-ur ur-blk">ابن القیم مفتاح دار السعادۃ میں لب کو انسانی باطنی ڈھانچے کی مربوط کرنے والی قوت بتاتے ہیں — وہ نقطہ جہاں علم، ایمان اور عمل ایک مربوط رخ میں متحد ہوں۔ زیادہ تر لوگ بیرونی تہیں رکھتے ہیں — لب صرف ان میں چلتا ہے جن کی دوسری تہیں کافی صاف اور ہم آہنگ ہوں۔ لب کوئی کمائی نہیں — یہ ابھرتا ہے جب دوسری تہیں درست کام کریں۔</div>
+    <div class="sc-analysis en-blk">Ibn al-Qayyim's practical contribution: the Lubb is freed by clearing the other layers. The Sadr is cleared by Islam. The Qalb is cleared by Iman and tawbah. The Fu'ad is cleared by direct experience of Allah through worship — particularly night prayer and sustained Dhikr. When these three layers are functioning, the Lubb emerges naturally — it is not a separate achievement. This is why the Quran's portrait of Ulu al-Albab includes night prayer, Dhikr in all positions, and Tafakkur: these are the practices that clear the path for the Lubb to operate. The Lubb is always present; the work is to clear what covers it.</div>
+    <div class="sc-analysis-ur ur-blk">ابن القیم کا عملی حصہ: لب دوسری تہوں کو صاف کرنے سے آزاد ہوتا ہے۔ صدر اسلام سے، قلب ایمان اور توبہ سے، فؤاد عبادت میں اللہ کے تجربے سے صاف ہوتا ہے۔ جب تینوں فعال ہوں تو لب قدرتی طور پر ابھرتا ہے — الگ کامیابی نہیں۔ لب ہمیشہ موجود ہے؛ کام وہ ہے جو اسے ڈھکتا ہے اسے صاف کرنا۔</div>
+    <div class="sc-source">Ibn al-Qayyim · Miftah Dar al-Sa'adah · Chapter on the Human Inner Faculties</div>
+  </div>
+</div>
+
+<div class="scholar-card" id="sc-ghazali-ul">
+  <div class="sc-hdr" onclick="toggleScholar('sc-ghazali-ul')">
+    <div class="sc-badge">غ</div>
+    <div>
+      <div class="sc-name">Imam Al-Ghazali (d. 505H)</div>
+      <div class="sc-text en-blk">Ihya Ulum al-Deen · The Ihya Programme as Clearing for the Lubb to Emerge</div>
+      <div class="sc-text ur-blk">احیاء علوم الدین · احیاء پروگرام لب کے ظہور کے لیے صفائی</div>
+    </div>
+    <div class="sc-chev">›</div>
+  </div>
+  <div class="sc-body">
+    <div class="sc-quote en-blk">Al-Ghazali's entire Ihya can be read as a programme for clearing the layers that cover the Lubb. The Quarter of Worship clears the Sadr through correct practice. The Quarter of Customs clears the Qalb by purifying daily life. The Quarter of Destructive Matters clears the Fu'ad by removing the diseases of the heart. The Quarter of Salvations cultivates the positive qualities that allow the Lubb to operate. The culmination of the Ihya — the Book of Love, Longing, Intimacy and Contentment — describes the state of the person whose Lubb is fully operative: the one who has arrived at knowing Allah not just intellectually but in the deepest layer of themselves.</div>
+    <div class="sc-quote-ur ur-blk">الغزالی کا پورا احیاء لب کو ڈھکنے والی تہوں کو صاف کرنے کا پروگرام: ربع عبادات صدر کو درست عمل سے، ربع عادات قلب کو روزمرہ زندگی کی پاکی سے، ربع مہلکات فؤاد کو دل کی بیماریاں دور کر کے، ربع منجیات لب کو چلانے والی اوصاف پیدا کر کے صاف کرتا ہے۔ احیاء کا اختتام: کتاب المحبۃ — وہ جن کا لب مکمل فعال ہو۔</div>
+    <div class="sc-analysis en-blk">Al-Ghazali's key insight: the Lubb cannot be directly cultivated — it can only be uncovered. You cannot train the Lubb the way you train a skill. You can only remove what covers it: the Ghain (the veil of sin and heedlessness mentioned in the hadith: "a veil covers the heart from every sin — until the heart is sealed"), the diseases of Riya, Kibr, Hasad, Hub al-dunya. As these are removed through Tawbah, Muhasabah, and correct worship practice, the Lubb — which was always present — becomes operative. The Ihya is fundamentally a clearing programme, not an addition programme.</div>
+    <div class="sc-analysis-ur ur-blk">الغزالی کا اہم نقطہ: لب کو براہ راست نہیں پالا جا سکتا — صرف کھولا جا سکتا ہے۔ مہارت کی طرح تربیت نہیں دے سکتے۔ صرف وہ ہٹا سکتے ہیں جو ڈھکتا ہے: غین (گناہ اور غفلت کا پردہ)، ریا، کبر، حسد، حب الدنیا کی بیماریاں۔ جیسے جیسے توبہ، محاسبہ اور درست عبادت سے ہٹتی ہیں، لب فعال ہوتا ہے۔ احیاء اضافے کا نہیں — صفائی کا پروگرام ہے۔</div>
+    <div class="sc-source">Al-Ghazali · Ihya Ulum al-Deen · Introduction and Quarter of Salvations</div>
+  </div>
+</div>
+
+<!-- SYNTHESIS -->
+<div class="sec-lbl"><span class="en-inl">Personal Synthesis</span><span class="ur-inl">ذاتی خلاصہ</span></div>
+<div class="synth-box">
+  <div class="notes-hdr"><span class="en-blk">Personal Synthesis — Ulu al-Albab</span><span class="ur-blk">ذاتی خلاصہ — اولو الالباب</span></div>
+  <div class="note-f">
+    <div class="note-lbl"><div class="nd" style="background:var(--gold)"></div><span class="en-blk">The Lubb cannot be acquired — it can only be uncovered. Ibn al-Qayyim: it emerges when the other layers are clear. Al-Ghazali: the Ihya is a clearing programme. What is covering your Lubb right now — and what is one concrete step toward clearing it?</span><span class="ur-blk">لب کمایا نہیں جا سکتا — صرف کھولا جا سکتا ہے۔ ابن القیم: دوسری تہیں صاف ہوں تو ابھرتا ہے۔ الغزالی: احیاء صفائی کا پروگرام۔ ابھی آپ کا لب کیا ڈھکے ہوئے ہے؟</span><span class="nsv" id="sv-synth-ul"></span></div>
+    <textarea class="note-ta" id="note-synth-ul" style="min-height:100px" placeholder="Name honestly what covers your Lubb: heedlessness, a specific disease of the heart, absence of Tadabbur? Then name one step: more Tadabbur, a specific disease to address through Muhasabah, sustained Dhikr?" oninput="autoSave('synth-ul',this.value)"></textarea>
+  </div>
+</div>
+
+<div class="sec-lbl" style="margin-top:36px"><span class="en-inl">Continue — File 3B Tabs</span><span class="ur-inl">آگے — فائل ۳B ٹیبز</span></div>
+<div class="file-links">
+  <a href="ranks_inner_qualities_mukhlisoon.html" class="file-link"><div class="fl-num">Tab I</div><div class="fl-title">Mukhlisoon</div><div class="fl-desc">Active vs Passive</div><span class="fl-badge fl-ready">Complete</span></a>
+  <a href="riq_awwaaboon.html" class="file-link"><div class="fl-num">Tab II</div><div class="fl-title">Awwaaboon</div><div class="fl-desc">Habitual returners</div><span class="fl-badge fl-ready">Complete</span></a>
+  <a href="riq_sabiroon.html" class="file-link"><div class="fl-num">Tab III</div><div class="fl-title">Sabiroon</div><div class="fl-desc">Three types of Sabr</div><span class="fl-badge fl-ready">Complete</span></a>
+  <a href="riq_shakiroon.html" class="file-link"><div class="fl-num">Tab IV</div><div class="fl-title">Shakiroon</div><div class="fl-desc">Few are truly grateful</div><span class="fl-badge fl-ready">Complete</span></a>
+  <a href="riq_qaanitoon.html" class="file-link"><div class="fl-num">Tab V</div><div class="fl-title">Qaanitoon</div><div class="fl-desc">Sustained devotion</div><span class="fl-badge fl-ready">Complete</span></a>
+  <a href="#" class="file-link current"><div class="fl-num">Tab VI</div><div class="fl-title">Ulu al-Albab</div><div class="fl-desc">Innermost faculty</div><span class="fl-badge fl-ready">Current</span></a>
+  <a href="riq_rasikhoon.html" class="file-link"><div class="fl-num">Tab VII</div><div class="fl-title">Rasikhoon</div><div class="fl-desc">Firmly grounded</div><span class="fl-badge fl-coming">Next</span></a>
+</div>
+
+</div>
+<script>
+var LANG='en';
+var timers={};
+function setLang(l){
+  LANG=l;
+  document.getElementById('lt-en').classList.toggle('on',l==='en');
+  document.getElementById('lt-ur').classList.toggle('on',l==='ur');
+  document.body.classList.toggle('ur-mode',l==='ur');
+}
+function toggleCard(id){document.getElementById(id).classList.toggle('open');}
+function toggleScholar(id){document.getElementById(id).classList.toggle('open');}
+function autoSave(key,val){
+  clearTimeout(timers[key]);
+  timers[key]=setTimeout(function(){
+    var sk='riq_'+key;
+    if(val.trim()){localStorage.setItem(sk,val);}else{localStorage.removeItem(sk);}
+    var sv=document.getElementById('sv-'+key);
+    if(sv){sv.textContent=val.trim()?'Saved \u2713':'';sv.classList.add('flash');setTimeout(function(){sv.classList.remove('flash');},1800);}
+  },900);
+}
+function loadAll(){
+  for(var i=0;i<localStorage.length;i++){
+    var k=localStorage.key(i);
+    if(k&&k.startsWith('riq_')){
+      var fk=k.substring(4);
+      var el=document.getElementById('note-'+fk);
+      var sv=document.getElementById('sv-'+fk);
+      if(el){el.value=localStorage.getItem(k)||'';if(sv&&el.value.trim())sv.textContent='Saved';}
+    }
+  }
+}
+window.addEventListener('DOMContentLoaded',function(){loadAll();});
+</script>
+</body>
+</html>

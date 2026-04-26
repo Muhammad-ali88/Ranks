@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inner Qualities — Al-Mukhlisoon &amp; Al-Mukhlasoon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg0:#04070D;--bg1:#080E1C;--bg2:#0C1528;--bg3:#111E35;--bg4:#162440;
+  --gold:#C9A84C;--gold2:#E2C97A;--gold3:#F5E9C0;
+  --golddim:rgba(201,168,76,.08);--goldbdr:rgba(201,168,76,.18);--goldglow:rgba(201,168,76,.22);
+  --teal:#2FB89A;--tealdim:rgba(47,184,154,.08);--tealbdr:rgba(47,184,154,.22);
+  --blue:#7AABF0;--bluedim:rgba(122,171,240,.08);--bluebdr:rgba(122,171,240,.22);
+  --amber:#E0A030;--amberdim:rgba(224,160,48,.08);--amberbdr:rgba(224,160,48,.22);
+  --purple:#A87FD0;--purpledim:rgba(168,127,208,.08);--purplebdr:rgba(168,127,208,.22);
+  --crimson:#D05060;--crimsondim:rgba(208,80,96,.08);--crimsonbdr:rgba(208,80,96,.22);
+  --text:#D4CBB8;--text2:#8A9BB0;--text3:#4A5B70;
+  --border:rgba(201,168,76,.10);--border2:rgba(201,168,76,.05);
+  --font-head:'Cinzel',serif;--font-body:'Lora',serif;--font-arab:'Noto Naskh Arabic',serif;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg0);color:var(--text);font-family:var(--font-body);min-height:100vh;overflow-x:hidden;padding-bottom:80px}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:var(--bg1)}::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(ellipse 800px 500px at 20% 10%,rgba(201,168,76,.025),transparent 60%),
+             radial-gradient(ellipse 600px 400px at 80% 80%,rgba(47,184,154,.02),transparent 60%);}
+.hdr{position:sticky;top:0;z-index:90;background:rgba(4,7,13,.97);border-bottom:1px solid var(--border2);backdrop-filter:blur(20px);padding:0 22px;height:56px;display:flex;align-items:center;gap:14px}
+.hdr-ar{font-family:var(--font-arab);font-size:22px;color:var(--gold);text-shadow:0 0 20px rgba(201,168,76,.3)}
+.hdr-titles{flex:1}
+.hdr-title{font-family:var(--font-head);font-size:10px;letter-spacing:2px;color:var(--gold2);text-transform:uppercase}
+.hdr-sub{font-family:var(--font-head);font-size:8px;letter-spacing:1px;color:var(--text3);text-transform:uppercase;margin-top:2px}
+.lang-toggle{display:flex;gap:2px;background:rgba(255,255,255,.04);border:1px solid var(--goldbdr);border-radius:20px;padding:3px}
+.lt{font-family:var(--font-head);font-size:9px;letter-spacing:.8px;padding:3px 10px;border-radius:16px;cursor:pointer;transition:all .2s;color:var(--text3);user-select:none}
+.lt.on{background:var(--gold);color:#000;font-weight:700}
+.back-link{font-family:var(--font-head);font-size:8.5px;letter-spacing:.8px;color:var(--text3);text-decoration:none;padding:5px 10px;border:1px solid var(--border2);border-radius:6px;transition:all .15s;text-transform:uppercase;flex-shrink:0}
+.back-link:hover{color:var(--gold2);border-color:var(--goldbdr)}
+.file-nav{background:rgba(8,14,28,.8);border-bottom:1px solid var(--border2);padding:10px 22px;display:flex;gap:8px;flex-wrap:wrap;position:sticky;top:56px;z-index:80;backdrop-filter:blur(16px)}
+.fn-btn{font-family:var(--font-head);font-size:8px;letter-spacing:1px;text-transform:uppercase;padding:6px 14px;border-radius:7px;border:1px solid var(--border2);color:var(--text3);cursor:pointer;transition:all .2s;text-decoration:none;display:inline-block}
+.fn-btn:hover{color:var(--gold2);border-color:var(--goldbdr)}
+.fn-btn.current{background:var(--golddim);border-color:var(--goldbdr);color:var(--gold2)}
+.fn-sep{color:var(--text3);font-size:10px;align-self:center;opacity:.4}
+.tab-nav{background:rgba(8,14,28,.6);border-bottom:1px solid var(--border2);padding:8px 22px;display:flex;gap:6px;flex-wrap:wrap;position:sticky;top:103px;z-index:70;backdrop-filter:blur(16px)}
+.tn-btn{font-family:var(--font-head);font-size:7.5px;letter-spacing:.8px;text-transform:uppercase;padding:5px 12px;border-radius:6px;border:1px solid var(--border2);color:var(--text3);cursor:pointer;transition:all .2s;text-decoration:none;display:inline-block}
+.tn-btn:hover{color:var(--gold2);border-color:var(--goldbdr)}
+.tn-btn.current{background:var(--golddim);border-color:var(--goldbdr);color:var(--gold2)}
+.page{position:relative;z-index:1;max-width:860px;margin:0 auto;padding:32px 20px 60px}
+.rank-hdr{text-align:center;padding:24px 20px 32px;border-bottom:1px solid var(--border2);margin-bottom:28px}
+.rank-hdr-num{font-family:var(--font-head);font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--text3);margin-bottom:10px}
+.rank-hdr-ar{font-family:var(--font-arab);font-size:clamp(36px,7vw,58px);color:var(--gold);text-shadow:0 0 40px rgba(201,168,76,.2);line-height:1.3;margin-bottom:8px}
+.rank-hdr-en{font-family:var(--font-head);font-size:clamp(12px,2.5vw,17px);font-weight:700;color:#fff;letter-spacing:2px;text-transform:uppercase;margin-bottom:5px}
+.rank-hdr-ur{font-family:var(--font-arab);font-size:clamp(14px,2.5vw,19px);color:var(--gold2);margin-bottom:14px}
+.rank-hdr-rule{width:100px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 16px}
+.rank-hdr-root{font-family:var(--font-head);font-size:9px;letter-spacing:1.5px;color:var(--text3);text-transform:uppercase;margin-bottom:14px}
+.rank-hdr-intro{font-size:13px;color:var(--text2);line-height:1.9;max-width:640px;margin:0 auto;font-style:italic}
+.rank-hdr-intro-ur{font-family:var(--font-arab);font-size:14px;color:var(--text2);direction:rtl;text-align:center;line-height:2;max-width:640px;margin:4px auto 0}
+/* Distinction banner — two columns */
+.distinction-banner{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--goldbdr);border-radius:12px;overflow:hidden;margin-bottom:24px}
+.dist-col{padding:20px 22px;position:relative}
+.dist-col-active{background:linear-gradient(135deg,rgba(47,184,154,.10),rgba(47,184,154,.04));border-right:1px solid var(--goldbdr)}
+.dist-col-passive{background:linear-gradient(135deg,rgba(201,168,76,.12),rgba(201,168,76,.05))}
+.dist-col::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
+.dist-col-active::before{background:linear-gradient(90deg,transparent,var(--teal),transparent)}
+.dist-col-passive::before{background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.dist-label{font-family:var(--font-head);font-size:8px;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
+.dist-label-active{color:var(--teal)}
+.dist-label-passive{color:var(--gold)}
+.dist-ar{font-family:var(--font-arab);font-size:clamp(22px,4vw,32px);color:var(--gold2);direction:rtl;line-height:1.4;margin-bottom:8px}
+.dist-grammar{font-family:var(--font-head);font-size:8px;letter-spacing:1px;color:var(--text3);text-transform:uppercase;margin-bottom:8px}
+.dist-def{font-size:12.5px;color:var(--text2);line-height:1.8}
+.dist-def-ur{font-family:var(--font-arab);font-size:13px;color:var(--text2);direction:rtl;text-align:right;line-height:2;margin-top:5px}
+/* Iblis banner */
+.iblis-banner{background:linear-gradient(135deg,rgba(208,80,96,.10),rgba(208,80,96,.04));border:1px solid var(--crimsonbdr);border-radius:12px;padding:18px 22px;margin-bottom:24px;text-align:center;position:relative;overflow:hidden}
+.iblis-banner::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--crimson),transparent)}
+.iblis-banner-label{font-family:var(--font-head);font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--crimson);margin-bottom:10px}
+.iblis-banner-ar{font-family:var(--font-arab);font-size:clamp(16px,3.5vw,22px);color:var(--gold2);direction:rtl;line-height:1.9;margin-bottom:6px}
+.iblis-banner-tr{font-size:12px;color:var(--text2);font-style:italic;margin-bottom:4px}
+.iblis-banner-tr-ur{font-family:var(--font-arab);font-size:13px;color:var(--text2);direction:rtl;line-height:1.9;margin-bottom:6px}
+.iblis-banner-insight{font-size:11.5px;color:var(--text3);line-height:1.75;border-top:1px solid var(--crimsonbdr);padding-top:10px;margin-top:6px}
+.iblis-banner-insight-ur{font-family:var(--font-arab);font-size:12px;color:var(--text3);direction:rtl;text-align:center;line-height:2;margin-top:4px}
+.iblis-banner-ref{font-family:var(--font-head);font-size:8.5px;color:var(--crimson);letter-spacing:.6px;margin-top:6px}
+.root-analysis{background:var(--bg2);border:1px solid var(--goldbdr);border-radius:12px;padding:20px 22px;margin-bottom:24px;position:relative;overflow:hidden}
+.root-analysis::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.ra-label{font-family:var(--font-head);font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.ra-label::after{content:'';flex:1;height:1px;background:var(--border2)}
+.ra-root{font-family:var(--font-arab);font-size:28px;color:var(--gold2);direction:rtl;margin-bottom:12px}
+.ra-letters{display:flex;gap:10px;flex-direction:row-reverse;margin-bottom:14px}
+.ra-letter{background:rgba(201,168,76,.06);border:1px solid var(--goldbdr);border-radius:8px;padding:8px 14px;text-align:center}
+.ra-letter-ar{font-family:var(--font-arab);font-size:22px;color:var(--gold2);display:block}
+.ra-letter-en{font-family:var(--font-head);font-size:8px;color:var(--text3);letter-spacing:.5px;margin-top:4px;display:block}
+.ra-meaning{font-size:13px;color:var(--text2);line-height:1.8;margin-bottom:10px}
+.ra-meaning-ur{font-family:var(--font-arab);font-size:14px;color:var(--text2);direction:rtl;text-align:right;line-height:2;margin-bottom:10px}
+.ra-forms{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.ra-form{background:var(--bg3);border:1px solid var(--border2);border-radius:6px;padding:6px 12px;text-align:center}
+.ra-form-ar{font-family:var(--font-arab);font-size:16px;color:var(--gold2);direction:rtl}
+.ra-form-en{font-family:var(--font-head);font-size:8px;color:var(--text3);letter-spacing:.5px;margin-top:2px}
+.ra-count{font-family:var(--font-head);font-size:9px;color:var(--teal);letter-spacing:.5px}
+/* Grammar comparison box */
+.grammar-box{background:var(--bg2);border:1px solid var(--border2);border-radius:10px;padding:16px 20px;margin-bottom:24px}
+.grammar-box-lbl{font-family:var(--font-head);font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text2);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.grammar-box-lbl::after{content:'';flex:1;height:1px;background:var(--border2)}
+.grammar-row{display:grid;grid-template-columns:auto 1fr 1fr;gap:12px;align-items:start;padding:10px 0;border-bottom:1px solid var(--border2)}
+.grammar-row:last-child{border-bottom:none;padding-bottom:0}
+.gram-term{font-family:var(--font-arab);font-size:20px;color:var(--gold2);direction:rtl;text-align:right;min-width:140px}
+.gram-voice{font-family:var(--font-head);font-size:8px;letter-spacing:1px;text-transform:uppercase;padding:2px 8px;border-radius:4px;display:inline-block;margin-bottom:5px}
+.gram-voice-active{background:var(--tealdim);border:1px solid var(--tealbdr);color:var(--teal)}
+.gram-voice-passive{background:var(--golddim);border:1px solid var(--goldbdr);color:var(--gold)}
+.gram-def{font-size:12px;color:var(--text2);line-height:1.75}
+.gram-def-ur{font-family:var(--font-arab);font-size:12.5px;color:var(--text2);direction:rtl;text-align:right;line-height:2;margin-top:3px}
+.era-divider{display:flex;align-items:center;gap:12px;margin:28px 0 16px}
+.era-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.era-early{background:var(--amber)}.era-middle{background:var(--gold)}.era-late{background:var(--teal)}.era-madani{background:var(--blue)}.era-purple{background:var(--purple)}
+.era-label{font-family:var(--font-head);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text2)}
+.era-label-ur{font-family:var(--font-arab);font-size:13px;color:var(--text2)}
+.era-line{flex:1;height:1px;background:var(--border2)}
+.ayah-card{background:var(--bg2);border:1px solid var(--border2);border-radius:12px;margin-bottom:10px;overflow:hidden;transition:border-color .2s}
+.ayah-card.open{border-color:var(--goldbdr)}
+.ayah-card-hdr{display:flex;align-items:center;gap:10px;padding:13px 18px;cursor:pointer;user-select:none}
+.rev-badge{font-family:var(--font-head);font-size:7.5px;letter-spacing:.8px;padding:3px 8px;border-radius:5px;flex-shrink:0;text-transform:uppercase}
+.rev-early{background:var(--amberdim);border:1px solid var(--amberbdr);color:var(--amber)}
+.rev-middle{background:var(--golddim);border:1px solid var(--goldbdr);color:var(--gold2)}
+.rev-late{background:var(--tealdim);border:1px solid var(--tealbdr);color:var(--teal)}
+.rev-madani{background:var(--bluedim);border:1px solid var(--bluebdr);color:var(--blue)}
+.card-ref{font-family:var(--font-head);font-size:10px;color:var(--gold);font-weight:600;flex-shrink:0}
+.card-preview{font-family:var(--font-arab);font-size:16px;color:var(--gold2);direction:rtl;flex:1;text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:.75}
+.card-chevron{color:var(--text3);font-size:16px;transition:transform .25s;flex-shrink:0}
+.ayah-card.open .card-chevron{transform:rotate(90deg);color:var(--gold)}
+.card-body{display:none;padding:0 18px 20px;border-top:1px solid var(--border2)}
+.ayah-card.open .card-body{display:block}
+.ayah-arabic{font-family:var(--font-arab);font-size:clamp(18px,3.5vw,26px);color:var(--gold2);direction:rtl;text-align:right;line-height:2.2;padding:18px 0 12px;text-shadow:0 0 20px rgba(201,168,76,.1);border-bottom:1px solid var(--border2);margin-bottom:12px}
+.ayah-tr-en{font-size:13px;color:var(--text);font-style:italic;line-height:1.85;margin-bottom:6px;border-left:3px solid var(--goldbdr);padding:8px 14px;border-radius:0 6px 6px 0;background:rgba(201,168,76,.03)}
+.ayah-tr-ur{font-family:var(--font-arab);font-size:14px;color:var(--text);direction:rtl;text-align:right;line-height:2;border-right:3px solid var(--goldbdr);padding:8px 14px 8px 8px;border-radius:6px 0 0 6px;background:rgba(201,168,76,.03);margin-bottom:6px}
+.ayah-ref-line{font-family:var(--font-head);font-size:9px;color:var(--gold);letter-spacing:.8px;margin-bottom:14px}
+.ctx-box{background:rgba(0,0,0,.2);border-left:3px solid var(--amber);border-radius:0 8px 8px 0;padding:11px 14px;margin-bottom:12px}
+.ctx-lbl{font-family:var(--font-head);font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:var(--amber);margin-bottom:5px}
+.ctx-txt{font-size:12px;color:var(--text2);line-height:1.75}
+.ctx-txt-ur{font-family:var(--font-arab);font-size:13px;color:var(--text2);direction:rtl;text-align:right;line-height:2}
+.root-box{background:rgba(201,168,76,.04);border:1px solid var(--goldbdr);border-radius:8px;padding:11px 14px;margin-bottom:12px}
+.root-lbl{font-family:var(--font-head);font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:var(--gold);margin-bottom:7px}
+.root-wd{font-family:var(--font-arab);font-size:19px;color:var(--gold2);direction:rtl;display:inline-block;margin-left:8px}
+.root-fm{font-size:11px;color:var(--text3);letter-spacing:.3px}
+.root-mn{font-size:12px;color:var(--text2);line-height:1.7;margin-top:6px}
+.root-mn-ur{font-family:var(--font-arab);font-size:13px;color:var(--text2);direction:rtl;text-align:right;line-height:2;margin-top:5px}
+.uniq-box{background:var(--tealdim);border:1px solid var(--tealbdr);border-radius:8px;padding:11px 14px;margin-bottom:12px}
+.uniq-lbl{font-family:var(--font-head);font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:var(--teal);margin-bottom:5px}
+.uniq-txt{font-size:12.5px;color:var(--text);line-height:1.75}
+.uniq-txt-ur{font-family:var(--font-arab);font-size:13px;color:var(--text);direction:rtl;text-align:right;line-height:2}
+.sunnah-box{background:var(--purpledim);border:1px solid var(--purplebdr);border-radius:8px;padding:11px 14px;margin-bottom:12px}
+.sun-lbl{font-family:var(--font-head);font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:var(--purple);margin-bottom:8px}
+.sun-ar{font-family:var(--font-arab);font-size:16px;color:var(--gold2);direction:rtl;text-align:right;line-height:2;margin-bottom:5px}
+.sun-en{font-size:12px;color:var(--text2);font-style:italic;line-height:1.7;margin-bottom:5px}
+.sun-ur{font-family:var(--font-arab);font-size:13px;color:var(--text2);direction:rtl;text-align:right;line-height:2;margin-bottom:5px}
+.sun-src{font-family:var(--font-head);font-size:8.5px;color:var(--purple);letter-spacing:.5px}
+.grade{display:inline-block;font-family:var(--font-head);font-size:7.5px;padding:2px 7px;border-radius:4px;margin-left:6px}
+.g-sahih{background:var(--tealdim);border:1px solid var(--tealbdr);color:var(--teal)}
+.g-hasan{background:var(--golddim);border:1px solid var(--goldbdr);color:var(--gold2)}
+.insight{background:linear-gradient(135deg,rgba(201,168,76,.06),rgba(201,168,76,.03));border:1px solid var(--goldbdr);border-radius:10px;padding:14px 18px;margin-bottom:14px}
+.insight-lbl{font-family:var(--font-head);font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.insight-lbl::after{content:'';flex:1;height:1px;background:var(--border2)}
+.insight-txt{font-size:12.5px;color:var(--text2);line-height:1.85}
+.insight-txt-ur{font-family:var(--font-arab);font-size:13.5px;color:var(--text2);direction:rtl;text-align:right;line-height:2;margin-top:6px}
+.scholar-card{background:var(--bg3);border:1px solid var(--border2);border-radius:10px;padding:15px 17px;margin-bottom:9px;overflow:hidden;transition:border-color .2s}
+.scholar-card.open{border-color:var(--purplebdr)}
+.sc-hdr{display:flex;align-items:center;gap:12px;cursor:pointer;user-select:none}
+.sc-badge{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--font-arab);font-size:13px;color:var(--gold2);background:var(--purpledim);border:1px solid var(--purplebdr);flex-shrink:0}
+.sc-name{font-family:var(--font-head);font-size:9.5px;letter-spacing:.5px;color:var(--text);font-weight:600}
+.sc-text{font-family:var(--font-head);font-size:8px;letter-spacing:.3px;color:var(--purple);margin-top:2px}
+.sc-chev{color:var(--text3);font-size:14px;transition:transform .25s;margin-left:auto;flex-shrink:0}
+.scholar-card.open .sc-chev{transform:rotate(90deg);color:var(--purple)}
+.sc-body{display:none;margin-top:12px;padding-top:10px;border-top:1px solid var(--border2)}
+.scholar-card.open .sc-body{display:block}
+.sc-quote{font-size:12px;color:var(--text);font-style:italic;line-height:1.8;border-left:2px solid var(--purple);padding:8px 12px;background:rgba(168,127,208,.04);border-radius:0 6px 6px 0;margin-bottom:10px}
+.sc-quote-ur{font-family:var(--font-arab);font-size:13px;color:var(--text);direction:rtl;text-align:right;line-height:2;border-right:2px solid var(--purple);padding:8px 12px;background:rgba(168,127,208,.04);border-radius:6px 0 0 6px;margin-bottom:10px}
+.sc-analysis{font-size:12px;color:var(--text2);line-height:1.75}
+.sc-analysis-ur{font-family:var(--font-arab);font-size:13px;color:var(--text2);direction:rtl;text-align:right;line-height:2;margin-top:5px}
+.sc-source{font-family:var(--font-head);font-size:8px;color:var(--purple);letter-spacing:.4px;margin-top:8px}
+.scholars-lbl{font-family:var(--font-head);font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--purple);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.scholars-lbl::after{content:'';flex:1;height:1px;background:rgba(168,127,208,.15)}
+.notes-sec{margin-top:14px;border-top:1px solid var(--border2);padding-top:12px}
+.notes-hdr{font-family:var(--font-head);font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:var(--text2);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.notes-hdr::after{content:'';flex:1;height:1px;background:var(--border2)}
+.note-f{margin-bottom:7px}
+.note-lbl{font-family:var(--font-head);font-size:7.5px;letter-spacing:.8px;text-transform:uppercase;color:var(--text3);margin-bottom:4px;display:flex;align-items:center;gap:6px}
+.nd{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.nsv{font-family:var(--font-head);font-size:7px;letter-spacing:.3px;color:var(--text3);margin-left:auto;transition:color .3s}
+.nsv.flash{color:var(--teal)}
+.note-ta{width:100%;min-height:72px;background:rgba(255,255,255,.03);border:1px solid var(--border2);border-radius:7px;outline:none;padding:10px 12px;font-family:var(--font-body);font-size:12.5px;color:var(--text);line-height:1.75;resize:vertical;transition:border-color .2s}
+.note-ta:focus{border-color:var(--goldbdr)}
+.note-ta::placeholder{color:var(--text3);font-style:italic;font-size:11.5px}
+.sh-card{background:var(--bg2);border:1px solid var(--border2);border-radius:12px;padding:18px 20px;margin-bottom:10px}
+.sh-lbl{font-family:var(--font-head);font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:var(--purple);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.sh-lbl::after{content:'';flex:1;height:1px;background:var(--border2)}
+.sh-ar{font-family:var(--font-arab);font-size:clamp(14px,3vw,18px);color:var(--gold2);direction:rtl;text-align:right;line-height:2;margin-bottom:9px;padding:10px 14px;background:rgba(201,168,76,.04);border-radius:7px}
+.sh-en{font-size:12.5px;color:var(--text);font-style:italic;line-height:1.8;margin-bottom:6px}
+.sh-ur{font-family:var(--font-arab);font-size:14px;color:var(--text);direction:rtl;text-align:right;line-height:2;margin-bottom:6px}
+.sh-src{font-family:var(--font-head);font-size:8.5px;color:var(--purple);letter-spacing:.5px}
+.sec-lbl{font-family:var(--font-head);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:12px;padding:28px 0 16px}
+.sec-lbl::after{content:'';flex:1;height:1px;background:var(--border2)}
+.synth-box{border:1px solid var(--border2);border-radius:10px;padding:16px 18px;margin-top:8px}
+.file-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:12px}
+.file-link{background:var(--bg2);border:1px solid var(--border2);border-radius:10px;padding:14px 16px;text-decoration:none;transition:all .2s;display:block}
+.file-link:hover{border-color:var(--goldbdr);background:rgba(201,168,76,.04)}
+.file-link.current{border-color:var(--goldbdr);background:var(--golddim);cursor:default}
+.fl-num{font-family:var(--font-head);font-size:8px;letter-spacing:1px;color:var(--text3);text-transform:uppercase;margin-bottom:5px}
+.fl-title{font-family:var(--font-head);font-size:10px;letter-spacing:.5px;color:var(--gold2);margin-bottom:4px}
+.fl-desc{font-size:11px;color:var(--text3);line-height:1.6}
+.fl-badge{display:inline-block;font-family:var(--font-head);font-size:7px;padding:1px 6px;border-radius:4px;margin-top:6px}
+.fl-ready{background:var(--tealdim);border:1px solid var(--tealbdr);color:var(--teal)}
+.fl-coming{background:var(--amberdim);border:1px solid var(--amberbdr);color:var(--amber)}
+.en-blk{display:block}.ur-blk{display:none}
+body.ur-mode .en-blk{display:none}
+body.ur-mode .ur-blk{display:block}
+.en-inl{display:inline}.ur-inl{display:none}
+body.ur-mode .en-inl{display:none}
+body.ur-mode .ur-inl{display:inline}
+#toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(40px);background:rgba(12,21,40,.98);border:1px solid var(--goldbdr);border-radius:8px;padding:9px 20px;font-family:var(--font-head);font-size:9px;letter-spacing:1px;color:var(--gold2);z-index:300;opacity:0;transition:all .25s;pointer-events:none;white-space:nowrap}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+@media(max-width:600px){
+  .page{padding:20px 14px 60px}
+  .distinction-banner{grid-template-columns:1fr}
+  .dist-col-active{border-right:none;border-bottom:1px solid var(--goldbdr)}
+  .ra-letters{gap:6px}.ra-letter{padding:6px 10px}
+  .grammar-row{grid-template-columns:1fr;gap:6px}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="hdr">
+  <div class="hdr-ar">إِخْلَاص</div>
+  <div class="hdr-titles">
+    <div class="hdr-title en-blk">Inner Quality Ranks — File 3B · Tab I</div>
+    <div class="hdr-title ur-blk">باطنی اوصاف کے درجات — فائل ۳B · ٹیب ۱</div>
+    <div class="hdr-sub en-blk">Al-Mukhlisoon vs Al-Mukhlasoon · The Most Important Distinction</div>
+    <div class="hdr-sub ur-blk">المخلصون بمقابلہ المخلَصون · سب سے اہم فرق</div>
+  </div>
+  <div class="lang-toggle">
+    <div class="lt on" id="lt-en" onclick="setLang('en')">EN</div>
+    <div class="lt" id="lt-ur" onclick="setLang('ur')">اردو</div>
+  </div>
+  <a href="ranks_map.html" class="back-link">← Map</a>
+</div>
+
+<!-- FILE NAV -->
+<div class="file-nav">
+  <a href="ranks_map.html" class="fn-btn">1 · Map</a>
+  <span class="fn-sep">›</span>
+  <a href="ranks_eschatological.html" class="fn-btn">2 · Eschatological</a>
+  <span class="fn-sep">›</span>
+  <a href="ranks_divine_love.html" class="fn-btn">3A · Divine Love</a>
+  <span class="fn-sep">›</span>
+  <span class="fn-btn current">3B · Inner Qualities</span>
+  <span class="fn-sep">›</span>
+  <a href="ranks_path.html" class="fn-btn">4 · The Path</a>
+</div>
+
+<!-- TAB NAV -->
+<div class="tab-nav">
+  <span class="tn-btn current">I · Mukhlisoon</span>
+  <a href="riq_awwaaboon.html" class="tn-btn">II · Awwaaboon</a>
+  <a href="riq_sabiroon.html" class="tn-btn">III · Sabiroon</a>
+  <a href="riq_shakiroon.html" class="tn-btn">IV · Shakiroon</a>
+  <a href="riq_qaanitoon.html" class="tn-btn">V · Qaanitoon</a>
+  <a href="riq_ululalbab.html" class="tn-btn">VI · Ulu al-Albab</a>
+  <a href="riq_rasikhoon.html" class="tn-btn">VII · Rasikhoon</a>
+</div>
+
+<div class="page">
+
+<!-- RANK HEADER -->
+<div class="rank-hdr">
+  <div class="rank-hdr-num en-blk">File 3B · Tab I · The Most Important Distinction in This File</div>
+  <div class="rank-hdr-num ur-blk">فائل ۳B · ٹیب ۱ · اس فائل کا سب سے اہم فرق</div>
+  <div class="rank-hdr-ar">الْمُخْلِصُون — الْمُخْلَصُون</div>
+  <div class="rank-hdr-en en-blk">Al-Mukhlisoon — Al-Mukhlasoon</div>
+  <div class="rank-hdr-ur ur-blk">المخلصون — المخلَصون</div>
+  <div class="rank-hdr-rule"></div>
+  <div class="rank-hdr-root en-blk">Root: خ — ل — ص · To be pure · To be freed · To be extracted from mixture</div>
+  <div class="rank-hdr-root ur-blk">جڑ: خ — ل — ص · خالص ہونا · آزاد ہونا · آمیزش سے نکالا جانا</div>
+  <div class="rank-hdr-intro en-blk">Two words. Same root. One vowel difference on the lam. Opposite grammatical voices. The Mukhlisoon (active — those who purify their worship for Allah) can be corrupted by riya. The Mukhlasoon (passive — those whom Allah has purified for Himself) are beyond Iblis's reach — Iblis himself confesses this. This is not scholarly interpretation. It is Iblis's own sworn testimony in the Quran.</div>
+  <div class="rank-hdr-intro-ur ur-blk">دو الفاظ۔ ایک جڑ۔ لام پر ایک حرکت کا فرق۔ مخالف صرفی آوازیں۔ المخلصون (معروف — جو اپنی عبادت اللہ کے لیے خالص کرتے ہیں) ریا سے خراب ہو سکتے ہیں۔ المخلَصون (مجہول — جنہیں اللہ نے اپنے لیے پاک کیا) ابلیس کی پہنچ سے باہر — یہ ابلیس کا اپنا اعتراف ہے۔</div>
+</div>
+
+<!-- DISTINCTION BANNER -->
+<div class="distinction-banner">
+  <div class="dist-col dist-col-active">
+    <div class="dist-label dist-label-active en-blk">Active Voice — Human Effort</div>
+    <div class="dist-label dist-label-active ur-blk">معروف — انسانی کوشش</div>
+    <div class="dist-ar">الْمُخْلِصُون</div>
+    <div class="dist-grammar en-blk">Al-Mukhlisoon · Active Participle · Ism Fa'il</div>
+    <div class="dist-grammar ur-blk">المخلصون · اسم فاعل</div>
+    <div class="dist-def en-blk">Those who ARE MAKING their worship sincerely for Allah. The sincerity is their active, ongoing effort. They are the agents of purification. Commanded in 7:29 and 39:2. Achievable by any believer who struggles against riya. Iblis can attack this.</div>
+    <div class="dist-def-ur ur-blk">وہ جو اپنی عبادت اللہ کے لیے خالص کر رہے ہیں۔ اخلاص ان کی کوشش ہے۔ ۷:۲۹ اور ۳۹:۲ میں حکم۔ ہر مومن اس تک پہنچ سکتا ہے۔ ابلیس اس پر حملہ کر سکتا ہے۔</div>
+  </div>
+  <div class="dist-col dist-col-passive">
+    <div class="dist-label dist-label-passive en-blk">Passive Voice — Divine Selection</div>
+    <div class="dist-label dist-label-passive ur-blk">مجہول — الٰہی انتخاب</div>
+    <div class="dist-ar">الْمُخْلَصُون</div>
+    <div class="dist-grammar en-blk">Al-Mukhlasoon · Passive Participle · Ism Maf'ul</div>
+    <div class="dist-grammar ur-blk">المخلَصون · اسم مفعول</div>
+    <div class="dist-def en-blk">Those whom ALLAH HAS PURIFIED for Himself. The action belongs to Allah, not to them. They have been extracted and selected. Iblis explicitly exempts them: he cannot reach those Allah has already taken for Himself. This is divine selection — not earned, bestowed.</div>
+    <div class="dist-def-ur ur-blk">وہ جنہیں اللہ نے اپنے لیے پاک کیا ہے۔ فعل اللہ کا ہے، ان کا نہیں۔ ابلیس انہیں صریحاً مستثنیٰ کرتا ہے۔ یہ الٰہی انتخاب ہے — محنت سے نہیں ملتا، عطا ہوتا ہے۔</div>
+  </div>
+</div>
+
+<!-- IBLIS BANNER -->
+<div class="iblis-banner">
+  <div class="iblis-banner-label en-blk">Iblis's Own Testimony — Surah Sad 38:82-83</div>
+  <div class="iblis-banner-label ur-blk">ابلیس کی اپنی گواہی — سورۃ ص ۳۸:۸۲-۸۳</div>
+  <div class="iblis-banner-ar">قَالَ فَبِعِزَّتِكَ لَأُغْوِيَنَّهُمْ أَجْمَعِينَ ۝ إِلَّا عِبَادَكَ مِنْهُمُ الْمُخْلَصِينَ</div>
+  <div class="iblis-banner-tr en-blk">"He said: By Your might, I will surely mislead them all — except Your Mukhlaseen servants among them."</div>
+  <div class="iblis-banner-tr-ur ur-blk">«اس نے کہا: تیری عزت کی قسم، میں ان سب کو گمراہ کروں گا — سوائے ان میں سے تیرے مخلَص بندوں کے۔»</div>
+  <div class="iblis-banner-insight en-blk">The word Iblis uses is Al-Mukhlaseen — the passive form. He is not claiming he cannot mislead sincere people (Mukhliseen) — he can and does attack sincerity and introduce riya. What he is swearing he cannot do is reach those whom Allah has already extracted and purified for Himself. One vowel difference in the Quran encodes the limit of Iblis's power over human beings.</div>
+  <div class="iblis-banner-insight-ur ur-blk">ابلیس نے لفظ المخلَصین استعمال کیا — مجہول صیغہ۔ وہ یہ نہیں کہہ رہا کہ مخلصین (معروف) کو گمراہ نہیں کر سکتا — وہ ان پر حملہ کرتا ہے اور ریا داخل کرتا ہے۔ وہ قسم کھا رہا ہے کہ وہ ان تک نہیں پہنچ سکتا جنہیں اللہ نے پہلے ہی اپنے لیے نکال لیا ہے۔</div>
+  <div class="iblis-banner-ref">Surah Sad 38:82-83 · Revelation Order #38</div>
+</div>
+
+<!-- ROOT ANALYSIS -->
+<div class="root-analysis">
+  <div class="ra-label"><span class="en-blk">Root — خ ل ص</span><span class="ur-blk">جڑ — خ ل ص</span></div>
+  <div class="ra-root">خَلَصَ · إِخْلَاص · مُخْلِص · مُخْلَص · خَالِص · خَلَاص</div>
+  <div class="ra-letters">
+    <div class="ra-letter"><span class="ra-letter-ar">خ</span><span class="ra-letter-en">KH</span></div>
+    <div class="ra-letter"><span class="ra-letter-ar">ل</span><span class="ra-letter-en">L</span></div>
+    <div class="ra-letter"><span class="ra-letter-ar">ص</span><span class="ra-letter-en">S</span></div>
+  </div>
+  <div class="ra-meaning en-blk">KH-L-S carries the core meaning of becoming pure through separation — specifically being freed from mixture, extracted from impurity, or released from captivity. Khalasa means something became pure by being separated from what mixed with it. Ikhlas (the noun of the causative form) is the act of making something pure for a single purpose alone. Applied to worship: making one's act, intention, and heart free of any admixture — no desire for praise, no self-congratulation, no secondary motive. Khalas in Arabic also means salvation, release, escape — the root connects purity of worship directly to freedom and liberation.</div>
+  <div class="ra-meaning-ur ur-blk">خ-ل-ص کا بنیادی مطلب جدائی کے ذریعے خالص ہونا ہے — خاص طور پر آمیزش سے آزاد ہونا، ناپاکی سے نکالا جانا، یا قید سے رہائی۔ اخلاص (باب افعال کا مصدر) کسی چیز کو صرف ایک مقصد کے لیے خالص کرنا ہے۔ عبادت میں: اپنے عمل، نیت، اور دل کو ہر آمیزش سے پاک کرنا — تعریف کی خواہش نہیں، خود ستائی نہیں، ثانوی مقصد نہیں۔</div>
+  <div class="ra-forms">
+    <div class="ra-form"><div class="ra-form-ar">إِخْلَاص</div><div class="ra-form-en en-blk">Sincerity / purification</div><div class="ra-form-en ur-blk">اخلاص</div></div>
+    <div class="ra-form"><div class="ra-form-ar">مُخْلِص</div><div class="ra-form-en en-blk">One who is sincere (active)</div><div class="ra-form-en ur-blk">خالص کرنے والا</div></div>
+    <div class="ra-form"><div class="ra-form-ar">مُخْلَص</div><div class="ra-form-en en-blk">One purified by Allah (passive)</div><div class="ra-form-en ur-blk">اللہ کا پاک کیا ہوا</div></div>
+    <div class="ra-form"><div class="ra-form-ar">خَالِص</div><div class="ra-form-en en-blk">Pure, unmixed</div><div class="ra-form-en ur-blk">خالص، بے آمیز</div></div>
+    <div class="ra-form"><div class="ra-form-ar">خَلَاص</div><div class="ra-form-en en-blk">Salvation / release</div><div class="ra-form-en ur-blk">خلاصی، نجات</div></div>
+  </div>
+  <div class="ra-count en-blk">✦ KH-L-S and its forms appear 31 times in the Quran · The passive form (Mukhlasoon/Mukhlaseen) appears 8 times · The active form appears in commands directed at believers</div>
+  <div class="ra-count ur-blk">✦ خ-ل-ص اور اس کی شکلیں قرآن میں ۳۱ بار · مجہول صیغہ ۸ بار · معروف صیغہ مومنوں کو حکم کی صورت میں</div>
+</div>
+
+<!-- GRAMMAR COMPARISON -->
+<div class="grammar-box">
+  <div class="grammar-box-lbl en-blk">The One-Vowel Difference That Changes Everything</div>
+  <div class="grammar-box-lbl ur-blk">ایک حرکت کا فرق جو سب بدل دیتا ہے</div>
+  <div class="grammar-row">
+    <div class="gram-term">مُخْلِصِين</div>
+    <div>
+      <span class="gram-voice gram-voice-active en-blk">Active — Ism Fa'il</span>
+      <span class="gram-voice gram-voice-active ur-blk">معروف — اسم فاعل</span>
+      <div class="gram-def en-blk">The kasra under the lam makes it active: THEY are doing the purifying. Subject of the action. The effort, the struggle, the vigilance against riya — all theirs. This is what is commanded.</div>
+      <div class="gram-def-ur ur-blk">لام کے نیچے کسرہ اسے فاعل بناتا ہے: وہ خود خالص کر رہے ہیں۔ محنت، ریا سے جنگ — یہ سب ان کا ہے۔ یہی حکم ہے۔</div>
+    </div>
+  </div>
+  <div class="grammar-row">
+    <div class="gram-term">مُخْلَصِين</div>
+    <div>
+      <span class="gram-voice gram-voice-passive en-blk">Passive — Ism Maf'ul</span>
+      <span class="gram-voice gram-voice-passive ur-blk">مجہول — اسم مفعول</span>
+      <div class="gram-def en-blk">The fatha on the lam makes it passive: the action WAS DONE TO THEM. Allah purified them. They are the object, not the subject. This is beyond human effort — it is divine extraction. What Iblis swears he cannot reach.</div>
+      <div class="gram-def-ur ur-blk">لام پر فتحہ اسے مفعول بناتا ہے: فعل ان پر ہوا۔ اللہ نے انہیں پاک کیا۔ یہ انسانی کوشش سے پرے — الٰہی انتخاب ہے۔ جس تک ابلیس نہیں پہنچ سکتا۔</div>
+    </div>
+  </div>
+</div>
+
+<!-- AYAT SECTION -->
+<div class="sec-lbl"><span class="en-inl">The Ayat — In Revelation Order</span><span class="ur-inl">آیات — ترتیب نزولی میں</span></div>
+
+<!-- AYAH 1: 15:40 -->
+<div class="era-divider">
+  <div class="era-dot era-middle"></div>
+  <div class="era-label en-blk">Middle Makki · Al-Hijr 15:40 — Iblis's First Exemption (Passive Form)</div>
+  <div class="era-label-ur ur-blk">درمیانی مکی · الحجر ۱۵:۴۰ — ابلیس کا پہلا استثناء (مجہول صیغہ)</div>
+  <div class="era-line"></div>
+</div>
+<div class="ayah-card" id="mk-1540">
+  <div class="ayah-card-hdr" onclick="toggleCard('mk-1540')">
+    <span class="rev-badge rev-middle en-blk">Rev. #54</span><span class="rev-badge rev-middle ur-blk">ترتیب #54</span>
+    <span class="card-ref">Al-Hijr 15:40</span>
+    <span class="card-preview">إِلَّا عِبَادَكَ مِنْهُمُ الْمُخْلَصِينَ</span>
+    <span class="card-chevron">›</span>
+  </div>
+  <div class="card-body">
+    <div class="ayah-arabic">إِلَّا عِبَادَكَ مِنْهُمُ الْمُخْلَصِينَ</div>
+    <div class="ayah-tr-en en-blk">"Except Your Mukhlaseen servants among them."</div>
+    <div class="ayah-tr-ur ur-blk">«سوائے ان میں سے تیرے مخلَص بندوں کے۔»</div>
+    <div class="ayah-ref-line">Surah Al-Hijr 15:40 · Part of Iblis's statement in 15:39-40</div>
+    <div class="ctx-box">
+      <div class="ctx-lbl en-blk">Context — Iblis's Declaration After Being Expelled</div>
+      <div class="ctx-txt en-blk">This is Iblis speaking after Allah tells him he is rejected (15:34) and cursed until the Day of Recompense (15:35). Iblis requests respite until the Day of Resurrection (15:36), is granted it (15:37-38), and then declares his mission: "I will surely beautify for them on earth and I will mislead them all — except Your Mukhlaseen servants." The passive form here (al-Mukhlaseen — with fatha on the lam) appears in Surah Al-Hijr. This is the first instance in Quran text. Iblis does not say "the sincere ones" — he says "those You have purified." The distinction is precise: he can corrupt sincerity, he cannot undo divine purification.</div>
+      <div class="ctx-txt-ur ur-blk">ابلیس اللہ کے اسے مردود (۱۵:۳۴) اور ملعون (۱۵:۳۵) قرار دینے کے بعد بول رہا ہے۔ مہلت مانگتا ہے (۱۵:۳۶)، ملتی ہے (۱۵:۳۷-۳۸)، پھر اعلان: «میں زمین پر سجا کر سب کو گمراہ کروں گا — سوائے تیرے مخلَص بندوں کے۔» مجہول صیغہ: وہ «اخلاص والے» نہیں کہتا — «تیرے پاک کیے ہوئے» کہتا ہے۔</div>
+    </div>
+    <div class="uniq-box">
+      <div class="uniq-lbl en-blk">What This Ayah Uniquely Establishes</div>
+      <div class="uniq-txt en-blk">This is the first Quranic establishment that there exists a category of human being beyond Iblis's reach. Not because they are stronger or more disciplined — but because Allah has already acted on them. The passive voice is the entire argument. If it were "the sincere ones" (Mukhliseen — active), Iblis could claim to be able to corrupt their sincerity. By using the passive (Mukhlaseen), the Quran encodes that this is not about human achievement but divine selection. Iblis cannot fight what Allah has already completed.</div>
+      <div class="uniq-txt-ur ur-blk">یہ قرآن کا پہلا اعلان ہے کہ ایک ایسی انسانی قسم موجود ہے جو ابلیس کی پہنچ سے باہر ہے — ان کی طاقت یا نظم کی وجہ سے نہیں — بلکہ اس لیے کہ اللہ نے ان پر پہلے ہی فعل کر دیا ہے۔ مجہول صیغہ پوری دلیل ہے۔</div>
+    </div>
+    <div class="notes-sec">
+      <div class="notes-hdr"><span class="en-blk">Personal Notes</span><span class="ur-blk">ذاتی نوٹس</span></div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--teal)"></div><span class="en-blk">Before studying this: what did you understand "Mukhlaseen" to mean? Did you know there were two different words?</span><span class="ur-blk">اس سے پہلے: «مخلصین» سے آپ کا کیا مطلب تھا؟</span><span class="nsv" id="sv-mk1540a"></span></div>
+        <textarea class="note-ta" id="note-mk1540a" placeholder="Reflect on what you understood before this distinction was clear..." oninput="autoSave('mk1540a',this.value)"></textarea>
+      </div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--gold)"></div><span class="en-blk">After studying: Iblis himself confirms there is a category beyond his reach. What does this mean for how you understand the goal of spiritual practice?</span><span class="ur-blk">بعد میں: ابلیس نے خود تصدیق کی۔ روحانی عمل کے ہدف کے بارے میں آپ کی سمجھ کیسے بدلی؟</span><span class="nsv" id="sv-mk1540b"></span></div>
+        <textarea class="note-ta" id="note-mk1540b" placeholder="The goal is not just sincerity (active) — there is a higher station that is Allah's to give, not ours to achieve..." oninput="autoSave('mk1540b',this.value)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- AYAH 2: 7:29 -->
+<div class="era-divider">
+  <div class="era-dot era-middle"></div>
+  <div class="era-label en-blk">Middle Makki · Al-A'raf 7:29 — The Command to Become Mukhliseen (Active)</div>
+  <div class="era-label-ur ur-blk">درمیانی مکی · الاعراف ۷:۲۹ — مخلصین بننے کا حکم (معروف)</div>
+  <div class="era-line"></div>
+</div>
+<div class="ayah-card" id="mk-729">
+  <div class="ayah-card-hdr" onclick="toggleCard('mk-729')">
+    <span class="rev-badge rev-middle en-blk">Rev. #39</span><span class="rev-badge rev-middle ur-blk">ترتیب #39</span>
+    <span class="card-ref">Al-A'raf 7:29</span>
+    <span class="card-preview">وَادْعُوهُ مُخْلِصِينَ لَهُ الدِّينَ</span>
+    <span class="card-chevron">›</span>
+  </div>
+  <div class="card-body">
+    <div class="ayah-arabic">قُلْ أَمَرَ رَبِّي بِالْقِسْطِ ۖ وَأَقِيمُوا وُجُوهَكُمْ عِندَ كُلِّ مَسْجِدٍ وَادْعُوهُ مُخْلِصِينَ لَهُ الدِّينَ ۚ كَمَا بَدَأَكُمْ تَعُودُونَ</div>
+    <div class="ayah-tr-en en-blk">"Say: My Lord has commanded justice. And establish your faces at every place of worship and call upon Him making the deen sincerely His (Mukhliseen lahu al-deen). As He originated you, so you will return."</div>
+    <div class="ayah-tr-ur ur-blk">«کہو: میرے رب نے عدل کا حکم دیا۔ ہر مسجد میں اپنے چہرے قائم کرو اور اسے پکارو دین کو اس کے لیے خالص کرتے ہوئے۔ جیسے اس نے تمہیں پیدا کیا، ویسے ہی لوٹو گے۔»</div>
+    <div class="ayah-ref-line">Surah Al-A'raf 7:29</div>
+    <div class="ctx-box">
+      <div class="ctx-lbl en-blk">Context — The Command Paired With Justice and Return</div>
+      <div class="ctx-txt en-blk">The sequence here is revealing. Allah commands: (1) establish justice (Qist), (2) maintain correct orientation in worship (Aqimu wujuhakum), (3) call upon Him as Mukhliseen (active — you making it sincere). The command uses the active participial form: Mukhliseen lahu al-deen — while you are actively purifying the deen for Him alone. This is the commanded station — the one within human effort. It ends with a reminder of origin and return — grounding ikhlas in the awareness of accountability.</div>
+      <div class="ctx-txt-ur ur-blk">ترتیب: (۱) عدل قائم کرو، (۲) قبلہ درست رکھو، (۳) مخلصاً پکارو۔ «مخلصین لہ الدین» — معروف صیغہ: تم خود دین کو اس کے لیے خالص کر رہے ہو۔ یہ انسانی کوشش کا درجہ ہے جس کا حکم دیا گیا۔</div>
+    </div>
+    <div class="root-box">
+      <div class="root-lbl en-blk">The Active Construction — Mukhliseen Lahu Al-Deen</div>
+      <span class="root-wd">مُخْلِصِينَ لَهُ الدِّينَ</span>
+      <div class="root-mn en-blk">The phrase is a hal (circumstantial clause) — describing the state you should be in while calling on Allah. Not "be sincere" as a general instruction, but "while you are actively purifying your worship for Him alone." The lahu (for Him) specifies the direction of exclusivity — no share for anyone or anything else. Al-deen here means the entire orientation of submission, not merely prayer. The construction emphasizes the ongoing, active nature of ikhlas as something you are continuously doing, not a state you arrive at once.</div>
+      <div class="root-mn-ur ur-blk">«مخلصین لہ الدین» حال ہے — جب پکارو تو اس حال میں ہو کہ دین کو اس کے لیے خالص کر رہے ہو۔ لہ (اس کے لیے) خصوصیت کی سمت بتاتا ہے — کسی اور کا حصہ نہیں۔ اخلاص ایک بار پہنچنے کی حالت نہیں — مسلسل عمل ہے۔</div>
+    </div>
+    <div class="notes-sec">
+      <div class="notes-hdr"><span class="en-blk">Personal Notes</span><span class="ur-blk">ذاتی نوٹس</span></div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--teal)"></div><span class="en-blk">The command is active and ongoing — not a one-time achievement. What does it mean to continuously purify your worship?</span><span class="ur-blk">حکم مسلسل ہے — ایک بار نہیں۔ عبادت کو مسلسل خالص کرنے کا کیا مطلب ہے؟</span><span class="nsv" id="sv-mk729a"></span></div>
+        <textarea class="note-ta" id="note-mk729a" placeholder="Think of a recent act of worship — what secondary motives, if any, were present? How does the active ongoing nature of this command change how you approach purification?" oninput="autoSave('mk729a',this.value)"></textarea>
+      </div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--gold)"></div><span class="en-blk">The ayah ends: "As He originated you, so you will return." How does awareness of return affect your ikhlas?</span><span class="ur-blk">آیت ختم ہوتی ہے: «جیسے پیدا کیا، ویسے لوٹو گے۔» واپسی کا شعور اخلاص پر کیا اثر ڈالتا ہے؟</span><span class="nsv" id="sv-mk729b"></span></div>
+        <textarea class="note-ta" id="note-mk729b" placeholder="The reminder of return is placed right after the command for ikhlas — deliberate juxtaposition..." oninput="autoSave('mk729b',this.value)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- AYAH 3: 38:82-83 -->
+<div class="era-divider">
+  <div class="era-dot era-middle"></div>
+  <div class="era-label en-blk">Middle Makki · Sad 38:82-83 — Iblis's Sworn Statement (The Clearest Instance)</div>
+  <div class="era-label-ur ur-blk">درمیانی مکی · ص ۳۸:۸۲-۸۳ — ابلیس کا حلفیہ بیان (سب سے واضح)</div>
+  <div class="era-line"></div>
+</div>
+<div class="ayah-card" id="mk-3883">
+  <div class="ayah-card-hdr" onclick="toggleCard('mk-3883')">
+    <span class="rev-badge rev-middle en-blk">Rev. #38</span><span class="rev-badge rev-middle ur-blk">ترتیب #38</span>
+    <span class="card-ref">Sad 38:82-83</span>
+    <span class="card-preview">فَبِعِزَّتِكَ لَأُغْوِيَنَّهُمْ أَجْمَعِينَ إِلَّا عِبَادَكَ مِنْهُمُ الْمُخْلَصِينَ</span>
+    <span class="card-chevron">›</span>
+  </div>
+  <div class="card-body">
+    <div class="ayah-arabic">قَالَ فَبِعِزَّتِكَ لَأُغْوِيَنَّهُمْ أَجْمَعِينَ ۝ إِلَّا عِبَادَكَ مِنْهُمُ الْمُخْلَصِينَ</div>
+    <div class="ayah-tr-en en-blk">"He said: By Your might, I will surely mislead them all — except Your Mukhlaseen servants among them."</div>
+    <div class="ayah-tr-ur ur-blk">«اس نے کہا: تیری عزت کی قسم، میں ان سب کو گمراہ کروں گا — سوائے ان میں سے تیرے مخلَص بندوں کے۔»</div>
+    <div class="ayah-ref-line">Surah Sad 38:82-83 · The full Iblis narrative is 38:71-85</div>
+    <div class="ctx-box">
+      <div class="ctx-lbl en-blk">Context — Iblis Swears By Allah's Own Might</div>
+      <div class="ctx-txt en-blk">This is the most complete version of Iblis's declaration. He swears by Allah's Izzah (might, glory) — not by his own power, which is theologically significant: even in his rebellion Iblis acknowledges only Allah's power is absolute. His oath is total: "I will mislead them ALL." Then the exemption: "EXCEPT Your Mukhlaseen servants." The word ajma'een (all, without exception) makes the exemption starker — Iblis's universal claim has only one exception, and that exception is defined by the passive: those whom Allah has already purified. Note: Iblis is not saying "I am unable to mislead them" — he is saying they are already extracted from the category he can work within. They have been removed from his domain by divine act.</div>
+      <div class="ctx-txt-ur ur-blk">ابلیس اللہ کی عزت کی قسم کھاتا ہے — اپنی طاقت کی نہیں۔ یہ کلامی طور پر اہم ہے: بغاوت میں بھی اللہ ہی کی قدرت مطلق مانتا ہے۔ قسم کل: «ان سب کو گمراہ کروں گا۔» پھر استثناء: «سوائے تیرے مخلَص بندوں کے۔» «أجمعین» (بغیر استثناء) سے استثناء اور نمایاں ہو جاتا ہے۔</div>
+    </div>
+    <div class="uniq-box">
+      <div class="uniq-lbl en-blk">What This Ayah Uniquely Establishes</div>
+      <div class="uniq-txt en-blk">This is the definitive statement. Iblis swears by Allah's own might — the most solemn oath possible — that he will mislead everyone. And his one acknowledged exception is the Mukhlaseen (passive). This is the Quran's clearest theological statement that divine purification creates a category beyond Iblis's domain. Ibn al-Qayyim in Madarij al-Salikin uses this ayah to establish that the station of Mukhlaseen is not earned by the servant's effort but by Allah's choosing — and that the proper response of a believer is not to try to "become Mukhlaseen" as a goal, but to pursue ikhlas (active sincerity) completely, leaving the passive station to Allah's decision.</div>
+      <div class="uniq-txt-ur ur-blk">یہ حتمی بیان ہے۔ ابلیس اللہ کی عزت کی قسم کھاتا ہے — سب سے سنگین قسم — کہ سب کو گمراہ کرے گا۔ اور اس کا واحد استثناء مخلَصون (مجہول) ہے۔ ابن القیم (مدارج السالکین) اس آیت سے قائم کرتے ہیں: مخلَصین کا درجہ بندے کی کوشش سے نہیں — اللہ کے انتخاب سے ملتا ہے۔</div>
+    </div>
+    <div class="notes-sec">
+      <div class="notes-hdr"><span class="en-blk">Personal Notes</span><span class="ur-blk">ذاتی نوٹس</span></div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--teal)"></div><span class="en-blk">Iblis swears by Allah's own might that he will mislead everyone — and his only exception is those Allah has purified. What does this tell you about the nature of spiritual protection?</span><span class="ur-blk">ابلیس قسم کھاتا ہے — اور واحد استثناء اللہ کے پاک کیے ہوئے ہیں۔ روحانی حفاظت کی نوعیت کے بارے میں کیا سمجھ آتی ہے؟</span><span class="nsv" id="sv-mk3883a"></span></div>
+        <textarea class="note-ta" id="note-mk3883a" placeholder="The protection is not from our sincerity alone — there is a higher protection that is Allah's to give..." oninput="autoSave('mk3883a',this.value)"></textarea>
+      </div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--gold)"></div><span class="en-blk">Iblis swears by Allah's Izzah — not his own power. What is the theological weight of a rebel swearing by the authority of the one he is rebelling against?</span><span class="ur-blk">ابلیس اللہ کی عزت کی قسم کھاتا ہے۔ باغی کا اسی ہستی کی قسم جس سے بغاوت — اس کا کلامی وزن کیا ہے؟</span><span class="nsv" id="sv-mk3883b"></span></div>
+        <textarea class="note-ta" id="note-mk3883b" placeholder="Even in rebellion Iblis acknowledges only Allah's power is real — what does this mean for the nature of Iblis's challenge to human beings?" oninput="autoSave('mk3883b',this.value)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- AYAH 4: 39:2-3 -->
+<div class="era-divider">
+  <div class="era-dot era-late"></div>
+  <div class="era-label en-blk">Late Makki · Al-Zumar 39:2-3 — The Command With Warning Against Riya</div>
+  <div class="era-label-ur ur-blk">اواخر مکی · الزمر ۳۹:۲-۳ — حکم اور ریا کے خلاف تنبیہ</div>
+  <div class="era-line"></div>
+</div>
+<div class="ayah-card" id="mk-392">
+  <div class="ayah-card-hdr" onclick="toggleCard('mk-392')">
+    <span class="rev-badge rev-late en-blk">Rev. #59</span><span class="rev-badge rev-late ur-blk">ترتیب #59</span>
+    <span class="card-ref">Al-Zumar 39:2-3</span>
+    <span class="card-preview">إِنَّا أَنزَلْنَا إِلَيْكَ الْكِتَابَ بِالْحَقِّ فَاعْبُدِ اللَّهَ مُخْلِصًا لَّهُ الدِّينَ</span>
+    <span class="card-chevron">›</span>
+  </div>
+  <div class="card-body">
+    <div class="ayah-arabic">إِنَّا أَنزَلْنَا إِلَيْكَ الْكِتَابَ بِالْحَقِّ فَاعْبُدِ اللَّهَ مُخْلِصًا لَّهُ الدِّينَ ۝ أَلَا لِلَّهِ الدِّينُ الْخَالِصُ</div>
+    <div class="ayah-tr-en en-blk">"Indeed We have sent down to you the Book with truth — so worship Allah, making the deen sincerely His (Mukhlisan lahu al-deen). Surely, the pure deen belongs to Allah alone."</div>
+    <div class="ayah-tr-ur ur-blk">«بے شک ہم نے آپ کی طرف کتاب حق کے ساتھ اتاری — پس اللہ کی عبادت کرو دین کو اس کے لیے خالص کرتے ہوئے۔ آگاہ رہو — دینِ خالص اللہ ہی کا ہے۔»</div>
+    <div class="ayah-ref-line">Surah Al-Zumar 39:2-3 · Opening address to the Prophet ﷺ and through him to all believers</div>
+    <div class="ctx-box">
+      <div class="ctx-lbl en-blk">Context — The Book Was Sent For This Purpose</div>
+      <div class="ctx-txt en-blk">The opening of Surah Al-Zumar connects the revelation of the Quran directly to the command of ikhlas: We sent the Book — therefore worship with ikhlas. The implication is that the entire Quran is in service of producing Mukhliseen in their worship. The phrase "Mukhlisan lahu al-deen" uses the singular active participle (Mukhlisan — one who purifies), directed at the Prophet ﷺ as the model for all believers. Then the doctrinal statement: "Ala lillahi al-deen al-khalis" — the pure deen belongs to Allah alone — the absolute, unconditional ownership of exclusive worship. This is the theological foundation for why riya is so destructive: it is claiming a share in what belongs exclusively to Allah.</div>
+      <div class="ctx-txt-ur ur-blk">سورۃ الزمر کا آغاز قرآن کے نزول کو اخلاص کے حکم سے براہِ راست جوڑتا ہے: کتاب اتاری — اس لیے اخلاص سے عبادت کرو۔ «ألا للہ الدین الخالص» — دینِ خالص صرف اللہ کا ہے۔ ریا اتنی تباہ کن کیوں؟ کیونکہ یہ اس چیز میں حصہ ڈالنا ہے جو صرف اللہ کی ہے۔</div>
+    </div>
+    <div class="uniq-box">
+      <div class="uniq-lbl en-blk">What This Ayah Uniquely Establishes</div>
+      <div class="uniq-txt en-blk">"Al-deen al-khalis" — the pure deen — belongs to Allah alone (Ala lillahi). This transforms ikhlas from a personal virtue into a matter of divine right. Riya is not merely bad spiritual hygiene — it is a violation of Allah's exclusive ownership. The Quran is saying: the pure, unmixed worship is His property. To introduce a secondary motive into worship is to direct what is His property toward someone other than Him. This is why Al-Muhasibi in Kitab al-Ri'aya called riya the hidden shirk — it involves directing toward creation what belongs exclusively to the Creator.</div>
+      <div class="uniq-txt-ur ur-blk">«الدین الخالص للہ» — اخلاص کو ذاتی فضیلت سے الٰہی حق کا مسئلہ بنا دیتا ہے۔ ریا صرف روحانی کمزوری نہیں — یہ اللہ کی ملکیت پر تجاوز ہے۔ اسی لیے المحاسبی نے ریا کو خفی شرک کہا — مخلوق کی طرف وہ موڑنا جو صرف خالق کا ہے۔</div>
+    </div>
+    <div class="notes-sec">
+      <div class="notes-hdr"><span class="en-blk">Personal Notes</span><span class="ur-blk">ذاتی نوٹس</span></div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--teal)"></div><span class="en-blk">The Quran was sent so that we would worship with ikhlas. What does it mean that the entire revelation is oriented toward producing this quality?</span><span class="ur-blk">قرآن اس لیے اتارا کہ اخلاص سے عبادت کریں۔ پوری وحی اس صفت کے لیے — اس کا کیا مطلب ہے؟</span><span class="nsv" id="sv-mk392a"></span></div>
+        <textarea class="note-ta" id="note-mk392a" placeholder="If the Quran was sent specifically to produce Mukhliseen — how should this change how you read the Quran?" oninput="autoSave('mk392a',this.value)"></textarea>
+      </div>
+      <div class="note-f">
+        <div class="note-lbl"><div class="nd" style="background:var(--gold)"></div><span class="en-blk">Riya is directing toward creation what belongs exclusively to Allah. Does understanding ikhlas as a matter of divine right (not just personal virtue) change how you feel about the struggle against riya?</span><span class="ur-blk">ریا: مخلوق کی طرف وہ موڑنا جو صرف اللہ کا۔ اخلاص کو الٰہی حق سمجھنا ریا کے خلاف جنگ کو کیسے بدلتا ہے؟</span><span class="nsv" id="sv-mk392b"></span></div>
+        <textarea class="note-ta" id="note-mk392b" placeholder="There is a difference between 'I should be more sincere' (self-improvement framing) and 'this belongs to Allah' (divine right framing)..." oninput="autoSave('mk392b',this.value)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STANDALONE HADITH -->
+<div class="sec-lbl"><span class="en-inl">Authenticated Sunnah on Ikhlas</span><span class="ur-inl">اخلاص پر مستند سنت</span></div>
+
+<div class="sh-card">
+  <div class="sh-lbl en-blk">✦ The Foundation — Actions Are By Intentions</div>
+  <div class="sh-lbl ur-blk">✦ بنیاد — اعمال نیتوں سے ہیں</div>
+  <div class="sh-ar">إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ، وَإِنَّمَا لِكُلِّ امْرِئٍ مَا نَوَى</div>
+  <div class="sh-en en-blk">"Actions are only by intentions, and every person will have only what they intended."</div>
+  <div class="sh-ur ur-blk">«اعمال نیتوں ہی سے ہیں، اور ہر شخص کو وہی ملے گا جو اس نے نیت کی۔»</div>
+  <div class="sh-src">Narrator: Umar ibn al-Khattab (RA) · Sahih al-Bukhari, Hadith 1 · Sahih Muslim, Hadith 1907 <span class="grade g-sahih">✦ Sahih</span></div>
+</div>
+
+<div class="sh-card">
+  <div class="sh-lbl en-blk">◈ Ikhlas as the Sword Against Shaytan</div>
+  <div class="sh-lbl ur-blk">◈ اخلاص — شیطان کے خلاف تلوار</div>
+  <div class="sh-ar">إِنَّ الشَّيْطَانَ قَالَ وَعِزَّتِكَ لَا أَبْرَحُ أُغْوِي عِبَادَكَ مَا دَامَتْ أَرْوَاحُهُمْ فِي أَجْسَادِهِمْ، فَقَالَ الرَّبُّ: وَعِزَّتِي وَجَلَالِي لَا أَزَالُ أَغْفِرُ لَهُمْ مَا اسْتَغْفَرُونِي</div>
+  <div class="sh-en en-blk">"Shaytan said: By Your might, I will not cease to mislead Your servants as long as their souls are in their bodies. The Lord said: By My might and majesty, I will not cease to forgive them as long as they seek My forgiveness."</div>
+  <div class="sh-ur ur-blk">«شیطان نے کہا: تیری عزت کی قسم، میں تیرے بندوں کو گمراہ کرتا رہوں گا جب تک ان میں روح ہے۔ رب نے فرمایا: میری عزت و جلال کی قسم، میں انہیں بخشتا رہوں گا جب تک وہ مجھ سے مغفرت مانگتے رہیں۔»</div>
+  <div class="sh-src">Narrator: Abu Sa'id al-Khudri (RA) · Musnad Ahmad, Hadith 11237 · Graded Hasan by al-Arna'ut <span class="grade g-hasan">◈ Hasan</span></div>
+</div>
+
+<div class="sh-card">
+  <div class="sh-lbl en-blk">✦ The Reward of Pure Ikhlas — On the Day of Judgment</div>
+  <div class="sh-lbl ur-blk">✦ خالص اخلاص کا اجر — قیامت کے دن</div>
+  <div class="sh-ar">أَسْعَدُ النَّاسِ بِشَفَاعَتِي يَوْمَ الْقِيَامَةِ مَنْ قَالَ لَا إِلَهَ إِلَّا اللَّهُ خَالِصًا مِنْ قَلْبِهِ</div>
+  <div class="sh-en en-blk">"The most fortunate of people to receive my intercession on the Day of Judgment is the one who said La ilaha illa Allah sincerely (khalisan) from his heart."</div>
+  <div class="sh-ur ur-blk">«قیامت کے دن میری شفاعت سے سب سے زیادہ خوش نصیب وہ شخص ہوگا جس نے لا إله إلا الله اپنے دل سے خالصاً کہا۔»</div>
+  <div class="sh-src">Narrator: Abu Hurayrah (RA) · Sahih al-Bukhari, Hadith 99 <span class="grade g-sahih">✦ Sahih</span></div>
+</div>
+
+<!-- SCHOLARS -->
+<div class="sec-lbl"><span class="en-inl">Scholar Perspectives</span><span class="ur-inl">علماء کے نظریات</span></div>
+<div class="scholars-lbl en-blk">Three Classical Authorities on Ikhlas and the Active/Passive Distinction</div>
+<div class="scholars-lbl ur-blk">اخلاص اور معروف/مجہول فرق پر تین کلاسیکی علماء</div>
+
+<div class="scholar-card" id="sc-muhasibi">
+  <div class="sc-hdr" onclick="toggleScholar('sc-muhasibi')">
+    <div class="sc-badge">م</div>
+    <div>
+      <div class="sc-name">Al-Harith Al-Muhasibi (d. 243H)</div>
+      <div class="sc-text en-blk">Kitab al-Ri'aya li-Huquq Allah · The Enemy of Ikhlas</div>
+      <div class="sc-text ur-blk">کتاب الرعایہ · اخلاص کا دشمن</div>
+    </div>
+    <div class="sc-chev">›</div>
+  </div>
+  <div class="sc-body">
+    <div class="sc-quote en-blk">Al-Muhasibi defines riya as "seeking the position in people's hearts through acts of worship that properly belong to Allah alone." He identifies it as the primary corruptor of the Mukhliseen — those working sincerely — not because sincerity is weak but because riya is subtle and self-concealing. The Mukhliseen must continuously examine their states.</div>
+    <div class="sc-quote-ur ur-blk">المحاسبی ریا کی تعریف: «لوگوں کے دلوں میں وہ مقام ڈھونڈنا جو صرف اللہ کے اعمال سے ملتا ہے۔» یہ مخلصین (معروف) کا بنیادی خراب کرنے والا ہے — اس لیے نہیں کہ اخلاص کمزور ہے بلکہ اس لیے کہ ریا پوشیدہ اور خود چھپانے والی ہے۔</div>
+    <div class="sc-analysis en-blk">Al-Muhasibi's contribution is the practical: he provides in Kitab al-Ri'aya a methodology of self-examination (muhasabah) to detect riya before it takes root. His framework: riya enters not in the act but in the attention to others while performing the act. The Mukhliseen's protection is not to avoid people but to practice muhasabah so consistently that riya is detected the moment it arises. This is the active work of maintaining the Mukhliseen station — knowing that the Mukhlaseen station is beyond this effort entirely.</div>
+    <div class="sc-analysis-ur ur-blk">المحاسبی کا حصہ عملی ہے: کتاب الرعایہ میں محاسبہ کا طریقہ تاکہ ریا جڑ پکڑنے سے پہلے پکڑی جائے۔ ریا عمل میں نہیں آتی — دوسروں کی طرف توجہ میں آتی ہے جب عمل ہو رہا ہو۔ مخلصین کی حفاظت: مسلسل محاسبہ تاکہ ریا ابھرتے ہی پکڑی جائے۔</div>
+    <div class="sc-source">Al-Muhasibi · Kitab al-Ri'aya li-Huquq Allah · Chapter on Riya and its Categories</div>
+  </div>
+</div>
+
+<div class="scholar-card" id="sc-ghazali">
+  <div class="sc-hdr" onclick="toggleScholar('sc-ghazali')">
+    <div class="sc-badge">غ</div>
+    <div>
+      <div class="sc-name">Imam Al-Ghazali (d. 505H)</div>
+      <div class="sc-text en-blk">Ihya Ulum al-Deen · Book of Intention, Sincerity, and Truthfulness</div>
+      <div class="sc-text ur-blk">احیاء علوم الدین · نیت، اخلاص اور صدق کی کتاب</div>
+    </div>
+    <div class="sc-chev">›</div>
+  </div>
+  <div class="sc-body">
+    <div class="sc-quote en-blk">Al-Ghazali in the Ihya distinguishes three levels of ikhlas. The first: that the act is done for Allah with no admixture of self-interest. The second: that the servant does not observe himself doing the act — he is absorbed in Allah without awareness of his own state. The third: that the servant does not seek any recompense from Allah either — not even paradise. This third level approaches the passive station.</div>
+    <div class="sc-quote-ur ur-blk">الغزالی احیاء میں اخلاص کی تین سطحیں: (۱) عمل اللہ کے لیے، خود غرضی نہیں۔ (۲) بندہ خود کو عمل کرتے نہیں دیکھتا — اللہ میں مستغرق، اپنی حالت سے بے خبر۔ (۳) بندہ اللہ سے بھی اجر نہیں مانگتا — جنت بھی نہیں۔ تیسری سطح مجہول درجے کے قریب ہے۔</div>
+    <div class="sc-analysis en-blk">Al-Ghazali's developmental framework is crucial: he describes the progression from Mukhliseen (the effort-based station) toward the Mukhlaseen station as a direction, not a destination a servant reaches by effort. The servant can pursue ikhlas through all three levels of his framework — but the passive station (Mukhlaseen) is Allah's bestowal, not the servant's achievement. Al-Ghazali's entire Ihya programme can be understood as the clearing of the inner architecture to make the servant worthy of that bestowal — not to achieve it by their own hand.</div>
+    <div class="sc-analysis-ur ur-blk">الغزالی کا ترقیاتی خاکہ اہم: مخلصین (کوشش کا درجہ) سے مخلَصون کی طرف ایک سمت ہے، منزل نہیں جو بندہ خود پہنچے۔ بندہ تینوں سطحوں سے گزر سکتا ہے — لیکن مجہول درجہ اللہ کی عطا ہے، بندے کی کمائی نہیں۔ پوری احیاء: باطنی معمار کی صفائی تاکہ بندہ اس عطا کا اہل ہو۔</div>
+    <div class="sc-source">Al-Ghazali · Ihya Ulum al-Deen · Kitab al-Niyyah wal-Ikhlas wal-Sidq · Quarter of Acts of Worship</div>
+  </div>
+</div>
+
+<div class="scholar-card" id="sc-ibnqayyim">
+  <div class="sc-hdr" onclick="toggleScholar('sc-ibnqayyim')">
+    <div class="sc-badge">ق</div>
+    <div>
+      <div class="sc-name">Ibn al-Qayyim al-Jawziyyah (d. 751H)</div>
+      <div class="sc-text en-blk">Madarij al-Salikin · Station of Ikhlas · Why the Passive Is Unreachable by Iblis</div>
+      <div class="sc-text ur-blk">مدارج السالکین · اخلاص کا مقام</div>
+    </div>
+    <div class="sc-chev">›</div>
+  </div>
+  <div class="sc-body">
+    <div class="sc-quote en-blk">Ibn al-Qayyim in Madarij al-Salikin addresses the passive form directly. He establishes that the Mukhlaseen (passive) are those whom Allah has specifically selected and extracted for Himself — using the Quranic language of ikhtisas (special selection). He notes that Iblis's own oath in 38:83 confirms this is not a human achievement but a divine gift: "By Your might" — Iblis swears by Allah's power, not his own inability. The exemption is not because these servants are stronger — it is because Allah has already acted on them in a way that places them outside Iblis's domain.</div>
+    <div class="sc-quote-ur ur-blk">ابن القیم مدارج میں مجہول صیغے کو براہِ راست زیرِ بحث لاتے ہیں۔ مخلَصون وہ ہیں جنہیں اللہ نے اپنے لیے خصوصی طور پر چنا — قرآنی اصطلاح اختصاص۔ ابلیس کی قسم «بعزتک» — اپنی عاجزی نہیں، اللہ کی قدرت۔ یہ بندوں کی طاقت نہیں — اللہ نے ان پر پہلے ہی فعل کیا۔</div>
+    <div class="sc-analysis en-blk">Ibn al-Qayyim's practical conclusion: the believer should not attempt to "become Mukhlaseen" as a goal — this introduces a subtle form of spiritual ambition that itself requires ikhlas. The correct orientation: pursue ikhlas (the active Mukhliseen station) with every capacity you have, purify every act, fight riya in every form, and leave the passive station entirely to Allah's decision. The moment you begin working toward the Mukhlaseen station as your personal achievement, you have reintroduced the self into what should be pure for Allah. This is one of the subtler paradoxes of the spiritual path.</div>
+    <div class="sc-analysis-ur ur-blk">ابن القیم کا عملی نتیجہ: «مخلَصین بننا» ہدف نہ بنایا جائے — یہ خود روحانی خودی ہے جس کے لیے بھی اخلاص چاہیے۔ درست رخ: اخلاص (معروف) کو پوری قوت سے لازم پکڑو، ریا سے لڑو، مجہول درجہ اللہ پر چھوڑ دو۔ جیسے ہی مخلَصین بننا ذاتی کامیابی بن جائے — نفس واپس آ گیا جسے خالص ہونا تھا۔</div>
+    <div class="sc-source">Ibn al-Qayyim · Madarij al-Salikin · Manzilat al-Ikhlas · Vol. 2</div>
+  </div>
+</div>
+
+<!-- SYNTHESIS NOTE -->
+<div class="sec-lbl"><span class="en-inl">Personal Synthesis</span><span class="ur-inl">ذاتی خلاصہ</span></div>
+<div class="synth-box">
+  <div class="notes-hdr"><span class="en-blk">Personal Synthesis — Al-Mukhlisoon and Al-Mukhlasoon</span><span class="ur-blk">ذاتی خلاصہ — المخلصون اور المخلَصون</span></div>
+  <div class="note-f">
+    <div class="note-lbl"><div class="nd" style="background:var(--gold)"></div><span class="en-blk">Ibn al-Qayyim's paradox: do not try to become Mukhlaseen — pursue ikhlas completely and leave the passive station to Allah. What does this reorientation change in how you approach your worship and spiritual practice?</span><span class="ur-blk">ابن القیم کا تضاد: مخلَصین بننے کی کوشش مت کرو — اخلاص کو مکمل اپناؤ اور مجہول درجہ اللہ پر چھوڑو۔ یہ تبدیلی عبادت کے طریقے کو کیسے بدلتی ہے؟</span><span class="nsv" id="sv-synth-mk"></span></div>
+    <textarea class="note-ta" id="note-synth-mk" style="min-height:100px" placeholder="Consider: are you working toward the active station (ikhlas in each act — which is commanded and within your effort) or trying to achieve the passive station (which is Allah's to give, not yours to reach)? What is the practical difference?" oninput="autoSave('synth-mk',this.value)"></textarea>
+  </div>
+</div>
+
+<!-- FILE NAVIGATION -->
+<div class="sec-lbl" style="margin-top:36px"><span class="en-inl">Continue — File 3B Tabs</span><span class="ur-inl">آگے — فائل ۳B ٹیبز</span></div>
+<div class="file-links">
+  <a href="#" class="file-link current">
+    <div class="fl-num">Tab I</div>
+    <div class="fl-title">Mukhlisoon</div>
+    <div class="fl-desc">Active vs Passive · Iblis testimony</div>
+    <span class="fl-badge fl-ready">Current</span>
+  </a>
+  <a href="riq_awwaaboon.html" class="file-link">
+    <div class="fl-num">Tab II</div>
+    <div class="fl-title">Awwaaboon</div>
+    <div class="fl-desc">Habitual returners · A-W-B root</div>
+    <span class="fl-badge fl-coming">Next</span>
+  </a>
+  <a href="riq_sabiroon.html" class="file-link">
+    <div class="fl-num">Tab III</div>
+    <div class="fl-title">Sabiroon</div>
+    <div class="fl-desc">Three types of Sabr</div>
+    <span class="fl-badge fl-coming">Pending</span>
+  </a>
+  <a href="riq_shakiroon.html" class="file-link">
+    <div class="fl-num">Tab IV</div>
+    <div class="fl-title">Shakiroon</div>
+    <div class="fl-desc">Few of My servants are grateful</div>
+    <span class="fl-badge fl-coming">Pending</span>
+  </a>
+  <a href="riq_qaanitoon.html" class="file-link">
+    <div class="fl-num">Tab V</div>
+    <div class="fl-title">Qaanitoon</div>
+    <div class="fl-desc">Sustained inner devotion · Q-N-T</div>
+    <span class="fl-badge fl-coming">Pending</span>
+  </a>
+  <a href="riq_ululalbab.html" class="file-link">
+    <div class="fl-num">Tab VI</div>
+    <div class="fl-title">Ulu al-Albab</div>
+    <div class="fl-desc">People of the Lubb · 16 occurrences</div>
+    <span class="fl-badge fl-coming">Pending</span>
+  </a>
+  <a href="riq_rasikhoon.html" class="file-link">
+    <div class="fl-num">Tab VII</div>
+    <div class="fl-title">Rasikhoon</div>
+    <div class="fl-desc">Firmly grounded in knowledge</div>
+    <span class="fl-badge fl-coming">Pending</span>
+  </a>
+</div>
+
+</div><!-- end page -->
+<div id="toast"></div>
+
+<script>
+var LANG='en';
+var timers={};
+
+function setLang(l){
+  LANG=l;
+  document.getElementById('lt-en').classList.toggle('on',l==='en');
+  document.getElementById('lt-ur').classList.toggle('on',l==='ur');
+  document.body.classList.toggle('ur-mode',l==='ur');
+  document.documentElement.setAttribute('lang',l==='ur'?'ur':'en');
+}
+
+function toggleCard(id){document.getElementById(id).classList.toggle('open');}
+function toggleScholar(id){document.getElementById(id).classList.toggle('open');}
+
+function autoSave(key,val){
+  clearTimeout(timers[key]);
+  timers[key]=setTimeout(function(){
+    var sk='riq_'+key;
+    if(val.trim()){localStorage.setItem(sk,val);}else{localStorage.removeItem(sk);}
+    var sv=document.getElementById('sv-'+key);
+    if(sv){sv.textContent=val.trim()?'Saved \u2713':'';sv.classList.add('flash');setTimeout(function(){sv.classList.remove('flash');},1800);}
+  },900);
+}
+
+function loadAll(){
+  for(var i=0;i<localStorage.length;i++){
+    var k=localStorage.key(i);
+    if(k&&k.startsWith('riq_')){
+      var fk=k.substring(4);
+      var el=document.getElementById('note-'+fk);
+      var sv=document.getElementById('sv-'+fk);
+      if(el){el.value=localStorage.getItem(k)||'';if(sv&&el.value.trim())sv.textContent='Saved';}
+    }
+  }
+}
+
+window.addEventListener('DOMContentLoaded',function(){loadAll();});
+</script>
+</body>
+</html>
